@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "742699315533",
+    "project_id": "kaif-38b78",
+    "storage_bucket": "kaif-38b78.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:742699315533:android:c6d08e11a5a41c3959c704",
+        "android_client_info": {
+          "package_name": "kaif.android.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOh0PJPSqhJMQ9EpjkG0nLatuM4JSRTnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
