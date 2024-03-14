@@ -15,7 +15,7 @@ Map<String, dynamic> environment = {
     "nameDefault": "Kuwait",
   },
   "phoneNumberConfig": {
-    "enable": true,
+    "enable": false,
     "enablePhoneNumberValidation": false,
     "countryCodeDefault": "KW",
     "dialCodeDefault": "+965",
