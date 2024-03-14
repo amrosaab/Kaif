@@ -181,13 +181,9 @@ class _ConfigurableExpansionTileState extends State<ConfigurableExpansionTile>
     var headerColor = _headerColor?.value ?? widget.headerBackgroundColorStart;
     return Container(
       decoration: BoxDecoration(
-          border: Border(
-        top: BorderSide(
-            color: widget.topBorderOn ? borderSideColor : Colors.transparent),
-        bottom: BorderSide(
-            color:
-                widget.bottomBorderOn ? borderSideColor : Colors.transparent),
-      )),
+          color:Colors.grey[300],
+        borderRadius: BorderRadius.circular(6)
+         ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -211,7 +207,7 @@ class _ConfigurableExpansionTileState extends State<ConfigurableExpansionTile>
                             const SizedBox(),
                       )
                     ],
-                  ))),
+                  ),),),
           ClipRect(
             child: Align(
               heightFactor: _heightFactor.value,

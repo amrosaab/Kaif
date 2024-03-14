@@ -27,6 +27,7 @@ class ProductDescription extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
+
       children: <Widget>[
         // const SizedBox(height: 15),
         if (product!.description != null && product!.description!.isNotEmpty)
