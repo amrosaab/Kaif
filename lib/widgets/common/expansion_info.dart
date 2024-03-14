@@ -24,7 +24,7 @@ class ExpansionInfo extends StatelessWidget {
       headerExpanded: Flexible(
         child: Container(
             decoration: BoxDecoration(
-              color: Theme.of(context).primaryColorLight.withOpacity(0.7),
+              color:Colors.grey[400],
               borderRadius: BorderRadius.circular(6),
             ),
             padding: const EdgeInsets.symmetric(vertical: 13.0, horizontal: 10),
