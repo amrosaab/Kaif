@@ -245,7 +245,7 @@ class RenderTotalPrice extends StatelessWidget {
     final modelCart = Provider.of<CartModel>(context);
 
     final largeAmountStyle = TextStyle(
-      color: Theme.of(context).colorScheme.secondary,
+      color: Theme.of(context).colorScheme.primary,
       fontSize: 20,
     );
 
@@ -281,7 +281,9 @@ class RenderTotalPrice extends StatelessWidget {
                   Expanded(
                     child: Text(
                       S.of(context).products,
-                      style: smallAmountStyle,
+                      style: smallAmountStyle.copyWith(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
                     ),
                   ),
                   Text(
