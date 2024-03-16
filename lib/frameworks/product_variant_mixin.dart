@@ -246,7 +246,7 @@ mixin ProductVariantMixin {
                     isAvailable)
                 ? theme.primaryColor
                 : theme.disabledColor
-            : theme.primaryColorLight, // theme.primaryColor,
+            : Theme.of(context).brightness == Brightness.light ? greyColor : theme.primaryColorLight, // theme.primaryColor,
       ),
       child: Center(
         child: Text(
@@ -485,7 +485,7 @@ Widget actionButton(
               height: 44,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(3),
-                color: Theme.of(context).primaryColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
               child: Center(
                 child: Text(
