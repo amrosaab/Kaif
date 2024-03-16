@@ -189,6 +189,7 @@ class ProductSimpleView extends StatelessWidget with ActionButtonMixin {
                   CartIcon(
                     product: item!,
                     config: productConfig,
+                    color: Theme.of(context).colorScheme.secondary,
                   ),
               ],
             ),
