@@ -47,11 +47,11 @@ class _CheckoutState extends BaseScreen<Checkout> {
       var productList = cartModel.getProductsInCart();
 
       Services().firebase.firebaseAnalytics?.logBeginCheckout(
-        coupon: cartModel.couponObj?.code,
-        currency: cartModel.currencyCode,
-        data: productList,
-        price: cartModel.getSubTotal(),
-      );
+            coupon: cartModel.couponObj?.code,
+            currency: cartModel.currencyCode,
+            data: productList,
+            price: cartModel.getSubTotal(),
+          );
       setState(() {
         enabledShipping = cartModel.isEnabledShipping();
       });
@@ -91,119 +91,119 @@ class _CheckoutState extends BaseScreen<Checkout> {
       children: <Widget>[
         kPaymentConfig.enableAddress
             ? Expanded(
-          child: GestureDetector(
-            onTap: () {
-              setState(() {
-                tabIndex = 0;
-              });
-            },
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  child: Text(
-                    S.of(context).address.toUpperCase(),
-                    style: TextStyle(
-                        color: tabIndex == 0
-                            ? Theme.of(context).primaryColor
-                            : Theme.of(context).colorScheme.secondary,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
+                child: GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      tabIndex = 0;
+                    });
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 13),
+                        child: Text(
+                          S.of(context).address.toUpperCase(),
+                          style: TextStyle(
+                              color: tabIndex == 0
+                                  ? Theme.of(context).primaryColor
+                                  : Theme.of(context).colorScheme.secondary,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      tabIndex == 0
+                          ? ClipRRect(
+                              borderRadius: const BorderRadius.only(
+                                  topLeft: Radius.circular(2.0),
+                                  bottomLeft: Radius.circular(2.0)),
+                              child: Container(
+                                  height: 3.0,
+                                  color: Theme.of(context).primaryColor),
+                            )
+                          : Divider(
+                              height: 2,
+                              color: Theme.of(context).colorScheme.secondary)
+                    ],
                   ),
                 ),
-                tabIndex == 0
-                    ? ClipRRect(
-                  borderRadius: const BorderRadius.only(
-                      topLeft: Radius.circular(2.0),
-                      bottomLeft: Radius.circular(2.0)),
-                  child: Container(
-                      height: 3.0,
-                      color: Theme.of(context).primaryColor),
-                )
-                    : Divider(
-                    height: 2,
-                    color: Theme.of(context).colorScheme.secondary)
-              ],
-            ),
-          ),
-        )
+              )
             : const SizedBox(),
         enabledShipping
             ? Expanded(
-          child: GestureDetector(
-            onTap: () {
-              // if (cartModel.address != null &&
-              //     cartModel.address!.isValid()) {
-              //   setState(() {
-              //     tabIndex = 1;
-              //   });
-              // }
-            },
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  child: Text(
-                    S.of(context).shipping.toUpperCase(),
-                    style: TextStyle(
-                        color: tabIndex == 1
-                            ? Theme.of(context).primaryColor
-                            : Theme.of(context).colorScheme.secondary,
-                        fontSize: 12,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
+                child: GestureDetector(
+                  onTap: () {
+                    // if (cartModel.address != null &&
+                    //     cartModel.address!.isValid()) {
+                    //   setState(() {
+                    //     tabIndex = 1;
+                    //   });
+                    // }
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 13),
+                        child: Text(
+                          S.of(context).shipping.toUpperCase(),
+                          style: TextStyle(
+                              color: tabIndex == 1
+                                  ? Theme.of(context).primaryColor
+                                  : Theme.of(context).colorScheme.secondary,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      tabIndex == 1
+                          ? Container(
+                              height: 3.0,
+                              color: Theme.of(context).primaryColor)
+                          : Divider(
+                              height: 2,
+                              color: Theme.of(context).colorScheme.secondary)
+                    ],
                   ),
                 ),
-                tabIndex == 1
-                    ? Container(
-                    height: 3.0,
-                    color: Theme.of(context).primaryColor)
-                    : Divider(
-                    height: 2,
-                    color: Theme.of(context).colorScheme.secondary)
-              ],
-            ),
-          ),
-        )
+              )
             : const SizedBox(),
         kPaymentConfig.enableReview
             ? Expanded(
-          child: GestureDetector(
-            onTap: () {
-              // if (cartModel.shippingMethod != null) {
-              //   setState(() {
-              //     tabIndex = 2;
-              //   });
-              // }
-            },
-            child: Column(
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 13),
-                  child: Text(
-                    S.of(context).review.toUpperCase(),
-                    style: TextStyle(
-                      color: tabIndex == 2
-                          ? Theme.of(context).primaryColor
-                          : Theme.of(context).colorScheme.secondary,
-                      fontSize: 12,
-                      fontWeight: FontWeight.bold,
-                    ),
-                    textAlign: TextAlign.center,
+                child: GestureDetector(
+                  onTap: () {
+                    // if (cartModel.shippingMethod != null) {
+                    //   setState(() {
+                    //     tabIndex = 2;
+                    //   });
+                    // }
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 13),
+                        child: Text(
+                          S.of(context).review.toUpperCase(),
+                          style: TextStyle(
+                            color: tabIndex == 2
+                                ? Theme.of(context).primaryColor
+                                : Theme.of(context).colorScheme.secondary,
+                            fontSize: 12,
+                            fontWeight: FontWeight.bold,
+                          ),
+                          textAlign: TextAlign.center,
+                        ),
+                      ),
+                      tabIndex >= 2
+                          ? Container(
+                              height: 3.0,
+                              color: Theme.of(context).primaryColor)
+                          : Divider(
+                              height: 2,
+                              color: Theme.of(context).colorScheme.secondary)
+                    ],
                   ),
                 ),
-                tabIndex >= 2
-                    ? Container(
-                    height: 3.0,
-                    color: Theme.of(context).primaryColor)
-                    : Divider(
-                    height: 2,
-                    color: Theme.of(context).colorScheme.secondary)
-              ],
-            ),
-          ),
-        )
+              )
             : const SizedBox(),
         /* Expanded(
           child: GestureDetector(
@@ -274,50 +274,50 @@ class _CheckoutState extends BaseScreen<Checkout> {
             child: newOrder != null
                 ? OrderedSuccess(order: newOrder)
                 : Column(
-              children: <Widget>[
-                !isPayment ? progressBar : const SizedBox(),
-                Expanded(
-                  /// Will render with animation, fix later
-                  // child: AnimatedSwitcher(
-                  //   duration: const Duration(milliseconds: 250),
-                  //   reverseDuration: const Duration(milliseconds: 250),
-                  //   transitionBuilder:
-                  //       (Widget child, Animation<double> animation) {
-                  //     final inAnimation = Tween<Offset>(
-                  //         begin: Offset(1.0, 0.0),
-                  //         end: Offset(0.0, 0.0))
-                  //         .animate(animation);
-                  //     final outAnimation = Tween<Offset>(
-                  //         begin: Offset(-1.0, 0.0),
-                  //         end: Offset(0.0, 0.0))
-                  //         .animate(animation);
-                  //     if (true) {
-                  //       return SlideTransition(
-                  //         position: inAnimation,
-                  //         child: child,
-                  //       );
-                  //     } else {
-                  //       return SlideTransition(
-                  //         position: outAnimation,
-                  //         child: child,
-                  //       );
-                  //     }
-                  //   },
-                  //   child: renderContent(),
-                  // ),
-                  child: renderContent(),
-                )
-              ],
-            ),
+                    children: <Widget>[
+                      !isPayment ? progressBar : const SizedBox(),
+                      Expanded(
+                        /// Will render with animation, fix later
+                        // child: AnimatedSwitcher(
+                        //   duration: const Duration(milliseconds: 250),
+                        //   reverseDuration: const Duration(milliseconds: 250),
+                        //   transitionBuilder:
+                        //       (Widget child, Animation<double> animation) {
+                        //     final inAnimation = Tween<Offset>(
+                        //         begin: Offset(1.0, 0.0),
+                        //         end: Offset(0.0, 0.0))
+                        //         .animate(animation);
+                        //     final outAnimation = Tween<Offset>(
+                        //         begin: Offset(-1.0, 0.0),
+                        //         end: Offset(0.0, 0.0))
+                        //         .animate(animation);
+                        //     if (true) {
+                        //       return SlideTransition(
+                        //         position: inAnimation,
+                        //         child: child,
+                        //       );
+                        //     } else {
+                        //       return SlideTransition(
+                        //         position: outAnimation,
+                        //         child: child,
+                        //       );
+                        //     }
+                        //   },
+                        //   child: renderContent(),
+                        // ),
+                        child: renderContent(),
+                      )
+                    ],
+                  ),
           ),
         ),
         isLoading
             ? Container(
-          height: MediaQuery.of(context).size.height,
-          width: MediaQuery.of(context).size.width,
-          color: Colors.white.withOpacity(0.36),
-          child: kLoadingWidget(context),
-        )
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white.withOpacity(0.36),
+                child: kLoadingWidget(context),
+              )
             : const SizedBox()
       ],
     );
@@ -335,68 +335,78 @@ class _CheckoutState extends BaseScreen<Checkout> {
       case 1:
         return SizedBox(
           key: const ValueKey(1),
-          child: Services().widget.renderShippingMethods(context, onBack: () {
-            goToAddressTab(true);
-          }, onNext: () {
-            goToReviewTab();
-          }, onLoading: setLoading, onFinish: (order) async {
-            final cartModel =
-            Provider.of<CartModel>(context, listen: false);
+          child: Services().widget.renderShippingMethods(
+                context,
+                onBack: () {
+                  goToAddressTab(true);
+                },
+                onNext: () {
+                  goToReviewTab();
+                },
+                onLoading: setLoading,
+                onFinish: (order) async {
+                  final cartModel =
+                      Provider.of<CartModel>(context, listen: false);
 
-            setState(() {
-              newOrder = order;
-            });
+                  setState(() {
+                    newOrder = order;
+                  });
 
-            var productList = cartModel.getProductsInCart();
-            unawaited(Services().firebase.firebaseAnalytics?.logPurchase(
-              orderId: newOrder?.id,
-              price: cartModel.getSubTotal(),
-              shipping: cartModel.getShippingCost(),
-              tax: cartModel.taxesTotal,
-              coupon: cartModel.couponObj?.code,
-              currency: cartModel.currencyCode,
-              data: productList,
-            ));
+                  var productList = cartModel.getProductsInCart();
+                  unawaited(Services().firebase.firebaseAnalytics?.logPurchase(
+                        orderId: newOrder?.id,
+                        price: cartModel.getSubTotal(),
+                        shipping: cartModel.getShippingCost(),
+                        tax: cartModel.taxesTotal,
+                        coupon: cartModel.couponObj?.code,
+                        currency: cartModel.currencyCode,
+                        data: productList,
+                      ));
 
-            await Services()
-                .widget
-                .updateOrderAfterCheckout(context, order);
-            cartModel.clearCart();
-            unawaited(context.read<WalletModel>().refreshWallet());
-          }),
+                  await Services()
+                      .widget
+                      .updateOrderAfterCheckout(context, order);
+                  cartModel.clearCart();
+                  unawaited(context.read<WalletModel>().refreshWallet());
+                },
+              ),
         );
       case 2:
         return SizedBox(
           key: const ValueKey(2),
-          child: ReviewScreen(onBack: () {
-            goToShippingTab(true);
-          }, onNext: () {
-            goToPaymentTab();
-          }, onLoading: setLoading, onFinish: (order) async {
-            final cartModel =
-            Provider.of<CartModel>(context, listen: false);
+          child: ReviewScreen(
+              onBack: () {
+                goToShippingTab(true);
+              },
+              onNext: () {
+                goToPaymentTab();
+              },
+              onLoading: setLoading,
+              onFinish: (order) async {
+                final cartModel =
+                    Provider.of<CartModel>(context, listen: false);
 
-            setState(() {
-              newOrder = order;
-            });
+                setState(() {
+                  newOrder = order;
+                });
 
-            var productList = cartModel.getProductsInCart();
-            unawaited(Services().firebase.firebaseAnalytics?.logPurchase(
-              orderId: newOrder?.id,
-              price: cartModel.getSubTotal(),
-              shipping: cartModel.getShippingCost(),
-              tax: cartModel.taxesTotal,
-              coupon: cartModel.couponObj?.code,
-              currency: cartModel.currencyCode,
-              data: productList,
-            ));
+                var productList = cartModel.getProductsInCart();
+                unawaited(Services().firebase.firebaseAnalytics?.logPurchase(
+                      orderId: newOrder?.id,
+                      price: cartModel.getSubTotal(),
+                      shipping: cartModel.getShippingCost(),
+                      tax: cartModel.taxesTotal,
+                      coupon: cartModel.couponObj?.code,
+                      currency: cartModel.currencyCode,
+                      data: productList,
+                    ));
 
-            await Services()
-                .widget
-                .updateOrderAfterCheckout(context, order);
-            cartModel.clearCart();
-            unawaited(context.read<WalletModel>().refreshWallet());
-          }),
+                await Services()
+                    .widget
+                    .updateOrderAfterCheckout(context, order);
+                cartModel.clearCart();
+                unawaited(context.read<WalletModel>().refreshWallet());
+              }),
         );
       case 3:
       default:
@@ -408,7 +418,7 @@ class _CheckoutState extends BaseScreen<Checkout> {
               },
               onFinish: (order) async {
                 final cartModel =
-                Provider.of<CartModel>(context, listen: false);
+                    Provider.of<CartModel>(context, listen: false);
 
                 setState(() {
                   newOrder = order;
@@ -416,14 +426,14 @@ class _CheckoutState extends BaseScreen<Checkout> {
 
                 var productList = cartModel.getProductsInCart();
                 unawaited(Services().firebase.firebaseAnalytics?.logPurchase(
-                  orderId: newOrder?.id,
-                  price: cartModel.getSubTotal(),
-                  shipping: cartModel.getShippingCost(),
-                  tax: cartModel.taxesTotal,
-                  coupon: cartModel.couponObj?.code,
-                  currency: cartModel.currencyCode,
-                  data: productList,
-                ));
+                      orderId: newOrder?.id,
+                      price: cartModel.getSubTotal(),
+                      shipping: cartModel.getShippingCost(),
+                      tax: cartModel.taxesTotal,
+                      coupon: cartModel.couponObj?.code,
+                      currency: cartModel.currencyCode,
+                      data: productList,
+                    ));
 
                 await Services()
                     .widget
@@ -491,7 +501,7 @@ class _CheckoutState extends BaseScreen<Checkout> {
   void _onPressCloseButton() {
     if (Navigator.of(context).canPop()) {
       Navigator.popUntil(context,
-              (Route<dynamic> route) => route.settings.name == RouteList.checkout);
+          (Route<dynamic> route) => route.settings.name == RouteList.checkout);
       if (Navigator.of(context).canPop()) {
         Navigator.of(context).pop(true);
       }
