@@ -48,19 +48,19 @@ class TabBarIcon extends StatelessWidget {
         var isImage = item.icon.contains('/');
         return isImage
             ? FluxImage(
-                imageUrl: item.icon,
-                color: iconColor,
-                width: config.iconSize,
-                useExtendedImage: false,
-              )
+          imageUrl: item.icon,
+          color: iconColor,
+          width: config.iconSize,
+          useExtendedImage: false,
+        )
             : DeferredWidget(
-                defer_icon.loadLibrary,
-                () => Icon(
-                  defer_icon.iconPicker(item.icon, item.fontFamily),
-                  color: iconColor,
-                  size: config.iconSize,
-                ),
-              );
+          defer_icon.loadLibrary,
+              () => Icon(
+            defer_icon.iconPicker(item.icon, item.fontFamily),
+            color: iconColor,
+            size: config.iconSize,
+          ),
+        );
       },
     );
 
@@ -111,31 +111,26 @@ class IconCart extends StatelessWidget {
       children: <Widget>[
         Container(
           padding:
-              totalCart > 0 ? const EdgeInsets.only(top: 5, right: 5) : null,
+          totalCart > 0 ? const EdgeInsets.only(top: 5, right: 5) : null,
           child: icon,
         ),
         if (totalCart > 0)
-          Positioned(
-            right: 0,
-            top: 0,
-            child: Container(
-              padding: const EdgeInsets.all(1),
-              decoration: BoxDecoration(
-                color: config.colorCart ?? Colors.red,
-                borderRadius: BorderRadius.circular(8),
+          Container(
+            margin: const EdgeInsets.only(left: 9),
+            height: 20,
+            width: 20,
+            decoration: BoxDecoration(
+              color: config.colorCart ?? Colors.red,
+              borderRadius: BorderRadius.circular(25),
+            ),
+
+            child: Text(
+              totalCart.toString(),
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: Layout.isDisplayDesktop(context) ? 11 : 11,
               ),
-              constraints: const BoxConstraints(
-                minWidth: 16,
-                minHeight: 16,
-              ),
-              child: Text(
-                totalCart.toString(),
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: Layout.isDisplayDesktop(context) ? 14 : 12,
-                ),
-                textAlign: TextAlign.center,
-              ),
+              textAlign: TextAlign.center,
             ),
           )
       ],
