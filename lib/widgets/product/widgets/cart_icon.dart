@@ -9,12 +9,14 @@ class CartIcon extends StatelessWidget with ActionButtonMixin {
   final Product product;
   final ProductConfig config;
   final int quantity;
+  final Color? color;
 
   const CartIcon({
     Key? key,
     required this.product,
     required this.config,
     this.quantity = 1,
+    this.color,
   }) : super(key: key);
 
   void _addToCart(context, enableBottomSheet) {
@@ -63,7 +65,7 @@ class CartIcon extends StatelessWidget with ActionButtonMixin {
         child: Icon(
           Icons.add_circle,
           // size: 18.0,
-          color: Theme.of(context).primaryColor,
+          color: color ?? Theme.of(context).primaryColor,
         ),
       ),
       onTap: () => _addToCart(context, enableBottomSheet),

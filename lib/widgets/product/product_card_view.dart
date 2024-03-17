@@ -124,7 +124,11 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
                   left: context.isRtl ? 0 : null,
                   right: context.isRtl ? null : 0,
                   top: 8,
-                  child: CartIcon(product: widget.item, config: widget.config),
+                  child: CartIcon(
+                    product: widget.item,
+                    config: widget.config,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
                 const SizedBox(height: 0),
               ],

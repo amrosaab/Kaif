@@ -131,7 +131,7 @@ class CartItemStyle01Widget extends StatelessWidget {
                                       child: Text(
                                         stateUI.product.name!,
                                         style: TextStyle(
-                                          color: theme.colorScheme.secondary,
+                                          color: theme.colorScheme.primary,
                                           fontWeight: FontWeight.w500,
                                         ),
                                         maxLines: 2,
@@ -166,7 +166,7 @@ class CartItemStyle01Widget extends StatelessWidget {
                                       child: Text(
                                         stateUI.price!,
                                         style: TextStyle(
-                                          color: theme.colorScheme.secondary,
+                                          color: theme.colorScheme.primary,
                                           fontWeight: FontWeight.w700,
                                           fontSize: 13,
                                         ),

@@ -179,8 +179,11 @@ class TabBarCustom extends StatelessWidget {
                 decoration: BoxDecoration(
                     color: tabConfig.showFloating
                         ? null
-                        : tabConfig.color ??
-                            Theme.of(context).colorScheme.background,
+                        :
+
+                    tabConfig.color ??
+                        (Theme.of(context).brightness == Brightness.light ? Colors.white :
+                            Theme.of(context).colorScheme.background),
                     borderRadius: BorderRadius.only(
                       topLeft: Radius.circular(tabConfig.radiusTopLeft),
                       topRight: Radius.circular(tabConfig.radiusTopRight),
