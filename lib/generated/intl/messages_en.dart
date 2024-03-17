@@ -1158,9 +1158,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "startShopping": MessageLookupByLibrary.simpleMessage("Start Shopping"),
         "state": MessageLookupByLibrary.simpleMessage("State"),
         "stateIsRequired":
-            MessageLookupByLibrary.simpleMessage("The state field is required"),
+            MessageLookupByLibrary.simpleMessage("The province field is required"),
         "stateProvince":
-            MessageLookupByLibrary.simpleMessage("State / Province"),
+            MessageLookupByLibrary.simpleMessage("Province"),
         "status": MessageLookupByLibrary.simpleMessage("Status"),
         "stock": MessageLookupByLibrary.simpleMessage("Stock"),
         "stockQuantity": MessageLookupByLibrary.simpleMessage("Stock Quantity"),

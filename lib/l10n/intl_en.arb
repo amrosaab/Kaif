@@ -67,7 +67,7 @@
 	"lastNameIsRequired": "The last name field is required",
 	"streetIsRequired": "The floor field is required",
 	"cityIsRequired": "The city field is required",
-	"stateIsRequired": "The state field is required",
+	"stateIsRequired": "The province field is required",
 	"countryIsRequired": "The country field is required",
 	"phoneIsRequired": "The phone number field is required",
 	"emailIsRequired": "The email field is required",
