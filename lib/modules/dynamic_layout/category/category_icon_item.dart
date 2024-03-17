@@ -129,7 +129,11 @@ class CategoryIconItem extends StatelessWidget {
                     : (image != null)
                         ? Container(
                             margin: EdgeInsets.all(commonConfig.spacing),
-                            child: _image(image, firstColor),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(
+                                  50),
+                              child: _image(image, firstColor),
+                            ),
                           )
                         : const SizedBox(),
               ),
