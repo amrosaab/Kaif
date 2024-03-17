@@ -446,11 +446,11 @@ Map<String, dynamic> environment = {
     "ShowSelectedImageVariant": true,
 
     "autoPlayGallery": true,
-    "SliderShowGoBackButton": false,
-    "ShowImageGallery": false,
+    "SliderShowGoBackButton": true,
+    "ShowImageGallery": true,
 
     /// "SliderIndicatorType" can be "number", "dot". Default: "number".
-    "SliderIndicatorType": 'dot',
+    "SliderIndicatorType": 'number',
 
     /// Enable this to add a white background to top banner for transparent product image.
     "ForceWhiteBackground": false,
