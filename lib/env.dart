@@ -645,7 +645,7 @@ Map<String, dynamic> environment = {
     "MainColor": "ffefefef",
     "logo":
         "https://kaif.co/cdn/shop/files/finalfinal_74cad1e7-e82f-4eda-8208-0703f0b2420b.png",
-    "secondaryColor": "ffe3a036"
+    "secondaryColor": "ffffc400"
   },
   "lightConfig": {
     "backgroundColor": "ffefefef",
@@ -653,6 +653,6 @@ Map<String, dynamic> environment = {
     "MainColor": "ff5e5e5e",
     "logo":
         "https://kaif.co/cdn/shop/files/finalfinal_74cad1e7-e82f-4eda-8208-0703f0b2420b.png",
-    "secondaryColor": "ffe3a036"
+    "secondaryColor": "ffffc400"
   }
 };

@@ -171,7 +171,11 @@ class _ProductDescription extends StatelessWidget {
                     context.isRtl ? Alignment.topLeft : Alignment.topRight,
                 child: Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 12),
-                  child: CartIcon(product: item, config: config),
+                  child: CartIcon(
+                    product: item,
+                    config: config,
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
                 ),
               ),
             if (Services().widget.enableShoppingCart(item))

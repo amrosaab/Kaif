@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fstore/common/theme/colors.dart';
 
 import 'expansion_tile.dart';
 
@@ -24,7 +25,7 @@ class ExpansionInfo extends StatelessWidget {
       headerExpanded: Flexible(
         child: Container(
             decoration: BoxDecoration(
-              color:Colors.grey[400],
+              color:Colors.grey[600],
               borderRadius: BorderRadius.circular(6),
             ),
             padding: const EdgeInsets.symmetric(vertical: 13.0, horizontal: 10),
@@ -57,7 +58,7 @@ class ExpansionInfo extends StatelessWidget {
             Container(
                 margin: const EdgeInsets.only(bottom: 2),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColorLight.withOpacity(0.5),
+                  color: Theme.of(context).brightness == Brightness.light ? greyColor : Theme.of(context).primaryColorLight.withOpacity(0.5),
                   borderRadius: BorderRadius.circular(6),
                 ),
                 padding:
@@ -65,11 +66,6 @@ class ExpansionInfo extends StatelessWidget {
                 child: Row(
                     // mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Icon(
-                        Icons.star,
-                        color: Theme.of(context).colorScheme.primary,
-                      ),
-                      const SizedBox(width: 8),
                       Text(
                         title.toUpperCase(),
                         style: Theme.of(context)
@@ -80,7 +76,7 @@ class ExpansionInfo extends StatelessWidget {
                       const Spacer(),
                       Icon(
                         Icons.keyboard_arrow_down,
-                        color: Theme.of(context).colorScheme.secondary,
+                        color: Theme.of(context).colorScheme.primary,
                         size: 20,
                       )
                     ])),
