@@ -56,67 +56,70 @@ void _setupApplication() {
 void main() {
   printLog('[main] ===== START main.dart =======');
 
-  runZonedGuarded(() async {
-    WidgetsFlutterBinding.ensureInitialized();
+  runZonedGuarded(
+    () async {
+      WidgetsFlutterBinding.ensureInitialized();
 
-    /// Call the setup for the application.
-    _setupApplication();
+      /// Call the setup for the application.
+      _setupApplication();
 
-    /// get language code default
-    var languageCode = kAdvanceConfig.defaultLanguage;
+      /// get language code default
+      var languageCode = kAdvanceConfig.defaultLanguage;
 
-    /// Init Hive boxes.
-    await initBoxes();
+      /// Init Hive boxes.
+      await initBoxes();
 
-    if (!foundation.kIsWeb) {
-      /// Enable network traffic logging.
-      HttpClient.enableTimelineLogging = !foundation.kReleaseMode;
+      if (!foundation.kIsWeb) {
+        /// Enable network traffic logging.
+        HttpClient.enableTimelineLogging = !foundation.kReleaseMode;
 
-      /// Lock portrait mode.
-      unawaited(SystemChrome.setPreferredOrientations(
-          [DeviceOrientation.portraitUp]));
-    }
-
-    await GmsCheck().checkGmsAvailability(enableLog: foundation.kDebugMode);
-
-    try {
-      if (isMobile) {
-        /// Init Firebase settings due to version 0.5.0+ requires to.
-        /// Use await to prevent any usage until the initialization is completed.
-        await Services().firebase.init();
-        await Configurations().loadRemoteConfig();
-        await BiometricsTools.instance.init();
+        /// Lock portrait mode.
+        unawaited(SystemChrome.setPreferredOrientations(
+            [DeviceOrientation.portraitUp]));
       }
-    } catch (e) {
-      printLog(e);
-      printLog('🔴 Firebase init issue');
-    }
 
-    await DependencyInjection.inject();
-    Services().setAppConfig(serverConfig);
+      await GmsCheck().checkGmsAvailability(enableLog: foundation.kDebugMode);
 
-    if (isMobile && kAdvanceConfig.autoDetectLanguage) {
-      final lang = SettingsBox().languageCode;
-
-      if (lang?.isEmpty ?? true) {
-        languageCode = await LocaleService().getDeviceLanguage();
-      } else {
-        languageCode = lang.toString();
+      try {
+        if (isMobile) {
+          /// Init Firebase settings due to version 0.5.0+ requires to.
+          /// Use await to prevent any usage until the initialization is completed.
+          await Services().firebase.init();
+          await Configurations().loadRemoteConfig();
+          await BiometricsTools.instance.init();
+        }
+      } catch (e) {
+        printLog(e);
+        printLog('🔴 Firebase init issue');
       }
-    }
 
-    if (serverConfig['type'] == 'vendorAdmin') {
-      return runApp(Services()
-          .getVendorAdminApp(languageCode: languageCode, isFromMV: false));
-    }
+      await DependencyInjection.inject();
+      Services().setAppConfig(serverConfig);
 
-    if (serverConfig['type'] == 'delivery') {
-      return runApp(Services()
-          .getDeliveryApp(languageCode: languageCode, isFromMV: false));
-    }
+      if (isMobile && kAdvanceConfig.autoDetectLanguage) {
+        final lang = SettingsBox().languageCode;
 
-    ResponsiveSizingConfig.instance.setCustomBreakpoints(
-        const ScreenBreakpoints(desktop: 900, tablet: 600, watch: 100));
-    runApp(App(languageCode: languageCode));
-  }, printError);
+        if (lang?.isEmpty ?? true) {
+          languageCode = await LocaleService().getDeviceLanguage();
+        } else {
+          languageCode = lang.toString();
+        }
+      }
+
+      if (serverConfig['type'] == 'vendorAdmin') {
+        return runApp(Services()
+            .getVendorAdminApp(languageCode: languageCode, isFromMV: false));
+      }
+
+      if (serverConfig['type'] == 'delivery') {
+        return runApp(Services()
+            .getDeliveryApp(languageCode: languageCode, isFromMV: false));
+      }
+
+      ResponsiveSizingConfig.instance.setCustomBreakpoints(
+          const ScreenBreakpoints(desktop: 900, tablet: 600, watch: 100));
+      runApp(App(languageCode: languageCode));
+    },
+    printError,
+  );
 }
