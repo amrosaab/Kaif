@@ -7,9 +7,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:742699315533:android:c6d08e11a5a41c3959c704",
+        "mobilesdk_app_id": "1:742699315533:android:ab21a4898a80b62759c704",
         "android_client_info": {
-          "package_name": "kaif.android.app"
+          "package_name": "kaifq8.android.app"
         }
       },
       "oauth_client": [],
