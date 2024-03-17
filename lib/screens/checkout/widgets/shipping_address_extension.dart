@@ -102,6 +102,15 @@ extension on _ShippingAddressState {
     return 'The E-mail Address must be a valid email address.';
   }
 
+  String? validatePhoneNumber(String phoneNumber) {
+    //TODO: Add to config
+    const requiredLength = 8;
+    if (phoneNumber.length == requiredLength) {
+      return null;
+    }
+    return 'The Phone Number must be $requiredLength digits.';
+  }
+
   /// Load Shipping beforehand
   void _loadShipping({bool beforehand = true}) {
     Services().widget.loadShippingMethods(
@@ -400,6 +409,9 @@ extension on _ShippingAddressState {
     }
     if (val != null && type == AddressFieldType.email) {
       return validateEmail(val);
+    }
+    if (val != null && type == AddressFieldType.phoneNumber) {
+      return validatePhoneNumber(val);
     }
     return null;
   }

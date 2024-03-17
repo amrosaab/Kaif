@@ -501,6 +501,13 @@ class _ShippingAddressState extends State<ShippingAddress> {
               : null,
           decoration: InputDecoration(
             labelText: getFieldLabel(currentFieldType),
+            prefixText: currentFieldType == AddressFieldType.phoneNumber
+                ? '${kPhoneNumberConfig.dialCodeDefault} '
+                : null,
+            prefixStyle: TextStyle(
+              color: Theme.of(context).colorScheme.onSurface,
+              fontSize: 16,
+            ),
           ),
           keyboardType: getKeyboardType(currentFieldType),
           textCapitalization: TextCapitalization.words,
