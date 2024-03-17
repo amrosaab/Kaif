@@ -34,7 +34,7 @@ class ScannerButton extends StatelessWidget {
     // if (!ServerConfig().isWooType || ServerConfig().isListingType) {
     //   return const SizedBox();
     // }
-    return IconButton(
+    return IconButton(color: Theme.of(context).colorScheme.primary,
         onPressed: () async {
           if (!isIos && !isAndroid) {
             return FluxNavigate.push(
