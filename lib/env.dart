@@ -29,7 +29,7 @@ Map<String, dynamic> environment = {
     "showOnOpen": false,
     "minLaunches": 10,
     "remindDays": 7,
-    "android": "kaif.android.app",
+    "android": "kaifq8.android.app",
     "minDays": 7,
     "ios": "1469772800",
     "remindLaunches": 10
@@ -306,7 +306,7 @@ Map<String, dynamic> environment = {
   },
   "firebaseDynamicLinkConfig": {
     "iOSAppStoreId": "1469772800",
-    "androidPackageName": "kaif.android.app",
+    "androidPackageName": "kaifq8.android.app",
     "isEnabled": true,
     "androidAppMinimumVersion": 1,
     "link": "https://kaif.co/",
