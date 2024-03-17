@@ -221,7 +221,7 @@ Map<String, dynamic> environment = {
     "isResetPasswordSupported": true,
     "appleLoginSetting": {
       "appleAccountTeamID": "S9RPAM8224",
-      "iOSBundleId": "ios.app.kaif"
+      "iOSBundleId": "ios.app.kaifq8"
     }
   },
   "oneSignalKey": {
@@ -312,7 +312,7 @@ Map<String, dynamic> environment = {
     "link": "https://kaif.co/",
     "uriPrefix": "https://fawaah.com/",
     "shortDynamicLinkEnable": true,
-    "iOSBundleId": "ios.app.kaif",
+    "iOSBundleId": "ios.app.kaifq8",
     "iOSAppMinimumVersion": "1.0.1"
   },
   "languagesInfo": [
