@@ -97,7 +97,7 @@ class _ProductCardState extends State<ProductCard> with ActionButtonMixin {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: <Widget>[
-                        const SizedBox(height: 2),
+                        const SizedBox(height: 12),
                         StockStatus(
                             product: widget.item, config: widget.config),
                         ProductRating(
