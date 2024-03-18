@@ -44,21 +44,21 @@ class _BottomSheetSmartChatState extends State<BottomSheetSmartChat>
 
     var icon = imageData.isNotEmpty
         ? FluxImage(
-            imageUrl: imageData,
-            width: iconSize,
-            fit: BoxFit.contain,
-            color: iconColor,
-          )
+      imageUrl: imageData,
+      width: iconSize,
+      fit: BoxFit.contain,
+      color: iconColor,
+    )
         : Icon(
-            iconData,
-            size: iconSize,
-            color: iconColor,
-          );
+      iconData,
+      size: iconSize,
+      color: iconColor,
+    );
     return GestureDetector(
       child: icon,
       onTap: () async {
         if ((config.kConfigChat['UseRealtimeChat'] ?? false) &&
-                Services().firebase.isEnabled ||
+            Services().firebase.isEnabled ||
             ServerConfig().isBuilder) {
           final userModel = Provider.of<UserModel>(context, listen: false);
           if (userModel.user == null) {
@@ -125,10 +125,10 @@ class _BottomSheetSmartChatState extends State<BottomSheetSmartChat>
           .map((e) => e.toString())
           .contains(optionData[i]['app'])) {
         if (Services()
-                .chatServices
-                .supportChatProviders[
-                    '${optionData[i]['app']}'.toChatProviders()]
-                ?.enable ??
+            .chatServices
+            .supportChatProviders[
+        '${optionData[i]['app']}'.toChatProviders()]
+            ?.enable ??
             false) {
           result.add({
             'app': optionData[i]['app'],
@@ -179,7 +179,7 @@ class _BottomSheetSmartChatState extends State<BottomSheetSmartChat>
       );
       return Align(
         alignment:
-            Tools.isRTL(context) ? Alignment.bottomLeft : Alignment.bottomRight,
+        Tools.isRTL(context) ? Alignment.bottomLeft : Alignment.bottomRight,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: FloatingActionButton(
@@ -192,34 +192,36 @@ class _BottomSheetSmartChatState extends State<BottomSheetSmartChat>
       );
     }
 
-    return Align(
-      alignment:
-          Tools.isRTL(context) ? Alignment.bottomLeft : Alignment.bottomRight,
-      child: Padding(
-        padding: const EdgeInsets.all(14.0),
-        child: ScaleTransition(
-          scale: scaleAnimation,
-          alignment: Alignment.center,
-          child: FloatingActionButton(
-            heroTag: null,
-            backgroundColor: Theme.of(context).colorScheme.background,
-            onPressed: () async {
-              if (scaleAnimationController.isCompleted) {
-                Future.delayed(Duration.zero, scaleAnimationController.reverse);
-                await Future.delayed(const Duration(milliseconds: 80), () {});
-                await showActionSheet(context: context);
-                await scaleAnimationController.forward();
-              }
-            },
-            child: Icon(
-              Icons.chat_rounded,
-              color: Theme.of(context).primaryColor,
-              size: 35,
-            ),
-          ),
-        ),
-      ),
-    );
+    return const SizedBox();
+
+    // return Align(
+    //   alignment:
+    //       Tools.isRTL(context) ? Alignment.bottomLeft : Alignment.bottomRight,
+    //   child: Padding(
+    //     padding: const EdgeInsets.all(14.0),
+    //     child: ScaleTransition(
+    //       scale: scaleAnimation,
+    //       alignment: Alignment.center,
+    //       child: FloatingActionButton(
+    //         heroTag: null,
+    //         backgroundColor: Theme.of(context).colorScheme.background,
+    //         onPressed: () async {
+    //           if (scaleAnimationController.isCompleted) {
+    //             Future.delayed(Duration.zero, scaleAnimationController.reverse);
+    //             await Future.delayed(const Duration(milliseconds: 80), () {});
+    //             await showActionSheet(context: context);
+    //             await scaleAnimationController.forward();
+    //           }
+    //         },
+    //         child: Icon(
+    //           Icons.chat_rounded,
+    //           color: Theme.of(context).primaryColor,
+    //           size: 35,
+    //         ),
+    //       ),
+    //     ),
+    //   ),
+    // );
   }
 
   @override
