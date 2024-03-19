@@ -79,10 +79,9 @@ class HeaderSearch extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: Helper.formatDouble(config.fontSize),
-                      color: Theme.of(context)
-                          .colorScheme
-                          .secondary
-                          .withOpacity(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? Theme.of(context).colorScheme.secondary
+                          : Theme.of(context).colorScheme.primary.withOpacity(
                               Helper.formatDouble(config.textOpacity)!),
                     ),
                   ),
