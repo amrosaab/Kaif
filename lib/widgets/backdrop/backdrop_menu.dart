@@ -172,7 +172,7 @@ class _BackdropMenuState extends State<BackdropMenu> {
                                   : Theme.of(context).primaryColor)
                               : Theme.of(context)
                                   .colorScheme
-                                  .secondary
+                                  .primary
                                   .withOpacity(0.3),
                         ),
                       ),
