@@ -71,7 +71,7 @@ class HeaderSearch extends StatelessWidget {
               children: <Widget>[
                 const Icon(CupertinoIcons.search, size: 24),
                 const SizedBox(
-                  width: 12.0,
+                  width: 8.0,
                 ),
                 Expanded(
                   child: Text(
@@ -79,10 +79,7 @@ class HeaderSearch extends StatelessWidget {
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
                       fontSize: Helper.formatDouble(config.fontSize),
-                      color: Theme.of(context).brightness == Brightness.dark
-                          ? Theme.of(context).colorScheme.secondary
-                          : Theme.of(context).colorScheme.primary.withOpacity(
-                              Helper.formatDouble(config.textOpacity)!),
+                      color: Colors.grey[500]
                     ),
                   ),
                 ),

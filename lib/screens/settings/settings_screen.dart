@@ -738,7 +738,7 @@ class SettingScreenState extends State<SettingScreen>
     }
   }
 
-  Widget renderDrawerIcon() {
+  Widget renderDrawerIcon(Color color) {
     var icon = Icons.blur_on;
     if (widget.drawerIcon != null) {
       icon = iconPicker(
@@ -747,7 +747,7 @@ class SettingScreenState extends State<SettingScreen>
     }
     return Icon(
       icon,
-      color: Colors.white70,
+      color: color,
     );
   }
 
@@ -907,9 +907,12 @@ class SettingScreenState extends State<SettingScreen>
   Widget build(BuildContext context) {
     super.build(context);
 
+
     var settings = widget.settings ?? kDefaultSettings;
     var background = widget.background ?? kProfileBackground;
     var canPop = ModalRoute.of(context)?.canPop ?? false;
+
+
 
     final appBarWidget = (showAppBar(RouteList.profile))
         ? getSliverAppBarWidget(
@@ -924,27 +927,36 @@ class SettingScreenState extends State<SettingScreen>
                         true) &&
                     !canPop
                 ? IconButton(
-                    icon: renderDrawerIcon(),
+                    icon: renderDrawerIcon(Colors.white),
                     onPressed: () => NavigateTools.onTapOpenDrawerMenu(context),
+              color: Colors.white,
                   )
                 : const SizedBox(),
             expandedHeight: bannerHigh,
             floating: true,
             pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              title: Text(
-                S.of(context).settings,
-                style:  TextStyle(
-                    fontSize: 18,
-                    color:Theme.of(context).brightness == Brightness.dark ? Theme.of(context).secondaryHeaderColor : Theme.of(context).secondaryHeaderColor,
-                    fontWeight: FontWeight.w600),
-              ),
-              background: FluxImage(
-                imageUrl: background,
-                fit: BoxFit.cover,
-              ),
-            ),
             actions: renderActions(),
+            flexibleSpace: LayoutBuilder (builder: (context, constraints) {
+              final   scrollRatio = (constraints.maxHeight - kToolbarHeight) / (200.0 - kToolbarHeight);
+             final textColor = (scrollRatio < 0.5) ?Theme.of(context).brightness == Brightness.dark? Colors.black :Colors.white : Colors.white;
+              return
+                FlexibleSpaceBar(
+
+
+                title: Text(
+                    S.of(context).settings,
+                    style:   TextStyle(
+                        fontSize: 18,
+                        color:textColor)
+                ),
+                background: FluxImage(
+                  imageUrl: background,
+                  fit: BoxFit.cover,
+                ),
+              );
+            },)
+
+
           );
 
     return Scaffold(
