@@ -127,7 +127,7 @@ class _BackdropMenuState extends State<BackdropMenu> {
     return [
       const SizedBox(height: 10),
       Padding(
-        padding: const EdgeInsets.only(left: 15),
+        padding: const EdgeInsets.only(left: 15,right: 15),
         child: Text(
           S.of(context).layout,
           style: Theme.of(context).textTheme.titleLarge!.copyWith(
