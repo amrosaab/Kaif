@@ -487,15 +487,15 @@ class _BackdropMenuState extends State<BackdropMenu> {
                   onChanged: (tagId) => _onFilter(tagId: tagId),
                 ),
 
-          if (widget.showCategory)
-            CategoryMenu(
-              isUseBlog: widget.isUseBlog,
-              onFilter: (category) => _onFilter(
-                categoryId: category.id,
-                categoryName: category.name,
-                isSearch: false,
-              ),
-            ),
+          // if (widget.showCategory)
+          //   CategoryMenu(
+          //     isUseBlog: widget.isUseBlog,
+          //     onFilter: (category) => _onFilter(
+          //       categoryId: category.id,
+          //       categoryName: category.name,
+          //       isSearch: false,
+          //     ),
+          //   ),
 
           /// render Apply button
           if (!ServerConfig().isListingType &&
@@ -543,7 +543,6 @@ class _BackdropMenuState extends State<BackdropMenu> {
               ),
             ),
 
-          const SizedBox(height: 70),
         ],
       ),
     );
