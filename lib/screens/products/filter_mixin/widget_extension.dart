@@ -172,11 +172,8 @@ extension ProductsFilterMixinWidgetExtension on ProductsFilterMixin {
                       )
                     : Icon(
                         CupertinoIcons.sort_down,
-                        size: 20,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary
-                            .withOpacity(0.6),
+                        size: 22,
+                        color:Colors.amber[800],
                       )),
             onTap: () {
               filterSortBy = filterSortBy.applyOrder(null).applyOrderBy(null);

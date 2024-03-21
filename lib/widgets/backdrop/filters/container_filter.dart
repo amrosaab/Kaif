@@ -34,11 +34,11 @@ class ContainerFilter extends StatelessWidget {
       padding:
           padding ?? const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
       decoration: BoxDecoration(
-        color: isSelected ? primaryBackground : secondColor.withOpacity(0.1),
+        color: isSelected ? primaryText.withOpacity(0.6) : primaryBackground.withOpacity(0.2),
         borderRadius: BorderRadius.circular(6),
         border: Border.all(
-          color: isSelected ? primaryText : secondColor.withOpacity(0.1),
-          width: 0.5,
+          color: isSelected ? primaryText :  secondColor.withOpacity(0.2),
+          width: 0.9,
         ),
       ),
       child: Center(
@@ -47,7 +47,7 @@ class ContainerFilter extends StatelessWidget {
               text ?? '',
               style: Theme.of(context).textTheme.bodyLarge!.copyWith(
                     color:
-                        isSelected ? primaryText : secondColor.withOpacity(0.8),
+                        isSelected ? Colors.black : Colors.black87,
                     letterSpacing: 1.2,
                   ),
             ),
