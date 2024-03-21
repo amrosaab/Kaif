@@ -164,11 +164,8 @@ extension ProductsFilterMixinWidgetExtension on ProductsFilterMixin {
                 : (filterSortBy.orderType!.isAsc
                     ? Icon(
                         CupertinoIcons.sort_up,
-                        size: 20,
-                        color: Theme.of(context)
-                            .colorScheme
-                            .secondary
-                            .withOpacity(0.6),
+              size: 22,
+              color:Colors.amber[800],
                       )
                     : Icon(
                         CupertinoIcons.sort_down,
