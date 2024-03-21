@@ -62,6 +62,7 @@ class SettingScreenState extends State<SettingScreen>
         RateMyAppMixin,
         AppBarMixin {
   final ScrollController _scrollController = ScrollController();
+  Color _drawerColor = Colors.white;
 
   @override
   bool get wantKeepAlive => true;
@@ -85,6 +86,7 @@ class SettingScreenState extends State<SettingScreen>
   void initState() {
     super.initState();
     screenScrollController = _scrollController;
+    _scrollController.addListener(_setDrawerColor);
   }
 
   /// Render the Delivery Menu.
@@ -903,17 +905,26 @@ class SettingScreenState extends State<SettingScreen>
     return canPop ? [renderPopButton()] : null;
   }
 
+  void _setDrawerColor() {
+    const scrollThreshold = 100.0;
+
+     setState(() {
+     if (_scrollController.offset > scrollThreshold) {
+     _drawerColor = Theme.of(context).brightness == Brightness.dark? Colors.black:Colors.white;
+    } else {
+     _drawerColor = Colors.white;
+     }
+    });
+     }
+
+
   @override
   Widget build(BuildContext context) {
     super.build(context);
 
-
     var settings = widget.settings ?? kDefaultSettings;
     var background = widget.background ?? kProfileBackground;
     var canPop = ModalRoute.of(context)?.canPop ?? false;
-
-
-
     final appBarWidget = (showAppBar(RouteList.profile))
         ? getSliverAppBarWidget(
             appBar: appBar,
@@ -927,7 +938,7 @@ class SettingScreenState extends State<SettingScreen>
                         true) &&
                     !canPop
                 ? IconButton(
-                    icon: renderDrawerIcon(Colors.white),
+                    icon: renderDrawerIcon(_drawerColor),
                     onPressed: () => NavigateTools.onTapOpenDrawerMenu(context),
               color: Colors.white,
                   )
@@ -938,7 +949,9 @@ class SettingScreenState extends State<SettingScreen>
             actions: renderActions(),
             flexibleSpace: LayoutBuilder (builder: (context, constraints) {
               final   scrollRatio = (constraints.maxHeight - kToolbarHeight) / (200.0 - kToolbarHeight);
-             final textColor = (scrollRatio < 0.5) ?Theme.of(context).brightness == Brightness.dark? Colors.black :Colors.white : Colors.white;
+             final textColor = (scrollRatio < 0.5) ?
+             Theme.of(context).brightness == Brightness.dark?
+             Colors.black :Colors.white : Colors.white;
               return
                 FlexibleSpaceBar(
 
