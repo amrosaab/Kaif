@@ -561,8 +561,8 @@ Map<String, dynamic> environment = {
   "configChat": {
     "showOnScreens": ["profile"],
     "hideOnScreens": [],
-    "enableVendorChat": true,
-    "EnableSmartChat": true,
+    "enableVendorChat": false,
+    "EnableSmartChat": false,
     "UseRealtimeChat": false,
     "version": "2"
   },

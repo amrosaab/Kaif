@@ -192,36 +192,34 @@ class _BottomSheetSmartChatState extends State<BottomSheetSmartChat>
       );
     }
 
-    return const SizedBox();
-
-    // return Align(
-    //   alignment:
-    //       Tools.isRTL(context) ? Alignment.bottomLeft : Alignment.bottomRight,
-    //   child: Padding(
-    //     padding: const EdgeInsets.all(14.0),
-    //     child: ScaleTransition(
-    //       scale: scaleAnimation,
-    //       alignment: Alignment.center,
-    //       child: FloatingActionButton(
-    //         heroTag: null,
-    //         backgroundColor: Theme.of(context).colorScheme.background,
-    //         onPressed: () async {
-    //           if (scaleAnimationController.isCompleted) {
-    //             Future.delayed(Duration.zero, scaleAnimationController.reverse);
-    //             await Future.delayed(const Duration(milliseconds: 80), () {});
-    //             await showActionSheet(context: context);
-    //             await scaleAnimationController.forward();
-    //           }
-    //         },
-    //         child: Icon(
-    //           Icons.chat_rounded,
-    //           color: Theme.of(context).primaryColor,
-    //           size: 35,
-    //         ),
-    //       ),
-    //     ),
-    //   ),
-    // );
+    return Align(
+      alignment:
+          Tools.isRTL(context) ? Alignment.bottomLeft : Alignment.bottomRight,
+      child: Padding(
+        padding: const EdgeInsets.all(14.0),
+        child: ScaleTransition(
+          scale: scaleAnimation,
+          alignment: Alignment.center,
+          child: FloatingActionButton(
+            heroTag: null,
+            backgroundColor: Theme.of(context).colorScheme.background,
+            onPressed: () async {
+              if (scaleAnimationController.isCompleted) {
+                Future.delayed(Duration.zero, scaleAnimationController.reverse);
+                await Future.delayed(const Duration(milliseconds: 80), () {});
+                await showActionSheet(context: context);
+                await scaleAnimationController.forward();
+              }
+            },
+            child: Icon(
+              Icons.chat_rounded,
+              color: Theme.of(context).primaryColor,
+              size: 35,
+            ),
+          ),
+        ),
+      ),
+    );
   }
 
   @override
