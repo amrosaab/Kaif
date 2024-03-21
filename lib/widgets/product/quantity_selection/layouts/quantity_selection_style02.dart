@@ -85,7 +85,7 @@ class QuantitySelectionStyle02 extends StatelessWidget {
             icon: Icon(
               Icons.remove,
               size: 18,
-              color: Colors.white,
+                color: Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white,
             ),
           ),
         )
@@ -117,7 +117,7 @@ class QuantitySelectionStyle02 extends StatelessWidget {
             icon: Icon(
               Icons.add,
               size: 18,
-              color: Colors.white,
+    color: Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white,
             ),
           ),
         )
