@@ -254,7 +254,7 @@ class DefaultConfig {
   static Map oneSignalKey = {};
   static List onBoardingData = [
     {
-      'title': 'Welcome to FluxStore',
+      'title': 'Welcome to Kaif',
       'image': 'assets/images/fogg-delivery-1.png',
       'desc': 'Fluxstore is on the way to serve you. '
     },
