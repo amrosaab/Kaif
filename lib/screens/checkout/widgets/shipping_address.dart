@@ -382,7 +382,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Theme.of(context).colorScheme.secondary,
-                  backgroundColor: Theme.of(context).primaryColorLight,
+                  backgroundColor: Theme.of(context).brightness == Brightness.dark? Theme.of(context).primaryColorLight: Colors.grey[300],
                   elevation: 0.0,
                 ),
                 onPressed: () {
@@ -403,6 +403,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
                     const SizedBox(width: 10.0),
                     Text(
                       S.of(context).selectAddress.toUpperCase(),
+                      style: TextStyle(color: Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary),
                     ),
                   ],
                 ),
