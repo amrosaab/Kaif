@@ -934,9 +934,9 @@ class SettingScreenState extends State<SettingScreen>
             flexibleSpace: FlexibleSpaceBar(
               title: Text(
                 S.of(context).settings,
-                style: const TextStyle(
+                style:  TextStyle(
                     fontSize: 18,
-                    color: Colors.white,
+                    color:Theme.of(context).brightness == Brightness.dark ? Theme.of(context).secondaryHeaderColor : Theme.of(context).secondaryHeaderColor,
                     fontWeight: FontWeight.w600),
               ),
               background: FluxImage(
