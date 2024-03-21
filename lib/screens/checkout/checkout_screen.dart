@@ -65,26 +65,6 @@ class _CheckoutState extends BaseScreen<Checkout> {
   }
 
   @override
-  void afterFirstLayout(BuildContext context) {
-    if (!kPaymentConfig.enableAddress) {
-      setState(() {
-        tabIndex = 1;
-      });
-      if (!enabledShipping) {
-        setState(() {
-          tabIndex = 2;
-        });
-        if (!kPaymentConfig.enableReview) {
-          setState(() {
-            tabIndex = 3;
-            isPayment = true;
-          });
-        }
-      }
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     Widget progressBar = Row(
       crossAxisAlignment: CrossAxisAlignment.end,
@@ -257,7 +237,9 @@ class _CheckoutState extends BaseScreen<Checkout> {
             title: Text(
               S.of(context).checkout,
               style: TextStyle(
-                color: Theme.of(context).colorScheme.secondary,
+              color:
+              Theme.of(context).brightness == Brightness.dark?
+    Colors.white:Colors.black,
                 fontWeight: FontWeight.w400,
               ),
             ),
@@ -321,6 +303,26 @@ class _CheckoutState extends BaseScreen<Checkout> {
             : const SizedBox()
       ],
     );
+  }
+
+  @override
+  void afterFirstLayout(BuildContext context) {
+    if (!kPaymentConfig.enableAddress) {
+      setState(() {
+        tabIndex = 1;
+      });
+      if (!enabledShipping) {
+        setState(() {
+          tabIndex = 2;
+        });
+        if (!kPaymentConfig.enableReview) {
+          setState(() {
+            tabIndex = 3;
+            isPayment = true;
+          });
+        }
+      }
+    }
   }
 
   Widget renderContent() {
