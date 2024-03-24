@@ -181,7 +181,7 @@ class _ConfigurableExpansionTileState extends State<ConfigurableExpansionTile>
     var headerColor = _headerColor?.value ?? widget.headerBackgroundColorStart;
     return Container(
       decoration: BoxDecoration(
-          color:Colors.grey[300],
+          color:Theme.of(context).brightness == Brightness.light ? Colors.grey[300] : Theme.of(context).primaryColorLight,
         borderRadius: BorderRadius.circular(6)
          ),
       child: Column(
