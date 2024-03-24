@@ -428,7 +428,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("تحرير معلومات المنتج"),
         "editWithoutColon": MessageLookupByLibrary.simpleMessage("تصحيح"),
         "egypt": MessageLookupByLibrary.simpleMessage("مصر"),
-        "email": MessageLookupByLibrary.simpleMessage("الإيميل"),
+        "email": MessageLookupByLibrary.simpleMessage("البريد الإلكتروني"),
         "emailDeleteDescription": MessageLookupByLibrary.simpleMessage(
             "سيؤدي حذف حسابك إلى إلغاء اشتراكك من جميع القوائم البريدية."),
         "emailDoesNotExist": MessageLookupByLibrary.simpleMessage(
@@ -619,7 +619,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "languageSuccess":
             MessageLookupByLibrary.simpleMessage("تم تحديث اللغة بنجاح"),
         "lao": MessageLookupByLibrary.simpleMessage("لاو"),
-        "lastName": MessageLookupByLibrary.simpleMessage("اللقب"),
+        "lastName": MessageLookupByLibrary.simpleMessage("الأسم الأخير"),
         "lastNameIsRequired":
             MessageLookupByLibrary.simpleMessage("خانة اللقب مطلوبة"),
         "lastTransactions":
