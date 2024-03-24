@@ -468,9 +468,10 @@ extension on _ShippingAddressState {
                 elevation: 0.0,
                 padding: const EdgeInsets.only(left: 8),
               ),
-              icon: const Icon(
+              icon:  Icon(
                 Icons.local_shipping_outlined,
                 size: 18,
+                color: Theme.of(context).brightness == Brightness.dark?Colors.black:Colors.white,
               ),
               onPressed: _onNext,
               label: Text(
@@ -483,7 +484,7 @@ extension on _ShippingAddressState {
                 style: Theme.of(context)
                     .textTheme
                     .bodySmall!
-                    .copyWith(color: Colors.white),
+                    .copyWith(color: Theme.of(context).brightness == Brightness.dark?Colors.black:Colors.white),
               ),
             ),
           ),
