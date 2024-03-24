@@ -359,10 +359,14 @@ class RenderTotalPrice extends StatelessWidget {
                       selector: (_, cartModel) => cartModel.totalCartQuantity,
                       builder: (context, totalCartQuantity, child) {
                         return ElevatedButton.icon(
+
                           onPressed:
                           isReadyForCheckout ? () => onCheckout() : null,
-                          icon:  Icon(Icons.login_outlined, size: 15,color: Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white),
+                          icon: const Icon(Icons.login_outlined, size: 15,color:Colors.white),
                           style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.grey[700] ,
+
+
                               elevation: 8,
                               shadowColor:
                               Theme.of(context).scaffoldBackgroundColor,
@@ -380,7 +384,7 @@ class RenderTotalPrice extends StatelessWidget {
                           )
                               : Text(
                             S.of(context).checkout,
-                            style: TextStyle(color: Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white),
+                            style:const TextStyle(color:Colors.white),
                           ))
                               : Text(
                             S.of(context).startShopping.toUpperCase(),
