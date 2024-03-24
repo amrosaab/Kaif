@@ -622,7 +622,7 @@ Map<String, dynamic> environment = {
     "duration": 5000,
     "image": "assets/images/splash.gif",
     "animationName": "fluxstore",
-    "backgroundColor": "#ffffff",
+    "backgroundColor": "#fdfdfd",
     "paddingBottom": 0,
     "enable": true,
     "paddingRight": 0,
