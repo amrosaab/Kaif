@@ -68,9 +68,9 @@ class _MyCartStyle01LayoutState extends State<MyCartStyle01Layout>
               final url = cartBannerConfig.destination;
               if (url != null) {
                 await FirebaseServices().dynamicLinks?.handleDynamicLink(
-                  Uri.parse(url),
-                  App.fluxStoreNavigatorKey.currentContext!,
-                );
+                      Uri.parse(url),
+                      App.fluxStoreNavigatorKey.currentContext!,
+                    );
               }
             },
             child: CachedNetworkImage(
@@ -116,14 +116,14 @@ class _MyCartStyle01LayoutState extends State<MyCartStyle01Layout>
                               elevation: 1,
                               leading: widget.isModal == true
                                   ? CloseButton(
-                                onPressed: () => onPressedClose(
-                                    layoutType, widget.isBuyNow),
-                              )
+                                      onPressed: () => onPressedClose(
+                                          layoutType, widget.isBuyNow),
+                                    )
                                   : canPop
-                                  ? const BackButton()
-                                  : null,
+                                      ? const BackButton()
+                                      : null,
                               backgroundColor:
-                              Theme.of(context).colorScheme.background,
+                                  Theme.of(context).colorScheme.background,
                               actions: [
                                 Container(
                                   margin: const EdgeInsets.only(
@@ -137,7 +137,10 @@ class _MyCartStyle01LayoutState extends State<MyCartStyle01Layout>
                                     child: Image.asset(
                                       'assets/images/trash.png',
                                       width: 20.0,
-                                      color:Theme.of(context).brightness == Brightness.dark? Colors.amber[400]:Colors.black,
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? Colors.amber[400]
+                                          : Colors.black,
                                     ),
                                   ),
                                 ),
@@ -155,21 +158,21 @@ class _MyCartStyle01LayoutState extends State<MyCartStyle01Layout>
                                 child: SingleChildScrollView(
                                   child: Padding(
                                     padding:
-                                    const EdgeInsets.only(bottom: 80.0),
+                                        const EdgeInsets.only(bottom: 80.0),
                                     child: Column(
                                       crossAxisAlignment:
-                                      CrossAxisAlignment.center,
+                                          CrossAxisAlignment.center,
                                       children: <Widget>[
                                         const SizedBox(height: 16.0),
                                         if (totalCartQuantity > 0)
                                           Column(
                                             crossAxisAlignment:
-                                            CrossAxisAlignment.stretch,
+                                                CrossAxisAlignment.stretch,
                                             children: [
                                               buildCartBanner(cartBannerConfig),
                                               Column(
                                                 children:
-                                                createShoppingCartRows(
+                                                    createShoppingCartRows(
                                                   cartModel,
                                                   context,
                                                   widget.enabledTextBoxQuantity,
@@ -241,7 +244,7 @@ class RenderTotalPrice extends StatelessWidget {
     final currency = Provider.of<AppModel>(context).currency;
     final currencyRate = Provider.of<AppModel>(context).currencyRate;
     final smallAmountStyle =
-    TextStyle(color: Theme.of(context).colorScheme.secondary);
+        TextStyle(color: Theme.of(context).colorScheme.secondary);
     final defaultCurrency = kAdvanceConfig.defaultCurrency;
     final modelCart = Provider.of<CartModel>(context);
 
@@ -316,34 +319,34 @@ class RenderTotalPrice extends StatelessWidget {
                 Expanded(
                   child: modelCart.calculatingDiscount
                       ? const Align(
-                    alignment: AlignmentDirectional.centerStart,
-                    child: SizedBox(
-                      width: 20,
-                      height: 20,
-                      child: CircularProgressIndicator(
-                        strokeWidth: 2.0,
-                      ),
-                    ),
-                  )
+                          alignment: AlignmentDirectional.centerStart,
+                          child: SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(
+                              strokeWidth: 2.0,
+                            ),
+                          ),
+                        )
                       : Text(
-                    PriceTools.getCurrencyFormatted(
-                        modelCart.getTotal()! -
-                            modelCart.getShippingCost()!,
-                        currencyRate,
-                        currency: modelCart.isWalletCart()
-                            ? defaultCurrency?.currencyCode
-                            : currency)!,
-                    style: largeAmountStyle.copyWith(
-                      fontWeight: FontWeight.w900,
-                      fontSize: 25,
-                    ),
-                  ),
+                          PriceTools.getCurrencyFormatted(
+                              modelCart.getTotal()! -
+                                  modelCart.getShippingCost()!,
+                              currencyRate,
+                              currency: modelCart.isWalletCart()
+                                  ? defaultCurrency?.currencyCode
+                                  : currency)!,
+                          style: largeAmountStyle.copyWith(
+                            fontWeight: FontWeight.w900,
+                            fontSize: 25,
+                          ),
+                        ),
                 ),
                 Selector<CartModel, (bool, Map<String?, Product?>, bool)>(
                   selector: (_, cartModel) => (
-                  cartModel.calculatingDiscount,
-                  cartModel.item,
-                  cartModel.enableCheckoutButton
+                    cartModel.calculatingDiscount,
+                    cartModel.item,
+                    cartModel.enableCheckoutButton
                   ),
                   builder: (context, value, child) {
                     var calculatingDiscount = value.$1;
@@ -359,37 +362,46 @@ class RenderTotalPrice extends StatelessWidget {
                       selector: (_, cartModel) => cartModel.totalCartQuantity,
                       builder: (context, totalCartQuantity, child) {
                         return ElevatedButton.icon(
-
                           onPressed:
-                          isReadyForCheckout ? () => onCheckout() : null,
-                          icon: const Icon(Icons.login_outlined, size: 15,color:Colors.white),
+                              isReadyForCheckout ? () => onCheckout() : null,
+                          icon: Icon(Icons.login_outlined,
+                              size: 15,
+                              color: Theme.of(context).brightness ==
+                                      Brightness.dark
+                                  ? Colors.grey[900]
+                                  : Colors.white),
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.grey[700] ,
-
-
-                              elevation: 8,
-                              shadowColor:
-                              Theme.of(context).scaffoldBackgroundColor,
-                              shape: const RoundedRectangleBorder(
-                                borderRadius:
-                                BorderRadius.all(Radius.circular(30.0)),
-                              ),
-                              padding:
-                              const EdgeInsets.symmetric(horizontal: 8)),
-                          label: totalCartQuantity > 0
-                              ? (isLoading
-                              ? const SpinKitThreeBounce(
-                            color: Colors.white,
-                            size: 22.0,
-                          )
-                              : Text(
-                            S.of(context).checkout,
-                            style:const TextStyle(color:Colors.white),
-                          ))
-                              : Text(
-                            S.of(context).startShopping.toUpperCase(),
-                            style:TextStyle(color:   Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white),
+                            elevation: 8,
+                            shadowColor:
+                                Theme.of(context).scaffoldBackgroundColor,
+                            shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30.0)),
+                            ),
+                            padding: const EdgeInsets.symmetric(horizontal: 8),
                           ),
+                          label: totalCartQuantity > 0
+                              ? isLoading
+                                  ? const SpinKitThreeBounce(
+                                      color: Colors.white,
+                                      size: 22.0,
+                                    )
+                                  : Text(
+                                      S.of(context).checkout,
+                                      style: TextStyle(
+                                          color: Theme.of(context).brightness ==
+                                                  Brightness.dark
+                                              ? Colors.grey[900]
+                                              : Colors.white),
+                                    )
+                              : Text(
+                                  S.of(context).startShopping.toUpperCase(),
+                                  style: TextStyle(
+                                      color: Theme.of(context).brightness ==
+                                              Brightness.dark
+                                          ? Colors.grey[900]
+                                          : Colors.white),
+                                ),
                         );
                       },
                     );
