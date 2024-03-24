@@ -34,7 +34,7 @@ import '../../../services/base_services.dart';
 import 'shopify_query.dart';
 import 'shopify_storage.dart';
 
-const _apiVersion = '2023-07';
+const _apiVersion = '2024-01';
 
 class ShopifyService extends BaseServices {
   ShopifyService({
@@ -476,6 +476,7 @@ class ShopifyService extends BaseServices {
         'langCode': languageCode,
         'countryCode': countryCode,
         'cursor': currentCursor != '' ? currentCursor : null,
+        if (kAdvanceConfig.hideOutOfStock) 'availableForSale': true,
       };
       printLog(
           '::::request fetchProductsByCategory with category id $categoryId --- search $search');

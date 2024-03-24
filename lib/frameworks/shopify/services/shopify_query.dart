@@ -162,12 +162,13 @@ class ShopifyQuery {
     \$sortKey: ProductCollectionSortKeys
     \$langCode: LanguageCode
     \$countryCode: CountryCode
+    \$availableForSale: Boolean
     ) @inContext(language: \$langCode, country: \$countryCode) {
       node(id: \$categoryId) {
         id
         ... on Collection {
           title
-          products(first: \$pageSize, after: \$cursor, sortKey: \$sortKey, reverse: \$reverse) {
+          products(first: \$pageSize, after: \$cursor, sortKey: \$sortKey, reverse: \$reverse, filters: {available: \$availableForSale}) {
             pageInfo {
               hasNextPage
               hasPreviousPage
