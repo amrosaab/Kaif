@@ -286,7 +286,9 @@ class _CategoryCardItem extends StatelessWidget {
                       borderRadius:
                           const BorderRadius.all(Radius.circular(3.0)),
                       child: renderCategoryImage(constraints.maxWidth)),
-                  Container(color: Colors.black.withOpacity(0.1),),
+                  Container(
+                    color: Colors.black.withOpacity(0.4),
+                  ),
                   Container(
                     width: constraints.maxWidth,
                     height: constraints.maxWidth * 0.35,
