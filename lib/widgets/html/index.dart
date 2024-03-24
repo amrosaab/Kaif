@@ -40,7 +40,7 @@ class HtmlWidget extends StatelessWidget {
 
     return core.HtmlWidget(
       htmlVal,
-      textStyle: textStyleVal,
+      textStyle: textStyleVal?.copyWith(color: Theme.of(context).brightness == Brightness.dark ?Colors.white:Colors.black),
       factoryBuilder: MyWidgetFactory.new,
       customWidgetBuilder: customWidgetBuilder,
     );
