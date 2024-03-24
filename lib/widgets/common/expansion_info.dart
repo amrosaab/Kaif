@@ -58,7 +58,7 @@ class ExpansionInfo extends StatelessWidget {
             Container(
                 margin: const EdgeInsets.only(bottom: 2),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).brightness == Brightness.light ? greyColor : Theme.of(context).primaryColorLight.withOpacity(0.5),
+                  color: Theme.of(context).brightness == Brightness.light ? greyColor : Theme.of(context).primaryColorLight,
                   borderRadius: BorderRadius.circular(6),
                 ),
                 padding:
