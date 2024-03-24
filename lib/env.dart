@@ -619,8 +619,8 @@ Map<String, dynamic> environment = {
   },
   "loadingIcon": {"size": 30, "type": "fadingCube"},
   "splashScreen": {
-    "duration": 2000,
-    "image": "assets/images/splashscreen.png",
+    "duration": 5000,
+    "image": "assets/images/splash.gif",
     "animationName": "fluxstore",
     "backgroundColor": "#ffffff",
     "paddingBottom": 0,
