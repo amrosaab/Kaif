@@ -137,6 +137,7 @@ class _MyCartStyle01LayoutState extends State<MyCartStyle01Layout>
                                     child: Image.asset(
                                       'assets/images/trash.png',
                                       width: 20.0,
+                                      color:Theme.of(context).brightness == Brightness.dark? Colors.amber[400]:Colors.black,
                                     ),
                                   ),
                                 ),
