@@ -159,7 +159,7 @@ Map<String, dynamic> environment = {
     "EnableDigitsMobileFirebase": false,
     "EnableDigitsMobileWhatsApp": false,
     "WebViewScript": "",
-    "versionCheck": {"enable": false, "iOSAppStoreCountry": "US"},
+    "versionCheck": {"enable": true, "iOSAppStoreCountry": "US"},
     "AjaxSearchURL": "",
     "AlwaysClearWebViewCache": false,
     "AlwaysClearWebViewCookie": false,
