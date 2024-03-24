@@ -569,7 +569,7 @@ class DefaultConfig {
   static Map splashScreen = {
     'enable': true,
     'type': 'flare',
-    'image': 'assets/images/splashscreen.flr',
+    'image': 'assets/images/splash.gif',
     'boxFit': 'contain',
     'backgroundColor': '#ffffff',
     'paddingTop': 0,
