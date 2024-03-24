@@ -15,6 +15,19 @@ ThemeData buildDarkTheme(String? language, [fontFamily, fontHeader]) {
       ),
       contentTextStyle: const TextStyle(color: Colors.white),
     ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
+        minimumSize: const Size(120, 40),
+        padding: EdgeInsets.zero,
+        textStyle: const TextStyle(
+          fontWeight: FontWeight.w500,
+        ),
+        elevation: 1,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(6),
+        ),
+      ),
+    ),
     textTheme:
         buildTextTheme(base.textTheme, language, fontFamily, fontHeader).apply(
       displayColor: kLightBG,
