@@ -20,22 +20,23 @@ class Address {
   String? latitude;
   String? longitude;
 
-  Address(
-      {this.firstName,
-        this.lastName,
-        this.email,
-        this.street,
-        this.apartment,
-        this.block,
-        this.block2,
-        this.city,
-        this.state,
-        this.country,
-        this.phoneNumber,
-        this.zipCode,
-        this.mapUrl,
-        this.latitude,
-        this.longitude});
+  Address({
+    this.firstName,
+    this.lastName,
+    this.email,
+    this.street,
+    this.apartment,
+    this.block,
+    this.block2,
+    this.city,
+    this.state,
+    this.country,
+    this.phoneNumber,
+    this.zipCode,
+    this.mapUrl,
+    this.latitude,
+    this.longitude,
+  });
 
   Address.fromJson(Map parsedJson) {
     firstName = parsedJson['first_name'] ?? '';
@@ -240,7 +241,8 @@ class Address {
       'address': {
         'province': state,
         'country': country,
-        'address1': 'Area: $city, Block: $block2, Street: $apartment, Building: $block, ${(street ?? '') == '' ? '' : 'Floor: $street, '} ${(street ?? '') == '' ? '' : 'Flat: $zipCode'}',
+        'address1':
+            'Area: $city, Block: $block2, Street: $apartment, Building: $block, ${(street ?? '') == '' ? '' : 'Floor: $street, '} ${(street ?? '') == '' ? '' : 'Flat: $zipCode'}',
         'address2': '${block!}, ${block2 ?? ''}',
         'company': apartment,
         'zip': '00000',
@@ -325,14 +327,14 @@ class Address {
   String get fullName => [firstName ?? '', lastName ?? ''].join(' ').trim();
 
   String get fullAddress => [
-    block ?? '',
-    apartment ?? '',
-    street ?? '',
-    city ?? '',
-    state ?? '',
-    zipCode ?? '',
-    country ?? '',
-  ].join(' ').trim();
+        block ?? '',
+        apartment ?? '',
+        street ?? '',
+        city ?? '',
+        state ?? '',
+        zipCode ?? '',
+        country ?? '',
+      ].join(' ').trim();
 
   String get fullInfoAddress {
     var info = [];
