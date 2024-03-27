@@ -403,8 +403,11 @@ class _ShippingAddressState extends State<ShippingAddress> {
                     const SizedBox(width: 10.0),
                     Text(
                       S.of(context).selectAddress.toUpperCase(),
-                      style: TextStyle(color: Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary),
-                    ),
+                        style:Theme.of(context).textTheme.bodySmall?.copyWith(color:
+                        Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary),
+
+
+              ),
                   ],
                 ),
               ),
