@@ -54,9 +54,8 @@ class EmptyWishlist extends StatelessWidget {
                     onPressed: onShowHome,
                     child: Text(
                       S.of(context).startShopping.toUpperCase(),
-                      style: TextStyle(
-                        color: Theme.of(context).brightness == Brightness.dark?Colors.grey[500]:Colors.white,
-                      ),
+                      style:Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).brightness == Brightness.dark?Colors.grey[500]:Colors.white,),
+
                     ),
                   ),
                 ),
@@ -75,7 +74,9 @@ class EmptyWishlist extends StatelessWidget {
                       backgroundColor: Colors.white,
                     ),
                     onPressed: onSearchForItem,
-                    child: Text(S.of(context).searchForItems.toUpperCase()),
+                    child: Text(S.of(context).searchForItems.toUpperCase(),
+                      style:Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
+                    ),
                   ),
                 ),
               )
