@@ -368,7 +368,7 @@ class Configurations {
         : GoogleApiKeyConfig.fromMap(value['googleApiKey']);
 
     _enableOnBoarding =
-        value['enableOnBoarding'] ?? DefaultConfig.enableOnBoarding;
+        value['onBoardingConfig']['enableOnBoarding'] ?? DefaultConfig.enableOnBoarding;
     _managerConfig = value['managerConfig'];
     _deliveryConfig = value['deliveryConfig'];
     _salesiqConfig = value['salesiqConfig'];
@@ -492,7 +492,7 @@ class Configurations {
       _googleApiKey = value['googleApiKey'] is Map
           ? GoogleApiKeyConfig.fromMap(value['googleApiKey'])
           : _googleApiKey;
-      _enableOnBoarding = value['enableOnBoarding'] ?? _enableOnBoarding;
+      _enableOnBoarding = value['onBoardingConfig']['enableOnBoarding'] ?? _enableOnBoarding;
       _managerConfig = value['managerConfig'] ?? _managerConfig;
       _deliveryConfig = value['deliveryConfig'] ?? _deliveryConfig;
       _salesiqConfig = value['salesiqConfig'] ?? _salesiqConfig;

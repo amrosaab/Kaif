@@ -250,7 +250,7 @@ Map<String, dynamic> environment = {
     "autoCropImageByDesign": true,
     "isOnlyShowOnFirstTime": true,
     "version": 1,
-    "enableOnBoarding": true,
+    "enableOnBoarding": false,
     "showLanguage": true
   },
   "adConfig": {
