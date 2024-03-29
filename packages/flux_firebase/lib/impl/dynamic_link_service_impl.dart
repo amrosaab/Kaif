@@ -13,6 +13,7 @@ import 'package:fstore/screens/blog/views/blog_detail_screen.dart';
 import 'package:fstore/services/firebase/dynamic_link_service.dart';
 import 'package:fstore/services/service_config.dart';
 import 'package:fstore/services/services.dart';
+import 'package:fstore/widgets/common/webview.dart';
 import 'package:share/share.dart';
 
 final _appLinks = AppLinks();
@@ -25,11 +26,11 @@ class DynamicLinkServiceImpl extends DynamicLinkService {
 // (Use allStringLinkStream to get it as [String])
     final initialLink = await _appLinks.getInitialAppLink();
     if (initialLink != null) {
-      await handleDynamicLink(Uri.parse(initialLink.path), context);
+      await handleDynamicLink(initialLink, context);
     }
 
     _appLinks.allUriLinkStream.listen((uri) async {
-      await handleDynamicLink(Uri.parse(uri.path), context);
+      await handleDynamicLink(uri, context);
 
       // Do something (navigation, ...)
     });
@@ -118,7 +119,7 @@ class DynamicLinkServiceImpl extends DynamicLinkService {
   Future<void> handleDynamicLink(Uri uri, BuildContext context) async {
     try {
       _showLoading(context);
-      var url = uri.toString();
+      var url = Uri.parse(uri.path).toString();
 
       /// PRODUCT CASE
       if (url.contains('/product/') ||
@@ -204,6 +205,18 @@ class DynamicLinkServiceImpl extends DynamicLinkService {
           await FluxNavigate.pushNamed(
             RouteList.detailBlog,
             arguments: BlogDetailArguments(blog: blog),
+          );
+        }
+        else {
+          await  Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => WebView(
+                enableBackward: false,
+                enableForward: false,
+                url: uri.toString(),
+              ),
+            ),
           );
         }
       }
