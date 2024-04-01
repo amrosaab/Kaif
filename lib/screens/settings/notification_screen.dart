@@ -47,7 +47,7 @@ class _NotificationScreenState extends State<NotificationScreen>
           ),
         ),
         centerTitle: true,
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor:Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
         elevation: 0,
       ),
       backgroundColor: Theme.of(context).colorScheme.background,
