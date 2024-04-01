@@ -13,16 +13,16 @@ mixin AddressMixin on CartMixin {
   Address? address;
   ShippingMethod? shippingMethod;
 
-  void saveShippingAddress(Address? address) {
-    UserBox().shippingAddress = address;
+  void saveShippingAddress(Address? address, String isoCode) {
+    AddressBox().setShippingAddress(address, isoCode);
   }
 
-  Future<Address?> getShippingAddress() async {
+  Future<Address?> getShippingAddress(String isoCode) async {
     if (ServerConfig().isVendorManagerType()) {
       return null;
     }
     try {
-      final address = UserBox().shippingAddress;
+      final address = AddressBox().getShippingAddress(isoCode);
       if (address != null) {
         return address;
       } else {
@@ -92,13 +92,14 @@ mixin AddressMixin on CartMixin {
     address = null;
   }
 
-  void setAddress(data) {
+  void setAddress(Address? data, {String? isoCode}) {
     address = data;
-    saveShippingAddress(data);
+    final selectedIsoCode = isoCode ?? kPhoneNumberConfig.countryCodeDefault;
+    saveShippingAddress(data, selectedIsoCode);
   }
 
-  Future<Address?> getAddress() async {
-    address ??= await getShippingAddress();
+  Future<Address?> getAddress(String selectedIsoCode) async {
+    address = await getShippingAddress(selectedIsoCode);
     return address;
   }
 

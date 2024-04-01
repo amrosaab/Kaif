@@ -1,3 +1,5 @@
+import 'city.dart';
+
 class CountryState {
   String? id;
   String? code;
@@ -45,5 +47,9 @@ class CountryState {
     id = parsedJson['code'];
     code = parsedJson['code'];
     name = parsedJson['name'];
+  }
+
+  City toCity() {
+    return City(id: id, name: name);
   }
 }

@@ -61,7 +61,7 @@ class _StateChooseAddress extends BaseScreen<ChooseAddressScreen> {
   }
 
   void getDataFromLocal() {
-    var list = List<Address>.from(UserBox().addresses);
+    var list = List<Address>.from(AddressBox().addresses);
     listAddress = list;
     setState(() {});
   }
@@ -79,10 +79,10 @@ class _StateChooseAddress extends BaseScreen<ChooseAddressScreen> {
   }
 
   void removeData(int index) {
-    var data = UserBox().addresses;
+    var data = AddressBox().addresses;
     if (data.isNotEmpty) {
       data.removeAt(index);
-      UserBox().addresses = data;
+      AddressBox().addresses = data;
     }
     getDataFromLocal();
   }

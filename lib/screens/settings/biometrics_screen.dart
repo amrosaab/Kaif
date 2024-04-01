@@ -41,7 +41,7 @@ class _BiometricsScreenState extends BaseScreen<BiometricsScreen>
               S.of(context).lockScreenAndSecurity,
               style: const TextStyle(color: Colors.white),
             ),
-            backgroundColor: Theme.of(context).primaryColor,
+            backgroundColor: Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
             leading: Center(
               child: GestureDetector(
                 onTap: () {

@@ -90,11 +90,12 @@ class _LanguageScreenState extends State<LanguageScreen> with AppBarMixin {
     return renderScaffold(
       routeName: RouteList.language,
       secondAppBar: AppBar(
+
         title: Text(
           S.of(context).language,
           style: const TextStyle(color: Colors.white),
         ),
-        backgroundColor: Theme.of(context).primaryColor,
+        backgroundColor:Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
         leading: isUpdating
             ? const Padding(
           padding: EdgeInsets.all(16.0),

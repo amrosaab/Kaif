@@ -371,7 +371,8 @@ class DefaultConfig {
   };
   static List<Map> languagesInfo = <Map>[];
   static Map paymentConfig = {};
-  static List<AddressFieldConfig> addressFields = [
+  static List<CountryAddressFieldsConfig> countryAddressFields = [];
+  static List<AddressFieldConfig> addressFields =  [
     {
       'type': 'firstName',
       'visible': true,
@@ -417,15 +418,20 @@ class DefaultConfig {
     {
       'type': 'country',
       'visible': true,
+      'editable': false,
+      'required': true,
       'position': 7,
     },
     {
-      'type': 'state',
+      'type': 'city',
       'visible': true,
       'position': 8,
+      'editable': true,
+      'required': true,
+      'defaultValue': '',
     },
     {
-      'type': 'city',
+      'type': 'fullAddress',
       'visible': true,
       'position': 9,
       'editable': true,
@@ -433,44 +439,13 @@ class DefaultConfig {
       'defaultValue': '',
     },
     {
-      'type': 'block2',
-      'visible': true,
-      'position': 9,
-      'editable': true,
-      'required': false,
-      'defaultValue': '',
-    },
-    {
-      'type': 'apartment',
+      'type': 'zipCode',
       'visible': true,
       'position': 10,
       'editable': true,
       'required': false,
-    },
-    {
-      'type': 'block',
-      'visible': true,
-      'position': 11,
-      'editable': true,
-      'required': false,
       'defaultValue': '',
-    },
-    {
-      'type': 'street',
-      'visible': true,
-      'position': 12,
-      'editable': true,
-      'required': false,
-      'defaultValue': '',
-    },
-    {
-      'type': 'zipCode',
-      'visible': true,
-      'position': 13,
-      'editable': true,
-      'required': false,
-      'defaultValue': '',
-    },
+    }
   ].map<AddressFieldConfig>(AddressFieldConfig.fromMap).toList();
   static Map payments = {};
   static Map stripeConfig = {};

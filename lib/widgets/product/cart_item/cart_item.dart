@@ -56,6 +56,9 @@ class ShoppingCartRow extends StatelessWidget with ActionButtonMixin {
               child: Text(S.of(context).keep),
             ),
             ElevatedButton(
+              style:  ElevatedButton.styleFrom(
+        backgroundColor: Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
+        ),
               onPressed: () {
                 Navigator.of(context).pop();
                 onRemove?.call();

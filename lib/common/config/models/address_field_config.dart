@@ -51,7 +51,10 @@ enum AddressFieldType {
     autofillHint: AutofillHints.postalCode,
     keyboardType: TextInputType.number,
   ),
-  // custom,
+  fullAddress(
+    autofillHint: AutofillHints.postalAddress,
+    keyboardType: TextInputType.streetAddress,
+  ),
   unknown;
 
   final String? autofillHint;
@@ -127,7 +130,7 @@ class AddressFieldConfig {
       position: Helper.formatInt(map['position']) ?? 999,
       editable: map['editable'] != false,
       required: map['required'] == true,
-      defaultValue: '${map['defaultValue'] ?? ''}',
+      defaultValue: map['defaultValue'] ?? '',
     );
   }
 }

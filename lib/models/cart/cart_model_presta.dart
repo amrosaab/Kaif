@@ -28,7 +28,7 @@ class CartModelPresta
   CartModelPresta._internal();
   @override
   Future<void> initData() async {
-    await getAddress();
+    await getAddress(kPhoneNumberConfig.countryCodeDefault);
     getCartInLocal();
     getCurrency();
   }

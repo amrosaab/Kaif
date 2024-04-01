@@ -294,7 +294,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "chooseType": MessageLookupByLibrary.simpleMessage("اختر النوع"),
         "chooseYourPaymentMethod":
             MessageLookupByLibrary.simpleMessage("اختر طريقة الدفع"),
-        "city": MessageLookupByLibrary.simpleMessage("المنطقة"),
+        "city": MessageLookupByLibrary.simpleMessage("المدينة"),
+        "area": MessageLookupByLibrary.simpleMessage("المنطقة"),
         "cityIsRequired": MessageLookupByLibrary.simpleMessage(
             "خانة المدينة / البلدة مطلوبة"),
         "clear": MessageLookupByLibrary.simpleMessage("امسح"),
@@ -1149,6 +1150,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "storeVacation": MessageLookupByLibrary.simpleMessage("اجازة المتجر"),
         "stores": MessageLookupByLibrary.simpleMessage("المتاجر"),
         "street": MessageLookupByLibrary.simpleMessage("الدور"),
+        "fullAddress": MessageLookupByLibrary.simpleMessage("العنوان الكامل"),
+        "fullAddressIsRequired": MessageLookupByLibrary.simpleMessage("العنوان الكامل مطلوب"),
         "street2": MessageLookupByLibrary.simpleMessage("شارع 2"),
         "streetIsRequired":
             MessageLookupByLibrary.simpleMessage("خانة اسم الشارع مطلوبة"),
@@ -1335,7 +1338,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("منتجك قيد المراجعة"),
         "yourUsernameEmail": MessageLookupByLibrary.simpleMessage(
             "اسم المستخدم أو الإيميل الخاص بك"),
-        "zipCode": MessageLookupByLibrary.simpleMessage("الشقة"),
+        "zipCode": MessageLookupByLibrary.simpleMessage("الرمز البريدي"),
+        "flat": MessageLookupByLibrary.simpleMessage("الشقة"),
         "zipCodeIsRequired":
             MessageLookupByLibrary.simpleMessage("خانة الشقة مطلوبة"),
         "sureThatProductExists": MessageLookupByLibrary.simpleMessage(

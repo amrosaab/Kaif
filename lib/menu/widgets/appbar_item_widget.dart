@@ -71,7 +71,9 @@ class _AppBarItemWidgetState extends State<AppBarItemWidget> {
     Future.microtask(
       () async {
         final addressValue =
-            await Provider.of<CartModel>(context, listen: false).getAddress();
+            await Provider.of<CartModel>(context, listen: false).getAddress(
+          kPhoneNumberConfig.countryCodeDefault,
+        );
         if (addressValue != null) {
           setState(() {
             currentAddress = addressValue;
