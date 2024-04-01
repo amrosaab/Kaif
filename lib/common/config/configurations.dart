@@ -58,7 +58,7 @@ class Configurations {
   static String _adminName = DefaultConfig.adminName;
   static VendorConfig _vendorConfig =
       VendorConfig.fromJson(DefaultConfig.vendorConfig);
-  static List<AddressFieldConfig> _addressFields = DefaultConfig.addressFields;
+  static List<CountryAddressFieldsConfig> _addressFields = DefaultConfig.countryAddressFields;
   static List _defaultCountryShipping = DefaultConfig.defaultCountryShipping;
   static Map? _loadingIcon = DefaultConfig.loadingIcon;
   static Map _productCard = DefaultConfig.productCard;
@@ -194,7 +194,7 @@ class Configurations {
 
   static VendorConfig get vendorConfig => _vendorConfig;
 
-  static List<AddressFieldConfig> get addressFields => _addressFields;
+  static List<CountryAddressFieldsConfig> get addressFields => _addressFields;
 
   static List get defaultCountryShipping => _defaultCountryShipping;
 
@@ -333,17 +333,9 @@ class Configurations {
     if (addressFieldsData is List && addressFieldsData.isNotEmpty) {
       _addressFields = [];
       for (var item in addressFieldsData) {
-        final addressFieldConfig = AddressFieldConfig.fromMap(item);
-        if (addressFieldConfig.type == AddressFieldType.unknown) {
-          continue;
-        }
-        _addressFields.add(addressFieldConfig);
+        final countryAddressFieldConfig = CountryAddressFieldsConfig.fromJson(item);
+        _addressFields.add(countryAddressFieldConfig);
       }
-      _addressFields.sort((a, b) => a.position.compareTo(b.position));
-    } else {
-      _addressFields = List.from(
-        DefaultConfig.addressFields,
-      );
     }
     _defaultCountryShipping =
         value['defaultCountryShipping'] ?? DefaultConfig.defaultCountryShipping;
@@ -462,13 +454,9 @@ class Configurations {
       if (addressFieldsData is List && addressFieldsData.isNotEmpty) {
         _addressFields = [];
         for (var item in addressFieldsData) {
-          final addressFieldConfig = AddressFieldConfig.fromMap(item);
-          if (addressFieldConfig.type == AddressFieldType.unknown) {
-            continue;
-          }
-          _addressFields.add(addressFieldConfig);
+          final countryAddressFieldConfig = CountryAddressFieldsConfig.fromJson(item);
+          _addressFields.add(countryAddressFieldConfig);
         }
-        _addressFields.sort((a, b) => a.position.compareTo(b.position));
       }
       _defaultCountryShipping =
           value['defaultCountryShipping'] ?? _defaultCountryShipping;

@@ -431,9 +431,19 @@ class S {
   }
 
   /// `Area`
-  String get city {
+  String get area {
     return Intl.message(
       'Area',
+      name: 'area',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `City`
+  String get city {
+    return Intl.message(
+      'City',
       name: 'city',
       desc: '',
       args: [],
@@ -451,9 +461,19 @@ class S {
   }
 
   /// `Flat`
-  String get zipCode {
+  String get flat {
     return Intl.message(
       'Flat',
+      name: 'flat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Zip Code`
+  String get zipCode {
+    return Intl.message(
+      'Zip Code',
       name: 'zipCode',
       desc: '',
       args: [],
@@ -5015,6 +5035,16 @@ class S {
     return Intl.message(
       'Floor',
       name: 'street',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Address`
+  String get fullAddress {
+    return Intl.message(
+      'Full Address',
+      name: 'fullAddress',
       desc: '',
       args: [],
     );

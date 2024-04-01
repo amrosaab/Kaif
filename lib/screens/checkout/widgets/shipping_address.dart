@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:collection/collection.dart' show IterableExtension;
 import 'package:country_pickers/country.dart' as picker_country;
 import 'package:country_pickers/country_pickers.dart' as picker;
@@ -19,55 +21,34 @@ import '../../../widgets/common/common_safe_area.dart';
 import '../../../widgets/common/flux_image.dart';
 import '../../../widgets/common/place_picker.dart';
 import '../choose_address_screen.dart';
+import 'selected_country_model.dart';
 
 part 'shipping_address_extension.dart';
 
 class ShippingAddress extends StatefulWidget {
-  final Function? onNext;
-
   const ShippingAddress({this.onNext});
+
+  final Function? onNext;
 
   @override
   State<ShippingAddress> createState() => _ShippingAddressState();
 }
 
 class _ShippingAddressState extends State<ShippingAddress> {
+  late final selectedCountryModel =
+      Provider.of<SelectedCountryModel>(context, listen: false);
+
   String get langCode => Provider.of<AppModel>(context, listen: false).langCode;
 
   final _formKey = GlobalKey<FormState>();
 
-  final Map<int, AddressFieldType> _fieldPosition = {};
+  final Map<int, AddressFieldType> _fieldsPositions = {};
 
-  final Map<int, AddressFieldConfig> _configs = {};
+  final Map<int, AddressFieldConfig> _fieldsConfigs = {};
 
-  final Map<AddressFieldType, TextEditingController> _textControllers = {
-    AddressFieldType.firstName: TextEditingController(),
-    AddressFieldType.lastName: TextEditingController(),
-    AddressFieldType.phoneNumber: TextEditingController(),
-    AddressFieldType.email: TextEditingController(),
-    AddressFieldType.country: TextEditingController(),
-    AddressFieldType.state: TextEditingController(),
-    AddressFieldType.city: TextEditingController(),
-    AddressFieldType.block2: TextEditingController(),
-    AddressFieldType.apartment: TextEditingController(),
-    AddressFieldType.block: TextEditingController(),
-    AddressFieldType.street: TextEditingController(),
-    AddressFieldType.zipCode: TextEditingController(),
-  };
+  final Map<AddressFieldType, TextEditingController> _textControllers = {};
 
-  final Map<AddressFieldType, FocusNode> _focusNodes = {
-    AddressFieldType.firstName: FocusNode(),
-    AddressFieldType.lastName: FocusNode(),
-    AddressFieldType.phoneNumber: FocusNode(),
-    AddressFieldType.email: FocusNode(),
-    AddressFieldType.state: FocusNode(),
-    AddressFieldType.city: FocusNode(),
-    AddressFieldType.apartment: FocusNode(),
-    AddressFieldType.block: FocusNode(),
-    AddressFieldType.block2: FocusNode(),
-    AddressFieldType.street: FocusNode(),
-    AddressFieldType.zipCode: FocusNode(),
-  };
+  final Map<AddressFieldType, FocusNode> _focusNodes = {};
 
   Address? address;
   List<Country>? countries = [];
@@ -77,148 +58,197 @@ class _ShippingAddressState extends State<ShippingAddress> {
   PhoneNumber? initialPhoneNumber;
 
   @override
-  void dispose() {
-    for (var controller in _textControllers.values) {
-      controller.dispose();
-    }
-    for (var focusNode in _focusNodes.values) {
-      focusNode.dispose();
-    }
-    super.dispose();
-  }
-
-  @override
   void initState() {
     super.initState();
 
-    /// Init field positions.
-    for (var config in Configurations.addressFields) {
-      final index = _fieldPosition.values.length;
-      _configs[index] = config;
-      _fieldPosition[index] = config.type;
-    }
+    /// Init fields.
+    initializeFields();
 
     /// Pre-fill the address fields.
     WidgetsBinding.instance.endOfFrame.then(
-          (_) async {
-        /// Load saved addresses.
-        final addressValue =
-        await Provider.of<CartModel>(context, listen: false).getAddress();
-        if (addressValue != null) {
-          updateAddress(addressValue);
-        } else {
-          var user = Provider.of<UserModel>(context, listen: false).user;
-          setState(() {
-            address = Address(country: kPaymentConfig.defaultCountryISOCode);
-            if (kPaymentConfig.defaultStateISOCode != null) {
-              address!.state = kPaymentConfig.defaultStateISOCode;
-            }
-            _textControllers[AddressFieldType.country]?.text =
-            address!.country!;
-            _textControllers[AddressFieldType.state]?.text = address!.state!;
-            if (user != null) {
-              address!.firstName = user.firstName;
-              address!.lastName = user.lastName;
-              address!.email = user.email;
-              loadUserInfoFromAddress(address);
-            }
-          });
-        }
-
-        /// Init default fields.
-        for (var field in _configs.values) {
-          if ([
-            AddressFieldType.searchAddress,
-            AddressFieldType.selectAddress,
-            AddressFieldType.country,
-            AddressFieldType.state,
-          ].contains(field.type)) {
-            /// Not support default value.
-            continue;
-          }
-
-          /// Replace current value with default value.
-          /// Force to use default value for non-editable field.
-          if (field.defaultValue.isNotEmpty && !field.editable) {
-            _textControllers[field.type]?.text = field.defaultValue;
-            onTextFieldSaved(field.defaultValue, field.type);
-          }
-
-          /// When the field is editable, replacing only when it's empty.
-          if (field.defaultValue.isNotEmpty &&
-              field.editable &&
-              (_textControllers[field.type]?.text.isEmpty ?? false)) {
-            _textControllers[field.type]?.text = field.defaultValue;
-            onTextFieldSaved(field.defaultValue, field.type);
-          }
-        }
-
-        if (kPhoneNumberConfig.enablePhoneNumberValidation) {
-          /// Load phone number.
-          try {
-            final phoneNumber =
-            _textControllers[AddressFieldType.phoneNumber]?.text.trim();
-            if (phoneNumber?.isNotEmpty ?? false) {
-              initialPhoneNumber = await PhoneNumber.getParsablePhoneNumber(
-                PhoneNumber(
-                  dialCode: kPhoneNumberConfig.dialCodeDefault,
-                  isoCode: kPhoneNumberConfig.countryCodeDefault,
-                  phoneNumber: phoneNumber,
-                ),
-              );
-            }
-          } catch (e, trace) {
-            printError(e, trace);
-          }
-        }
-
-        /// Load country list.
-        // countries = await Services().widget.loadCountries();
-        var country = countries!
-            .firstWhereOrNull((element) => element.code!.toUpperCase() == 'KW');
-        if (country == null) {
-          if (countries!.isNotEmpty) {
-            country = countries![0];
-            address!.country = countries![0].code;
-          } else {
-            country = Country.fromConfig(address!.country, null, null, []);
-          }
-        } else {
-          address!.country = country.code;
-          address!.countryId = country.id;
-        }
-        _textControllers[AddressFieldType.country]?.text = country.code!;
-        refresh();
-
-        /// Load states.
-        states = await Services().widget.loadStates(country, langCode);
-        refresh();
-
-        /// Load cities.
-        var state = states?.firstWhereOrNull(
-              (element) =>
-          element.id == address?.state || element.code == address?.state,
-        );
-        if (state != null) {
-          cities = await Services().widget.loadCities(country, state);
-          var city = cities?.firstWhereOrNull(
-                (element) => element.name == address?.city,
-          );
-
-          /// Load zipCode
-          if (city != null) {
-            var zipCode =
-            await Services().widget.loadZipCode(country, state, city);
-            if (zipCode != null) {
-              /// Override the default value with this value
-              address!.zipCode = zipCode;
-              _textControllers[AddressFieldType.zipCode]?.text = zipCode;
-            }
-          }
-          refresh();
-        }
+      (_) async {
+        await preFillData();
       },
     );
+
+    selectedCountryModel.addListener(selectedIsoCodeListener);
+  }
+
+  @override
+  void dispose() {
+    disposeOldData();
+    super.dispose();
+  }
+
+  void disposeOldData() {
+    address = null;
+
+    refresh();
+
+    _fieldsPositions.clear();
+    _fieldsConfigs.clear();
+
+    for (var controller in _textControllers.values) {
+      controller.dispose();
+    }
+    _textControllers.clear();
+
+    for (var focusNode in _focusNodes.values) {
+      focusNode.dispose();
+    }
+    _focusNodes.clear();
+  }
+
+  void initializeFields() {
+    final countryFields = Configurations.addressFields.firstWhereOrNull(
+      (element) => element.country == selectedCountryModel.selectedIsoCode,
+    );
+
+    for (var oneAddressField
+        in countryFields?.addressFields ?? DefaultConfig.addressFields) {
+      final index = _fieldsPositions.values.length;
+      _fieldsConfigs[index] = oneAddressField;
+      _fieldsPositions[index] = oneAddressField.type;
+      _textControllers[oneAddressField.type] = TextEditingController();
+      _focusNodes[oneAddressField.type] = FocusNode();
+    }
+  }
+
+  Future<void> preFillData() async {
+    /// Load saved addresses.
+    // final addressValue =
+    //     await Provider.of<CartModel>(context, listen: false).getAddress();
+    // if (addressValue != null) {
+    //   updateAddress(addressValue);
+    // } else {
+    //   var user = Provider.of<UserModel>(context, listen: false).user;
+    //   setState(() {
+    //     address = Address(country: kPaymentConfig.defaultCountryISOCode);
+    //     if (kPaymentConfig.defaultStateISOCode != null) {
+    //       address!.state = kPaymentConfig.defaultStateISOCode;
+    //     }
+    //     _textControllers[AddressFieldType.country]?.text = address!.country!;
+    //     _textControllers[AddressFieldType.state]?.text = address!.state!;
+    //     if (user != null) {
+    //       address!.firstName = user.firstName;
+    //       address!.lastName = user.lastName;
+    //       address!.email = user.email;
+    //       loadUserInfoFromAddress(address);
+    //     }
+    //   });
+    // }
+    address = address?.copyWith(country: () => selectedCountryModel.selectedIsoCode) ??
+        Address(country: selectedCountryModel.selectedIsoCode);
+
+    /// Init default fields.
+    for (var field in _fieldsConfigs.values) {
+      if ([
+        AddressFieldType.searchAddress,
+        AddressFieldType.selectAddress,
+        AddressFieldType.state,
+      ].contains(field.type)) {
+        /// Not support default value.
+        continue;
+      }
+
+      /// Replace current value with default value.
+      /// Force to use default value for non-editable field.
+      if (field.defaultValue.isNotEmpty && !field.editable) {
+        _textControllers[field.type]?.text = field.defaultValue;
+        onTextFieldSaved(field.defaultValue, field.type);
+      }
+
+      /// When the field is editable, replacing only when it's empty.
+      if (field.defaultValue.isNotEmpty &&
+          field.editable &&
+          (_textControllers[field.type]?.text.isEmpty ?? false)) {
+        _textControllers[field.type]?.text = field.defaultValue;
+        onTextFieldSaved(field.defaultValue, field.type);
+      }
+    }
+
+    if (kPhoneNumberConfig.enablePhoneNumberValidation) {
+      /// Load phone number.
+      try {
+        final phoneNumber =
+            _textControllers[AddressFieldType.phoneNumber]?.text.trim();
+        if (phoneNumber?.isNotEmpty ?? false) {
+          initialPhoneNumber = await PhoneNumber.getParsablePhoneNumber(
+            PhoneNumber(
+              dialCode: selectedCountryModel.dialCode,
+              isoCode: selectedCountryModel.selectedIsoCode,
+              phoneNumber: phoneNumber,
+            ),
+          );
+        } else {
+          initialPhoneNumber = PhoneNumber(
+            dialCode: selectedCountryModel.dialCode,
+            isoCode: selectedCountryModel.selectedIsoCode,
+          );
+        }
+        refresh();
+      } catch (e, trace) {
+        printError(e, trace);
+      }
+    }
+
+    /// Load country list.
+    // countries = await Services().widget.loadCountries();
+    var country = countries!.firstWhereOrNull(
+      (element) =>
+          element.code!.toUpperCase() == selectedCountryModel.selectedIsoCode,
+    );
+    if (country == null) {
+      if (countries!.isNotEmpty) {
+        country = countries![0];
+        address!.country = countries![0].code;
+      } else {
+        country = Country.fromConfig(address!.country, null, null, []);
+      }
+    } else {
+      address!.country = country.code;
+      address!.countryId = country.id;
+    }
+    _textControllers[AddressFieldType.country]?.text = country.code!;
+    refresh();
+
+    /// Load states.
+    states = await Services().widget.loadStates(country, langCode);
+    refresh();
+
+    /// Load cities.
+    var state = states?.firstWhereOrNull(
+      (element) =>
+          element.id == address?.state || element.code == address?.state,
+    );
+    if (state != null) {
+      cities = await Services().widget.loadCities(country, state);
+      var city = cities?.firstWhereOrNull(
+        (element) => element.name == address?.city,
+      );
+
+      /// Load zipCode
+      if (city != null) {
+        var zipCode = await Services().widget.loadZipCode(country, state, city);
+        if (zipCode != null) {
+          /// Override the default value with this value
+          address!.zipCode = zipCode;
+          _textControllers[AddressFieldType.zipCode]?.text = zipCode;
+        }
+      }
+      refresh();
+    }
+  }
+
+  void selectedIsoCodeListener() async {
+    final isoCode = selectedCountryModel.selectedIsoCode;
+    if (isoCode != address?.country) {
+      disposeOldData();
+      initializeFields();
+      await Future.delayed(const Duration(seconds: 1));
+      await preFillData();
+      refresh();
+    }
   }
 
   @override
@@ -259,10 +289,14 @@ class _ShippingAddressState extends State<ShippingAddress> {
               child: Form(
                 key: _formKey,
                 child: AutofillGroup(
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: buildTextFields(countryName),
-                  ),
+                  child: Selector<SelectedCountryModel, String>(
+                      selector: (_, model) => model.selectedIsoCode,
+                      builder: (_, selectedIsoCode, __) {
+                        return Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: buildTextFields(countryName),
+                        );
+                      }),
                 ),
               ),
             ),
@@ -275,19 +309,15 @@ class _ShippingAddressState extends State<ShippingAddress> {
 
   List<Widget> buildTextFields(String countryName) {
     return List.generate(
-      _fieldPosition.length,
-          (index) {
-        final isVisible = _configs[index]?.visible ?? true;
+      _fieldsPositions.length,
+      (index) {
+        final isVisible = _fieldsConfigs[index]?.visible ?? true;
         if (!isVisible) {
           return const SizedBox();
         }
 
         final currentFieldType =
-            _fieldPosition[index] ?? AddressFieldType.unknown;
-
-        if (currentFieldType == AddressFieldType.country) {
-          return const SizedBox();
-        }
+            _fieldsPositions[index] ?? AddressFieldType.unknown;
 
         if (currentFieldType == AddressFieldType.state &&
             (states?.isNotEmpty ?? false)) {
@@ -312,7 +342,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
                       child: ElevatedButton(
                         style: ElevatedButton.styleFrom(
                           foregroundColor:
-                          Theme.of(context).colorScheme.secondary,
+                              Theme.of(context).colorScheme.secondary,
                           backgroundColor: Theme.of(context).primaryColorLight,
                           elevation: 0.0,
                         ),
@@ -323,8 +353,8 @@ class _ShippingAddressState extends State<ShippingAddress> {
                                 kIsWeb
                                     ? kGoogleApiKey.web
                                     : isIos
-                                    ? kGoogleApiKey.ios
-                                    : kGoogleApiKey.android,
+                                        ? kGoogleApiKey.ios
+                                        : kGoogleApiKey.android,
                               ),
                             ),
                           );
@@ -338,7 +368,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
                             if (result.latLng?.latitude != null &&
                                 result.latLng?.latitude != null) {
                               address!.mapUrl =
-                              'https://maps.google.com/maps?q=${result.latLng?.latitude},${result.latLng?.longitude}&output=embed';
+                                  'https://maps.google.com/maps?q=${result.latLng?.latitude},${result.latLng?.longitude}&output=embed';
                               address!.latitude =
                                   result.latLng?.latitude.toString();
                               address!.longitude =
@@ -349,7 +379,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
                             final c = Country(
                                 id: result.country, name: result.country);
                             states =
-                            await Services().widget.loadStates(c, langCode);
+                                await Services().widget.loadStates(c, langCode);
                             setState(() {});
                           }
                         },
@@ -382,7 +412,10 @@ class _ShippingAddressState extends State<ShippingAddress> {
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   foregroundColor: Theme.of(context).colorScheme.secondary,
-                  backgroundColor: Theme.of(context).brightness == Brightness.dark? Theme.of(context).primaryColorLight: Colors.grey[300],
+                  backgroundColor:
+                      Theme.of(context).brightness == Brightness.dark
+                          ? Theme.of(context).primaryColorLight
+                          : Colors.grey[300],
                   elevation: 0.0,
                 ),
                 onPressed: () {
@@ -403,7 +436,10 @@ class _ShippingAddressState extends State<ShippingAddress> {
                     const SizedBox(width: 10.0),
                     Text(
                       S.of(context).selectAddress.toUpperCase(),
-                      style: TextStyle(color: Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary),
+                      style: TextStyle(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Theme.of(context).colorScheme.secondary
+                              : Theme.of(context).colorScheme.primary),
                     ),
                   ],
                 ),
@@ -419,8 +455,8 @@ class _ShippingAddressState extends State<ShippingAddress> {
         var nextFieldIndex = index + 1;
         late var nextFieldType;
         late var nextFieldFocus;
-        while (nextFieldIndex < _fieldPosition.length) {
-          nextFieldType = _fieldPosition[nextFieldIndex];
+        while (nextFieldIndex < _fieldsPositions.length) {
+          nextFieldType = _fieldsPositions[nextFieldIndex];
           nextFieldFocus = _focusNodes[nextFieldType];
           if (nextFieldType == AddressFieldType.country ||
               (nextFieldType == AddressFieldType.state &&
@@ -442,7 +478,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
           return InternationalPhoneNumberInput(
             /// Auto focus first field if it's empty.
             autoFocus:
-            index == 0 && (currentFieldController?.text.isEmpty ?? false),
+                index == 0 && (currentFieldController?.text.isEmpty ?? false),
             textFieldController: currentFieldController,
             focusNode: currentFieldFocusNode,
             isReadOnly: isFieldReadOnly(index),
@@ -454,45 +490,54 @@ class _ShippingAddressState extends State<ShippingAddress> {
             ),
             keyboardType: getKeyboardType(currentFieldType),
             keyboardAction:
-            hasNext ? TextInputAction.next : TextInputAction.done,
+                hasNext ? TextInputAction.next : TextInputAction.done,
+
             onFieldSubmitted: (_) {
               if (hasNext) {
                 nextFieldFocus?.requestFocus();
               }
             },
+            validator: (val) {
+              final fieldConfig = _fieldsConfigs[index];
+              if (fieldConfig == null) {
+                return null;
+              }
+              return validateField(val, fieldConfig, currentFieldType);
+            },
             onSaved: (value) {
               onTextFieldSaved(
-                value.phoneNumber,
+                value.phoneNumber?.replaceFirst(value.dialCode ?? '', ''),
                 currentFieldType,
               );
             },
-            onInputChanged: (PhoneNumber number) {},
-            onInputValidated: (value) => {},
+            onInputChanged: selectedCountryModel.onInputChanged,
+            onInputValidated: (value) {},
             spaceBetweenSelectorAndTextField: 0,
             selectorConfig: SelectorConfig(
               enable: kPhoneNumberConfig.useInternationalFormat,
               showFlags: kPhoneNumberConfig.showCountryFlag,
               selectorType: kPhoneNumberConfig.selectorType,
               setSelectorButtonAsPrefixIcon:
-              kPhoneNumberConfig.selectorFlagAsPrefixIcon,
+                  kPhoneNumberConfig.selectorFlagAsPrefixIcon,
               leadingPadding: 0,
               trailingSpace: false,
             ),
             selectorTextStyle: Theme.of(context).textTheme.titleMedium,
-            ignoreBlank: !(_configs[index]?.required ?? true),
+            ignoreBlank: !(_fieldsConfigs[index]?.required ?? true),
             initialValue: initialPhoneNumber,
             formatInput: kPhoneNumberConfig.formatInput,
             countries: kPhoneNumberConfig.customCountryList,
             locale: langCode,
             searchBoxDecoration: InputDecoration(
-                labelText: S.of(context).searchByCountryNameOrDialCode),
+              labelText: S.of(context).searchByCountryNameOrDialCode,
+            ),
           );
         }
 
         return TextFormField(
           /// Auto focus first field if it's empty.
           autofocus:
-          index == 0 && (currentFieldController?.text.isEmpty ?? false),
+              index == 0 && (currentFieldController?.text.isEmpty ?? false),
           autocorrect: false,
           controller: currentFieldController,
           focusNode: currentFieldFocusNode,
@@ -502,9 +547,6 @@ class _ShippingAddressState extends State<ShippingAddress> {
               : null,
           decoration: InputDecoration(
             labelText: getFieldLabel(currentFieldType),
-            prefixText: currentFieldType == AddressFieldType.phoneNumber
-                ? '${kPhoneNumberConfig.dialCodeDefault} '
-                : null,
             prefixStyle: TextStyle(
               color: Theme.of(context).colorScheme.onSurface,
               fontSize: 16,
@@ -513,20 +555,21 @@ class _ShippingAddressState extends State<ShippingAddress> {
           keyboardType: getKeyboardType(currentFieldType),
           textCapitalization: TextCapitalization.words,
           textInputAction:
-          hasNext ? TextInputAction.next : TextInputAction.done,
+              hasNext ? TextInputAction.next : TextInputAction.done,
           validator: (val) {
-            final config = _configs[index];
-            if (config == null) {
+            final fieldConfig = _fieldsConfigs[index];
+            if (fieldConfig == null) {
               return null;
             }
-            return validateField(val, config, currentFieldType);
+            return validateField(val, fieldConfig, currentFieldType);
           },
           onFieldSubmitted: (_) {
             if (hasNext) {
               nextFieldFocus?.requestFocus();
             }
           },
-          onSaved: (value) => onTextFieldSaved(
+          onSaved: (value) =>
+              onTextFieldSaved(
             value,
             currentFieldType,
           ),

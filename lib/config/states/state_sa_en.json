@@ -1,0 +1,26 @@
+[
+  {
+    "code": "SA-RI",
+    "name": "Riyadh"
+  },
+  {
+    "code": "SA-MK",
+    "name": "Makkah"
+  },
+  {
+    "code": "SA-MD",
+    "name": "Madinah"
+  },
+  {
+    "code": "SA-QS",
+    "name": "Al-Qassim"
+  },
+  {
+    "code": "SA-EP",
+    "name": "Eastern Province"
+  },
+  {
+    "code": "SA-AS",
+    "name": "Asir"
+  }
+]

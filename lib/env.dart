@@ -1,6 +1,9 @@
 // ignore_for_file: prefer_single_quotes, lines_longer_than_80_chars final
+import 'common/constants/country_phone_codes.dart';
+
 Map<String, dynamic> environment = {
-  "appConfig": "https://raw.githubusercontent.com/kaifapp/KaifApp/main/config_ar.json",
+  "appConfig":
+      "https://raw.githubusercontent.com/kaifapp/KaifApp/main/config_ar.json",
   "serverConfig": {
     "url": "https://kaifq8.myshopify.com",
     "type": "shopify",
@@ -15,14 +18,15 @@ Map<String, dynamic> environment = {
     "nameDefault": "Kuwait",
   },
   "phoneNumberConfig": {
-    "enable": false,
-    "enablePhoneNumberValidation": false,
+    "enable": true,
+    "enablePhoneNumberValidation": true,
     "countryCodeDefault": "KW",
     "dialCodeDefault": "+965",
     "useInternationalFormat": true,
     "selectorFlagAsPrefixIcon": true,
     "showCountryFlag": true,
-    "customCountryList": [], // List alpha_2_code. E.g: ["VN", "AU"]
+    "customCountryList": countryPhoneCodes.map((e) => e['code']),
+    // List alpha_2_code. E.g: ["VN", "AU"]
     "selectorType": "BOTTOM_SHEET",
   },
   "appRatingConfig": {
@@ -654,5 +658,222 @@ Map<String, dynamic> environment = {
     "logo":
         "https://kaif.co/cdn/shop/files/finalfinal_74cad1e7-e82f-4eda-8208-0703f0b2420b.png",
     "secondaryColor": "ffffc400"
-  }
+  },
+  "addressFields": [
+    {
+      'country': 'KW',
+      'addressFields': [
+        {
+          'type': 'firstName',
+          'visible': true,
+          'position': 1,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'lastName',
+          'visible': true,
+          'position': 2,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'phoneNumber',
+          'visible': true,
+          'position': 3,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'email',
+          'visible': true,
+          'position': 4,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'searchAddress',
+          'visible': true,
+          'position': 5,
+        },
+        {
+          'type': 'selectAddress',
+          'visible': true,
+          'position': 6,
+        },
+        {
+          'type': 'country',
+          'visible': true,
+          'position': 7,
+          'editable': false,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'city',
+          'visible': false,
+          'position': 8,
+          'editable': false,
+          'required': true,
+          'defaultValue': 'KW',
+        },
+        {
+          'type': 'state',
+          'visible': true,
+          'position': 9,
+        },
+        {
+          'type': 'block2',
+          'visible': true,
+          'position': 10,
+          'editable': true,
+          'required': false,
+          'defaultValue': '',
+        },
+        {
+          'type': 'apartment',
+          'visible': true,
+          'position': 11,
+          'editable': true,
+          'required': false,
+        },
+        {
+          'type': 'block',
+          'visible': true,
+          'position': 12,
+          'editable': true,
+          'required': false,
+          'defaultValue': '',
+        },
+        {
+          'type': 'street',
+          'visible': true,
+          'position': 13,
+          'editable': true,
+          'required': false,
+          'defaultValue': '',
+        },
+        {
+          'type': 'zipCode',
+          'visible': false,
+          'position': 14,
+          'editable': false,
+          'required': true,
+          'defaultValue': '00000',
+        },
+      ],
+    },
+
+    {
+      'country': 'SA',
+      'addressFields': [
+        {
+          'type': 'firstName',
+          'visible': true,
+          'position': 1,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'lastName',
+          'visible': true,
+          'position': 2,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'phoneNumber',
+          'visible': true,
+          'position': 3,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'email',
+          'visible': true,
+          'position': 4,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'searchAddress',
+          'visible': true,
+          'position': 5,
+        },
+        {
+          'type': 'selectAddress',
+          'visible': true,
+          'position': 6,
+        },
+        {
+          'type': 'country',
+          'visible': true,
+          'position': 7,
+          'editable': false,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'city',
+          'visible': true,
+          'position': 8,
+          'editable': true,
+          'required': true,
+          'defaultValue': '',
+        },
+        {
+          'type': 'state',
+          'visible': true,
+          'position': 9,
+        },
+        {
+          'type': 'block2',
+          'visible': true,
+          'position': 10,
+          'editable': true,
+          'required': false,
+          'defaultValue': '',
+        },
+        {
+          'type': 'apartment',
+          'visible': true,
+          'position': 11,
+          'editable': true,
+          'required': false,
+        },
+        {
+          'type': 'block',
+          'visible': true,
+          'position': 12,
+          'editable': true,
+          'required': false,
+          'defaultValue': '',
+        },
+        {
+          'type': 'street',
+          'visible': true,
+          'position': 13,
+          'editable': true,
+          'required': false,
+          'defaultValue': '',
+        },
+        {
+          'type': 'zipCode',
+          'visible': false,
+          'position': 14,
+          'editable': false,
+          'required': true,
+          'defaultValue': '00000',
+        },
+      ],
+    },
+  ],
 };

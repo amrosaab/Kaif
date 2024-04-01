@@ -104,6 +104,7 @@ extension on _ShippingAddressState {
 
   String? validatePhoneNumber(String phoneNumber) {
     //TODO: Add to config
+    return null;
     const requiredLength = 8;
     if (phoneNumber.length == requiredLength) {
       return null;
@@ -118,18 +119,21 @@ extension on _ShippingAddressState {
   }
 
   /// on tap to Next Button
-  void _onNext() {
+  Future<void> _onNext() async {
     {
       if (_formKey.currentState!.validate()) {
         _formKey.currentState!.save();
+
+        await Future.delayed(const Duration(milliseconds: 1000));
+
         Provider.of<CartModel>(context, listen: false).setAddress(address);
         _loadShipping(beforehand: false);
         widget.onNext!();
       } else {
-        FlashHelper.errorMessage(
+        unawaited(FlashHelper.errorMessage(
           context,
           message: S.of(context).pleaseInput,
-        );
+        ));
       }
     }
   }
@@ -160,8 +164,6 @@ extension on _ShippingAddressState {
         final country = Country(id: address!.country);
         final state = CountryState(id: val);
         cities = await Services().widget.loadCities(country, state);
-        address!.zipCode = '';
-        _textControllers[AddressFieldType.zipCode]?.text = '';
         refresh();
       },
       isExpanded: true,
@@ -192,12 +194,12 @@ extension on _ShippingAddressState {
       items: items,
       value: value,
       validator: (val) {
-        final config = _configs[index];
+        final config = _fieldsConfigs[index];
         if (config == null) {
           return null;
         }
         return validateField(
-            val, config, _fieldPosition[index] ?? AddressFieldType.unknown);
+            val, config, _fieldsPositions[index] ?? AddressFieldType.unknown);
       },
       onChanged: (dynamic val) async {
         address!.city = val;
@@ -351,6 +353,9 @@ extension on _ShippingAddressState {
       case AddressFieldType.street:
         address?.street = value;
         break;
+      case AddressFieldType.fullAddress:
+        address?.fullAddress = value;
+        break;
       case AddressFieldType.zipCode:
         address?.zipCode = value?.trim();
         break;
@@ -388,6 +393,8 @@ extension on _ShippingAddressState {
         return S.of(context).block2;
       case AddressFieldType.street:
         return S.of(context).street;
+      case AddressFieldType.fullAddress:
+        return S.of(context).fullAddress;
       case AddressFieldType.zipCode:
         return S.of(context).zipCode;
       case AddressFieldType.searchAddress:
@@ -398,7 +405,10 @@ extension on _ShippingAddressState {
   }
 
   String? validateField(
-      String? val, AddressFieldConfig config, AddressFieldType type) {
+    String? val,
+    AddressFieldConfig config,
+    AddressFieldType type,
+  ) {
     if (!config.required) {
       return null;
     }
@@ -494,13 +504,13 @@ extension on _ShippingAddressState {
   }
 
   bool isFieldReadOnly(int index) {
-    final config = _configs[index];
+    final config = _fieldsConfigs[index];
     if (config == null) {
       return false;
     }
 
     /// Disable edit only when the field has a default value.
-    if (!config.editable && config.defaultValue.isNotEmpty) {
+    if (!config.editable) {
       return true;
     }
 
