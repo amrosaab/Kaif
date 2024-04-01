@@ -124,7 +124,7 @@ class FlashHelper {
           return FlashBar(
             backgroundColor: isError
                 ? Theme.of(context).colorScheme.error
-                : Theme.of(context).primaryColor,
+                : Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
             //brightness: brightness(context),
             controller: controller,
             behavior: FlashBehavior.floating,
