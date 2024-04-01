@@ -60,13 +60,13 @@ mixin MyCartMixin<T extends StatefulWidget> on State<T> {
               },
               child: Text(
                 S.of(context).clear,
-                style: TextStyle(
-                  color: Theme.of(context).brightness == Brightness.dark
-                      ? Colors.grey[900]
-                      : Colors.white,
-                ),
-              ),
-            ),
+                style:Theme.of(context).textTheme.bodySmall?.copyWith(color:
+
+        Theme.of(context).brightness == Brightness.dark
+        ? Colors.grey[900]
+            : Colors.white,
+        ),
+            ),),
           ],
         );
       },
