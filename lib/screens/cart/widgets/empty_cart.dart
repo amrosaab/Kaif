@@ -86,7 +86,9 @@ class EmptyCart extends StatelessWidget {
                         child: Row(
                           mainAxisSize: MainAxisSize.min,
                           children: [
-                            Text(S.of(context).startShopping.toUpperCase(),style:TextStyle(color:   Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white)),
+                            Text(S.of(context).startShopping.toUpperCase(),style:Theme.of(context).textTheme.bodySmall?.copyWith(color:
+                          Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white
+                      ) ),
                              Icon(Icons.navigate_next, size: 16,color:Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white),
                           ],
                         ),
@@ -113,7 +115,8 @@ class EmptyCart extends StatelessWidget {
                             );
                           },
                           child:
-                              Text(S.of(context).searchForItems.toUpperCase(),style:TextStyle(color:Colors.grey[800])),
+                              Text(S.of(context).searchForItems.toUpperCase(),style: Theme.of(context).textTheme.bodySmall?.copyWith(color:Colors.grey[800] ),
+                              ),
                         ),
                       ),
                     ),
