@@ -317,7 +317,7 @@ class ExpandingBottomSheetState extends State<ExpandingBottomSheet>
                   if (totalCart > 0)
                     Container(
                       decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
+                          color: Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
                           borderRadius: BorderRadius.circular(2)),
                       padding: const EdgeInsets.only(
                         left: 4,
