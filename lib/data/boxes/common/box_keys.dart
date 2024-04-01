@@ -6,6 +6,7 @@ class BoxKeys {
   static const String hiveUserBox = 'fstore_user';
   static const String hiveCacheBox = 'fstore_cache';
   static const String hiveBiometricsBox = 'fstore_biometrics';
+  static const String hiveAddressBox = 'fstore_address';
 
   static const String hiveBoxDefaultEncryptionKey =
       'hiveBoxDefaultEncryptionKey';
@@ -58,8 +59,6 @@ class BoxKeys {
   static const String productsInCart = 'productsInCart';
   static const String wishList = 'wishList';
   static const String blogWishList = 'blogWishList';
-  static const String shippingAddress = 'shippingAddress';
-  static const String addresses = 'addresses';
 
   /// [UserBox] - POS Settings
   static const String selectedPrinter = 'selectedPrinter';

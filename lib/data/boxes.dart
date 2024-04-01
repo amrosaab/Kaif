@@ -66,6 +66,10 @@ part 'boxes/cache/blog_extension.dart';
 
 part 'boxes/biometrics.dart';
 
+part 'boxes/address.dart';
+
+part 'boxes/address/commerce_extension.dart';
+
 /// End of Hive boxes.
 
 /// Set [kDisableWebCookies] to true to use [WebBox].
@@ -82,4 +86,5 @@ Future<void> initBoxes() async {
   await UserBox().init();
   await CacheBox().init();
   await BiometricsBox().init();
+  await AddressBox().init();
 }

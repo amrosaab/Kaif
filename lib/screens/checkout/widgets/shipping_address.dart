@@ -116,28 +116,32 @@ class _ShippingAddressState extends State<ShippingAddress> {
 
   Future<void> preFillData() async {
     /// Load saved addresses.
-    // final addressValue =
-    //     await Provider.of<CartModel>(context, listen: false).getAddress();
-    // if (addressValue != null) {
-    //   updateAddress(addressValue);
-    // } else {
-    //   var user = Provider.of<UserModel>(context, listen: false).user;
-    //   setState(() {
-    //     address = Address(country: kPaymentConfig.defaultCountryISOCode);
-    //     if (kPaymentConfig.defaultStateISOCode != null) {
-    //       address!.state = kPaymentConfig.defaultStateISOCode;
-    //     }
-    //     _textControllers[AddressFieldType.country]?.text = address!.country!;
-    //     _textControllers[AddressFieldType.state]?.text = address!.state!;
-    //     if (user != null) {
-    //       address!.firstName = user.firstName;
-    //       address!.lastName = user.lastName;
-    //       address!.email = user.email;
-    //       loadUserInfoFromAddress(address);
-    //     }
-    //   });
-    // }
-    address = address?.copyWith(country: () => selectedCountryModel.selectedIsoCode) ??
+    final addressValue =
+        await Provider.of<CartModel>(context, listen: false).getAddress(
+      selectedCountryModel.selectedIsoCode,
+    );
+    if (addressValue != null) {
+      updateAddress(addressValue);
+    } else {
+      var user = Provider.of<UserModel>(context, listen: false).user;
+      setState(() {
+        address = Address(country: kPaymentConfig.defaultCountryISOCode);
+        if (kPaymentConfig.defaultStateISOCode != null) {
+          address!.state = kPaymentConfig.defaultStateISOCode;
+        }
+        _textControllers[AddressFieldType.country]?.text = address!.country!;
+        _textControllers[AddressFieldType.state]?.text = address!.state!;
+        if (user != null) {
+          address!.firstName = user.firstName;
+          address!.lastName = user.lastName;
+          address!.email = user.email;
+          loadUserInfoFromAddress(address);
+        }
+      });
+    }
+
+    address = address?.copyWith(
+            country: () => selectedCountryModel.selectedIsoCode) ??
         Address(country: selectedCountryModel.selectedIsoCode);
 
     /// Init default fields.
@@ -568,8 +572,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
               nextFieldFocus?.requestFocus();
             }
           },
-          onSaved: (value) =>
-              onTextFieldSaved(
+          onSaved: (value) => onTextFieldSaved(
             value,
             currentFieldType,
           ),

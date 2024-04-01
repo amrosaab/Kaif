@@ -33,7 +33,7 @@ class CartModelWoo
 
   @override
   Future<void> initData() async {
-    await getAddress();
+    await getAddress(kPhoneNumberConfig.countryCodeDefault);
     getCartInLocal();
     getCurrency();
   }
