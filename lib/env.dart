@@ -26,7 +26,6 @@ Map<String, dynamic> environment = {
     "selectorFlagAsPrefixIcon": true,
     "showCountryFlag": true,
     "customCountryList": countryPhoneCodes.map((e) => e['code']),
-    // List alpha_2_code. E.g: ["VN", "AU"]
     "selectorType": "BOTTOM_SHEET",
   },
   "appRatingConfig": {
@@ -828,11 +827,6 @@ Map<String, dynamic> environment = {
           'editable': true,
           'required': true,
           'defaultValue': '',
-        },
-        {
-          'type': 'state',
-          'visible': true,
-          'position': 9,
         },
         {
           'type': 'block2',

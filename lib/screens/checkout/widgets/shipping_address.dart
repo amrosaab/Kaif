@@ -226,7 +226,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
           element.id == address?.state || element.code == address?.state,
     );
     if (state != null) {
-      cities = await Services().widget.loadCities(country, state);
+      cities = states?.map((e) => e.toCity()).toList();
       var city = cities?.firstWhereOrNull(
         (element) => element.name == address?.city,
       );
