@@ -227,7 +227,6 @@ class _ShippingAddressState extends State<ShippingAddress> {
       (element) =>
           element.id == address?.state || element.code == address?.state,
     );
-    if (state != null) {
       cities = states?.map((e) => e.toCity()).toList();
       var city = cities?.firstWhereOrNull(
         (element) => element.name == address?.city,
@@ -235,7 +234,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
 
       /// Load zipCode
       if (city != null) {
-        var zipCode = await Services().widget.loadZipCode(country, state, city);
+        var zipCode = await Services().widget.loadZipCode(country, CountryState(), city);
         if (zipCode != null) {
           /// Override the default value with this value
           address!.zipCode = zipCode;
@@ -243,7 +242,6 @@ class _ShippingAddressState extends State<ShippingAddress> {
         }
       }
       refresh();
-    }
   }
 
   void selectedIsoCodeListener() async {
