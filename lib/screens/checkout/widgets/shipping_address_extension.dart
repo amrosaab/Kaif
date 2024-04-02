@@ -32,6 +32,8 @@ extension on _ShippingAddressState {
         address?.block?.trim() ?? '';
     _textControllers[AddressFieldType.street]?.text =
         address?.street?.trim() ?? '';
+    _textControllers[AddressFieldType.fullAddress]?.text =
+        address?.fullAddress?.trim() ?? '';
     _textControllers[AddressFieldType.zipCode]?.text =
         address?.zipCode?.trim() ?? '';
     refresh();
