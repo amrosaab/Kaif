@@ -777,7 +777,7 @@ Map<String, dynamic> environment = {
       }) {
         return {
           if (province != null) 'province': province,
-          if (city != null) 'city': city ?? '',
+          if (city != null) 'city': city,
           'address1':
               'Area: $city, Block: $block2, Street: $apartment, Building: $block, ${(street ?? '') == '' ? '' : 'Floor: $street, '} ${(street ?? '') == '' ? '' : 'Flat: $zipCode'}',
           'address2': '${block!}, ${block2 ?? ''}',
