@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:fstore/common/typedefs.dart';
 
 import '../common/tools.dart';
 import '../modules/dynamic_layout/index.dart';

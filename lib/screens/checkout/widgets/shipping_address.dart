@@ -50,6 +50,8 @@ class _ShippingAddressState extends State<ShippingAddress> {
 
   final Map<AddressFieldType, FocusNode> _focusNodes = {};
 
+  CountryAddressFieldsConfig? countryFields;
+
   Address? address;
   List<Country>? countries = [];
   List<CountryState>? states = [];
@@ -100,7 +102,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
   }
 
   void initializeFields() {
-    final countryFields = Configurations.addressFields.firstWhereOrNull(
+    countryFields = Configurations.addressFields.firstWhereOrNull(
       (element) => element.country == selectedCountryModel.selectedIsoCode,
     );
 

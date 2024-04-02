@@ -1,13 +1,17 @@
+import 'package:fstore/common/typedefs.dart';
+
 import 'address_field_config.dart';
 
 class CountryAddressFieldsConfig {
   CountryAddressFieldsConfig({
     required this.country,
     required this.addressFields,
+    required this.formatAddress,
   });
 
   final String country;
   final List<AddressFieldConfig> addressFields;
+  final FormatAddress formatAddress;
 
   factory CountryAddressFieldsConfig.fromJson(Map<String, dynamic> json) {
     final country = json['country'];
@@ -26,6 +30,7 @@ class CountryAddressFieldsConfig {
     return CountryAddressFieldsConfig(
       country: country,
       addressFields: addressFields,
+      formatAddress: json['formatAddress'] as FormatAddress,
     );
   }
 
@@ -39,10 +44,12 @@ class CountryAddressFieldsConfig {
   CountryAddressFieldsConfig copyWith({
     String? country,
     List<AddressFieldConfig>? addressFields,
+    FormatAddress? formatAddress,
   }) {
     return CountryAddressFieldsConfig(
       country: country ?? this.country,
       addressFields: addressFields ?? this.addressFields,
+      formatAddress: formatAddress ?? this.formatAddress,
     );
   }
 }

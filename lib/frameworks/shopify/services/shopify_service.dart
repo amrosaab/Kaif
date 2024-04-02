@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
+import 'package:fstore/common/typedefs.dart';
 import 'package:graphql/client.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
@@ -572,15 +573,19 @@ class ShopifyService extends BaseServices {
   // }
 
   @override
-  Future<List<ShippingMethod>> getShippingMethods(
-      {CartModel? cartModel,
-      String? token,
-      String? checkoutId,
-      store_model.Store? store,
-      String? langCode}) async {
+  Future<List<ShippingMethod>> getShippingMethods({
+    CartModel? cartModel,
+    String? token,
+    String? checkoutId,
+    store_model.Store? store,
+    String? langCode,
+    FormatAddress? formatAddress,
+  }) async {
     try {
       var list = <ShippingMethod>[];
-      var newAddress = cartModel!.address!.toShopifyJson()['address'];
+      var newAddress = cartModel!.address!.toShopifyJson(
+        formatAddress: formatAddress,
+      )['address'];
 
       printLog('getShippingMethods with checkoutId $checkoutId');
 

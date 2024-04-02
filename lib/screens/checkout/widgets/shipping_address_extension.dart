@@ -116,7 +116,11 @@ extension on _ShippingAddressState {
   /// Load Shipping beforehand
   void _loadShipping({bool beforehand = true}) {
     Services().widget.loadShippingMethods(
-        context, Provider.of<CartModel>(context, listen: false), beforehand);
+          context,
+          Provider.of<CartModel>(context, listen: false),
+          beforehand,
+          formatAddress: countryFields?.formatAddress,
+        );
   }
 
   /// on tap to Next Button

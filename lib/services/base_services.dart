@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:convert' as convert;
 
+import 'package:fstore/common/typedefs.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_auth/http_auth.dart';
 
@@ -102,12 +103,14 @@ abstract class BaseServices {
           {String? lang}) =>
       null;
 
-  Future<List<ShippingMethod>>? getShippingMethods(
-          {CartModel? cartModel,
-          String? token,
-          String? checkoutId,
-          Store? store,
-          String? langCode}) =>
+  Future<List<ShippingMethod>>? getShippingMethods({
+    CartModel? cartModel,
+    String? token,
+    String? checkoutId,
+    Store? store,
+    String? langCode,
+    FormatAddress? formatAddress,
+  }) =>
       null;
 
   Future<List<PaymentMethod>>? getPaymentMethods(
@@ -187,7 +190,8 @@ abstract class BaseServices {
   Future<Product?>? overrideGetProduct(id, {lang}) =>
       getProduct(id, lang: lang);
 
-  Future<ProductVariation?> getVariationProduct(String productId, String? variationId,
+  Future<ProductVariation?> getVariationProduct(
+          String productId, String? variationId,
           {String? lang}) async =>
       null;
 

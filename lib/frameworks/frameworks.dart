@@ -2,6 +2,7 @@ import 'package:country_pickers/country_pickers.dart';
 
 // import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:fstore/common/typedefs.dart';
 import 'package:inspireui/widgets/expandable/expansion_widget.dart';
 import 'package:provider/provider.dart';
 import 'package:provider/single_child_widget.dart';
@@ -144,8 +145,9 @@ abstract class BaseFrameworks {
   void loadShippingMethods(
     BuildContext context,
     CartModel cartModel,
-    bool beforehand,
-  ) {}
+    bool beforehand, {
+    FormatAddress? formatAddress,
+  }) {}
 
   Widget renderButtons(
     BuildContext context,
@@ -943,7 +945,6 @@ abstract class BaseFrameworks {
               GroupCheckBoxItem(
                 title: S.of(context).dateOldest,
                 value: 'date-asc',
-
               ),
             },
           ),

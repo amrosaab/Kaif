@@ -1,6 +1,7 @@
 import 'package:country_pickers/utils/utils.dart';
 
 import '../../common/constants.dart';
+import '../../common/typedefs.dart';
 
 class Address {
   String? firstName;
@@ -259,22 +260,26 @@ class Address {
     }
   }
 
-  Map<String, dynamic> toShopifyJson() {
+  Map<String, dynamic> toShopifyJson({FormatAddress? formatAddress}) {
     return {
       'address': {
-        'province': state,
         'country': country,
-        'address1':
-            'Area: $city, Block: $block2, Street: $apartment, Building: $block, ${(street ?? '') == '' ? '' : 'Floor: $street, '} ${(street ?? '') == '' ? '' : 'Flat: $zipCode'}',
-        'address2': '${block!}, ${block2 ?? ''}',
         'company': apartment,
-        'city': city,
         'firstName': firstName,
         'lastName': lastName,
         'phone': phoneNumber,
-        if (fullAddress != null && fullAddress!.isNotEmpty)
-          'full_address': fullAddress,
         'zip': zipCode,
+        if (formatAddress != null)
+          ...formatAddress(
+            province: state,
+            city: city,
+            street: street,
+            block: block,
+            block2: block2,
+            apartment: apartment,
+            fullAddress: fullAddress,
+            zipCode: zipCode,
+          )
       }
     };
   }

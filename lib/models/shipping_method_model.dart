@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fstore/common/typedefs.dart';
 import '../common/config.dart';
 
 import '../models/cart/cart_model.dart';
@@ -13,13 +14,16 @@ class ShippingMethodModel extends ChangeNotifier {
   String? message;
 
   List<OrderDeliveryDate>? _deliveryDates;
+
   List<OrderDeliveryDate>? get deliveryDates => _deliveryDates;
 
-  Future<void> getShippingMethods(
-      {CartModel? cartModel,
-      String? token,
-      String? checkoutId,
-      required String langCode}) async {
+  Future<void> getShippingMethods({
+    CartModel? cartModel,
+    String? token,
+    String? checkoutId,
+    required String langCode,
+    FormatAddress? formatAddress,
+  }) async {
     try {
       isLoading = true;
       if (ServerConfig().isOpencart && (shippingMethods?.isNotEmpty ?? false)) {
@@ -27,10 +31,12 @@ class ShippingMethodModel extends ChangeNotifier {
       }
       notifyListeners();
       shippingMethods = await _service.api.getShippingMethods(
-          cartModel: cartModel,
-          token: token,
-          checkoutId: checkoutId,
-          langCode: langCode);
+        cartModel: cartModel,
+        token: token,
+        checkoutId: checkoutId,
+        langCode: langCode,
+        formatAddress: formatAddress ?? DefaultConfig.formatAddress,
+      );
       if (kAdvanceConfig.enableDeliveryDateOnCheckout) {
         _deliveryDates = await getDelivery();
       }

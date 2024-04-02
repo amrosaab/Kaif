@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:fstore/common/typedefs.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/config.dart';
@@ -324,7 +325,12 @@ class ShopifyWidget extends BaseFrameworks
   }
 
   @override
-  void loadShippingMethods(context, CartModel cartModel, bool beforehand) {
+  void loadShippingMethods(
+    context,
+    CartModel cartModel,
+    bool beforehand, {
+    FormatAddress? formatAddress,
+  }) {
 //    if (!beforehand) return;
     final cartModel = Provider.of<CartModel>(context, listen: false);
     Future.delayed(Duration.zero, () {
@@ -334,10 +340,12 @@ class ShopifyWidget extends BaseFrameworks
       var langCode = Provider.of<AppModel>(context, listen: false).langCode;
       Provider.of<ShippingMethodModel>(context, listen: false)
           .getShippingMethods(
-              cartModel: cartModel,
-              token: token,
-              checkoutId: cartModel.getCheckoutId(),
-              langCode: langCode);
+        cartModel: cartModel,
+        token: token,
+        checkoutId: cartModel.getCheckoutId(),
+        langCode: langCode,
+        formatAddress: formatAddress,
+      );
     });
   }
 
@@ -370,7 +378,8 @@ class ShopifyWidget extends BaseFrameworks
   }
 
   @override
-  Future<List<CountryState>> loadStates(Country country, String language) async {
+  Future<List<CountryState>> loadStates(
+      Country country, String language) async {
     final items = await Tools.loadStatesByCountry(country.id!, language);
     var states = <CountryState>[];
     if (items.isNotEmpty) {
