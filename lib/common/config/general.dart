@@ -72,6 +72,7 @@ ProductFilterColor? get productFilterColor =>
     colorOverrideConfig.productFilterColor;
 
 StockColor get kStockColor => colorOverrideConfig.stockColor;
+String phoneNumecode= Configurations.phoneNumberConfig.countryCodeDefault;
 
 RatingColor get kRatingColor => colorOverrideConfig.ratingColor;
 

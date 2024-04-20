@@ -30,76 +30,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "Valiuta pakeista į ${currency}";
 
-  static String m5(currency) => "${currency} nepalaikomas";
+  static String m5(priceRate, pointRate) =>
+      "${priceRate} = ${pointRate} taškai";
 
-  static String m6(day) => " Prieš${day} dienas";
+  static String m6(currency) => "${currency} nepalaikomas";
 
-  static String m7(total) => "~${total} km";
+  static String m7(day) => " Prieš${day} dienas";
 
-  static String m8(timeLeft) => "Baigiasi ${timeLeft}";
+  static String m8(total) => "~${total} km";
 
-  static String m9(captcha) => "Įveskite ${captcha} , kad patvirtintumėte:";
+  static String m9(timeLeft) => "Baigiasi ${timeLeft}";
 
-  static String m10(message) => "Klaida: ${message}";
+  static String m10(captcha) => "Įveskite ${captcha} , kad patvirtintumėte:";
 
-  static String m11(time) => "Galiojimas baigiasi ${time}";
+  static String m11(message) => "Klaida: ${message}";
 
-  static String m12(total) => ">${total} km";
+  static String m12(time) => "Galiojimas baigiasi ${time}";
 
-  static String m13(hour) => " prieš${hour} valandas";
+  static String m13(total) => ">${total} km";
 
-  static String m14(message) =>
+  static String m14(hour) => " prieš${hour} valandas";
+
+  static String m15(message) =>
       "Prašant duomenis kilo su programa susijusi problema. Susisiekite su administratoriumi, kad išspręstumėte problemas: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "Didžiausia šio mokėjimo suma yra {${currency}} {${amount}}";
 
-  static String m16(size) => "Maksimalus failo dydis: ${size} MB";
+  static String m17(size) => "Maksimalus failo dydis: ${size} MB";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "Mažiausia suma už šį mokėjimą yra {${currency}} {${amount}}";
 
-  static String m18(minute) => " prieš${minute} minutes";
+  static String m19(minute) => " prieš${minute} minutes";
 
-  static String m19(month) => " prieš${month} mėn";
+  static String m20(month) => " prieš${month} mėn";
 
-  static String m20(store) => "Daugiau iš ${store}";
+  static String m21(store) => "Daugiau iš ${store}";
 
-  static String m21(itemCount) => "${itemCount} elementai";
+  static String m22(itemCount) => "${itemCount} elementai";
 
-  static String m22(price) => "Iš viso parinkčių: ${price}";
+  static String m23(price) => "Iš viso parinkčių: ${price}";
 
-  static String m23(total) => "Kiekis: ${total}";
+  static String m24(total) => "Kiekis: ${total}";
 
-  static String m24(percent) => "Išpardavimas ${percent}%";
+  static String m25(percent) => "Išpardavimas ${percent}%";
 
-  static String m25(second) => " prieš${second} sek";
+  static String m26(second) => " prieš${second} sek";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "Pirkinių krepšelis, ${totalCartQuantity} prekės";
 
-  static String m27(numberOfUnitsSold) => "Parduota: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "Parduota: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => "Lauką ${fieldName} būtina užpildyti";
+  static String m29(fieldName) => "Lauką ${fieldName} būtina užpildyti";
 
-  static String m29(total) => "${total} produktai";
+  static String m30(total) => "${total} produktai";
 
-  static String m30(date) => "Galioja iki ${date}";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "Panaudokite daugiausiai ${maxPointDiscount} taškų, kad gautumėte ${maxPriceDiscount} nuolaidą šiam užsakymui!";
 
-  static String m31(message) => "Įspėjimas: ${message}";
+  static String m32(date) => "Galioja iki ${date}";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "Įspėjimas: ${message}";
+
+  static String m34(defaultCurrency) =>
       "Šiuo metu pasirinkta valiuta nepasiekiama Piniginės funkcijai, pakeiskite ją į ${defaultCurrency}";
 
-  static String m33(length) => "Radome ${length} produktų";
+  static String m35(length) => "Radome ${length} produktų";
 
-  static String m34(week) => "Savaitė ${week}";
+  static String m36(week) => "Savaitė ${week}";
 
-  static String m35(name) => "Sveiki, ${name}";
+  static String m37(name) => "Sveiki, ${name}";
 
-  static String m36(year) => " prieš${year} metus";
+  static String m38(year) => " prieš${year} metus";
 
-  static String m37(total) => "Priskyrėte užsakymą Nr.${total}";
+  static String m39(total) => "Priskyrėte užsakymą Nr.${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -354,6 +360,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tęskite siuntimą"),
         "continues": MessageLookupByLibrary.simpleMessage("Tęsti"),
         "conversations": MessageLookupByLibrary.simpleMessage("Pokalbiai"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("nukopijuota"),
         "copy": MessageLookupByLibrary.simpleMessage("Kopijuoti"),
         "country": MessageLookupByLibrary.simpleMessage("Šalis"),
@@ -377,7 +384,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sukurkite visus variantus"),
         "createdOn": MessageLookupByLibrary.simpleMessage("Sukurtas:"),
         "currencies": MessageLookupByLibrary.simpleMessage("Valiutos"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Dabartinis slaptažodis"),
         "currentlyWeOnlyHave":
@@ -406,7 +413,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateTime": MessageLookupByLibrary.simpleMessage("Data Laikas"),
         "dateWiseClose":
             MessageLookupByLibrary.simpleMessage("Datos protingas uždarymas"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("Debetas"),
         "decline": MessageLookupByLibrary.simpleMessage("Atmesti"),
         "delete": MessageLookupByLibrary.simpleMessage("Ištrinti"),
@@ -436,7 +443,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "discount": MessageLookupByLibrary.simpleMessage("Nuolaida"),
         "displayName":
             MessageLookupByLibrary.simpleMessage("Rodomas pavadinimas"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions": MessageLookupByLibrary.simpleMessage(
             "Dar neturite jokių operacijų"),
         "doYouWantToExitApp": MessageLookupByLibrary.simpleMessage(
@@ -493,9 +500,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Įjungti atostogų režimą"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "Pasirinkite datą po pirmosios datos"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("Anglų"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("Įveskite kodą, išsiųstą"),
         "enterYourEmail":
@@ -514,7 +521,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Norėdami pradėti, įveskite savo telefono numerį."),
         "enterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Įveskite savo telefono numerį"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "Įvesta suma yra didesnė nei dabartinė piniginės suma. Prašau, pabandykite dar kartą!"),
         "errorEmailFormat": MessageLookupByLibrary.simpleMessage(
@@ -530,7 +537,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expiredDate":
             MessageLookupByLibrary.simpleMessage("Galiojimo pabaigos data"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("MM/MM"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("Išorinis"),
         "extraServices":
             MessageLookupByLibrary.simpleMessage("Papildomos paslaugos"),
@@ -543,6 +550,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage":
             MessageLookupByLibrary.simpleMessage("Nepavyko įkelti vaizdo"),
         "favorite": MessageLookupByLibrary.simpleMessage("Mėgstamiausias"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("Funkcija nepasiekiama"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage("Funkciniai produktai"),
         "featured": MessageLookupByLibrary.simpleMessage("Teminiai"),
@@ -596,7 +605,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Grįžkite į peržiūrą"),
         "goBackToShipping":
             MessageLookupByLibrary.simpleMessage("Grįžkite į siuntimą"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("Graikų kalba"),
         "grossSales":
             MessageLookupByLibrary.simpleMessage("Bendrieji pardavimai"),
@@ -615,7 +624,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("Istorija"),
         "home": MessageLookupByLibrary.simpleMessage("Namai"),
         "hour": MessageLookupByLibrary.simpleMessage("Valanda"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("Vengrų"),
         "hungary": MessageLookupByLibrary.simpleMessage("Vengrų"),
         "iAgree": MessageLookupByLibrary.simpleMessage("aš sutinku su"),
@@ -687,7 +696,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Prisijungti"),
         "loginCanceled":
             MessageLookupByLibrary.simpleMessage("Prisijungimas atšauktas"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed":
             MessageLookupByLibrary.simpleMessage("Prisijungimas nepavyko!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
@@ -704,6 +713,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "malay": MessageLookupByLibrary.simpleMessage("Malajų"),
         "manCollections":
             MessageLookupByLibrary.simpleMessage("Vyrų kolekcijos"),
+        "manageApiKey":
+            MessageLookupByLibrary.simpleMessage("Tvarkyti API raktą"),
         "manageStock":
             MessageLookupByLibrary.simpleMessage("Tvarkyti atsargas"),
         "map": MessageLookupByLibrary.simpleMessage("Žemėlapis"),
@@ -714,22 +725,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pažymėti kaip išsiųstą"),
         "markAsUnread":
             MessageLookupByLibrary.simpleMessage("Žymėti kaip neskaitytą"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("Galbūt vėliau"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("Meniu tvarka"),
         "message": MessageLookupByLibrary.simpleMessage("Pranešimas"),
         "messageTo": MessageLookupByLibrary.simpleMessage("Siųsti žinutę Kam"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("Minimalus kiekis yra"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification": MessageLookupByLibrary.simpleMessage(
             "Patvirtinimas mobiliuoju telefonu"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("prieš akimirką"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...daugiau"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation":
             MessageLookupByLibrary.simpleMessage("Daugiau informacijos"),
         "morning": MessageLookupByLibrary.simpleMessage("Rytas"),
@@ -742,7 +753,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Jūs neturite jokių produktų. Pabandykite sukurti!"),
         "myWallet": MessageLookupByLibrary.simpleMessage("Mano piniginė"),
         "myWishList": MessageLookupByLibrary.simpleMessage("Mano norų sąrašas"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("vardas"),
         "nearbyPlaces":
             MessageLookupByLibrary.simpleMessage("Netoliese esančios vietos"),
@@ -779,6 +790,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby":
             MessageLookupByLibrary.simpleMessage("Netoliese nėra sąrašo!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("Jokių užsakymų"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "Šis produktas yra prieinamas vartotojams, atliekantiems konkrečias funkcijas. Jei norite pasiekti šį produktą, prisijunkite naudodami atitinkamus kredencialus arba susisiekite su mumis dėl daugiau informacijos."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "Oi, atrodo, kad šio puslapio nebėra!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("Nėra spausdintuvų"),
@@ -790,6 +803,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nėra laiko tarpo"),
         "noThanks": MessageLookupByLibrary.simpleMessage("Ne, ačiū"),
         "none": MessageLookupByLibrary.simpleMessage("Nė vienas"),
+        "notFindResult": MessageLookupByLibrary.simpleMessage(
+            "Atsiprašome, nepavyko rasti jokių rezultatų."),
         "notFound": MessageLookupByLibrary.simpleMessage("Nerastas"),
         "note": MessageLookupByLibrary.simpleMessage("Užsakymo pastaba"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("Pastaba"),
@@ -808,7 +823,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("Žemėlapis"),
         "openNow": MessageLookupByLibrary.simpleMessage("Atidarykite dabar"),
         "options": MessageLookupByLibrary.simpleMessage("Galimybės"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("arba"),
         "orLoginWith":
             MessageLookupByLibrary.simpleMessage("arba prisijunkite su"),
@@ -1006,6 +1021,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Produkto tipo kintamajam reikalingas bent vienas variantas"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "Produkto tipui paprastas reikia pavadinimo ir įprastinės kainos"),
+        "productOutOfStock":
+            MessageLookupByLibrary.simpleMessage("Prekės nėra sandėlyje"),
         "productRating":
             MessageLookupByLibrary.simpleMessage("Jūsų įvertinimas"),
         "productReview":
@@ -1016,7 +1033,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore": MessageLookupByLibrary.simpleMessage(
             "Patraukite, kad įkeltumėte daugiau"),
         "qty": MessageLookupByLibrary.simpleMessage("Kiekis"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "Dabartinis kiekis yra didesnis nei kiekis sandėlyje"),
         "rate": MessageLookupByLibrary.simpleMessage("Kaina"),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("Įvertinkite programą"),
@@ -1090,7 +1109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Atsiliepimai"),
         "romanian": MessageLookupByLibrary.simpleMessage("Rumunų"),
         "russian": MessageLookupByLibrary.simpleMessage("Rusų kalba"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("Pardavimo kaina"),
         "save": MessageLookupByLibrary.simpleMessage("Sutaupyti"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("Išsaugoti adresą"),
@@ -1118,7 +1137,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchPlace": MessageLookupByLibrary.simpleMessage("Paieškos vieta"),
         "searchingAddress":
             MessageLookupByLibrary.simpleMessage("Ieškomas adresas"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("Matyti viską"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "Ir toliau pamatysite naują turinį programoje."),
@@ -1176,7 +1195,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopPhone":
             MessageLookupByLibrary.simpleMessage("Parduotuvės telefonas"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("Parduotuvės šliužas"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription":
             MessageLookupByLibrary.simpleMessage("Trumpas aprašymas"),
         "showAllMyOrdered":
@@ -1197,7 +1216,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("Slovakų"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "SMS kodas baigėsi. Iš naujo išsiųskite patvirtinimo kodą ir bandykite dar kartą."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("Pardavė"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "Kažkas negerai. Pabandykite dar kartą vėliau."),
@@ -1272,7 +1291,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Norėdami kalbėti, bakstelėkite mikrofoną"),
         "tax": MessageLookupByLibrary.simpleMessage("Mokesčiai"),
         "thailand": MessageLookupByLibrary.simpleMessage("Tailandietis"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("Ši data nepasiekiama"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1297,7 +1316,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Iš viso"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "Bendra užsakymo vertė turi būti bent"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("Visas mokestis"),
         "trackingNumberIs":
             MessageLookupByLibrary.simpleMessage("Stebėjimo numeris yra"),
@@ -1351,6 +1370,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Įkelti produktą"),
         "uploading": MessageLookupByLibrary.simpleMessage("Įkeliama"),
         "url": MessageLookupByLibrary.simpleMessage("Url"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("Naudokite dabar"),
         "useThisImage":
             MessageLookupByLibrary.simpleMessage("Naudokite šį paveikslėlį"),
@@ -1364,7 +1384,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "vacationMessage":
             MessageLookupByLibrary.simpleMessage("Atostogų žinutė"),
         "vacationType": MessageLookupByLibrary.simpleMessage("Atostogų tipas"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("Kintamasis"),
         "variation": MessageLookupByLibrary.simpleMessage("Variacija"),
         "vendor": MessageLookupByLibrary.simpleMessage("Pardavėjas"),
@@ -1395,11 +1415,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Piniginės likutis"),
         "walletName":
             MessageLookupByLibrary.simpleMessage("Piniginės pavadinimas"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs": MessageLookupByLibrary.simpleMessage(
             "Mes radome tinklaraštį (-us)"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "Mums reikia prieigos prie fotoaparato, kad galėtume nuskaityti QR kodą arba brūkšninį kodą."),
         "weSentAnOTPTo": MessageLookupByLibrary.simpleMessage(
@@ -1407,24 +1427,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "Mes atsiųsime jums pranešimus, kai bus naujų produktų ar pasiūlymų. Visada galite jį išjungti nustatymuose."),
         "webView": MessageLookupByLibrary.simpleMessage("Žiniatinklio rodinys"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("Sveiki"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer": MessageLookupByLibrary.simpleMessage(
             "Kuri kalba jums labiau patinka?"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "Susisiekite su administratoriumi, kad patvirtintų jūsų registraciją."),
         "womanCollections":
             MessageLookupByLibrary.simpleMessage("Moterų kolekcijos"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("Parašyk savo komentarą"),
         "writeYourNote":
             MessageLookupByLibrary.simpleMessage("Parašykite savo pastabą"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("Taip"),
         "youCanOnlyOrderSingleStore": MessageLookupByLibrary.simpleMessage(
             "Galite nusipirkti tik vienoje parduotuvėje."),
         "youCanOnlyPurchase":
             MessageLookupByLibrary.simpleMessage("Galite įsigyti tik"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal": MessageLookupByLibrary.simpleMessage(
             "Sėkmingai išsaugojote adresą vietiniame faile!"),
         "youHavePoints":

@@ -374,8 +374,8 @@ abstract class BaseFrameworks {
     BuildContext context, {
     Function? onBack,
     Function? onNext,
-    Function? onFinish,
-    Function(bool)? onLoading,
+    required Function onFinish,
+    required Function(bool) onLoading,
   }) {
     return ShippingMethods(
       onBack: onBack,

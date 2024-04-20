@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/config.dart';
@@ -307,10 +308,12 @@ class _ReviewState extends BaseScreen<ReviewScreen> {
                   CupertinoIcons.creditcard,
                   size: 18,
                 ),
-                label: Text(S.of(context).continueToPayment.toUpperCase()),
+                label: Text(S.of(context).continueToPayment.toUpperCase(),
+                  style: TextStyle(fontFamily: GoogleFonts.cairo().fontFamily)),
+                ),
               ),
             ),
-          ),
+
         ],
       ),
     );

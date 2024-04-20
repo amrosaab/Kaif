@@ -30,76 +30,81 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "Mata uang diubah menjadi ${currency}";
 
-  static String m5(currency) => "${currency} tidak didukung";
+  static String m5(priceRate, pointRate) => "${priceRate} = ${pointRate} Poin";
 
-  static String m6(day) => "${day} days ago";
+  static String m6(currency) => "${currency} tidak didukung";
 
-  static String m7(total) => "~${total} km";
+  static String m7(day) => "${day} days ago";
 
-  static String m8(timeLeft) => "Ends in ${timeLeft}";
+  static String m8(total) => "~${total} km";
 
-  static String m9(captcha) => "Masukkan ${captcha} untuk mengonfirmasi:";
+  static String m9(timeLeft) => "Ends in ${timeLeft}";
 
-  static String m10(message) => "Galat: ${message}";
+  static String m10(captcha) => "Masukkan ${captcha} untuk mengonfirmasi:";
 
-  static String m11(time) => "Kedaluwarsa dalam ${time}";
+  static String m11(message) => "Galat: ${message}";
 
-  static String m12(total) => ">${total} km";
+  static String m12(time) => "Kedaluwarsa dalam ${time}";
 
-  static String m13(hour) => "${hour} hours ago";
+  static String m13(total) => ">${total} km";
 
-  static String m14(message) =>
+  static String m14(hour) => "${hour} hours ago";
+
+  static String m15(message) =>
       "There is an issue with the app during request the data, please contact admin for fixing the issues: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "Jumlah maksimum untuk menggunakan pembayaran ini adalah {${currency}} {${amount}}";
 
-  static String m16(size) => "Ukuran file maksimum: ${size} MB";
+  static String m17(size) => "Ukuran file maksimum: ${size} MB";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "Jumlah minimum untuk menggunakan pembayaran ini adalah {${currency}} {${amount}}";
 
-  static String m18(minute) => "${minute} minutes ago";
+  static String m19(minute) => "${minute} minutes ago";
 
-  static String m19(month) => "${month} bulan yang lalu";
+  static String m20(month) => "${month} bulan yang lalu";
 
-  static String m20(store) => "Lainnya dari ${store}";
+  static String m21(store) => "Lainnya dari ${store}";
 
-  static String m21(itemCount) => "${itemCount} barang";
+  static String m22(itemCount) => "${itemCount} barang";
 
-  static String m22(price) => "Total opsi: ${price}";
+  static String m23(price) => "Total opsi: ${price}";
 
-  static String m23(total) => "Jumlah: ${total}";
+  static String m24(total) => "Jumlah: ${total}";
 
-  static String m24(percent) => "Diskon ${percent} %";
+  static String m25(percent) => "Diskon ${percent} %";
 
-  static String m25(second) => "${second} seconds ago";
+  static String m26(second) => "${second} seconds ago";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "Shopping cart, ${totalCartQuantity} items";
 
-  static String m27(numberOfUnitsSold) => "Sold: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "Sold: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => "Bidang ${fieldName} wajib diisi";
+  static String m29(fieldName) => "Bidang ${fieldName} wajib diisi";
 
-  static String m29(total) => "${total} produk";
+  static String m30(total) => "${total} produk";
 
-  static String m30(date) => "Berlaku sampai ${date}";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "Gunakan maksimum ${maxPointDiscount} Poin untuk diskon ${maxPriceDiscount} pada pesanan ini!";
 
-  static String m31(message) => "Warning: ${message}";
+  static String m32(date) => "Berlaku sampai ${date}";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "Warning: ${message}";
+
+  static String m34(defaultCurrency) =>
       "Mata uang yang dipilih saat ini tidak tersedia untuk fitur Wallet, harap ubah ke ${defaultCurrency}";
 
-  static String m33(length) => "Kami menemukan produk ${length}";
+  static String m35(length) => "Kami menemukan produk ${length}";
 
-  static String m34(week) => "Minggu ${week}";
+  static String m36(week) => "Minggu ${week}";
 
-  static String m35(name) => "Selamat datang ${name}";
+  static String m37(name) => "Selamat datang ${name}";
 
-  static String m36(year) => "${year} tahun lalu";
+  static String m38(year) => "${year} tahun lalu";
 
-  static String m37(total) => "Anda telah menetapkan untuk memesan #${total}";
+  static String m39(total) => "Anda telah menetapkan untuk memesan #${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -349,6 +354,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Lanjutkan Pengiriman"),
         "continues": MessageLookupByLibrary.simpleMessage("Terus"),
         "conversations": MessageLookupByLibrary.simpleMessage("Percakapan"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("Disalin"),
         "copy": MessageLookupByLibrary.simpleMessage("Salinan"),
         "country": MessageLookupByLibrary.simpleMessage("Negara"),
@@ -371,7 +377,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Buat semua varian"),
         "createdOn": MessageLookupByLibrary.simpleMessage("Dibuat pada:"),
         "currencies": MessageLookupByLibrary.simpleMessage("Mata Uang"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("kata sandi saat ini"),
         "currentlyWeOnlyHave":
@@ -398,7 +404,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateTime": MessageLookupByLibrary.simpleMessage("Tanggal Waktu"),
         "dateWiseClose":
             MessageLookupByLibrary.simpleMessage("Tanggal bijaksana dekat"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("Debet"),
         "decline": MessageLookupByLibrary.simpleMessage("Menurun"),
         "delete": MessageLookupByLibrary.simpleMessage("Hapus"),
@@ -428,7 +434,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Nonaktifkan pembelian"),
         "discount": MessageLookupByLibrary.simpleMessage("Diskon"),
         "displayName": MessageLookupByLibrary.simpleMessage("Nama Tampilan"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions": MessageLookupByLibrary.simpleMessage(
             "Anda belum memiliki transaksi apapun"),
         "doYouWantToExitApp": MessageLookupByLibrary.simpleMessage(
@@ -484,9 +490,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Aktifkan mode liburan"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "Silakan pilih tanggal setelah kencan pertama"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("Bahasa Inggris"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("Enter the code sent to"),
         "enterYourEmail":
@@ -505,7 +511,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Masukkan nomor telepon Anda untuk memulai."),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Masukkan nomor telepon Anda"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "Jumlah yang dimasukkan lebih besar dari jumlah dompet saat ini. Silakan coba lagi!"),
         "errorEmailFormat":
@@ -520,7 +526,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expiredDate":
             MessageLookupByLibrary.simpleMessage("Tanggal kadaluarsa"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("MM / YY"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("Luar"),
         "extraServices": MessageLookupByLibrary.simpleMessage("Layanan Ekstra"),
         "failToAssign":
@@ -532,6 +538,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage":
             MessageLookupByLibrary.simpleMessage("Gagal memuat gambar"),
         "favorite": MessageLookupByLibrary.simpleMessage("Favorit"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("Fitur tidak tersedia"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage("Produk Pilihan"),
         "featured": MessageLookupByLibrary.simpleMessage("Unggulan"),
@@ -586,7 +594,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kembali ke ulasan"),
         "goBackToShipping":
             MessageLookupByLibrary.simpleMessage("Kembali ke pengiriman"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("Yunani"),
         "grossSales": MessageLookupByLibrary.simpleMessage("Penjualan kotor"),
         "grouped": MessageLookupByLibrary.simpleMessage("Dikelompokkan"),
@@ -608,7 +616,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("Sejarah"),
         "home": MessageLookupByLibrary.simpleMessage("Rumah"),
         "hour": MessageLookupByLibrary.simpleMessage("Jam"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("Hongaria"),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
         "iAgree": MessageLookupByLibrary.simpleMessage("saya setuju dengan"),
@@ -678,7 +686,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Masuk"),
         "loginCanceled":
             MessageLookupByLibrary.simpleMessage("The login was canceled"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed": MessageLookupByLibrary.simpleMessage("Gagal masuk!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
             "Anda tidak diizinkan menggunakan aplikasi ini."),
@@ -693,6 +701,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "malay": MessageLookupByLibrary.simpleMessage("Melayu"),
         "manCollections":
             MessageLookupByLibrary.simpleMessage("Man Collections"),
+        "manageApiKey":
+            MessageLookupByLibrary.simpleMessage("Kelola Kunci API"),
         "manageStock": MessageLookupByLibrary.simpleMessage("Kelola stok"),
         "map": MessageLookupByLibrary.simpleMessage("Peta"),
         "marathi": MessageLookupByLibrary.simpleMessage("Marathi"),
@@ -702,22 +712,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tandai sebagai terkirim"),
         "markAsUnread":
             MessageLookupByLibrary.simpleMessage("Tandai sebagai Belum dibaca"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("Mungkin Nanti"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("Urutan menu"),
         "message": MessageLookupByLibrary.simpleMessage("Mensaje"),
         "messageTo": MessageLookupByLibrary.simpleMessage("Kirim Pesan Ke"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("Minimum quantity is"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification":
             MessageLookupByLibrary.simpleMessage("Verifikasi Seluler"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("beberapa saat"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...lebih"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation":
             MessageLookupByLibrary.simpleMessage("Informasi lebih lanjut"),
         "morning": MessageLookupByLibrary.simpleMessage("pagi"),
@@ -730,7 +740,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Anda tidak memiliki produk apa pun. Cobalah untuk membuatnya!"),
         "myWallet": MessageLookupByLibrary.simpleMessage("Dompetku"),
         "myWishList": MessageLookupByLibrary.simpleMessage("Kesukaanku"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("Nama"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("Nearby Places"),
         "needToLoginAgain": MessageLookupByLibrary.simpleMessage(
@@ -765,6 +775,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby": MessageLookupByLibrary.simpleMessage(
             "Tidak ada daftar di sekitar!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("Tidak Ada Pesanan"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "Produk ini tersedia untuk pengguna dengan peran tertentu. Silakan masuk dengan kredensial yang sesuai untuk mengakses produk ini atau hubungi kami untuk informasi lebih lanjut."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "Opps, this page seems no longer exist!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("Tidak Ada Printer"),
@@ -776,6 +788,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tidak ada slot yang tersedia"),
         "noThanks": MessageLookupByLibrary.simpleMessage("Tidak, Terima Kasih"),
         "none": MessageLookupByLibrary.simpleMessage("Tidak ada"),
+        "notFindResult": MessageLookupByLibrary.simpleMessage(
+            "Maaf, kami tidak dapat menemukan hasil apa pun."),
         "notFound": MessageLookupByLibrary.simpleMessage("Not Found"),
         "note": MessageLookupByLibrary.simpleMessage("Catatan pesanan"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("Catatan"),
@@ -795,7 +809,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("Buka Peta"),
         "openNow": MessageLookupByLibrary.simpleMessage("Buka sekarang"),
         "options": MessageLookupByLibrary.simpleMessage("Pilihan"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("ATAU"),
         "orLoginWith":
             MessageLookupByLibrary.simpleMessage("atau masuk dengan"),
@@ -989,6 +1003,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Variabel jenis produk membutuhkan setidaknya satu varian"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "Jenis produk sederhana membutuhkan nama dan harga reguler"),
+        "productOutOfStock": MessageLookupByLibrary.simpleMessage(
+            "Ada produk yang kehabisan stok"),
         "productRating": MessageLookupByLibrary.simpleMessage("Penilaianmu"),
         "productReview": MessageLookupByLibrary.simpleMessage("Ulasan Produk"),
         "productType": MessageLookupByLibrary.simpleMessage("Tipe produk"),
@@ -997,7 +1013,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore": MessageLookupByLibrary.simpleMessage(
             "Tarik untuk Muat lebih banyak"),
         "qty": MessageLookupByLibrary.simpleMessage("Jml"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "Kuantitas saat ini lebih dari kuantitas dalam stok"),
         "rate": MessageLookupByLibrary.simpleMessage("Ulas"),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("Beri Peringkat Aplikasi"),
@@ -1071,7 +1089,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Ulasan"),
         "romanian": MessageLookupByLibrary.simpleMessage("Rumania"),
         "russian": MessageLookupByLibrary.simpleMessage("Russian"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("Harga penjualan"),
         "save": MessageLookupByLibrary.simpleMessage("Menyimpan"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("Simpan Alamat"),
@@ -1098,7 +1116,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchPlace": MessageLookupByLibrary.simpleMessage("Search Place"),
         "searchingAddress":
             MessageLookupByLibrary.simpleMessage("Mencari Alamat"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("Lihat semua"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "Terus lihat konten baru di aplikasi Anda."),
@@ -1144,7 +1162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopOrders": MessageLookupByLibrary.simpleMessage("Pesanan Toko"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("Telepon toko"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("Belanja siput"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription":
             MessageLookupByLibrary.simpleMessage("Deskripsi Singkat"),
         "showAllMyOrdered": MessageLookupByLibrary.simpleMessage(
@@ -1167,7 +1185,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("Orang Slovakia"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "Kode SMS telah kedaluwarsa. Kirim ulang kode verifikasi untuk mencoba lagi."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("Sold by"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "Ada yang salah. Silakan coba lagi nanti."),
@@ -1237,7 +1255,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Ketuk mikrofon untuk berbicara"),
         "tax": MessageLookupByLibrary.simpleMessage("Pajak"),
         "thailand": MessageLookupByLibrary.simpleMessage("Thai"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("Tanggal ini tidak tersedia"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1260,7 +1278,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Total"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "Total order\'s value must be at least"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("Total pajak"),
         "trackingNumberIs":
             MessageLookupByLibrary.simpleMessage("Nomor pelacakan adalah"),
@@ -1311,6 +1329,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadProduct": MessageLookupByLibrary.simpleMessage("Unggah Produk"),
         "uploading": MessageLookupByLibrary.simpleMessage("Mengunggah"),
         "url": MessageLookupByLibrary.simpleMessage("URL"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("Gunakan sekarang"),
         "useThisImage":
             MessageLookupByLibrary.simpleMessage("Gunakan Gambar ini"),
@@ -1324,7 +1343,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "vacationMessage":
             MessageLookupByLibrary.simpleMessage("Pesan Liburan"),
         "vacationType": MessageLookupByLibrary.simpleMessage("Jenis liburan"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("Variabel"),
         "variation": MessageLookupByLibrary.simpleMessage("Variasi"),
         "vendor": MessageLookupByLibrary.simpleMessage("Penjaja"),
@@ -1350,11 +1369,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("menunggu konfirmasi"),
         "walletBalance": MessageLookupByLibrary.simpleMessage("Saldo Wallet"),
         "walletName": MessageLookupByLibrary.simpleMessage("Nama dompet"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs":
             MessageLookupByLibrary.simpleMessage("Kami Menemukan Blog"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "Kami membutuhkan akses kamera untuk memindai kode QR atau kode batang."),
         "weSentAnOTPTo": MessageLookupByLibrary.simpleMessage(
@@ -1362,24 +1381,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "Kami akan mengirimkan pemberitahuan ketika produk baru tersedia atau penawaran tersedia. Anda selalu dapat mengubah pengaturan ini di pengaturan."),
         "webView": MessageLookupByLibrary.simpleMessage("Tampilan Web"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("Selamat Datang"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("Bahasa apa yang Anda sukai?"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "Silakan hubungi administrator untuk menyetujui pendaftaran Anda."),
         "womanCollections":
             MessageLookupByLibrary.simpleMessage("Woman Collections"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("Tulis komentar Anda"),
         "writeYourNote":
             MessageLookupByLibrary.simpleMessage("Tulis catatan Anda"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "youCanOnlyOrderSingleStore": MessageLookupByLibrary.simpleMessage(
             "Anda hanya dapat membeli dari satu toko."),
         "youCanOnlyPurchase":
             MessageLookupByLibrary.simpleMessage("Anda hanya bisa membeli"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal": MessageLookupByLibrary.simpleMessage(
             "Anda telah menyimpan alamat di lokal Anda"),
         "youHavePoints":

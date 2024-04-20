@@ -6,7 +6,7 @@ import '../../../common/config.dart';
 import '../../../common/constants/country_phone_codes.dart';
 
 class SelectedCountryModel extends ChangeNotifier {
-  String selectedIsoCode = kPhoneNumberConfig.countryCodeDefault;
+  String selectedIsoCode = phoneNumecode;
 
   String get dialCode {
     return countryPhoneCodes.firstWhereOrNull(
@@ -15,8 +15,10 @@ class SelectedCountryModel extends ChangeNotifier {
   }
 
   void onInputChanged(PhoneNumber phoneNumber) {
+    print("cxvxcvcxvcxvvc");
     final isoCode = phoneNumber.isoCode;
     if (isoCode != null && isoCode != selectedIsoCode) {
+      phoneNumecode=isoCode;
       selectedIsoCode = isoCode;
       notifyListeners();
     }

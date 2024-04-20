@@ -1,9 +1,11 @@
 import 'dart:async';
 
+import 'package:provider/provider.dart';
 import 'package:quiver/strings.dart';
 
 import '../../../common/config.dart';
 import '../../../data/boxes.dart';
+import '../../../screens/checkout/widgets/selected_country_model.dart';
 import '../../../services/index.dart';
 import '../../entities/address.dart';
 import '../../entities/shipping_method.dart';
@@ -16,6 +18,7 @@ mixin AddressMixin on CartMixin {
   void saveShippingAddress(Address? address, String isoCode) {
     AddressBox().setShippingAddress(address, isoCode);
   }
+
 
   Future<Address?> getShippingAddress(String isoCode) async {
     if (ServerConfig().isVendorManagerType()) {
@@ -46,9 +49,9 @@ mixin AddressMixin on CartMixin {
 
           return Address(
             firstName:
-                user.billing != null && user.billing!.firstName!.isNotEmpty
-                    ? user.billing!.firstName
-                    : user.firstName,
+            user.billing != null && user.billing!.firstName!.isNotEmpty
+                ? user.billing!.firstName
+                : user.firstName,
             lastName: user.billing != null && user.billing!.lastName!.isNotEmpty
                 ? user.billing!.lastName
                 : user.lastName,
@@ -92,12 +95,20 @@ mixin AddressMixin on CartMixin {
     address = null;
   }
 
-  void setAddress(Address? data, {String? isoCode}) {
-    address = data;
-    final selectedIsoCode = isoCode ?? kPhoneNumberConfig.countryCodeDefault;
-    saveShippingAddress(data, selectedIsoCode);
+  setxx(){
+
   }
 
+  setAddress(Address? data, {String? isoCode}) {
+    print("nnnmnnnnbb")                          ;
+    ///
+    address = data;
+    final selectedIsoCode = isoCode ?? kPhoneNumberConfig.countryCodeDefault;
+    // Provider.of<SelectedCountryModel>(context, listen: false)
+    // saveShippingAddress(data, selectedIsoCode);
+  }
+
+  ///
   Future<Address?> getAddress(String selectedIsoCode) async {
     address = await getShippingAddress(selectedIsoCode);
     return address;

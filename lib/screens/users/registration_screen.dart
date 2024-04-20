@@ -1,5 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/config.dart';
@@ -438,6 +440,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                                     child: Text(
                                       S.of(context).loginToYourAccount,
                                       style: TextStyle(
+                  fontFamily: GoogleFonts.cairo().fontFamily,
                                         color: Theme.of(context).primaryColor,
                                         decoration: TextDecoration.underline,
                                         fontSize: 15,

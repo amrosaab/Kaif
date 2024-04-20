@@ -30,76 +30,81 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "Promijenjena valuta u ${currency}";
 
-  static String m5(currency) => "${currency} није подржан";
+  static String m5(priceRate, pointRate) => "${priceRate} = ${pointRate} поена";
 
-  static String m6(day) => "Пре ${day} Данa";
+  static String m6(currency) => "${currency} није подржан";
 
-  static String m7(total) => "~${total} km";
+  static String m7(day) => "Пре ${day} Данa";
 
-  static String m8(timeLeft) => "Завршава се у${timeLeft}";
+  static String m8(total) => "~${total} km";
 
-  static String m9(captcha) => "Unesite ${captcha} da potvrdite:";
+  static String m9(timeLeft) => "Завршава се у${timeLeft}";
 
-  static String m10(message) => "Fehler: ${message}";
+  static String m10(captcha) => "Unesite ${captcha} da potvrdite:";
 
-  static String m11(time) => "Истиче ${time}";
+  static String m11(message) => "Fehler: ${message}";
 
-  static String m12(total) => ">${total} km";
+  static String m12(time) => "Истиче ${time}";
 
-  static String m13(hour) => "Пре ${hour} Сати";
+  static String m13(total) => ">${total} km";
 
-  static String m14(message) =>
+  static String m14(hour) => "Пре ${hour} Сати";
+
+  static String m15(message) =>
       "Дошло је до грешке у апликацији приликом преузимања података, контактирајте администратора у вези са поруком: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "Максимални износ за коришћење ове уплате је {${currency}} {${amount}}";
 
-  static String m16(size) => "Maksimalna veličina datoteke: ${size} MB";
+  static String m17(size) => "Maksimalna veličina datoteke: ${size} MB";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "Минимални износ за коришћење ове уплате је {${currency}} {${amount}}";
 
-  static String m18(minute) => "Пре ${minute} Minuten";
+  static String m19(minute) => "Пре ${minute} Minuten";
 
-  static String m19(month) => " Prije${month} mjeseci";
+  static String m20(month) => " Prije${month} mjeseci";
 
-  static String m20(store) => "Više od ${store}";
+  static String m21(store) => "Više od ${store}";
 
-  static String m21(itemCount) => "${itemCount} Ставка";
+  static String m22(itemCount) => "${itemCount} Ставка";
 
-  static String m22(price) => "Укупно опција: ${price}";
+  static String m23(price) => "Укупно опција: ${price}";
 
-  static String m23(total) => "Količina: ${total}";
+  static String m24(total) => "Količina: ${total}";
 
-  static String m24(percent) => "Распродај ${percent} %";
+  static String m25(percent) => "Распродај ${percent} %";
 
-  static String m25(second) => "Пре ${second} Минута";
+  static String m26(second) => "Пре ${second} Минута";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "корпа, ${totalCartQuantity} предмета";
 
-  static String m27(numberOfUnitsSold) => "продато: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "продато: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => "Polje ${fieldName} je obavezno";
+  static String m29(fieldName) => "Polje ${fieldName} je obavezno";
 
-  static String m29(total) => "${total} proizvoda";
+  static String m30(total) => "${total} proizvoda";
 
-  static String m30(date) => "Датум истека ${date}";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "Искористите максимално ${maxPointDiscount} поена за попуст од ${maxPriceDiscount} на ову поруџбину!";
 
-  static String m31(message) => "упозорење: ${message}";
+  static String m32(date) => "Датум истека ${date}";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "упозорење: ${message}";
+
+  static String m34(defaultCurrency) =>
       "Trenutno odabrana valuta nije dostupna za funkciju Novčanik, promijenite je u ${defaultCurrency}";
 
-  static String m33(length) => "Пронашли смо производе";
+  static String m35(length) => "Пронашли смо производе";
 
-  static String m34(week) => " ${week}. Sedmica";
+  static String m36(week) => " ${week}. Sedmica";
 
-  static String m35(name) => "Добро дошли ${name}";
+  static String m37(name) => "Добро дошли ${name}";
 
-  static String m36(year) => " Prije${year} godina";
+  static String m38(year) => " Prije${year} godina";
 
-  static String m37(total) => "Dodijelili ste narudžbi br.${total}";
+  static String m39(total) => "Dodijelili ste narudžbi br.${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -346,6 +351,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Наставите са испоруком"),
         "continues": MessageLookupByLibrary.simpleMessage("Настави"),
         "conversations": MessageLookupByLibrary.simpleMessage("разговора"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("Копирано"),
         "copy": MessageLookupByLibrary.simpleMessage("kopiraj"),
         "country": MessageLookupByLibrary.simpleMessage("земља"),
@@ -369,7 +375,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kreirajte sve varijante"),
         "createdOn": MessageLookupByLibrary.simpleMessage("Направљено дана:"),
         "currencies": MessageLookupByLibrary.simpleMessage("Валуте"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Тренутна лозинка"),
         "currentlyWeOnlyHave":
@@ -395,7 +401,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateTime": MessageLookupByLibrary.simpleMessage("Datum i vrijeme"),
         "dateWiseClose":
             MessageLookupByLibrary.simpleMessage("Datum je mudro zatvoren"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("Debit"),
         "decline": MessageLookupByLibrary.simpleMessage("Odbiti"),
         "delete": MessageLookupByLibrary.simpleMessage("Izbriši"),
@@ -422,7 +428,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Onemogućite kupovinu"),
         "discount": MessageLookupByLibrary.simpleMessage("Попуст"),
         "displayName": MessageLookupByLibrary.simpleMessage("Anzeigename"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions": MessageLookupByLibrary.simpleMessage(
             "Još nemate nijednu transakciju"),
         "doYouWantToExitApp": MessageLookupByLibrary.simpleMessage(
@@ -478,9 +484,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Omogućite način odmora"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "Molimo odaberite datum nakon prvog datuma"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("Eнглески језик"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("Унесите код послан СМС-ом"),
         "enterYourEmail": MessageLookupByLibrary.simpleMessage("Унесите емаил"),
@@ -498,7 +504,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Unesite svoj broj telefona da započnete."),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Unesite svoj broj telefona"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "Uneseni iznos veći je od trenutnog iznosa novčanika. Molimo pokušajte ponovo!"),
         "errorEmailFormat": MessageLookupByLibrary.simpleMessage(
@@ -512,7 +518,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expired": MessageLookupByLibrary.simpleMessage("Истекло"),
         "expiredDate": MessageLookupByLibrary.simpleMessage("Истекао рок"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("ММ / ГГ"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("Vanjski"),
         "extraServices": MessageLookupByLibrary.simpleMessage("додатне услуге"),
         "failToAssign": MessageLookupByLibrary.simpleMessage(
@@ -524,6 +530,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage": MessageLookupByLibrary.simpleMessage(
             "Učitavanje slike nije uspjelo"),
         "favorite": MessageLookupByLibrary.simpleMessage("Favorite"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("Функција није доступна"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage("Besondere Produkte"),
         "featured": MessageLookupByLibrary.simpleMessage("Представљено"),
@@ -576,7 +584,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Повратак на испоруку"),
         "goBackToShipping":
             MessageLookupByLibrary.simpleMessage("Zurück zum Versand"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("Grčki"),
         "grossSales": MessageLookupByLibrary.simpleMessage("Бруто продаје"),
         "grouped": MessageLookupByLibrary.simpleMessage("Grupisano"),
@@ -594,7 +602,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("istorija"),
         "home": MessageLookupByLibrary.simpleMessage("Код куће"),
         "hour": MessageLookupByLibrary.simpleMessage("сат"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("Мађарски"),
         "hungary": MessageLookupByLibrary.simpleMessage("Мађарски"),
         "iAgree": MessageLookupByLibrary.simpleMessage("слажем се"),
@@ -665,7 +673,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Пријавите се"),
         "loginCanceled":
             MessageLookupByLibrary.simpleMessage("Пријава отказана"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed":
             MessageLookupByLibrary.simpleMessage("Prijava nije uspjela!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
@@ -682,6 +690,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "malay": MessageLookupByLibrary.simpleMessage("Malajski"),
         "manCollections":
             MessageLookupByLibrary.simpleMessage("Мушка колекција"),
+        "manageApiKey":
+            MessageLookupByLibrary.simpleMessage("Управљајте АПИ кључем"),
         "manageStock":
             MessageLookupByLibrary.simpleMessage("Управљање складиштем"),
         "map": MessageLookupByLibrary.simpleMessage("Мапа"),
@@ -692,22 +702,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Označi kao isporučeno"),
         "markAsUnread":
             MessageLookupByLibrary.simpleMessage("Označi kao nepročitano"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("Касније"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("Редослед менија"),
         "message": MessageLookupByLibrary.simpleMessage("Порука"),
         "messageTo": MessageLookupByLibrary.simpleMessage("Pošalji poruku na"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("Минимални износ је"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification":
             MessageLookupByLibrary.simpleMessage("Mobilna verifikacija"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("maloprije"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...Више"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation":
             MessageLookupByLibrary.simpleMessage("Više informacija"),
         "morning": MessageLookupByLibrary.simpleMessage("Jutro"),
@@ -720,7 +730,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Немате производа. Покушајте да га направите!"),
         "myWallet": MessageLookupByLibrary.simpleMessage("Moj novčanik"),
         "myWishList": MessageLookupByLibrary.simpleMessage("Моја листа жеља"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("Презиме"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("Близу мене"),
         "needToLoginAgain": MessageLookupByLibrary.simpleMessage(
@@ -755,6 +765,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby":
             MessageLookupByLibrary.simpleMessage("Nema oglasa u blizini!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("нема поруџбине"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "Овај производ је доступан корисницима са одређеним улогама. Пријавите се са одговарајућим акредитивима да бисте приступили овом производу или нас контактирајте за више информација."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "Упс, ова страница више не постоји!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("Nema štampača"),
@@ -766,6 +778,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ниједан слот није доступан"),
         "noThanks": MessageLookupByLibrary.simpleMessage("Не хвала"),
         "none": MessageLookupByLibrary.simpleMessage("Ниједан"),
+        "notFindResult": MessageLookupByLibrary.simpleMessage(
+            "Жао нам је, нисмо могли да пронађемо ниједан резултат."),
         "notFound": MessageLookupByLibrary.simpleMessage("Није пронађен"),
         "note": MessageLookupByLibrary.simpleMessage("Napomena o porudžbini"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("Bilješka"),
@@ -784,7 +798,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("Mapa"),
         "openNow": MessageLookupByLibrary.simpleMessage("Otvorite sada"),
         "options": MessageLookupByLibrary.simpleMessage("Опције"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("или"),
         "orLoginWith":
             MessageLookupByLibrary.simpleMessage("Или се пријавите са"),
@@ -980,6 +994,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Varijabla tipa proizvoda treba barem jednu varijantu"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "Za tip proizvoda jednostavno je potrebno ime i redovna cijena"),
+        "productOutOfStock":
+            MessageLookupByLibrary.simpleMessage("Производа нема на лагеру"),
         "productRating": MessageLookupByLibrary.simpleMessage("Твој рејтинг"),
         "productReview":
             MessageLookupByLibrary.simpleMessage("Преглед производа"),
@@ -989,7 +1005,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore": MessageLookupByLibrary.simpleMessage(
             "Превуците нагоре да бисте видели више"),
         "qty": MessageLookupByLibrary.simpleMessage("износ"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "Тренутна количина је већа од количине на залихама"),
         "rate": MessageLookupByLibrary.simpleMessage("Оцените"),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("Оцените апликацију"),
@@ -1065,7 +1083,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("коментара"),
         "romanian": MessageLookupByLibrary.simpleMessage("Румунски"),
         "russian": MessageLookupByLibrary.simpleMessage("Руски"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("Продајна цена"),
         "save": MessageLookupByLibrary.simpleMessage("Spremi"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("Сачувај адресу"),
@@ -1093,7 +1111,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Претражите по локацији"),
         "searchingAddress":
             MessageLookupByLibrary.simpleMessage("Претражи адресу"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("Покажи све"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "Наставите да видите нови садржај у својој апликацији."),
@@ -1146,7 +1164,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopPhone":
             MessageLookupByLibrary.simpleMessage("Telefon za kupovinu"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("Shop slug"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription": MessageLookupByLibrary.simpleMessage("Кратак опис"),
         "showAllMyOrdered":
             MessageLookupByLibrary.simpleMessage("појавите све моје поруџбине"),
@@ -1166,7 +1184,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("slovački"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "СМС код је истекао. Поново пошаљите верификациони код да бисте покушали поново."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("Продаје"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "Nešto nije u redu. Pokušajte ponovo kasnije."),
@@ -1239,7 +1257,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Додирните микрофон да бисте разговарали"),
         "tax": MessageLookupByLibrary.simpleMessage("порез"),
         "thailand": MessageLookupByLibrary.simpleMessage("Тхаи"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("Овај датум није доступан"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1262,7 +1280,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Укупно"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "Укупан износ куповине мора бити најмање"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("укупан порез"),
         "trackingNumberIs": MessageLookupByLibrary.simpleMessage("редни број"),
         "trackingPage":
@@ -1316,6 +1334,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Отпремите производ"),
         "uploading": MessageLookupByLibrary.simpleMessage("Uploading"),
         "url": MessageLookupByLibrary.simpleMessage("URL"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("Користите сада"),
         "useThisImage":
             MessageLookupByLibrary.simpleMessage("Koristite ovu sliku"),
@@ -1329,7 +1348,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "vacationMessage":
             MessageLookupByLibrary.simpleMessage("Poruka za odmor"),
         "vacationType": MessageLookupByLibrary.simpleMessage("Vrsta odmora"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("Variable"),
         "variation": MessageLookupByLibrary.simpleMessage("Varijacija"),
         "vendor": MessageLookupByLibrary.simpleMessage("Вендор"),
@@ -1358,11 +1377,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "walletBalance":
             MessageLookupByLibrary.simpleMessage("Stanje novčanika"),
         "walletName": MessageLookupByLibrary.simpleMessage("Naziv novčanika"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs":
             MessageLookupByLibrary.simpleMessage("Pronašli smo blogove"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "Potreban nam je pristup kameri da skeniramo QR kod ili Bar kod."),
         "weSentAnOTPTo": MessageLookupByLibrary.simpleMessage(
@@ -1370,24 +1389,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "Poslat ćemo vam obavještenja kada novi proizvodi budu dostupni ili ponude. Ovu postavku uvijek možete promijeniti u postavkama."),
         "webView": MessageLookupByLibrary.simpleMessage("Web View"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("Добродошли"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("Који језик више волите?"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "Обратите се администратору да вам одобри регистрацију."),
         "womanCollections":
             MessageLookupByLibrary.simpleMessage("Женска колекција"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("Напишите свој коментар"),
         "writeYourNote":
             MessageLookupByLibrary.simpleMessage("Напишите своју белешку"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("да"),
         "youCanOnlyOrderSingleStore": MessageLookupByLibrary.simpleMessage(
             "Možete kupiti samo u jednoj trgovini."),
         "youCanOnlyPurchase":
             MessageLookupByLibrary.simpleMessage("Можете само купити"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal": MessageLookupByLibrary.simpleMessage(
             "Ваша адреса је сачувана локално"),
         "youHavePoints": MessageLookupByLibrary.simpleMessage("имате бодове"),

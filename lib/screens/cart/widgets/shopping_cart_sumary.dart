@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 
@@ -301,10 +302,10 @@ class _ShoppingCartSummaryState extends State<ShoppingCartSummary> {
       decoration: widget.cartStyle.isStyle01
           ? BoxDecoration(
         color: Theme.of(context).cardColor,
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(16),
       )
           : null,
-      padding: const EdgeInsets.symmetric(horizontal: 10),
+      padding: const EdgeInsets.symmetric(horizontal: 15.0, vertical: 8.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
@@ -369,19 +370,21 @@ class _ShoppingCartSummaryState extends State<ShoppingCartSummary> {
           ElevatedButton.icon(
             style: ElevatedButton.styleFrom(
               foregroundColor: Theme.of(context).primaryColor,
-              backgroundColor: Theme.of(context).primaryColorLight,
+              backgroundColor:Theme.of(context).brightness == Brightness.dark?Colors.grey.withOpacity(.1): Theme.of(context).primaryColorLight,
+
               elevation: 0.0,
               padding: const EdgeInsets.symmetric(
                 horizontal: 8,
               ),
             ),
             label: Text(
+
               cartModel.calculatingDiscount
                   ? S.of(context).loading
                   : !isApplyCouponSuccess
                   ? S.of(context).apply
                   : S.of(context).remove,
-            ),
+            style: TextStyle(fontFamily: GoogleFonts.cairo().fontFamily),),
             icon: const Icon(
               CupertinoIcons.checkmark_seal_fill,
               size: 18,

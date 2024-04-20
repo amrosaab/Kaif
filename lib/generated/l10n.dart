@@ -140,6 +140,36 @@ class S {
     );
   }
 
+  /// `Search by country name or dial code`
+  String get searchByCountryNameOrDialCode {
+    return Intl.message(
+      'Search by country name or dial code',
+      name: 'searchByCountryNameOrDialCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Are you sure you want to remove this product?`
+  String get confirmRemoveProductInCart {
+    return Intl.message(
+      'Are you sure you want to remove this product?',
+      name: 'confirmRemoveProductInCart',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Block`
+  String get sector {
+    return Intl.message(
+      'Block',
+      name: 'sector',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Reviews`
   String get readReviews {
     return Intl.message(
@@ -290,16 +320,6 @@ class S {
     );
   }
 
-  /// `Pay {amount}`
-  String payWithAmount(Object amount) {
-    return Intl.message(
-      'Pay $amount',
-      name: 'payWithAmount',
-      desc: '',
-      args: [amount],
-    );
-  }
-
   /// `Clear Cart`
   String get clearCart {
     return Intl.message(
@@ -430,21 +450,21 @@ class S {
     );
   }
 
-  /// `Area`
-  String get area {
-    return Intl.message(
-      'Area',
-      name: 'area',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `City`
   String get city {
     return Intl.message(
       'City',
       name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Area`
+  String get area {
+    return Intl.message(
+      'Area',
+      name: 'area',
       desc: '',
       args: [],
     );
@@ -460,21 +480,21 @@ class S {
     );
   }
 
-  /// `Flat`
-  String get flat {
+  /// `Zip code`
+  String get zipCode {
     return Intl.message(
-      'Flat',
-      name: 'flat',
+      'Zip code',
+      name: 'zipCode',
       desc: '',
       args: [],
     );
   }
 
-  /// `Zip Code`
-  String get zipCode {
+  /// `Flat`
+  String get flat {
     return Intl.message(
-      'Zip Code',
-      name: 'zipCode',
+      'Flat',
+      name: 'flat',
       desc: '',
       args: [],
     );
@@ -740,20 +760,20 @@ class S {
     );
   }
 
-  /// `The area field is required`
+  /// `The city field is required`
   String get cityIsRequired {
     return Intl.message(
-      'The area field is required',
+      'The city field is required',
       name: 'cityIsRequired',
       desc: '',
       args: [],
     );
   }
 
-  /// `The governorate field is required`
+  /// `The province field is required`
   String get stateIsRequired {
     return Intl.message(
-      'The governorate field is required',
+      'The province field is required',
       name: 'stateIsRequired',
       desc: '',
       args: [],
@@ -4350,16 +4370,6 @@ class S {
     );
   }
 
-  /// `Brands`
-  String get brands {
-    return Intl.message(
-      'Brands',
-      name: 'brands',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Your review has been sent and is waiting for approval!`
   String get reviewPendingApproval {
     return Intl.message(
@@ -5030,10 +5040,10 @@ class S {
     );
   }
 
-  /// `Floor`
+  /// `Street`
   String get street {
     return Intl.message(
-      'Floor',
+      'Street',
       name: 'street',
       desc: '',
       args: [],
@@ -5045,6 +5055,16 @@ class S {
     return Intl.message(
       'Full Address',
       name: 'fullAddress',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Full Address is required`
+  String get fullAddressIsRequired {
+    return Intl.message(
+      'Full Address is required',
+      name: 'fullAddressIsRequired',
       desc: '',
       args: [],
     );
@@ -5490,10 +5510,10 @@ class S {
     );
   }
 
-  /// `Featured Image`
+  /// `Image Feature`
   String get postImageFeature {
     return Intl.message(
-      'Featured Image',
+      'Image Feature',
       name: 'postImageFeature',
       desc: '',
       args: [],
@@ -5670,10 +5690,10 @@ class S {
     );
   }
 
-  /// `Featured Image`
+  /// `Image Feature`
   String get imageFeature {
     return Intl.message(
-      'Featured Image',
+      'Image Feature',
       name: 'imageFeature',
       desc: '',
       args: [],
@@ -6590,16 +6610,6 @@ class S {
     );
   }
 
-  /// `Are you sure you want to remove this product?`
-  String get confirmRemoveProductInCart {
-    return Intl.message(
-      'Are you sure you want to remove this product?',
-      name: 'confirmRemoveProductInCart',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `The currently selected currency is not available for the Wallet feature, please change it to {defaultCurrency}`
   String warningCurrencyMessageForWallet(Object defaultCurrency) {
     return Intl.message(
@@ -6709,47 +6719,6 @@ class S {
       args: [],
     );
   }
-
-  /// `Select Store`
-  String get selectStore {
-    return Intl.message(
-      'Select Store',
-      name: 'selectStore',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Name On Card`
-  String get nameOnCard {
-    return Intl.message(
-      'Name On Card',
-      name: 'nameOnCard',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `{country} country is not supported`
-  String countryIsNotSupported(Object country) {
-    return Intl.message(
-      '$country country is not supported',
-      name: 'countryIsNotSupported',
-      desc: '',
-      args: [country],
-    );
-  }
-
-  /// `Sorry, this video cannot be played.`
-  String get canNotPlayVideo {
-    return Intl.message(
-      'Sorry, this video cannot be played.',
-      name: 'canNotPlayVideo',
-      desc: '',
-      args: [],
-    );
-  }
-
 
   /// `Shop Email`
   String get storeEmail {
@@ -7201,10 +7170,10 @@ class S {
     );
   }
 
-  /// `Governorate`
+  /// `State`
   String get state {
     return Intl.message(
-      'Governorate',
+      'State',
       name: 'state',
       desc: '',
       args: [],
@@ -9172,41 +9141,11 @@ class S {
     );
   }
 
-  /// `Sorry, this product is not accessible for your current role.`
-  String get noPermissionForCurrentRole {
-    return Intl.message(
-      'Sorry, this product is not accessible for your current role.',
-      name: 'noPermissionForCurrentRole',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Sorry, this product cannot be accessed as it has expired.`
-  String get productExpired {
-    return Intl.message(
-      'Sorry, this product cannot be accessed as it has expired.',
-      name: 'productExpired',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `This product is available for users with specific roles.`
+  /// `This product is available for users with specific roles. Please log in with the appropriate credentials to access this product or contact us for more information.`
   String get noPermissionToViewProduct {
     return Intl.message(
-      'This product is available for users with specific roles.',
+      'This product is available for users with specific roles. Please log in with the appropriate credentials to access this product or contact us for more information.',
       name: 'noPermissionToViewProduct',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Please log in with the appropriate credentials to access this product or contact us for more information.`
-  String get noPermissionToViewProductMsg {
-    return Intl.message(
-      'Please log in with the appropriate credentials to access this product or contact us for more information.',
-      name: 'noPermissionToViewProductMsg',
       desc: '',
       args: [],
     );
@@ -9242,141 +9181,11 @@ class S {
     );
   }
 
-  /// `PromptPay ID:`
-  String get promptPayID {
+  /// `Check that the products in the cart are still available`
+  String get sureThatProductExists {
     return Intl.message(
-      'PromptPay ID:',
-      name: 'promptPayID',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `PromptPay Name:`
-  String get promptPayName {
-    return Intl.message(
-      'PromptPay Name:',
-      name: 'promptPayName',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `PromptPay Type:`
-  String get promptPayType {
-    return Intl.message(
-      'PromptPay Type:',
-      name: 'promptPayType',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Sorry, no videos found.`
-  String get noVideoFound {
-    return Intl.message(
-      'Sorry, no videos found.',
-      name: 'noVideoFound',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `must be bought in groups of {number}`
-  String mustBeBoughtInGroupsOf(Object number) {
-    return Intl.message(
-      'must be bought in groups of $number',
-      name: 'mustBeBoughtInGroupsOf',
-      desc: '',
-      args: [number],
-    );
-  }
-
-  /// `Please increase or decrease the quantity to continue.`
-  String get pleaseIncreaseOrDecreaseTheQuantity {
-    return Intl.message(
-      'Please increase or decrease the quantity to continue.',
-      name: 'pleaseIncreaseOrDecreaseTheQuantity',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Save QR Code`
-  String get saveQRCode {
-    return Intl.message(
-      'Save QR Code',
-      name: 'saveQRCode',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `QR code has been saved successfully.`
-  String get qRCodeMsgSuccess {
-    return Intl.message(
-      'QR code has been saved successfully.',
-      name: 'qRCodeMsgSuccess',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Failed to Save QR Code`
-  String get qRCodeSaveFailure {
-    return Intl.message(
-      'Failed to Save QR Code',
-      name: 'qRCodeSaveFailure',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Search by country name or dial code`
-  String get searchByCountryNameOrDialCode {
-    return Intl.message(
-      'Search by country name or dial code',
-      name: 'searchByCountryNameOrDialCode',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Product name can not be empty`
-  String get productNameCanNotEmpty {
-    return Intl.message(
-      'Product name can not be empty',
-      name: 'productNameCanNotEmpty',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Terms Of Service`
-  String get termsAndConditions {
-    return Intl.message(
-      'Terms Of Service',
-      name: 'termsAndConditions',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `FAQ's`
-  String get faq {
-    return Intl.message(
-      'FAQ\'s',
-      name: 'faq',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Refund Policy`
-  String get refundPolicy {
-    return Intl.message(
-      'Refund Policy',
-      name: 'refundPolicy',
+      'Check that the products in the cart are still available',
+      name: 'sureThatProductExists',
       desc: '',
       args: [],
     );
@@ -9393,13 +9202,11 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
       Locale.fromSubtags(languageCode: 'az'),
       Locale.fromSubtags(languageCode: 'bn'),
       Locale.fromSubtags(languageCode: 'bs'),
-      Locale.fromSubtags(languageCode: 'ca'),
       Locale.fromSubtags(languageCode: 'cs'),
       Locale.fromSubtags(languageCode: 'da'),
       Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'el'),
       Locale.fromSubtags(languageCode: 'es'),
-      Locale.fromSubtags(languageCode: 'et'),
       Locale.fromSubtags(languageCode: 'fa'),
       Locale.fromSubtags(languageCode: 'fi'),
       Locale.fromSubtags(languageCode: 'fr'),

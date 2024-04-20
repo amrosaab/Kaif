@@ -114,6 +114,7 @@ class ShopifyWidget extends BaseFrameworks
   @override
   Future<void> doCheckout(context,
       {Function? success, Function? loading, Function? error}) async {
+    print("dododododo");
     final cartModel =
         Provider.of<CartModel>(context, listen: false) as CartModelShopify;
 
@@ -138,7 +139,7 @@ class ShopifyWidget extends BaseFrameworks
             context,
             MaterialPageRoute(
               builder: (context) => PaymentWebview(
-                url: cartModel.checkout!.webUrl,
+                url: cartModel.checkout?.webUrl,
                 token: cartModel.user?.cookie,
                 onFinish: (number) async {
                   orderNum = number;
@@ -189,6 +190,7 @@ class ShopifyWidget extends BaseFrameworks
     Function? error,
   }) async {
     {
+
       await shopifyService.updateCheckout(
         checkoutId: cartModel!.checkout!.id,
         note: cartModel.notes,

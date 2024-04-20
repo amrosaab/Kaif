@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../../common/constants.dart';
 import '../../../common/tools/navigate_tools.dart';
@@ -105,8 +106,10 @@ class EmptyCart extends StatelessWidget {
                           style: ElevatedButton.styleFrom(
                             elevation: 0,
                             minimumSize: const Size.fromHeight(50),
-                            foregroundColor: kGrey400,
-                            backgroundColor: Colors.white,
+                            // foregroundColor: kGrey400,
+                            // backgroundColor: Colors.white,
+                            backgroundColor: Theme.of(context).brightness == Brightness.dark?kGrey400.withOpacity(.5):Colors.white,
+
                           ),
                           onPressed: () {
                             NavigateTools.navigateToRootTab(
@@ -115,12 +118,12 @@ class EmptyCart extends StatelessWidget {
                             );
                           },
                           child:
-                              Text(S.of(context).searchForItems.toUpperCase(),style: Theme.of(context).textTheme.bodySmall?.copyWith(color:Colors.grey[800] ),
+                              Text(S.of(context).searchForItems.toUpperCase(),style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).brightness == Brightness.dark?Colors.white:Colors.grey[800],fontFamily: GoogleFonts.cairo().fontFamily) ),
                               ),
                         ),
                       ),
                     ),
-                  ),
+
                 ],
               )
             ],

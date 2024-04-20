@@ -150,6 +150,8 @@ class _WebViewState extends State<WebView> with WebviewMixin, AppBarMixin {
       )
       ..loadRequest(Uri.parse(widget.url.toString()));
 
+    print("hokshUrlWWW${widget.url.toString()}");
+
     super.initState();
   }
 

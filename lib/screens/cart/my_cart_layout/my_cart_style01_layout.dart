@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inspireui/inspireui.dart';
 import 'package:provider/provider.dart';
 
@@ -137,10 +138,13 @@ class _MyCartStyle01LayoutState extends State<MyCartStyle01Layout>
                                     child: Image.asset(
                                       'assets/images/trash.png',
                                       width: 20.0,
-                                      color: Theme.of(context).brightness ==
-                                              Brightness.dark
-                                          ? Colors.amber[400]
-                                          : Colors.black,
+                                      // color: Theme.of(context).brightness ==
+                                      //         Brightness.dark
+                                      //     ? Colors.amber[400]
+                                      //     : Colors.black,
+                                      // color:Theme.of(context).primaryColor
+                                      color:Colors.amber[400]
+
                                     ),
                                   ),
                                 ),
@@ -389,15 +393,18 @@ class RenderTotalPrice extends StatelessWidget {
                                   : Text(
                                       S.of(context).checkout,
                                       style: TextStyle(
+
                                           color: Theme.of(context).brightness ==
                                                   Brightness.dark
                                               ? Colors.grey[900]
-                                              : Colors.white),
+                                              : Colors.white,
+                                      fontFamily: GoogleFonts.cairo().fontFamily),
                                     )
                               : Text(
                                   S.of(context).startShopping.toUpperCase(),
                               style:Theme.of(context).textTheme.bodySmall?.copyWith(color:
-                              Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white
+                              Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white,
+                                  fontFamily: GoogleFonts.cairo().fontFamily
 
                         ),),);
                       },

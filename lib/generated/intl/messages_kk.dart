@@ -30,75 +30,80 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "Валюта ${currency}болып өзгертілді";
 
-  static String m5(currency) => "${currency} қолданбасына қолдау көрсетілмейді";
+  static String m5(priceRate, pointRate) => "${priceRate} = ${pointRate} ұпай";
 
-  static String m6(day) => "${day} күн бұрын";
+  static String m6(currency) => "${currency} қолданбасына қолдау көрсетілмейді";
 
-  static String m7(total) => "~${total} км";
+  static String m7(day) => "${day} күн бұрын";
 
-  static String m8(timeLeft) => " ${timeLeft}күні аяқталады";
+  static String m8(total) => "~${total} км";
 
-  static String m9(captcha) => "Растау үшін ${captcha} енгізіңіз:";
+  static String m9(timeLeft) => " ${timeLeft}күні аяқталады";
 
-  static String m10(message) => "Қате: ${message}";
+  static String m10(captcha) => "Растау үшін ${captcha} енгізіңіз:";
 
-  static String m11(time) => "Мерзімі ${time}аяқталады";
+  static String m11(message) => "Қате: ${message}";
 
-  static String m12(total) => ">${total} км";
+  static String m12(time) => "Мерзімі ${time}аяқталады";
 
-  static String m13(hour) => "${hour} сағат бұрын";
+  static String m13(total) => ">${total} км";
 
-  static String m14(message) =>
+  static String m14(hour) => "${hour} сағат бұрын";
+
+  static String m15(message) =>
       "Деректерді сұрау кезінде қолданбада ақаулық орын алды, мәселелерді шешу үшін әкімшіге хабарласыңыз: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "Бұл төлемді пайдаланудың максималды сомасы: {${currency}} {${amount}}";
 
-  static String m16(size) => "Максималды файл өлшемі: ${size} МБ";
+  static String m17(size) => "Максималды файл өлшемі: ${size} МБ";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "Бұл төлемді пайдаланудың ең аз сомасы: {${currency}} {${amount}}";
 
-  static String m18(minute) => "${minute} минут бұрын";
+  static String m19(minute) => "${minute} минут бұрын";
 
-  static String m19(month) => "${month} ай бұрын";
+  static String m20(month) => "${month} ай бұрын";
 
-  static String m20(store) => " ${store}басқа";
+  static String m21(store) => " ${store}басқа";
 
-  static String m21(itemCount) => "${itemCount} элемент";
+  static String m22(itemCount) => "${itemCount} элемент";
 
-  static String m22(price) => "Опциялардың жалпы саны: ${price}";
+  static String m23(price) => "Опциялардың жалпы саны: ${price}";
 
-  static String m23(total) => "Саны: ${total}";
+  static String m24(total) => "Саны: ${total}";
 
-  static String m24(percent) => "Сатылым ${percent}%";
+  static String m25(percent) => "Сатылым ${percent}%";
 
-  static String m25(second) => "${second} секунд бұрын";
+  static String m26(second) => "${second} секунд бұрын";
 
-  static String m26(totalCartQuantity) => "Себет, ${totalCartQuantity} элемент";
+  static String m27(totalCartQuantity) => "Себет, ${totalCartQuantity} элемент";
 
-  static String m27(numberOfUnitsSold) => "Сатылған: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "Сатылған: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => " ${fieldName} өрісі қажет";
+  static String m29(fieldName) => " ${fieldName} өрісі қажет";
 
-  static String m29(total) => "${total} өнім";
+  static String m30(total) => "${total} өнім";
 
-  static String m30(date) => " ${date}дейін жарамды";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "Осы тапсырысқа ${maxPriceDiscount} жеңілдік алу үшін максималды ${maxPointDiscount} ұпайды пайдаланыңыз!";
 
-  static String m31(message) => "Ескерту: ${message}";
+  static String m32(date) => " ${date}дейін жарамды";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "Ескерту: ${message}";
+
+  static String m34(defaultCurrency) =>
       "Қазіргі таңда таңдалған валюта Wallet мүмкіндігі үшін қолжетімді емес, оны ${defaultCurrency}деп өзгертіңіз.";
 
-  static String m33(length) => "Біз ${length} өнім таптық";
+  static String m35(length) => "Біз ${length} өнім таптық";
 
-  static String m34(week) => " ${week}-апта";
+  static String m36(week) => " ${week}-апта";
 
-  static String m35(name) => "Қош келдіңіз ${name}";
+  static String m37(name) => "Қош келдіңіз ${name}";
 
-  static String m36(year) => "${year} жыл бұрын";
+  static String m38(year) => "${year} жыл бұрын";
 
-  static String m37(total) => "Сіз №${total}тапсырысты тағайындадыңыз";
+  static String m39(total) => "Сіз №${total}тапсырысты тағайындадыңыз";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -341,6 +346,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Жеткізуді жалғастырыңыз"),
         "continues": MessageLookupByLibrary.simpleMessage("Жалғастыру"),
         "conversations": MessageLookupByLibrary.simpleMessage("Әңгімелер"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("көшірілген"),
         "copy": MessageLookupByLibrary.simpleMessage("Көшіру"),
         "country": MessageLookupByLibrary.simpleMessage("Ел"),
@@ -363,7 +369,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Барлық нұсқаларды жасаңыз"),
         "createdOn": MessageLookupByLibrary.simpleMessage("Жасалған күні:"),
         "currencies": MessageLookupByLibrary.simpleMessage("Валюталар"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Ағымдағы Құпия сөз"),
         "currentlyWeOnlyHave":
@@ -389,7 +395,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateStart": MessageLookupByLibrary.simpleMessage("Басталған күні"),
         "dateTime": MessageLookupByLibrary.simpleMessage("Күн уақыты"),
         "dateWiseClose": MessageLookupByLibrary.simpleMessage("Жабу күні"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("Дебет"),
         "decline": MessageLookupByLibrary.simpleMessage("бас тарту"),
         "delete": MessageLookupByLibrary.simpleMessage("Жою"),
@@ -419,7 +425,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "discount": MessageLookupByLibrary.simpleMessage("Жеңілдік"),
         "displayName":
             MessageLookupByLibrary.simpleMessage("Көрсетілетін атау"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions": MessageLookupByLibrary.simpleMessage(
             "Сізде әлі ешқандай транзакция жоқ"),
         "doYouWantToExitApp": MessageLookupByLibrary.simpleMessage(
@@ -476,9 +482,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Демалыс режимін қосыңыз"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "Бірінші күннен кейінгі күнді таңдаңыз"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("Ағылшын тілі"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("Жіберілген кодты енгізіңіз"),
         "enterYourEmail": MessageLookupByLibrary.simpleMessage(
@@ -497,7 +503,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Бастау үшін телефон нөміріңізді енгізіңіз."),
         "enterYourPhoneNumber": MessageLookupByLibrary.simpleMessage(
             "Телефон нөміріңізді енгізіңіз"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "Енгізілген сома ағымдағы әмиян сомасынан үлкен. Қайталап көріңіз!"),
         "errorEmailFormat": MessageLookupByLibrary.simpleMessage(
@@ -513,7 +519,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expiredDate":
             MessageLookupByLibrary.simpleMessage("Мерзімі өткен күн"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("АА/ЖЖ"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("Сыртқы"),
         "extraServices":
             MessageLookupByLibrary.simpleMessage("Қосымша қызметтер"),
@@ -526,6 +532,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage":
             MessageLookupByLibrary.simpleMessage("Кескін жүктелмеді"),
         "favorite": MessageLookupByLibrary.simpleMessage("Таңдаулы"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("Мүмкіндік қолжетімді емес"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage("Ерекше өнімдер"),
         "featured": MessageLookupByLibrary.simpleMessage("Таңдаулы"),
@@ -578,7 +586,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Қарап шығуға оралыңыз"),
         "goBackToShipping":
             MessageLookupByLibrary.simpleMessage("Жеткізуге қайта оралыңыз"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("Грек"),
         "grossSales": MessageLookupByLibrary.simpleMessage("Жалпы сату"),
         "grouped": MessageLookupByLibrary.simpleMessage("Топтастырылған"),
@@ -598,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("Тарих"),
         "home": MessageLookupByLibrary.simpleMessage("Үйі"),
         "hour": MessageLookupByLibrary.simpleMessage("Сағат"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("Венгр"),
         "hungary": MessageLookupByLibrary.simpleMessage("Венгр"),
         "iAgree": MessageLookupByLibrary.simpleMessage("мен келісемін"),
@@ -667,7 +675,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Кіру"),
         "loginCanceled":
             MessageLookupByLibrary.simpleMessage("Жүйеге кіруден бас тартылды"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed": MessageLookupByLibrary.simpleMessage("Логин кірмеді!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
             "Жүйеге кіру мүмкін емес! Тіркелгіңізді/рөліңізді тексеру үшін әкімшіге хабарласыңыз."),
@@ -683,6 +691,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "malay": MessageLookupByLibrary.simpleMessage("Малай"),
         "manCollections":
             MessageLookupByLibrary.simpleMessage("Адам топтамалары"),
+        "manageApiKey":
+            MessageLookupByLibrary.simpleMessage("API кілтін басқару"),
         "manageStock": MessageLookupByLibrary.simpleMessage("Акцияны басқару"),
         "map": MessageLookupByLibrary.simpleMessage("Карта"),
         "marathi": MessageLookupByLibrary.simpleMessage("Маратхи"),
@@ -692,22 +702,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Жіберілген деп белгілеңіз"),
         "markAsUnread":
             MessageLookupByLibrary.simpleMessage("Оқылмаған деп белгілеңіз"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("Мүмкін кейінірек"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("Мәзір тәртібі"),
         "message": MessageLookupByLibrary.simpleMessage("Хабар"),
         "messageTo": MessageLookupByLibrary.simpleMessage("Хабарлама жіберу"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("Ең аз мөлшері"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification":
             MessageLookupByLibrary.simpleMessage("Мобильді растау"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("бір сәт бұрын"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...Көбірек"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation":
             MessageLookupByLibrary.simpleMessage("Көбірек ақпарат"),
         "morning": MessageLookupByLibrary.simpleMessage("Таң"),
@@ -721,7 +731,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myWallet": MessageLookupByLibrary.simpleMessage("Менің әмияным"),
         "myWishList":
             MessageLookupByLibrary.simpleMessage("Менің қалау тізімім"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("Атауы"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("Жақын орындар"),
         "needToLoginAgain": MessageLookupByLibrary.simpleMessage(
@@ -756,6 +766,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby":
             MessageLookupByLibrary.simpleMessage("Жақын жерде тізім жоқ!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("Тапсырыс жоқ"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "Бұл өнім белгілі рөлдері бар пайдаланушылар үшін қол жетімді. Осы өнімге қол жеткізу үшін сәйкес тіркелгі деректерімен жүйеге кіріңіз немесе қосымша ақпарат алу үшін бізге хабарласыңыз."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "Өкінішке орай, бұл бет енді жоқ сияқты!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("Принтер жоқ"),
@@ -766,6 +778,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noSlotAvailable": MessageLookupByLibrary.simpleMessage("Слот жоқ"),
         "noThanks": MessageLookupByLibrary.simpleMessage("Жоқ рақмет"),
         "none": MessageLookupByLibrary.simpleMessage("жоқ"),
+        "notFindResult": MessageLookupByLibrary.simpleMessage(
+            "Кешіріңіз, біз ешқандай нәтиже таба алмадық."),
         "notFound": MessageLookupByLibrary.simpleMessage("ТАБЫЛМАДЫ"),
         "note": MessageLookupByLibrary.simpleMessage("Тапсырыс жазбасы"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("Ескерту"),
@@ -784,7 +798,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("Карта"),
         "openNow": MessageLookupByLibrary.simpleMessage("Қазір ашыңыз"),
         "options": MessageLookupByLibrary.simpleMessage("Опциялар"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("немесе"),
         "orLoginWith": MessageLookupByLibrary.simpleMessage("Немесе кіріңіз"),
         "orderConfirmation":
@@ -982,6 +996,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Өнім түрінің айнымалысына кемінде бір нұсқа қажет"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "Қарапайым өнім түрі атауы мен тұрақты бағасын қажет етеді"),
+        "productOutOfStock":
+            MessageLookupByLibrary.simpleMessage("Қоймада жоқ өнім бар"),
         "productRating":
             MessageLookupByLibrary.simpleMessage("Сіздің рейтингіңіз"),
         "productReview": MessageLookupByLibrary.simpleMessage("Өнімді шолу"),
@@ -991,7 +1007,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore": MessageLookupByLibrary.simpleMessage(
             "Көбірек жүктеу үшін тартыңыз"),
         "qty": MessageLookupByLibrary.simpleMessage("Мөлшері"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "Ағымдағы сан қоймадағы саннан көп"),
         "rate": MessageLookupByLibrary.simpleMessage("Бағасы"),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("Қолданбаны бағалаңыз"),
@@ -1061,7 +1079,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Пікірлер"),
         "romanian": MessageLookupByLibrary.simpleMessage("Румын"),
         "russian": MessageLookupByLibrary.simpleMessage("Орыс"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("Сату бағасы"),
         "save": MessageLookupByLibrary.simpleMessage("Сақтау"),
         "saveAddress":
@@ -1090,7 +1108,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchPlace": MessageLookupByLibrary.simpleMessage("Орын іздеу"),
         "searchingAddress":
             MessageLookupByLibrary.simpleMessage("Мекенжай іздеу"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("Барлығын көру"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "Қолданбаңызда жаңа мазмұнды көруді жалғастырыңыз."),
@@ -1143,7 +1161,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Дүкен тапсырыстары"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("Дүкен телефоны"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("Дүкен шыбығы"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription":
             MessageLookupByLibrary.simpleMessage("Қысқаша сипаттама"),
         "showAllMyOrdered": MessageLookupByLibrary.simpleMessage(
@@ -1165,7 +1183,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("Словак"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "SMS кодының мерзімі аяқталды. Әрекетті қайталау үшін растау кодын қайта жіберіңіз."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("Сатқан"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "Бірдеңе дұрыс болмады. Тағы жасауды сәл кейінірек көріңізді өтінеміз."),
@@ -1233,7 +1251,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Сөйлесу үшін микрофонды түртіңіз"),
         "tax": MessageLookupByLibrary.simpleMessage("Салық"),
         "thailand": MessageLookupByLibrary.simpleMessage("Тай"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("Бұл күн қолжетімді емес"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1257,7 +1275,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Барлығы"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "Тапсырыстың жалпы құны кемінде болуы керек"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("Жалпы салық"),
         "trackingNumberIs":
             MessageLookupByLibrary.simpleMessage("Бақылау нөмірі"),
@@ -1309,6 +1327,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Өнімді жүктеп салу"),
         "uploading": MessageLookupByLibrary.simpleMessage("Жүктеу"),
         "url": MessageLookupByLibrary.simpleMessage("URL"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("Қазір пайдаланыңыз"),
         "useThisImage":
             MessageLookupByLibrary.simpleMessage("Осы кескінді пайдаланыңыз"),
@@ -1322,7 +1341,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "vacationMessage":
             MessageLookupByLibrary.simpleMessage("Демалыс туралы хабарлама"),
         "vacationType": MessageLookupByLibrary.simpleMessage("Демалыс түрі"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("Айнымалы"),
         "variation": MessageLookupByLibrary.simpleMessage("Вариация"),
         "vendor": MessageLookupByLibrary.simpleMessage("Сатушы"),
@@ -1349,11 +1368,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Растауды күтуде"),
         "walletBalance": MessageLookupByLibrary.simpleMessage("Әмиян балансы"),
         "walletName": MessageLookupByLibrary.simpleMessage("Әмиян атауы"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs":
             MessageLookupByLibrary.simpleMessage("Біз блог(тарды) таптық"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "QR кодын немесе штрих кодын сканерлеу үшін бізге камераға рұқсат қажет."),
         "weSentAnOTPTo": MessageLookupByLibrary.simpleMessage(
@@ -1361,24 +1380,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "Жаңа өнімдер немесе ұсыныстар болған кезде сізге хабарландыру жібереміз. Оны әрқашан параметрлерде өшіруге болады."),
         "webView": MessageLookupByLibrary.simpleMessage("Веб-көрініс"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("қош келдіңіз"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("Сізге қай тіл ұнайды?"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "Тіркелуіңізді мақұлдау үшін әкімшіге хабарласыңыз."),
         "womanCollections":
             MessageLookupByLibrary.simpleMessage("Әйелдер топтамалары"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("Пікіріңізді жазыңыз"),
         "writeYourNote":
             MessageLookupByLibrary.simpleMessage("Жазбаңызды жазыңыз"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("иә"),
         "youCanOnlyOrderSingleStore": MessageLookupByLibrary.simpleMessage(
             "Сіз тек бір дүкеннен сатып ала аласыз."),
         "youCanOnlyPurchase":
             MessageLookupByLibrary.simpleMessage("Сіз тек сатып ала аласыз"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal": MessageLookupByLibrary.simpleMessage(
             "Сіз өзіңіздің жергілікті файлыңызға мекенжайды сәтті сақтадыңыз!"),
         "youHavePoints":

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/config.dart';
@@ -52,7 +53,7 @@ class _CurrenciesScreenState extends BaseScreen<CurrenciesScreen>
           appBar: AppBar(
             title: Text(
               S.of(context).currencies,
-              style: const TextStyle(color: Colors.white),
+              style:  TextStyle(color: Colors.white,fontFamily: GoogleFonts.cairo().fontFamily),
             ),
             backgroundColor: Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
             leading: Center(

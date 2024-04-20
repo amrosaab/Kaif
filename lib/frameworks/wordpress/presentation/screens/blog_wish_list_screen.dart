@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../../common/constants.dart';
@@ -135,18 +136,20 @@ class _EmptyWishlist extends StatelessWidget {
                   height: 44,
                   child: ElevatedButton(
                     style: TextButton.styleFrom(
-                      foregroundColor: kGrey400,
-                      backgroundColor: kGrey200,
-                    ),
+                      // foregroundColor: kGrey400,
+                      // backgroundColor: kGrey200,
+                      backgroundColor: Theme.of(context).brightness == Brightness.dark?kGrey400.withOpacity(.5):Colors.white,
+
+                    ),//
                     onPressed: () {
                       Navigator.of(context).pushNamed(RouteList.homeSearch);
                     },
-                    child: Text(
-                      S.of(context).searchForItems.toUpperCase(),
-                    ),
+                    child:                              Text(S.of(context).searchForItems.toUpperCase(),style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).brightness == Brightness.dark?Colors.white:Colors.grey[800],fontFamily: GoogleFonts.cairo().fontFamily) ),
+
+                  ),
                   ),
                 ),
-              )
+
             ],
           )
         ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/config.dart';
@@ -65,7 +66,8 @@ class ShoppingCartRow extends StatelessWidget with ActionButtonMixin {
               },
               child: Text(
                 S.of(context).remove,
-                style: const TextStyle(
+                style:  TextStyle(
+                  fontFamily: GoogleFonts.cairo().fontFamily,
                   color: Colors.white,
                 ),
               ),

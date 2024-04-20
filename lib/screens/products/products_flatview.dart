@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/config.dart';
@@ -229,7 +230,7 @@ class _ProductFlatViewState extends State<ProductFlatView> with ProductsMixin {
               onChanged: onSearch,
               onSubmitted: onSearch,
               placeholder: S.of(context).searchForItems,
-              style: Theme.of(context).textTheme.bodySmall,
+              style: Theme.of(context).textTheme.bodySmall?.copyWith(fontFamily: GoogleFonts.cairo().fontFamily),
             ),
             centerTitle: true,
             actions: [

@@ -123,7 +123,8 @@ class FlashHelper {
         builder: (context, controller) {
           return FlashBar(
             backgroundColor: isError
-                ? Theme.of(context).colorScheme.error
+                // ? Theme.of(context).colorScheme.error
+                ? Colors.green
                 : Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
             //brightness: brightness(context),
             controller: controller,

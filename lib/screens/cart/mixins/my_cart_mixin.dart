@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../../common/config.dart';
@@ -132,15 +133,21 @@ mixin MyCartMixin<T extends StatefulWidget> on State<T> {
               onPressed: () {
                 Navigator.of(context).pop(false);
               },
-              child: Text(S.of(context).checkout),
-            ),
+              child: Text(S.of(context).checkout
+              ,
+                style: TextStyle(fontFamily: GoogleFonts.cairo().fontFamily)),
+
+              ),
+
             ElevatedButton(
               onPressed: () {
                 Navigator.of(context).pop(true);
               },
               child: Text(
                 S.of(context).login,
-                style: TextStyle(color: Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white),
+                style: TextStyle(color: Theme.of(context).brightness == Brightness.dark?Colors.grey[900]:Colors.white,
+                fontFamily: GoogleFonts.cairo().fontFamily
+                ),
               ),
             ),
           ],

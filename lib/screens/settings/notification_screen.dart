@@ -1,6 +1,7 @@
 import 'dart:collection';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 import '../../common/constants.dart';
@@ -33,9 +34,9 @@ class _NotificationScreenState extends State<NotificationScreen>
     return renderScaffold(
       routeName: RouteList.notify,
       secondAppBar: AppBar(
-        title: Text(
+        title: Text(//
           S.of(context).listMessages,
-          style: const TextStyle(color: Colors.white),
+          style:  TextStyle(color: Colors.white,fontFamily: GoogleFonts.cairo().fontFamily),
         ),
         leading: Center(
           child: GestureDetector(

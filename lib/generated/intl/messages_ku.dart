@@ -22,41 +22,41 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m2(point) => "خاڵی بەردەست: ${point}";
 
-  static String m6(day) => "${day} ڕۆژ پێش ئێستا";
+  static String m7(day) => "${day} ڕۆژ پێش ئێستا";
 
-  static String m8(timeLeft) => "${timeLeft} تەواو دەبێت";
+  static String m9(timeLeft) => "${timeLeft} تەواو دەبێت";
 
-  static String m10(message) => "هەڵە: ${message}";
+  static String m11(message) => "هەڵە: ${message}";
 
-  static String m11(time) => "بەسەردەچێت لە ${time}";
+  static String m12(time) => "بەسەردەچێت لە ${time}";
 
-  static String m13(hour) => "${hour} کاتژمێر پێش ئێستا";
+  static String m14(hour) => "${hour} کاتژمێر پێش ئێستا";
 
-  static String m14(message) =>
+  static String m15(message) =>
       "کێشەیەک هەیە لەگەڵ سێرڤس لەکاتی داواکردنی داتا، تکایە پەیوەندی بکە بە سەرپەرشتیارەوى ئەپەکە بۆ چارەسەرکردنی کێشەکان: ${message}";
 
-  static String m18(minute) => "${minute} خولەك پێش ئێستا";
+  static String m19(minute) => "${minute} خولەك پێش ئێستا";
 
-  static String m21(itemCount) => "${itemCount} ئایتم";
+  static String m22(itemCount) => "${itemCount} ئایتم";
 
-  static String m22(price) => "کۆى گشتى هەڵبژاردنەکان: ${price}";
+  static String m23(price) => "کۆى گشتى هەڵبژاردنەکان: ${price}";
 
-  static String m24(percent) => "داشکاندن ${percent} %";
+  static String m25(percent) => "داشکاندن ${percent} %";
 
-  static String m25(second) => "${second} چرکە پێش ئێستا";
+  static String m26(second) => "${second} چرکە پێش ئێستا";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "سەبەتەى کڕین, ${totalCartQuantity} ئایتم";
 
-  static String m27(numberOfUnitsSold) => "Sold: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "Sold: ${numberOfUnitsSold}";
 
-  static String m29(total) => "${total} بەرهەمەکان";
+  static String m30(total) => "${total} بەرهەمەکان";
 
-  static String m30(date) => "گونجاوە تا ${date}";
+  static String m32(date) => "گونجاوە تا ${date}";
 
-  static String m31(message) => "ئاگاداری: ${message}";
+  static String m33(message) => "ئاگاداری: ${message}";
 
-  static String m33(length) => "${length} بەرهەم دۆزرایەوە";
+  static String m35(length) => "${length} بەرهەم دۆزرایەوە";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -184,7 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateBooking": MessageLookupByLibrary.simpleMessage("بەرواری شوێنگرتن"),
         "dateEnd": MessageLookupByLibrary.simpleMessage("بەرواری تەواوبون"),
         "dateStart": MessageLookupByLibrary.simpleMessage("بەرواری دەسپێکردن"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "deliveredTo": MessageLookupByLibrary.simpleMessage("گەیەندرا بۆ"),
         "description": MessageLookupByLibrary.simpleMessage("پێناسە"),
         "didntReceiveCode":
@@ -212,7 +212,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ناوی بەکارهێنەر بەتاڵە"),
         "emptyWishlistSubtitle": MessageLookupByLibrary.simpleMessage(
             "کرتە لەسەر ئایکۆنى دڵ بکە ئێمە دڵخوازەکانت لێرە بۆ زیاد دەکەین"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("ئینگلیزی"),
         "enterSendedCode": MessageLookupByLibrary.simpleMessage(
             "ئەو کۆدە بنوسەوە کە نێردراوە بۆ"),
@@ -220,13 +220,13 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ئیمەیلەکەت بنوسە"),
         "enterYourPassword":
             MessageLookupByLibrary.simpleMessage("تێپەڕوشەکەت بنوسە"),
-        "error": m10,
+        "error": m11,
         "events": MessageLookupByLibrary.simpleMessage("بۆنەکان"),
         "expired": MessageLookupByLibrary.simpleMessage("بەسەرچووە"),
         "expiredDate":
             MessageLookupByLibrary.simpleMessage("بەروارى بەسەر چوون"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("MM/YY"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "extraServices":
             MessageLookupByLibrary.simpleMessage("خزمەتگوزاری زیاتر"),
         "featureProducts":
@@ -271,7 +271,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "hebrew": MessageLookupByLibrary.simpleMessage("عیبرى"),
         "home": MessageLookupByLibrary.simpleMessage("سەرەکى"),
         "hour": MessageLookupByLibrary.simpleMessage("کاتژمێر"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungary": MessageLookupByLibrary.simpleMessage("هەنگاریا"),
         "iAgree": MessageLookupByLibrary.simpleMessage("ڕازیم بە"),
         "imageGallery": MessageLookupByLibrary.simpleMessage("گەلەری وێنە"),
@@ -304,7 +304,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("چوونەدەرەوە"),
         "loginCanceled": MessageLookupByLibrary.simpleMessage(
             "چوونەژوورەوە هەڵوەشێندرایەوە"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginToYourAccount":
             MessageLookupByLibrary.simpleMessage("چوونەژوورەوە"),
         "logout": MessageLookupByLibrary.simpleMessage("چوونەدەرەوە"),
@@ -316,7 +316,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "maybeLater": MessageLookupByLibrary.simpleMessage(" دوایی"),
         "message": MessageLookupByLibrary.simpleMessage("نامە"),
         "minimumQuantityIs": MessageLookupByLibrary.simpleMessage("کەمترین بڕ"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "more": MessageLookupByLibrary.simpleMessage("...زیاتر"),
         "mustSelectOneItem":
             MessageLookupByLibrary.simpleMessage("پێویستە ١ ئایتم هەڵبژێریت"),
@@ -326,7 +326,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myProductsEmpty": MessageLookupByLibrary.simpleMessage(
             "هیچ بەرهەمت نیە، هەوڵ بدە بەرهەمێك زیاد بکەیت؟"),
         "myWishList": MessageLookupByLibrary.simpleMessage("لیستی دڵخوازەکانم"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("ناو"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("شوێنی نزیك"),
         "newPassword": MessageLookupByLibrary.simpleMessage("تێپەڕوشەی نوێ"),
@@ -359,7 +359,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "ok": MessageLookupByLibrary.simpleMessage("باشە"),
         "onSale": MessageLookupByLibrary.simpleMessage("لە فرۆشتن"),
         "options": MessageLookupByLibrary.simpleMessage("هەڵبژاردنەکان"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("یان"),
         "orLoginWith": MessageLookupByLibrary.simpleMessage("یان خاڵبە بە"),
         "orderDate": MessageLookupByLibrary.simpleMessage("بەرواری داواکردن"),
@@ -487,7 +487,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("هەڵسەنگاندنەکان"),
         "romanian": MessageLookupByLibrary.simpleMessage("ڕۆمانی"),
         "russian": MessageLookupByLibrary.simpleMessage("ڕوسی"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("نرخی داشکاندن"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("ناونیشان هەڵبگرە"),
         "saveAddressSuccess": MessageLookupByLibrary.simpleMessage(
@@ -507,7 +507,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("گەڕان بەدوای شوێن"),
         "searchingAddress":
             MessageLookupByLibrary.simpleMessage("گەران بەدوای ناونیشان"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("پێشاندانی هەموو"),
         "selectAddress":
             MessageLookupByLibrary.simpleMessage("ناونیشان هەڵبژێرە"),
@@ -532,7 +532,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("شێوازی گەیاندن"),
         "shop": MessageLookupByLibrary.simpleMessage("فرۆشگا"),
         "shopOrders": MessageLookupByLibrary.simpleMessage("داواکردنەکان"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription":
             MessageLookupByLibrary.simpleMessage("پوختەى ڕوونکردنەوە"),
         "showAllMyOrdered": MessageLookupByLibrary.simpleMessage(
@@ -548,7 +548,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "size": MessageLookupByLibrary.simpleMessage("قەبارە"),
         "skip": MessageLookupByLibrary.simpleMessage("پەڕاندن"),
         "sku": MessageLookupByLibrary.simpleMessage("SKU"),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("فرۆشراوە لەلایان"),
         "spanish": MessageLookupByLibrary.simpleMessage("ئیسپانى"),
         "startShopping": MessageLookupByLibrary.simpleMessage("بازاڕی بکە"),
@@ -580,7 +580,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("نرخی کۆتایی"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "پێویستە بەهای کۆی داواکردنەکان لانیکەم"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("کۆی باج"),
         "trackingNumberIs":
             MessageLookupByLibrary.simpleMessage("کۆدی بەدواداچون"),
@@ -606,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "url": MessageLookupByLibrary.simpleMessage("URL"),
         "useNow": MessageLookupByLibrary.simpleMessage("ئێستا بەکاربهێنە"),
         "username": MessageLookupByLibrary.simpleMessage("ناوی بەکارهێنەر"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "vendorAdmin":
             MessageLookupByLibrary.simpleMessage("بەڕێوەبەرایەتی فرۆشیار"),
         "verifySMSCode": MessageLookupByLibrary.simpleMessage("پشتڕاستکردنەوە"),
@@ -618,8 +618,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "چاوەڕێی دەرکەوتنی وێنە دەکرێت"),
         "waitForPost": MessageLookupByLibrary.simpleMessage(
             "چاوەڕێ دەکرێت بۆ پۆستکردنی بەرهەمەکە"),
-        "warning": m31,
-        "weFoundProducts": m33,
+        "warning": m33,
+        "weFoundProducts": m35,
         "welcome": MessageLookupByLibrary.simpleMessage("بەخێرهاتی"),
         "womanCollections":
             MessageLookupByLibrary.simpleMessage("کۆڵێکشنی ئافرەتان"),

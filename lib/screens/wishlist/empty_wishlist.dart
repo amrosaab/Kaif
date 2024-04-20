@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../common/constants.dart';
 import '../../common/tools.dart';
@@ -70,13 +71,14 @@ class EmptyWishlist extends StatelessWidget {
                   height: 44,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
-                      foregroundColor: kGrey400,
-                      backgroundColor: Colors.white,
+                      // foregroundColor: kGrey400,
+                      // backgroundColor: Colors.white,
+                      backgroundColor: Theme.of(context).brightness == Brightness.dark?kGrey400.withOpacity(.5):Colors.white,
+
                     ),
                     onPressed: onSearchForItem,
-                    child: Text(S.of(context).searchForItems.toUpperCase(),
-                      style:Theme.of(context).textTheme.bodySmall?.copyWith(color: Colors.grey),
-                    ),
+                    child:                               Text(S.of(context).searchForItems.toUpperCase(),style: Theme.of(context).textTheme.bodySmall?.copyWith(color: Theme.of(context).brightness == Brightness.dark?Colors.white:Colors.grey[800],fontFamily: GoogleFonts.cairo().fontFamily) ),
+
                   ),
                 ),
               )
@@ -169,7 +171,9 @@ class WishlistItem extends StatelessWidget {
                                             : Text(S
                                                 .of(context)
                                                 .addToCart
-                                                .toUpperCase()),
+                                                .toUpperCase(),style: TextStyle(
+                                            color:  Theme.of(context).brightness == Brightness.dark?Colors.grey[800]:Colors.white,
+                                            fontFamily: GoogleFonts.cairo().fontFamily),),
                                       ),
                                     ),
                                 ],

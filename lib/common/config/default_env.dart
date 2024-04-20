@@ -8,7 +8,9 @@ class DefaultConfig {
   static bool enableCrashAnalytics = false;
   static String defaultLanguage = '';
   static String baseUrl = '';
-  static Map serverConfig = {};
+  static Map serverConfig = {
+
+  };
   static String appConfig = '';
   static String cartBannerConfig = '';
   static bool defaultDarkTheme = false;
@@ -372,7 +374,7 @@ class DefaultConfig {
   static List<Map> languagesInfo = <Map>[];
   static Map paymentConfig = {};
   static List<CountryAddressFieldsConfig> countryAddressFields = [];
-  static List<AddressFieldConfig> addressFields = [
+  static List<AddressFieldConfig> addressFields =  [
     {
       'type': 'firstName',
       'visible': true,
@@ -417,9 +419,9 @@ class DefaultConfig {
     },
     {
       'type': 'country',
-      'visible': true,
       'editable': false,
       'required': true,
+      'visible': true,
       'position': 7,
     },
     {
@@ -430,6 +432,24 @@ class DefaultConfig {
       'required': true,
       'defaultValue': '',
     },
+
+    // {
+    //   'type': 'apartment',
+    //   'visible': true,
+    //   'position': 8,
+    //   'editable': true,
+    //   'required': true,
+    //   'defaultValue': '',
+    // },
+    // {
+    //   'type': 'block',
+    //   'visible': true,
+    //   'position': 8,
+    //   'editable': true,
+    //   'required': true,
+    //   'defaultValue': '',
+    // },
+
     {
       'type': 'fullAddress',
       'visible': true,
@@ -445,10 +465,12 @@ class DefaultConfig {
       'editable': true,
       'required': false,
       'defaultValue': '',
-    }
+    },
   ].map<AddressFieldConfig>(AddressFieldConfig.fromMap).toList();
   static FormatAddress formatAddress = ({
     String? province,
+    String? province2,
+    String ? sector,
     String? city,
     String? street,
     String? block,

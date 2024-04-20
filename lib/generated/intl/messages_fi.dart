@@ -30,76 +30,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "Valuutta muutettu arvoon ${currency}";
 
-  static String m5(currency) => "${currency} ei ole tuettu";
+  static String m5(priceRate, pointRate) =>
+      "${priceRate} = ${pointRate} pistettä";
 
-  static String m6(day) => "${day} päivää sitten";
+  static String m6(currency) => "${currency} ei ole tuettu";
 
-  static String m7(total) => "~${total} km";
+  static String m7(day) => "${day} päivää sitten";
 
-  static String m8(timeLeft) => "Päättyy ${timeLeft}";
+  static String m8(total) => "~${total} km";
 
-  static String m9(captcha) => "Vahvista kirjoittamalla ${captcha} :";
+  static String m9(timeLeft) => "Päättyy ${timeLeft}";
 
-  static String m10(message) => "Virhe: ${message}";
+  static String m10(captcha) => "Vahvista kirjoittamalla ${captcha} :";
 
-  static String m11(time) => "Vanhenee ${time}kuluttua";
+  static String m11(message) => "Virhe: ${message}";
 
-  static String m12(total) => ">${total} km";
+  static String m12(time) => "Vanhenee ${time}kuluttua";
 
-  static String m13(hour) => "${hour} tuntia sitten";
+  static String m13(total) => ">${total} km";
 
-  static String m14(message) =>
+  static String m14(hour) => "${hour} tuntia sitten";
+
+  static String m15(message) =>
       "Sovelluksessa on ongelma tietojen pyytämisen aikana. Ota yhteyttä järjestelmänvalvojaan ongelmien korjaamiseksi: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "Tämän maksun enimmäissumma on {${currency}} {${amount}}";
 
-  static String m16(size) => "Tiedoston enimmäiskoko: ${size} Mt";
+  static String m17(size) => "Tiedoston enimmäiskoko: ${size} Mt";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "Tämän maksun vähimmäissumma on {${currency}} {${amount}}";
 
-  static String m18(minute) => "${minute} minuuttia sitten";
+  static String m19(minute) => "${minute} minuuttia sitten";
 
-  static String m19(month) => "${month} kuukautta sitten";
+  static String m20(month) => "${month} kuukautta sitten";
 
-  static String m20(store) => "Lisää käyttäjältä ${store}";
+  static String m21(store) => "Lisää käyttäjältä ${store}";
 
-  static String m21(itemCount) => "${itemCount} kohdetta";
+  static String m22(itemCount) => "${itemCount} kohdetta";
 
-  static String m22(price) => "Vaihtoehdot yhteensä: ${price}";
+  static String m23(price) => "Vaihtoehdot yhteensä: ${price}";
 
-  static String m23(total) => "Määrä: ${total}";
+  static String m24(total) => "Määrä: ${total}";
 
-  static String m24(percent) => "Alennus ${percent}%";
+  static String m25(percent) => "Alennus ${percent}%";
 
-  static String m25(second) => "${second} sekuntia sitten";
+  static String m26(second) => "${second} sekuntia sitten";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "Ostoskori, ${totalCartQuantity} tuotetta";
 
-  static String m27(numberOfUnitsSold) => "Myyty: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "Myyty: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => "Kenttä ${fieldName} on pakollinen";
+  static String m29(fieldName) => "Kenttä ${fieldName} on pakollinen";
 
-  static String m29(total) => "${total} tuotetta";
+  static String m30(total) => "${total} tuotetta";
 
-  static String m30(date) => "Voimassa ${date}asti";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "Käytä enintään ${maxPointDiscount} pistettä saadaksesi ${maxPriceDiscount} alennuksen tästä tilauksesta!";
 
-  static String m31(message) => "Varoitus: ${message}";
+  static String m32(date) => "Voimassa ${date}asti";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "Varoitus: ${message}";
+
+  static String m34(defaultCurrency) =>
       "Valittu valuutta ei ole käytettävissä Wallet -ominaisuudessa, vaihda se arvoon ${defaultCurrency}";
 
-  static String m33(length) => "Löysimme ${length} tuotetta";
+  static String m35(length) => "Löysimme ${length} tuotetta";
 
-  static String m34(week) => "Viikko ${week}";
+  static String m36(week) => "Viikko ${week}";
 
-  static String m35(name) => "Tervetuloa ${name}";
+  static String m37(name) => "Tervetuloa ${name}";
 
-  static String m36(year) => "${year} vuotta sitten";
+  static String m38(year) => "${year} vuotta sitten";
 
-  static String m37(total) => "Olet määrittänyt tilauksen #${total}";
+  static String m39(total) => "Olet määrittänyt tilauksen #${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -343,6 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Jatka toimitukseen"),
         "continues": MessageLookupByLibrary.simpleMessage("Jatkaa"),
         "conversations": MessageLookupByLibrary.simpleMessage("Keskustelut"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("kopioitu"),
         "copy": MessageLookupByLibrary.simpleMessage("kopio"),
         "country": MessageLookupByLibrary.simpleMessage("Maa"),
@@ -364,7 +371,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Luo kaikki muunnelmat"),
         "createdOn": MessageLookupByLibrary.simpleMessage("luotu:"),
         "currencies": MessageLookupByLibrary.simpleMessage("Valuutat"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Nykyinen salasana"),
         "currentlyWeOnlyHave": MessageLookupByLibrary.simpleMessage(
@@ -394,7 +401,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateTime": MessageLookupByLibrary.simpleMessage("Treffiaika"),
         "dateWiseClose":
             MessageLookupByLibrary.simpleMessage("Päivämäärä viisas"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("Veloittaa"),
         "decline": MessageLookupByLibrary.simpleMessage("aleneminen"),
         "delete": MessageLookupByLibrary.simpleMessage("Poistaa"),
@@ -421,7 +428,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Poista osto käytöstä"),
         "discount": MessageLookupByLibrary.simpleMessage("Alennus"),
         "displayName": MessageLookupByLibrary.simpleMessage("Näyttönimi"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions": MessageLookupByLibrary.simpleMessage(
             "Sinulla ei ole vielä tapahtumia"),
         "doYouWantToExitApp": MessageLookupByLibrary.simpleMessage(
@@ -477,9 +484,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Ota loma -tila käyttöön"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "Valitse päivämäärä ensimmäisen päivämäärän jälkeen"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("Englanti"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode": MessageLookupByLibrary.simpleMessage(
             "Anna koodi, joka on lähetetty osoitteeseen"),
         "enterYourEmail":
@@ -498,7 +505,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Aloita kirjoittamalla puhelinnumerosi."),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Kirjoita puhelinnumerosi"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "Syötetty summa on suurempi kuin nykyinen lompakon määrä. Yritä uudelleen!"),
         "errorEmailFormat": MessageLookupByLibrary.simpleMessage(
@@ -513,7 +520,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expiredDate":
             MessageLookupByLibrary.simpleMessage("Vanhentunut päivämäärä"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("KK/VV"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("Ulkoinen"),
         "extraServices": MessageLookupByLibrary.simpleMessage("Lisäpalvelut"),
         "failToAssign": MessageLookupByLibrary.simpleMessage(
@@ -525,6 +532,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage": MessageLookupByLibrary.simpleMessage(
             "Kuvan lataaminen epäonnistui"),
         "favorite": MessageLookupByLibrary.simpleMessage("Suosikki"),
+        "featureNotAvailable": MessageLookupByLibrary.simpleMessage(
+            "Ominaisuus ei ole käytettävissä"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage("Ominaisuustuotteet"),
         "featured": MessageLookupByLibrary.simpleMessage("Kiinnostavat"),
@@ -579,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Palaa tarkistukseen"),
         "goBackToShipping":
             MessageLookupByLibrary.simpleMessage("Palaa toimitukseen"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("kreikkalainen"),
         "grossSales": MessageLookupByLibrary.simpleMessage("Brutto myynti"),
         "grouped": MessageLookupByLibrary.simpleMessage("ryhmitelty"),
@@ -597,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("Historia"),
         "home": MessageLookupByLibrary.simpleMessage("Koti"),
         "hour": MessageLookupByLibrary.simpleMessage("Tunnin"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("Unkarin kieli"),
         "hungary": MessageLookupByLibrary.simpleMessage("Unkarin kieli"),
         "iAgree": MessageLookupByLibrary.simpleMessage("Olen samaa mieltä"),
@@ -665,7 +674,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("kirjaudu sisään"),
         "loginCanceled":
             MessageLookupByLibrary.simpleMessage("Kirjautuminen peruutetaan"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed":
             MessageLookupByLibrary.simpleMessage("Kirjautuminen epäonnistui!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
@@ -681,6 +690,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("kirjautua ulos"),
         "malay": MessageLookupByLibrary.simpleMessage("Malaiji"),
         "manCollections": MessageLookupByLibrary.simpleMessage("Man kokoelmat"),
+        "manageApiKey":
+            MessageLookupByLibrary.simpleMessage("Hallinnoi API-avainta"),
         "manageStock":
             MessageLookupByLibrary.simpleMessage("Hallitse varastoa"),
         "map": MessageLookupByLibrary.simpleMessage("kartta"),
@@ -690,22 +701,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Merkitse lähetetyksi"),
         "markAsUnread":
             MessageLookupByLibrary.simpleMessage("Merkitse lukemattomaksi"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("Ehkä myöhemmin"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("Menujärjestys"),
         "message": MessageLookupByLibrary.simpleMessage("Viesti"),
         "messageTo": MessageLookupByLibrary.simpleMessage("Lähetä viesti"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("Vähimmäismäärä on"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification":
             MessageLookupByLibrary.simpleMessage("Mobiilivahvistus"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("hetki sitten"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...lisää"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation": MessageLookupByLibrary.simpleMessage("LISÄÄ TIETOA"),
         "morning": MessageLookupByLibrary.simpleMessage("Aamu"),
         "mustSelectOneItem":
@@ -717,7 +728,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Sinulla ei ole mitään tuotteita. Yritä luoda sellainen!"),
         "myWallet": MessageLookupByLibrary.simpleMessage("Lompakkoni"),
         "myWishList": MessageLookupByLibrary.simpleMessage("Toivelistani"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("nimi"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("Läheiset paikat"),
         "needToLoginAgain": MessageLookupByLibrary.simpleMessage(
@@ -752,6 +763,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby": MessageLookupByLibrary.simpleMessage(
             "Ei yritystietoja lähistöllä!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("Ei tilauksia"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "Tämä tuote on saatavilla käyttäjille, joilla on tietyt roolit. Ole hyvä ja kirjaudu sisään asianmukaisilla tunnuksilla päästäksesi tähän tuotteeseen tai ota meihin yhteyttä saadaksesi lisätietoja."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "Hups, tätä sivua ei näytä enää olevan!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("Ei tulostimia"),
@@ -763,6 +776,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Paikkaa ei ole saatavilla"),
         "noThanks": MessageLookupByLibrary.simpleMessage("Ei kiitos"),
         "none": MessageLookupByLibrary.simpleMessage("ei mitään"),
+        "notFindResult": MessageLookupByLibrary.simpleMessage(
+            "Valitettavasti emme löytäneet tuloksia."),
         "notFound": MessageLookupByLibrary.simpleMessage("Ei löydetty"),
         "note": MessageLookupByLibrary.simpleMessage("Tilaushuomautus"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("huomautus"),
@@ -782,7 +797,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("kartta"),
         "openNow": MessageLookupByLibrary.simpleMessage("Avoinna nyt"),
         "options": MessageLookupByLibrary.simpleMessage("vaihtoehdot"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("tai"),
         "orLoginWith":
             MessageLookupByLibrary.simpleMessage("tai kirjaudu sisään"),
@@ -974,6 +989,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Tuotetyyppimuuttuja vaatii vähintään yhden muunnelman"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "Tuotetyyppi yksinkertainen tarvitsee nimen ja normaalihinnan"),
+        "productOutOfStock": MessageLookupByLibrary.simpleMessage(
+            "Tuote on loppunut varastosta"),
         "productRating": MessageLookupByLibrary.simpleMessage("Arviosi"),
         "productReview":
             MessageLookupByLibrary.simpleMessage("Tuotteen arvostelu"),
@@ -983,7 +1000,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore":
             MessageLookupByLibrary.simpleMessage("Lataa lisää vetämällä"),
         "qty": MessageLookupByLibrary.simpleMessage("Määrä"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "Nykyinen määrä on suurempi kuin varastossa oleva määrä"),
         "rate": MessageLookupByLibrary.simpleMessage("Nopeus"),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("Arvioi sovellus"),
         "rateThisApp":
@@ -1055,7 +1074,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Arvostelut"),
         "romanian": MessageLookupByLibrary.simpleMessage("romanialainen"),
         "russian": MessageLookupByLibrary.simpleMessage("Venäjän kieli"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("Myyntihinta"),
         "save": MessageLookupByLibrary.simpleMessage("Tallentaa"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("Tallenna osoite"),
@@ -1081,7 +1100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchPlace": MessageLookupByLibrary.simpleMessage("Etsi paikka"),
         "searchingAddress":
             MessageLookupByLibrary.simpleMessage("Haetaan osoitetta"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("Näytä kaikki"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "Jatka uuden sisällön näkemistä sovelluksessasi."),
@@ -1129,7 +1148,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Kauppojen tilaukset"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("Kauppa puhelin"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("Shop etana"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription":
             MessageLookupByLibrary.simpleMessage("Lyhyt kuvaus"),
         "showAllMyOrdered":
@@ -1151,7 +1170,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("Slovakian"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "SMS-koodi on vanhentunut. Lähetä vahvistuskoodi uudelleen ja yritä uudelleen."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("Myynyt"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "Jotain meni pieleen. Yritä uudelleen myöhemmin."),
@@ -1223,7 +1242,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Napauta mikrofonia puhuaksesi"),
         "tax": MessageLookupByLibrary.simpleMessage("Verottaa"),
         "thailand": MessageLookupByLibrary.simpleMessage("thaimaalainen"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable": MessageLookupByLibrary.simpleMessage(
             "Tämä päivämäärä ei ole käytettävissä"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1246,7 +1265,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Kaikki yhteensä"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "Tilauksen kokonaisarvon on oltava vähintään"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("Verot yhteensä"),
         "trackingNumberIs":
             MessageLookupByLibrary.simpleMessage("Seurantanumero on"),
@@ -1296,6 +1315,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadProduct": MessageLookupByLibrary.simpleMessage("Lataa tuote"),
         "uploading": MessageLookupByLibrary.simpleMessage("lataaminen"),
         "url": MessageLookupByLibrary.simpleMessage("URL-"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("Käytä nyt"),
         "useThisImage":
             MessageLookupByLibrary.simpleMessage("Käytä tätä kuvaa"),
@@ -1308,7 +1328,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Käyttäjätunnus ja salasana vaaditaan"),
         "vacationMessage": MessageLookupByLibrary.simpleMessage("Lomaviesti"),
         "vacationType": MessageLookupByLibrary.simpleMessage("Lomatyyppi"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("Muuttuva"),
         "variation": MessageLookupByLibrary.simpleMessage("Vaihtelu"),
         "vendor": MessageLookupByLibrary.simpleMessage("Myyjä"),
@@ -1335,11 +1355,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("odottaa vahvistusta"),
         "walletBalance": MessageLookupByLibrary.simpleMessage("Lompakon saldo"),
         "walletName": MessageLookupByLibrary.simpleMessage("Lompakon nimi"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs":
             MessageLookupByLibrary.simpleMessage("Löysimme blogi (t)"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "Tarvitsemme kameran pääsyn QR-koodin tai viivakoodin skannaamiseen."),
         "weSentAnOTPTo": MessageLookupByLibrary.simpleMessage(
@@ -1347,24 +1367,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "Lähetämme sinulle ilmoituksen, kun uusia tuotteita on saatavilla tai tarjouksia on saatavilla. Voit aina muuttaa tätä asetusta asetuksista."),
         "webView": MessageLookupByLibrary.simpleMessage("Web -näkymä"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("tervetuloa"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("Mitä kieltä pidät enemmän?"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "Ota yhteyttä ylläpitäjään rekisteröinnin hyväksymiseksi."),
         "womanCollections":
             MessageLookupByLibrary.simpleMessage("Naisten kokoelmat"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("Kirjoita kommenttisi"),
         "writeYourNote":
             MessageLookupByLibrary.simpleMessage("Kirjoita muistiinpanosi"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("Joo"),
         "youCanOnlyOrderSingleStore": MessageLookupByLibrary.simpleMessage(
             "Voit ostaa vain yhdestä kaupasta."),
         "youCanOnlyPurchase":
             MessageLookupByLibrary.simpleMessage("Voit ostaa vain"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal": MessageLookupByLibrary.simpleMessage(
             "Olet tallentanut paikallisen osoitteen"),
         "youHavePoints":

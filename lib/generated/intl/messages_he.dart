@@ -30,76 +30,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "המטבע שונה ל- ${currency}";
 
-  static String m5(currency) => "${currency} אינו נתמך";
+  static String m5(priceRate, pointRate) =>
+      "${priceRate} = ${pointRate} נקודות";
 
-  static String m6(day) => "לפני {יום} ימים";
+  static String m6(currency) => "${currency} אינו נתמך";
 
-  static String m7(total) => "~${total} ק\"מ";
+  static String m7(day) => "לפני {יום} ימים";
 
-  static String m8(timeLeft) => "מסתיים בעוד ${timeLeft}";
+  static String m8(total) => "~${total} ק\"מ";
 
-  static String m9(captcha) => "הזן ${captcha} כדי לאשר:";
+  static String m9(timeLeft) => "מסתיים בעוד ${timeLeft}";
 
-  static String m10(message) => "שגיאה: ${message}";
+  static String m10(captcha) => "הזן ${captcha} כדי לאשר:";
 
-  static String m11(time) => "יפוג בעוד ${time}";
+  static String m11(message) => "שגיאה: ${message}";
 
-  static String m12(total) => ">${total} ק\"מ";
+  static String m12(time) => "יפוג בעוד ${time}";
 
-  static String m13(hour) => "לפני {שעה} שעות";
+  static String m13(total) => ">${total} ק\"מ";
 
-  static String m14(message) =>
+  static String m14(hour) => "לפני {שעה} שעות";
+
+  static String m15(message) =>
       "יש בעיה באפליקציה במהלך בקשת הנתונים, אנא פנה למנהל לתיקון הבעיות: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "הסכום המקסימלי לשימוש בתשלום זה הוא {${currency}} {${amount}}";
 
-  static String m16(size) => "גודל קובץ מקסימלי: ${size} מגה בייט";
+  static String m17(size) => "גודל קובץ מקסימלי: ${size} מגה בייט";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "הסכום המינימלי לשימוש בתשלום זה הוא {${currency}} {${amount}}";
 
-  static String m18(minute) => "לפני {דקה} דקות";
+  static String m19(minute) => "לפני {דקה} דקות";
 
-  static String m19(month) => " לפני${month} חודשים";
+  static String m20(month) => " לפני${month} חודשים";
 
-  static String m20(store) => "עוד מ- ${store}";
+  static String m21(store) => "עוד מ- ${store}";
 
-  static String m21(itemCount) => "${itemCount} פריטים";
+  static String m22(itemCount) => "${itemCount} פריטים";
 
-  static String m22(price) => "סה\"כ אפשרויות: ${price}";
+  static String m23(price) => "סה\"כ אפשרויות: ${price}";
 
-  static String m23(total) => "כמות: ${total}";
+  static String m24(total) => "כמות: ${total}";
 
-  static String m24(percent) => "הנחה ${percent}%";
+  static String m25(percent) => "הנחה ${percent}%";
 
-  static String m25(second) => "לפני ${second} שניות";
+  static String m26(second) => "לפני ${second} שניות";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "עגלת קניות, ${totalCartQuantity} פריטים";
 
-  static String m27(numberOfUnitsSold) => "נמכר: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "נמכר: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => "השדה ${fieldName} נדרש";
+  static String m29(fieldName) => "השדה ${fieldName} נדרש";
 
-  static String m29(total) => "${total} מוצרים";
+  static String m30(total) => "${total} מוצרים";
 
-  static String m30(date) => "תקף עד ${date}";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "השתמש ב- ${maxPointDiscount} נקודות לכל היותר לקבלת הנחה של ${maxPriceDiscount} על הזמנה זו!";
 
-  static String m31(message) => "אזהרה: ${message}";
+  static String m32(date) => "תקף עד ${date}";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "אזהרה: ${message}";
+
+  static String m34(defaultCurrency) =>
       "המטבע שנבחר כרגע אינו זמין עבור תכונת הארנק, שנה אותו ל- ${defaultCurrency}";
 
-  static String m33(length) => "מצאנו ${length} מוצרים";
+  static String m35(length) => "מצאנו ${length} מוצרים";
 
-  static String m34(week) => "שבוע ${week}";
+  static String m36(week) => "שבוע ${week}";
 
-  static String m35(name) => "ברוך הבא ${name}";
+  static String m37(name) => "ברוך הבא ${name}";
 
-  static String m36(year) => " לפני${year} שנים";
+  static String m38(year) => " לפני${year} שנים";
 
-  static String m37(total) => "הקצית להזמין מספר${total}";
+  static String m39(total) => "הקצית להזמין מספר${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -326,6 +332,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("המשך משלוח"),
         "continues": MessageLookupByLibrary.simpleMessage("המשך"),
         "conversations": MessageLookupByLibrary.simpleMessage("שיחות"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("מוּעֲתָק"),
         "copy": MessageLookupByLibrary.simpleMessage("עותק"),
         "country": MessageLookupByLibrary.simpleMessage("מדינה"),
@@ -347,7 +354,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("צור את כל הגרסאות"),
         "createdOn": MessageLookupByLibrary.simpleMessage("נוצר ב:"),
         "currencies": MessageLookupByLibrary.simpleMessage("מטבעות"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword": MessageLookupByLibrary.simpleMessage("סיסמה נוכחית"),
         "currentlyWeOnlyHave":
             MessageLookupByLibrary.simpleMessage("נכון לעכשיו יש לנו רק"),
@@ -370,7 +377,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateStart": MessageLookupByLibrary.simpleMessage("התחלת תאריך"),
         "dateTime": MessageLookupByLibrary.simpleMessage("תאריך שעה"),
         "dateWiseClose": MessageLookupByLibrary.simpleMessage("קרוב לדייטים"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("חיוב"),
         "decline": MessageLookupByLibrary.simpleMessage("ירידה"),
         "delete": MessageLookupByLibrary.simpleMessage("מחק"),
@@ -396,7 +403,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("השבת את הרכישה"),
         "discount": MessageLookupByLibrary.simpleMessage("הנחה"),
         "displayName": MessageLookupByLibrary.simpleMessage("שם תצוגה"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions":
             MessageLookupByLibrary.simpleMessage("עדיין אין לך עסקאות"),
         "doYouWantToExitApp":
@@ -449,9 +456,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("אפשר מצב חופשה"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "אנא בחר תאריך לאחר הדייט הראשון"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("אנגלית"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("הזן את הקוד שנשלח אל"),
         "enterYourEmail":
@@ -470,7 +477,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "הזן את מספר הטלפון שלך כדי להתחיל."),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("תכניס את מספר הטלפון שלך"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "הסכום שהוזן גדול מסכום הארנק הנוכחי. בבקשה נסה שוב!"),
         "errorEmailFormat": MessageLookupByLibrary.simpleMessage(
@@ -484,7 +491,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expired": MessageLookupByLibrary.simpleMessage("לא בתוקף"),
         "expiredDate": MessageLookupByLibrary.simpleMessage("תאריך תפוגה"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("חודש שנה"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("חיצוני"),
         "extraServices": MessageLookupByLibrary.simpleMessage("שירותים נוספים"),
         "failToAssign":
@@ -496,6 +503,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage":
             MessageLookupByLibrary.simpleMessage("טעינת התמונה נכשלה"),
         "favorite": MessageLookupByLibrary.simpleMessage("אהוב"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("התכונה לא זמינה"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage("מוצרים מומלצים"),
         "featured": MessageLookupByLibrary.simpleMessage("מוצג"),
@@ -539,7 +548,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "goBackToAddress": MessageLookupByLibrary.simpleMessage("חזור לכתובת"),
         "goBackToReview": MessageLookupByLibrary.simpleMessage("חזור לסקירה"),
         "goBackToShipping": MessageLookupByLibrary.simpleMessage("חזור למשלוח"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("יווני"),
         "grossSales": MessageLookupByLibrary.simpleMessage("מכירות גולמיות"),
         "grouped": MessageLookupByLibrary.simpleMessage("מקובץ"),
@@ -557,7 +566,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("היסטוריה"),
         "home": MessageLookupByLibrary.simpleMessage("בית"),
         "hour": MessageLookupByLibrary.simpleMessage("שעה"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("הונגרית"),
         "hungary": MessageLookupByLibrary.simpleMessage("הונגריה"),
         "iAgree": MessageLookupByLibrary.simpleMessage("אני מסכים עם"),
@@ -623,7 +632,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("מסך נעילה ואבטחה"),
         "login": MessageLookupByLibrary.simpleMessage("כניסה"),
         "loginCanceled": MessageLookupByLibrary.simpleMessage("הכניסה מבוטלת"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed": MessageLookupByLibrary.simpleMessage("ההתחברות נכשלה!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
             "אינך מורשה להשתמש באפליקציה זו."),
@@ -637,28 +646,29 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("יציאה"),
         "malay": MessageLookupByLibrary.simpleMessage("מלאית"),
         "manCollections": MessageLookupByLibrary.simpleMessage("אוספי אדם"),
+        "manageApiKey": MessageLookupByLibrary.simpleMessage("נהל מפתח API"),
         "manageStock": MessageLookupByLibrary.simpleMessage("נהל מניות"),
         "map": MessageLookupByLibrary.simpleMessage("מפה"),
         "marathi": MessageLookupByLibrary.simpleMessage("מרתי"),
         "markAsRead": MessageLookupByLibrary.simpleMessage("סמן כנקרא"),
         "markAsShipped": MessageLookupByLibrary.simpleMessage("סמן כשולח"),
         "markAsUnread": MessageLookupByLibrary.simpleMessage("סמן כלא נקרא"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("אולי מאוחר יותר"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("סדר תפריט"),
         "message": MessageLookupByLibrary.simpleMessage("הודעה"),
         "messageTo": MessageLookupByLibrary.simpleMessage("שלח הודעה אל"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("הכמות המינימלית היא"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification":
             MessageLookupByLibrary.simpleMessage("אימות נייד"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("לפני רגע"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...יותר"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation": MessageLookupByLibrary.simpleMessage("עוד מידע"),
         "morning": MessageLookupByLibrary.simpleMessage("בוקר"),
         "mustSelectOneItem":
@@ -670,7 +680,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "אין לך מוצרים. נסה ליצור אחד!"),
         "myWallet": MessageLookupByLibrary.simpleMessage("הארנק שלי"),
         "myWishList": MessageLookupByLibrary.simpleMessage("המשאלת שלי"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("שם"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("מקומות קרובים"),
         "needToLoginAgain": MessageLookupByLibrary.simpleMessage(
@@ -704,6 +714,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby":
             MessageLookupByLibrary.simpleMessage("אין רישום בקרבת מקום!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("אין הזמנות"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "מוצר זה זמין עבור משתמשים בעלי תפקידים ספציפיים. אנא היכנס עם האישורים המתאימים כדי לגשת למוצר זה או צור איתנו קשר לקבלת מידע נוסף."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "Opps, נראה כי דף זה כבר אינו קיים!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("אין מדפסות"),
@@ -714,6 +726,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("אין חריץ זמין"),
         "noThanks": MessageLookupByLibrary.simpleMessage("לא תודה"),
         "none": MessageLookupByLibrary.simpleMessage("None"),
+        "notFindResult":
+            MessageLookupByLibrary.simpleMessage("מצטערים, לא מצאנו תוצאות."),
         "notFound": MessageLookupByLibrary.simpleMessage("לא נמצא"),
         "note": MessageLookupByLibrary.simpleMessage("להזמין הערות"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("הערה"),
@@ -732,7 +746,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("פתח מפה"),
         "openNow": MessageLookupByLibrary.simpleMessage("פתוח עכשיו"),
         "options": MessageLookupByLibrary.simpleMessage("אפשרויות"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("או"),
         "orLoginWith": MessageLookupByLibrary.simpleMessage("או התחבר באמצעות"),
         "orderConfirmation":
@@ -907,6 +921,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "משתנה סוג המוצר צריך וריאנט אחד לפחות"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "סוג המוצר פשוט צריך את השם והמחיר הרגיל"),
+        "productOutOfStock":
+            MessageLookupByLibrary.simpleMessage("יש מוצר אזל מהמלאי"),
         "productRating": MessageLookupByLibrary.simpleMessage("הדירוג שלך"),
         "productReview": MessageLookupByLibrary.simpleMessage("ביקורת מוצר"),
         "productType": MessageLookupByLibrary.simpleMessage("סוג מוצר"),
@@ -915,7 +931,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore":
             MessageLookupByLibrary.simpleMessage("משוך כדי לטעון יותר"),
         "qty": MessageLookupByLibrary.simpleMessage("כמות"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "הכמות הנוכחית היא יותר מהכמות במלאי"),
         "rate": MessageLookupByLibrary.simpleMessage("ציון"),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("דרג את האפליקציה"),
         "rateThisApp":
@@ -979,7 +997,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("ביקורות"),
         "romanian": MessageLookupByLibrary.simpleMessage("רומני"),
         "russian": MessageLookupByLibrary.simpleMessage("רוסית"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("מחיר מכירה"),
         "save": MessageLookupByLibrary.simpleMessage("להציל"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("שמור כתובת"),
@@ -1004,7 +1022,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("חפש מזהה הזמנה ..."),
         "searchPlace": MessageLookupByLibrary.simpleMessage("מקום חיפוש"),
         "searchingAddress": MessageLookupByLibrary.simpleMessage("חיפוש כתובת"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("ראה הכל"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "המשך לראות תוכן חדש באפליקציה שלך."),
@@ -1048,7 +1066,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopOrders": MessageLookupByLibrary.simpleMessage("הזמנות חנות"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("טלפון חנות"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("שבלול חנות"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription": MessageLookupByLibrary.simpleMessage("תיאור קצר"),
         "showAllMyOrdered":
             MessageLookupByLibrary.simpleMessage("הצג את כל המסודרים שלי"),
@@ -1068,7 +1086,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("סלובקית"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "תוקף קוד ה-SMS פג. אנא שלח שוב את קוד האימות כדי לנסות שוב."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("נמכר על ידי"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "משהו השתבש. בבקשה נסה שוב מאוחר יותר."),
@@ -1132,7 +1150,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("הקש על המיקרופון כדי לדבר"),
         "tax": MessageLookupByLibrary.simpleMessage("מס"),
         "thailand": MessageLookupByLibrary.simpleMessage("Thai"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("תאריך זה אינו זמין"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1155,7 +1173,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("סה״כ"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "ערך ההזמנה הכולל חייב להיות לפחות"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("סך המס"),
         "trackingNumberIs":
             MessageLookupByLibrary.simpleMessage("מספר המעקב הוא"),
@@ -1195,6 +1213,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadProduct": MessageLookupByLibrary.simpleMessage("העלה מוצר"),
         "uploading": MessageLookupByLibrary.simpleMessage("מעלה"),
         "url": MessageLookupByLibrary.simpleMessage("URL"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("השתמש עכשיו"),
         "useThisImage": MessageLookupByLibrary.simpleMessage("השתמש בתמונה זו"),
         "userExists": MessageLookupByLibrary.simpleMessage(
@@ -1206,7 +1225,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("שם משתמש וסיסמה נדרשים"),
         "vacationMessage": MessageLookupByLibrary.simpleMessage("הודעת חופשה"),
         "vacationType": MessageLookupByLibrary.simpleMessage("סוג חופשה"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("מִשְׁתַנֶה"),
         "variation": MessageLookupByLibrary.simpleMessage("וָרִיאַצִיָה"),
         "vendor": MessageLookupByLibrary.simpleMessage("ספק"),
@@ -1231,10 +1250,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("מחכה לאישור"),
         "walletBalance": MessageLookupByLibrary.simpleMessage("יתרת ארנק"),
         "walletName": MessageLookupByLibrary.simpleMessage("שם הארנק"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs": MessageLookupByLibrary.simpleMessage("מצאנו בלוגים"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "אנחנו צריכים גישה למצלמה כדי לסרוק קוד QR או ברקוד."),
         "weSentAnOTPTo":
@@ -1242,23 +1261,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "אנו נשלח לך הודעות כאשר מוצרים חדשים יהיו זמינים או הצעות זמינות. אתה תמיד יכול לשנות הגדרה זו בהגדרות."),
         "webView": MessageLookupByLibrary.simpleMessage("תצוגת אינטרנט"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("ברוך הבא"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("איזו שפה אתה מעדיף?"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "אנא פנה למנהל המערכת כדי לאשר את הרישום שלך."),
         "womanCollections": MessageLookupByLibrary.simpleMessage("אוספי נשים"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("כתוב את התגובה שלך"),
         "writeYourNote":
             MessageLookupByLibrary.simpleMessage("כתוב את ההערה שלך"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("כן"),
         "youCanOnlyOrderSingleStore":
             MessageLookupByLibrary.simpleMessage("ניתן לרכוש רק מחנות אחת."),
         "youCanOnlyPurchase":
             MessageLookupByLibrary.simpleMessage("אתה יכול רק לרכוש"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal":
             MessageLookupByLibrary.simpleMessage("שמרת כתובת במקום המקומי שלך"),
         "youHavePoints":

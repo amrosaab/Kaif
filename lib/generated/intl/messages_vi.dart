@@ -30,76 +30,81 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "Đã thay đổi đơn vị tiền tệ thành ${currency}";
 
-  static String m5(currency) => "${currency} không được hỗ trợ";
+  static String m5(priceRate, pointRate) => "${priceRate} = ${pointRate} Điểm";
 
-  static String m6(day) => "${day} ngày trước";
+  static String m6(currency) => "${currency} không được hỗ trợ";
 
-  static String m7(total) => "~${total} km";
+  static String m7(day) => "${day} ngày trước";
 
-  static String m8(timeLeft) => "Kết thúc sau ${timeLeft}";
+  static String m8(total) => "~${total} km";
 
-  static String m9(captcha) => "Nhập ${captcha} để xác nhận:";
+  static String m9(timeLeft) => "Kết thúc sau ${timeLeft}";
 
-  static String m10(message) => "Lỗi: ${message}";
+  static String m10(captcha) => "Nhập ${captcha} để xác nhận:";
 
-  static String m11(time) => "Hết hạn sau ${time}";
+  static String m11(message) => "Lỗi: ${message}";
 
-  static String m12(total) => ">${total} km";
+  static String m12(time) => "Hết hạn sau ${time}";
 
-  static String m13(hour) => "${hour} giờ trước";
+  static String m13(total) => ">${total} km";
 
-  static String m14(message) =>
+  static String m14(hour) => "${hour} giờ trước";
+
+  static String m15(message) =>
       "Có sự cố với ứng dụng trong khi yêu cầu dữ liệu, vui lòng liên hệ với quản trị viên để khắc phục sự cố: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "Số tiền tối đa để sử dụng khoản thanh toán này là {${currency}} {${amount}}";
 
-  static String m16(size) => "Kích thước tệp tối đa: ${size} MB";
+  static String m17(size) => "Kích thước tệp tối đa: ${size} MB";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "Số tiền tối thiểu để sử dụng khoản thanh toán này là {${currency}} {${amount}}";
 
-  static String m18(minute) => "${minute} phút trước";
+  static String m19(minute) => "${minute} phút trước";
 
-  static String m19(month) => "${month} tháng trước";
+  static String m20(month) => "${month} tháng trước";
 
-  static String m20(store) => "Thêm từ ${store}";
+  static String m21(store) => "Thêm từ ${store}";
 
-  static String m21(itemCount) => "${itemCount} mặt hàng";
+  static String m22(itemCount) => "${itemCount} mặt hàng";
 
-  static String m22(price) => "Tổng số tùy chọn: ${price}";
+  static String m23(price) => "Tổng số tùy chọn: ${price}";
 
-  static String m23(total) => "Số lượng: ${total}";
+  static String m24(total) => "Số lượng: ${total}";
 
-  static String m24(percent) => "Sale ${percent} %";
+  static String m25(percent) => "Sale ${percent} %";
 
-  static String m25(second) => "${second} giây trước";
+  static String m26(second) => "${second} giây trước";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "Giỏ hàng, ${totalCartQuantity} sản phẩm";
 
-  static String m27(numberOfUnitsSold) => "Đã bán: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "Đã bán: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => "Trường ${fieldName} là bắt buộc";
+  static String m29(fieldName) => "Trường ${fieldName} là bắt buộc";
 
-  static String m29(total) => "${total} sản phẩm";
+  static String m30(total) => "${total} sản phẩm";
 
-  static String m30(date) => "Có hiệu lực cho đến ${date}";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "Sử dụng tối đa ${maxPointDiscount} Điểm để được giảm giá ${maxPriceDiscount} cho đơn hàng này!";
 
-  static String m31(message) => "Cảnh báo: ${message}";
+  static String m32(date) => "Có hiệu lực cho đến ${date}";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "Cảnh báo: ${message}";
+
+  static String m34(defaultCurrency) =>
       "Đơn vị tiền tệ hiện được chọn không có sẵn cho tính năng Wallet, vui lòng đổi thành ${defaultCurrency}";
 
-  static String m33(length) => "Chúng tôi tìm thấy ${length} sản phẩm";
+  static String m35(length) => "Chúng tôi tìm thấy ${length} sản phẩm";
 
-  static String m34(week) => "Tuần ${week}";
+  static String m36(week) => "Tuần ${week}";
 
-  static String m35(name) => "Chào mừng ${name}";
+  static String m37(name) => "Chào mừng ${name}";
 
-  static String m36(year) => "${year} năm trước";
+  static String m38(year) => "${year} năm trước";
 
-  static String m37(total) => "Bạn đã chỉ định đơn đặt hàng số${total}";
+  static String m39(total) => "Bạn đã chỉ định đơn đặt hàng số${total}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -347,6 +352,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "continues": MessageLookupByLibrary.simpleMessage("Tiếp tục"),
         "conversations":
             MessageLookupByLibrary.simpleMessage("Cuộc trò chuyện"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("Sao chép"),
         "copy": MessageLookupByLibrary.simpleMessage("Sao chép"),
         "country": MessageLookupByLibrary.simpleMessage("Quốc gia"),
@@ -369,7 +375,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tạo tất cả các biến thể"),
         "createdOn": MessageLookupByLibrary.simpleMessage("Được tạo ra:"),
         "currencies": MessageLookupByLibrary.simpleMessage("Tiền tệ"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("Mật khẩu hiện tại"),
         "currentlyWeOnlyHave":
@@ -396,7 +402,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateTime": MessageLookupByLibrary.simpleMessage("Ngày giờ"),
         "dateWiseClose":
             MessageLookupByLibrary.simpleMessage("Ngày kết thúc khôn ngoan"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("Ghi nợ"),
         "decline": MessageLookupByLibrary.simpleMessage("Từ chối"),
         "delete": MessageLookupByLibrary.simpleMessage("xóa bỏ"),
@@ -423,7 +429,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Vô hiệu hóa mua hàng"),
         "discount": MessageLookupByLibrary.simpleMessage("Giảm giá"),
         "displayName": MessageLookupByLibrary.simpleMessage("Tên hiển thị"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions": MessageLookupByLibrary.simpleMessage(
             "Bạn chưa có bất kỳ giao dịch nào"),
         "doYouWantToExitApp":
@@ -479,9 +485,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Bật chế độ nghỉ"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "Vui lòng chọn một ngày sau ngày đầu tiên"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("Tiếng Anh"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("Nhập mã được gửi đến"),
         "enterYourEmail":
@@ -500,7 +506,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nhập số điện thoại của bạn để bắt đầu."),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("Nhập số điện thoại của bạn"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "Số tiền đã nhập lớn hơn số tiền hiện tại của ví. Vui lòng thử lại!"),
         "errorEmailFormat": MessageLookupByLibrary.simpleMessage(
@@ -514,7 +520,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expired": MessageLookupByLibrary.simpleMessage("Đã hết hạn"),
         "expiredDate": MessageLookupByLibrary.simpleMessage("Ngày hết hạn"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("MM / YY"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("Bên ngoài"),
         "extraServices":
             MessageLookupByLibrary.simpleMessage("Dịch vụ bổ sung"),
@@ -527,6 +533,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage":
             MessageLookupByLibrary.simpleMessage("Không thể tải hình ảnh"),
         "favorite": MessageLookupByLibrary.simpleMessage("Yêu thích"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("Tính năng không khả dụng"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage("Sản phẩm sắp ra mắt"),
         "featured": MessageLookupByLibrary.simpleMessage("Featured"),
@@ -580,7 +588,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Quay lại kiểm duyệt"),
         "goBackToShipping":
             MessageLookupByLibrary.simpleMessage("Quay lại giao hàng"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("người Hy Lạp"),
         "grossSales": MessageLookupByLibrary.simpleMessage("Tổng doanh thu"),
         "grouped": MessageLookupByLibrary.simpleMessage("Được nhóm lại"),
@@ -598,7 +606,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("Lịch sử"),
         "home": MessageLookupByLibrary.simpleMessage("Nhà"),
         "hour": MessageLookupByLibrary.simpleMessage("Giờ"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("người Hungary"),
         "hungary": MessageLookupByLibrary.simpleMessage("Hungary"),
         "iAgree": MessageLookupByLibrary.simpleMessage("Tôi đồng ý với"),
@@ -671,7 +679,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("Đăng nhập"),
         "loginCanceled":
             MessageLookupByLibrary.simpleMessage("Đăng nhập đã bị hủy"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed":
             MessageLookupByLibrary.simpleMessage("Đăng nhập thất bại!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
@@ -688,6 +696,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "malay": MessageLookupByLibrary.simpleMessage("Mã Lai"),
         "manCollections":
             MessageLookupByLibrary.simpleMessage("Bộ sưu tập đàn ông"),
+        "manageApiKey":
+            MessageLookupByLibrary.simpleMessage("Quản lý khóa API"),
         "manageStock": MessageLookupByLibrary.simpleMessage("Quản lý kho"),
         "map": MessageLookupByLibrary.simpleMessage("Bản đồ"),
         "marathi": MessageLookupByLibrary.simpleMessage("Marathi"),
@@ -697,22 +707,22 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("đánh dấu là vận chuyển"),
         "markAsUnread":
             MessageLookupByLibrary.simpleMessage("Đánh dấu là chưa đọc"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("Để sau"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("Thực đơn gọi món"),
         "message": MessageLookupByLibrary.simpleMessage("Message"),
         "messageTo": MessageLookupByLibrary.simpleMessage("Gửi tin nhắn tới"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("Số lượng tối thiểu là"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification":
             MessageLookupByLibrary.simpleMessage("Xác minh di động"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("lúc nãy"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...hơn"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation":
             MessageLookupByLibrary.simpleMessage("Thêm thông tin"),
         "morning": MessageLookupByLibrary.simpleMessage("Buổi sáng"),
@@ -726,7 +736,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "myWallet": MessageLookupByLibrary.simpleMessage("Ví của tôi"),
         "myWishList":
             MessageLookupByLibrary.simpleMessage("Danh sách ưa thích"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("tên"),
         "nearbyPlaces":
             MessageLookupByLibrary.simpleMessage("Địa điểm gần đây"),
@@ -762,6 +772,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby":
             MessageLookupByLibrary.simpleMessage("Không có danh sách gần đây!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("Không có hóa đơn"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "Sản phẩm này có sẵn cho người dùng với các vai trò cụ thể. Vui lòng đăng nhập bằng thông tin đăng nhập thích hợp để truy cập sản phẩm này hoặc liên hệ với chúng tôi để biết thêm thông tin."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "Rất tiếc, trang này dường như không còn tồn tại!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("Không có máy in"),
@@ -773,6 +785,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Không có chỗ trống"),
         "noThanks": MessageLookupByLibrary.simpleMessage("Không, cảm ơn"),
         "none": MessageLookupByLibrary.simpleMessage("không ai"),
+        "notFindResult": MessageLookupByLibrary.simpleMessage(
+            "Xin lỗi, chúng tôi không thể tìm thấy bất kỳ kết quả."),
         "notFound": MessageLookupByLibrary.simpleMessage("Không tìm thấy"),
         "note": MessageLookupByLibrary.simpleMessage("Ghi chú đơn hàng"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("CHÚ THÍCH"),
@@ -792,7 +806,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("Mở bản đồ"),
         "openNow": MessageLookupByLibrary.simpleMessage("Mở ngay bây giờ"),
         "options": MessageLookupByLibrary.simpleMessage("Tùy chọn"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("Hoặc"),
         "orLoginWith":
             MessageLookupByLibrary.simpleMessage("Hoặc đăng nhập bằng"),
@@ -992,6 +1006,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "Biến loại sản phẩm cần ít nhất một biến thể"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "Loại sản phẩm đơn giản cần tên và giá thông thường"),
+        "productOutOfStock":
+            MessageLookupByLibrary.simpleMessage("Có một sản phẩm hết hàng"),
         "productRating":
             MessageLookupByLibrary.simpleMessage("Đánh giá sản phẩm"),
         "productReview":
@@ -1002,7 +1018,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore":
             MessageLookupByLibrary.simpleMessage("Kéo để tải thêm"),
         "qty": MessageLookupByLibrary.simpleMessage("SỐ LƯỢNG"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "Số lượng hiện tại nhiều hơn số lượng trong kho"),
         "rate": MessageLookupByLibrary.simpleMessage("Đánh giá"),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("Đánh giá ứng dụng"),
         "rateThisApp":
@@ -1072,7 +1090,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("Nhận xét"),
         "romanian": MessageLookupByLibrary.simpleMessage("Romanian"),
         "russian": MessageLookupByLibrary.simpleMessage("Russian"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("Giá bán"),
         "save": MessageLookupByLibrary.simpleMessage("Tiết kiệm"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("Lưu địa chỉ"),
@@ -1099,7 +1117,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchPlace":
             MessageLookupByLibrary.simpleMessage("Tìm kiếm địa điểm"),
         "searchingAddress": MessageLookupByLibrary.simpleMessage("Tìm địa chỉ"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("Xem tất cả"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "Tiếp tục xem nội dung mới trên ứng dụng của bạn."),
@@ -1145,7 +1163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopOrders": MessageLookupByLibrary.simpleMessage("Đơn đặt hàng"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("Mua điện thoại"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("Cửa hàng sên"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription": MessageLookupByLibrary.simpleMessage("Mô tả ngắn"),
         "showAllMyOrdered": MessageLookupByLibrary.simpleMessage(
             "Hiện thị tất cả đơn hàng đã đặt"),
@@ -1167,7 +1185,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("Tiếng Slovak"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "Mã SMS đã hết hạn. Vui lòng gửi lại mã xác minh để thử lại."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("Được bán bởi"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "Đã xảy ra lỗi. Vui lòng thử lại sau."),
@@ -1242,7 +1260,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "Nhấn vào micrô để nói chuyện"),
         "tax": MessageLookupByLibrary.simpleMessage("Thuế"),
         "thailand": MessageLookupByLibrary.simpleMessage("Thai"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("Ngày này không có sẵn"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1265,7 +1283,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("Tổng"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "Tổng giá trị đơn hàng phải ít nhất"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("Tổng thuế"),
         "trackingNumberIs":
             MessageLookupByLibrary.simpleMessage("Số theo dõi là"),
@@ -1317,6 +1335,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Tải lên sản phẩm"),
         "uploading": MessageLookupByLibrary.simpleMessage("Đang tải lên"),
         "url": MessageLookupByLibrary.simpleMessage("URL"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("Sử dụng ngay"),
         "useThisImage":
             MessageLookupByLibrary.simpleMessage("Sử dụng hình ảnh này"),
@@ -1330,7 +1349,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "vacationMessage":
             MessageLookupByLibrary.simpleMessage("Thông báo kỳ nghỉ"),
         "vacationType": MessageLookupByLibrary.simpleMessage("Loại kỳ nghỉ"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("Biến đổi"),
         "variation": MessageLookupByLibrary.simpleMessage("Biến thể"),
         "vendor": MessageLookupByLibrary.simpleMessage("Nhà cung cấp"),
@@ -1357,11 +1376,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Đang chờ xác nhận"),
         "walletBalance": MessageLookupByLibrary.simpleMessage("Số dư trên ví"),
         "walletName": MessageLookupByLibrary.simpleMessage("Tên ví"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs": MessageLookupByLibrary.simpleMessage(
             "Chúng tôi đã tìm thấy (các) Blog"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "Chúng tôi cần quyền truy cập máy ảnh để quét mã QR hoặc mã vạch."),
         "weSentAnOTPTo":
@@ -1369,24 +1388,26 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "Chúng tôi sẽ gửi thông báo cho bạn khi có sản phẩm mới hoặc có ưu đãi. Bạn luôn có thể thay đổi cài đặt này trong cài đặt."),
         "webView": MessageLookupByLibrary.simpleMessage("Chế độ xem web"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("Xin chào"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("Bạn thích ngôn ngữ nào hơn?"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "Vui lòng liên hệ với quản trị viên để phê duyệt đăng ký của bạn."),
         "womanCollections":
             MessageLookupByLibrary.simpleMessage("Bộ sưu tập phụ nữ"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("Viết bình luận của bạn"),
         "writeYourNote":
             MessageLookupByLibrary.simpleMessage("Viết ghi ghú của bạn"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "youCanOnlyOrderSingleStore": MessageLookupByLibrary.simpleMessage(
             "Bạn chỉ có thể mua từ một cửa hàng duy nhất."),
         "youCanOnlyPurchase":
             MessageLookupByLibrary.simpleMessage("Bạn chỉ có thể mua"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal": MessageLookupByLibrary.simpleMessage(
             "Bạn đã lưu địa chỉ vào tệp cục bộ của mình thành công!"),
         "youHavePoints":

@@ -30,76 +30,82 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "واحد پول به ${currency}تغییر کرد";
 
-  static String m5(currency) => "${currency} پشتیبانی نمی شود";
+  static String m5(priceRate, pointRate) =>
+      "${priceRate} = ${pointRate} امتیاز";
 
-  static String m6(day) => "${day} روز قبل";
+  static String m6(currency) => "${currency} پشتیبانی نمی شود";
 
-  static String m7(total) => "~${total} کیلومتر";
+  static String m7(day) => "${day} روز قبل";
 
-  static String m8(timeLeft) => "آخرین ${timeLeft}";
+  static String m8(total) => "~${total} کیلومتر";
 
-  static String m9(captcha) => "برای تأیید، ${captcha} را وارد کنید:";
+  static String m9(timeLeft) => "آخرین ${timeLeft}";
 
-  static String m10(message) => "خطا: ${message}";
+  static String m10(captcha) => "برای تأیید، ${captcha} را وارد کنید:";
 
-  static String m11(time) => "منقضی در ${time}";
+  static String m11(message) => "خطا: ${message}";
 
-  static String m12(total) => ">${total} کیلومتر";
+  static String m12(time) => "منقضی در ${time}";
 
-  static String m13(hour) => "${hour} ساعت  قبل";
+  static String m13(total) => ">${total} کیلومتر";
 
-  static String m14(message) =>
+  static String m14(hour) => "${hour} ساعت  قبل";
+
+  static String m15(message) =>
       "خطایی بوجود آمده لطفا این خطا را به مدیریت وب سایت گزارش دهید: ${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "حداکثر مبلغ برای استفاده از این پرداخت {${currency}} {${amount}}است";
 
-  static String m16(size) => "حداکثر حجم فایل: ${size} مگابایت";
+  static String m17(size) => "حداکثر حجم فایل: ${size} مگابایت";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "حداقل مبلغ برای استفاده از این پرداخت {${currency}} {${amount}}است";
 
-  static String m18(minute) => "${minute} دقیقه قبل";
+  static String m19(minute) => "${minute} دقیقه قبل";
 
-  static String m19(month) => "${month} ماه پیش";
+  static String m20(month) => "${month} ماه پیش";
 
-  static String m20(store) => "موارد بیشتر از ${store}";
+  static String m21(store) => "موارد بیشتر از ${store}";
 
-  static String m21(itemCount) => "${itemCount} مورد";
+  static String m22(itemCount) => "${itemCount} مورد";
 
-  static String m22(price) => "مجموع گزینه ها: ${price}";
+  static String m23(price) => "مجموع گزینه ها: ${price}";
 
-  static String m23(total) => "تعداد: ${total}";
+  static String m24(total) => "تعداد: ${total}";
 
-  static String m24(percent) => "تخفیف ${percent} ٪";
+  static String m25(percent) => "تخفیف ${percent} ٪";
 
-  static String m25(second) => "${second} ثانیه قبل";
+  static String m26(second) => "${second} ثانیه قبل";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "سبد خرید شما , ${totalCartQuantity} ";
 
-  static String m27(numberOfUnitsSold) => "تعداد فروش: ${numberOfUnitsSold}";
+  static String m28(numberOfUnitsSold) => "تعداد فروش: ${numberOfUnitsSold}";
 
-  static String m28(fieldName) => "فیلد ${fieldName} الزامی است";
+  static String m29(fieldName) => "فیلد ${fieldName} الزامی است";
 
-  static String m29(total) => "${total} محصولات";
+  static String m30(total) => "${total} محصولات";
 
-  static String m30(date) => "معتبر تا ${date}";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "از حداکثر ${maxPointDiscount} امتیاز برای ${maxPriceDiscount} تخفیف در این سفارش استفاده کنید!";
 
-  static String m31(message) => "خطا: ${message}";
+  static String m32(date) => "معتبر تا ${date}";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "خطا: ${message}";
+
+  static String m34(defaultCurrency) =>
       "ارز فعلی انتخاب شده برای ویژگی Wallet در دسترس نیست ، لطفاً آن را به ${defaultCurrency}تغییر دهید";
 
-  static String m33(length) => "محصول پیدا شد ${length}";
+  static String m35(length) => "محصول پیدا شد ${length}";
 
-  static String m34(week) => "هفته ${week}";
+  static String m36(week) => "هفته ${week}";
 
-  static String m35(name) => "";
+  static String m37(name) => "";
 
-  static String m36(year) => "${year} سال پیش";
+  static String m38(year) => "${year} سال پیش";
 
-  static String m37(total) => "شما سفارش #${total}را تعیین کرده اید";
+  static String m39(total) => "شما سفارش #${total}را تعیین کرده اید";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -338,6 +344,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ادامه خرید"),
         "continues": MessageLookupByLibrary.simpleMessage("ادامه هید"),
         "conversations": MessageLookupByLibrary.simpleMessage("تبادل نظر"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("کپی شده"),
         "copy": MessageLookupByLibrary.simpleMessage("کپی ?"),
         "country": MessageLookupByLibrary.simpleMessage("کشور"),
@@ -360,7 +367,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("همه انواع را ایجاد کنید"),
         "createdOn": MessageLookupByLibrary.simpleMessage("ایجاد شده در:"),
         "currencies": MessageLookupByLibrary.simpleMessage("واحد پولی"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword":
             MessageLookupByLibrary.simpleMessage("رمز عبور فعلی"),
         "currentlyWeOnlyHave": MessageLookupByLibrary.simpleMessage(
@@ -386,7 +393,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateTime": MessageLookupByLibrary.simpleMessage("وقت قرار"),
         "dateWiseClose":
             MessageLookupByLibrary.simpleMessage("تاریخ عاقبت بسته"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("بدهی"),
         "decline": MessageLookupByLibrary.simpleMessage("کاهش می یابد"),
         "delete": MessageLookupByLibrary.simpleMessage("حذف"),
@@ -413,7 +420,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("خرید را غیرفعال کنید"),
         "discount": MessageLookupByLibrary.simpleMessage("تخفیف"),
         "displayName": MessageLookupByLibrary.simpleMessage("نام نمایشی "),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions":
             MessageLookupByLibrary.simpleMessage("هنوز هیچ تراکنش ندارید"),
         "doYouWantToExitApp": MessageLookupByLibrary.simpleMessage(
@@ -469,9 +476,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حالت تعطیلات را فعال کنید"),
         "endDateCantBeAfterFirstDate": MessageLookupByLibrary.simpleMessage(
             "لطفاً تاریخ را بعد از اولین قرار انتخاب کنید"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("انگلیسی"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("ارسال کد تایید"),
         "enterYourEmail":
@@ -490,7 +497,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "برای شروع شماره تلفن خود را وارد کنید."),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("شماره تلفن خود را وارد کنید"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "مقدار وارد شده بیشتر از مقدار کیف پول فعلی است. لطفا دوباره تلاش کنید!"),
         "errorEmailFormat": MessageLookupByLibrary.simpleMessage(
@@ -504,7 +511,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expired": MessageLookupByLibrary.simpleMessage("منقضی شده"),
         "expiredDate": MessageLookupByLibrary.simpleMessage("تاریخ منقضی شده"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("MM/YY"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("خارجی"),
         "extraServices": MessageLookupByLibrary.simpleMessage("خدمات اضافی"),
         "failToAssign":
@@ -516,6 +523,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage":
             MessageLookupByLibrary.simpleMessage("تصویر بارگیری نشد"),
         "favorite": MessageLookupByLibrary.simpleMessage("مورد علاقه"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("ویژگی در دسترس نیست"),
         "featureProducts":
             MessageLookupByLibrary.simpleMessage(" محصولات ویژه"),
         "featured": MessageLookupByLibrary.simpleMessage("ویژه"),
@@ -565,7 +574,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "goBackToReview": MessageLookupByLibrary.simpleMessage("بازگشت"),
         "goBackToShipping":
             MessageLookupByLibrary.simpleMessage("بازگشت به نحوه ارسال"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("یونانی"),
         "grossSales": MessageLookupByLibrary.simpleMessage("فروش ناخالص"),
         "grouped": MessageLookupByLibrary.simpleMessage("گروه بندی شده"),
@@ -583,7 +592,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("تاریخ"),
         "home": MessageLookupByLibrary.simpleMessage("خانه"),
         "hour": MessageLookupByLibrary.simpleMessage("ساعت"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("مجارستانی"),
         "hungary": MessageLookupByLibrary.simpleMessage("هنگری"),
         "iAgree": MessageLookupByLibrary.simpleMessage("من قبول دارم "),
@@ -649,7 +658,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("صفحه قفل و امنیت"),
         "login": MessageLookupByLibrary.simpleMessage("ورود به حساب کاربری"),
         "loginCanceled": MessageLookupByLibrary.simpleMessage("ورود لغو شد"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed": MessageLookupByLibrary.simpleMessage("ورود ناموفق بود!"),
         "loginInvalid": MessageLookupByLibrary.simpleMessage(
             "شما مجاز به استفاده از این برنامه نیستید."),
@@ -663,6 +672,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage(" خروج از حساب کاربری"),
         "malay": MessageLookupByLibrary.simpleMessage("مالایی"),
         "manCollections": MessageLookupByLibrary.simpleMessage("آقایان"),
+        "manageApiKey":
+            MessageLookupByLibrary.simpleMessage("کلید API را مدیریت کنید"),
         "manageStock": MessageLookupByLibrary.simpleMessage("مدیریت موجودی"),
         "map": MessageLookupByLibrary.simpleMessage("نقشه"),
         "marathi": MessageLookupByLibrary.simpleMessage("مراتی"),
@@ -672,22 +683,22 @@ class MessageLookup extends MessageLookupByLibrary {
             "علامت گذاری به عنوان ارسال شده"),
         "markAsUnread": MessageLookupByLibrary.simpleMessage(
             "به عنوان \"خوانده نشده\" علامت گذاری کن"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("شاید بعداً"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("ترتیب منو"),
         "message": MessageLookupByLibrary.simpleMessage("پیام"),
         "messageTo": MessageLookupByLibrary.simpleMessage("ارسال پیام به"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs":
             MessageLookupByLibrary.simpleMessage("حداقل تعداد"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification":
             MessageLookupByLibrary.simpleMessage("تأیید صحت تلفن همراه"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("یک لحظه قبل"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...بیشتر"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation":
             MessageLookupByLibrary.simpleMessage("اطلاعات بیشتر"),
         "morning": MessageLookupByLibrary.simpleMessage("صبح"),
@@ -700,7 +711,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("هیچ محصولی موجود نمیباشد"),
         "myWallet": MessageLookupByLibrary.simpleMessage("کیف پول من"),
         "myWishList": MessageLookupByLibrary.simpleMessage("لیست علاقمندی من"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("نام"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("مکان های نزدیگ"),
         "needToLoginAgain": MessageLookupByLibrary.simpleMessage(
@@ -735,6 +746,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby":
             MessageLookupByLibrary.simpleMessage("فهرست در این نزدیکی نیست!"),
         "noOrders": MessageLookupByLibrary.simpleMessage("هیچ سفارشی ثبت نشده"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "این محصول برای کاربران با نقش های خاص در دسترس است. لطفا برای دسترسی به این محصول با اعتبار مناسب وارد شوید یا برای اطلاعات بیشتر با ما تماس بگیرید."),
         "noPost": MessageLookupByLibrary.simpleMessage(
             "متأسفیم ، به نظر می رسد که این صفحه دیگر وجود ندارد!"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("بدون چاپگر"),
@@ -747,6 +760,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اسلات موجود نیست"),
         "noThanks": MessageLookupByLibrary.simpleMessage("نه ممنون"),
         "none": MessageLookupByLibrary.simpleMessage("هیچ یک"),
+        "notFindResult": MessageLookupByLibrary.simpleMessage(
+            "با عرض پوزش، ما نتوانستیم نتیجه ای پیدا کنیم."),
         "notFound": MessageLookupByLibrary.simpleMessage("در دسترس نیست"),
         "note": MessageLookupByLibrary.simpleMessage("یادداشت سفارش"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("توجه داشته باشید"),
@@ -764,7 +779,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("نقشه"),
         "openNow": MessageLookupByLibrary.simpleMessage("باز کن"),
         "options": MessageLookupByLibrary.simpleMessage("گزینه ها"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("یا"),
         "orLoginWith":
             MessageLookupByLibrary.simpleMessage("یا با آن وارد شوید"),
@@ -948,6 +963,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "متغیر نوع محصول حداقل به یک نوع نیاز دارد"),
         "productNeedNameAndPrice": MessageLookupByLibrary.simpleMessage(
             "نوع محصول ساده نیاز به نام و قیمت معمولی دارد"),
+        "productOutOfStock":
+            MessageLookupByLibrary.simpleMessage("یک محصول در انبار موجود است"),
         "productRating":
             MessageLookupByLibrary.simpleMessage("امتیاز به محصول"),
         "productReview": MessageLookupByLibrary.simpleMessage("بررسی محصول"),
@@ -957,7 +974,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "pullToLoadMore":
             MessageLookupByLibrary.simpleMessage("نمایش تعداد بیشتر"),
         "qty": MessageLookupByLibrary.simpleMessage("تعداد"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock": MessageLookupByLibrary.simpleMessage(
+            "مقدار فعلی بیشتر از مقدار موجود است"),
         "rate": MessageLookupByLibrary.simpleMessage("امتیاز"),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("امتیاز به اپلیکیشن"),
@@ -1026,7 +1045,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("بررسی ها"),
         "romanian": MessageLookupByLibrary.simpleMessage("رومانیایی"),
         "russian": MessageLookupByLibrary.simpleMessage("روسی"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("قیمت حراج"),
         "save": MessageLookupByLibrary.simpleMessage("صرفه جویی"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("ذخیره آدرس"),
@@ -1052,7 +1071,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchPlace": MessageLookupByLibrary.simpleMessage("جستجو مکان"),
         "searchingAddress":
             MessageLookupByLibrary.simpleMessage("جستجو اتوماتیک آدرس شما"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("همه"),
         "seeNewAppConfig": MessageLookupByLibrary.simpleMessage(
             "به دیدن محتوای جدید در برنامه خود ادامه دهید."),
@@ -1102,7 +1121,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopOrders": MessageLookupByLibrary.simpleMessage("سفارشات خرید"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("تلفن فروشگاه"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("چنگ زدن به مغازه"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription": MessageLookupByLibrary.simpleMessage("توضیح کوتاه"),
         "showAllMyOrdered":
             MessageLookupByLibrary.simpleMessage("نمایش همه سفارشات"),
@@ -1123,7 +1142,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("اسلواکی"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "کد پیامک منقضی شده است. لطفاً کد تأیید را دوباره ارسال کنید تا دوباره امتحان کنید."),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("بر اساس فروش"),
         "somethingWrong": MessageLookupByLibrary.simpleMessage(
             "مشکلی پیش آمد. لطفاً بعداً دوباره امتحان کنید."),
@@ -1193,7 +1212,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "برای صحبت کردن، روی میکروفون ضربه بزنید"),
         "tax": MessageLookupByLibrary.simpleMessage("مالیات"),
         "thailand": MessageLookupByLibrary.simpleMessage("تایلندی"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("این تاریخ در دسترس نیست"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1216,7 +1235,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("مجموع"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage(
             "کل درخواست ها نباید کمتر از باشد "),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("مجموع مالیات"),
         "trackingNumberIs": MessageLookupByLibrary.simpleMessage("کد رهگیری"),
         "trackingPage": MessageLookupByLibrary.simpleMessage("رهگیری سفارش"),
@@ -1265,6 +1284,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadProduct": MessageLookupByLibrary.simpleMessage("بارگذاری محصول"),
         "uploading": MessageLookupByLibrary.simpleMessage("بارگذاری"),
         "url": MessageLookupByLibrary.simpleMessage("ارتباط دادن"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("اکنون استفاده کنید"),
         "useThisImage":
             MessageLookupByLibrary.simpleMessage("از این تصویر استفاده کنید"),
@@ -1277,7 +1297,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "نام کاربری و رمز عبور لازم است"),
         "vacationMessage": MessageLookupByLibrary.simpleMessage("پیام تعطیلات"),
         "vacationType": MessageLookupByLibrary.simpleMessage("نوع تعطیلات"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("متغیر"),
         "variation": MessageLookupByLibrary.simpleMessage("تغییر"),
         "vendor": MessageLookupByLibrary.simpleMessage("فروشنده"),
@@ -1302,11 +1322,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("منتظر تایید"),
         "walletBalance": MessageLookupByLibrary.simpleMessage("موجودی کیف پول"),
         "walletName": MessageLookupByLibrary.simpleMessage("نام کیف پول"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs":
             MessageLookupByLibrary.simpleMessage("وبلاگ (ها) را پیدا کردیم"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "برای اسکن کد QR یا بارکد به دوربین نیاز داریم."),
         "weSentAnOTPTo": MessageLookupByLibrary.simpleMessage(
@@ -1314,23 +1334,25 @@ class MessageLookup extends MessageLookupByLibrary {
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "هنگامی که محصولات جدید در دسترس هستند یا پیشنهادات در دسترس هستند، اعلان هایی را برای شما ارسال می کنیم. همیشه می توانید این تنظیم را در تنظیمات تغییر دهید."),
         "webView": MessageLookupByLibrary.simpleMessage("نمای وب"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("خوش آمدید"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("کدام زبان را ترجیح می دهید؟"),
+        "wholesaleRegisterMsg": MessageLookupByLibrary.simpleMessage(
+            "لطفاً برای تأیید ثبت نام خود با مدیر تماس بگیرید."),
         "womanCollections": MessageLookupByLibrary.simpleMessage("خانم ها"),
         "writeComment":
             MessageLookupByLibrary.simpleMessage("لطفا نظر خود را بنویسید "),
         "writeYourNote": MessageLookupByLibrary.simpleMessage(
             "لطفا یادداشت خود را ثبت کنید"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("بله!"),
         "youCanOnlyOrderSingleStore": MessageLookupByLibrary.simpleMessage(
             "فقط از یک فروشگاه می توانید خرید کنید."),
         "youCanOnlyPurchase": MessageLookupByLibrary.simpleMessage(
             "شما فقط می توانید خرید کنید "),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal": MessageLookupByLibrary.simpleMessage(
             "آدرس در منطقه شما ذخیره شده است"),
         "youHavePoints": MessageLookupByLibrary.simpleMessage(

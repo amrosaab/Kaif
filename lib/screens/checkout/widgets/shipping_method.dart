@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:quiver/strings.dart';
@@ -30,14 +31,14 @@ import 'product_review.dart';
 class ShippingMethods extends StatefulWidget {
   final Function? onBack;
   final Function? onNext;
-  final Function? onFinish;
-  final Function(bool)? onLoading;
+  final Function onFinish;
+  final Function(bool) onLoading;
 
   const ShippingMethods({
     this.onBack,
     this.onNext,
-    this.onFinish,
-    this.onLoading,
+    required this.onFinish,
+    required this.onLoading,
   });
 
   @override
@@ -61,6 +62,7 @@ class _ShippingMethodsState extends State<ShippingMethods> {
   @override
   void initState() {
     super.initState();
+
     note.text = cartModel.notes ?? '';
     Future.delayed(
       Duration.zero,
@@ -435,7 +437,9 @@ class _ShippingMethodsState extends State<ShippingMethods> {
               label: Text((kPaymentConfig.enableReview
                   ? S.of(context).continueToReview
                   : S.of(context).continueToPayment)
-                  .toUpperCase()),
+                  .toUpperCase(), style: TextStyle(fontFamily: GoogleFonts.cairo().fontFamily),
+
+    ),
             ),
           ),
         ],

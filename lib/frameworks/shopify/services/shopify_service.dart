@@ -1,13 +1,13 @@
 import 'dart:async';
 
 import 'package:collection/collection.dart';
-import 'package:fstore/common/typedefs.dart';
 import 'package:graphql/client.dart';
 import 'package:intl/intl.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../common/config.dart' show kAdvanceConfig, kShopifyPaymentConfig;
 import '../../../common/constants.dart';
+import '../../../common/typedefs.dart';
 import '../../../data/boxes.dart';
 import '../../../generated/l10n.dart';
 import '../../../models/cart/cart_model_shopify.dart';
@@ -15,27 +15,27 @@ import '../../../models/entities/currency.dart';
 import '../../../models/entities/index.dart';
 import '../../../models/index.dart'
     show
-        Address,
-        CartModel,
-        Category,
-        CheckoutCart,
-        Order,
-        PaymentMethod,
-        PaymentSettings,
-        PaymentSettingsModel,
-        PaymentShopify,
-        Product,
-        ProductModel,
-        ProductVariation,
-        RatingCount,
-        ShippingMethod,
-        User;
+    Address,
+    CartModel,
+    Category,
+    CheckoutCart,
+    Order,
+    PaymentMethod,
+    PaymentSettings,
+    PaymentSettingsModel,
+    PaymentShopify,
+    Product,
+    ProductModel,
+    ProductVariation,
+    RatingCount,
+    ShippingMethod,
+    User;
 import '../../../models/vendor/store_model.dart' as store_model;
 import '../../../services/base_services.dart';
 import 'shopify_query.dart';
 import 'shopify_storage.dart';
 
-const _apiVersion = '2024-01';
+const _apiVersion = '2023-07';
 
 class ShopifyService extends BaseServices {
   ShopifyService({
@@ -44,10 +44,10 @@ class ShopifyService extends BaseServices {
     required String accessToken,
     super.reviewService,
   })  : client = _getClient(
-          accessToken: accessToken,
-          domain: domain,
-          version: _apiVersion,
-        ),
+    accessToken: accessToken,
+    domain: domain,
+    version: _apiVersion,
+  ),
         super(domain: domain, blogDomain: blogDomain);
 
   final GraphQLClient client;
@@ -277,13 +277,13 @@ class ShopifyService extends BaseServices {
 
   @override
   Future<PagingResponse<Product>> getProductsByCategoryId(
-    String categoryId, {
-    String? langCode,
-    dynamic page,
-    int limit = 25,
-    String? orderBy,
-    String? order,
-  }) async {
+      String categoryId, {
+        String? langCode,
+        dynamic page,
+        int limit = 25,
+        String? orderBy,
+        String? order,
+      }) async {
     try {
       final currentCursor = page;
       printLog(
@@ -353,10 +353,10 @@ class ShopifyService extends BaseServices {
   @override
   Future<List<Product>?> fetchProductsLayout(
       {required config,
-      lang,
-      ProductModel? productModel,
-      userId,
-      bool refreshCache = false}) async {
+        lang,
+        ProductModel? productModel,
+        userId,
+        bool refreshCache = false}) async {
     try {
       var list = <Product>[];
       if (config['layout'] == 'imageBanner' ||
@@ -477,7 +477,6 @@ class ShopifyService extends BaseServices {
         'langCode': languageCode,
         'countryCode': countryCode,
         'cursor': currentCursor != '' ? currentCursor : null,
-        if (kAdvanceConfig.hideOutOfStock) 'availableForSale': true,
       };
       printLog(
           '::::request fetchProductsByCategory with category id $categoryId --- search $search');
@@ -573,21 +572,23 @@ class ShopifyService extends BaseServices {
   // }
 
   @override
-  Future<List<ShippingMethod>> getShippingMethods({
-    CartModel? cartModel,
-    String? token,
-    String? checkoutId,
-    store_model.Store? store,
-    String? langCode,
-    FormatAddress? formatAddress,
-  }) async {
+  Future<List<ShippingMethod>> getShippingMethods(
+
+      {CartModel? cartModel,
+        String? token,
+        String? checkoutId,
+        store_model.Store? store,
+        FormatAddress? formatAddress,
+
+        String? langCode}) async {
     try {
       var list = <ShippingMethod>[];
       var newAddress = cartModel!.address!.toShopifyJson(
         formatAddress: formatAddress,
       )['address'];
 
-      printLog('getShippingMethods with checkoutId $checkoutId');
+
+      printLog('getShippingMethods with checkoutId $newAddress');
 
       final options = MutationOptions(
         document: gql(ShopifyQuery.updateShippingAddress),
@@ -598,14 +599,14 @@ class ShopifyService extends BaseServices {
       final result = await client.mutate(options);
 
       if (result.hasException) {
-        printLog(result.exception.toString());
+        printLog("hokshhhhh"+result.exception.toString());
         throw ('So sorry, We do not support shipping to your address.');
       }
 
       final checkout = await getCheckout(checkoutId: checkoutId);
 
       final availableShippingRates = checkout['availableShippingRates'];
-
+print("objectxcxxxxx${availableShippingRates}");
       if (availableShippingRates != null && availableShippingRates['ready']) {
         for (var item in availableShippingRates['shippingRates']) {
           list.add(ShippingMethod.fromShopifyJson(item));
@@ -614,7 +615,7 @@ class ShopifyService extends BaseServices {
         await Future.delayed(const Duration(milliseconds: 500));
         final checkoutData = await getCheckout(checkoutId: checkoutId);
         for (var item in checkoutData['availableShippingRates']
-            ['shippingRates']) {
+        ['shippingRates']) {
           list.add(ShippingMethod.fromShopifyJson(item));
         }
       }
@@ -627,9 +628,12 @@ class ShopifyService extends BaseServices {
 
       return list;
     } catch (e) {
-      printLog('::::getShippingMethods shopify error');
-      printLog(e.toString());
-      throw ('So sorry, We do not support shipping to your address.');
+      // printLog('::::getShippingMethodsووو shopify error');
+      // printLog(e.toString());
+      // return [];
+
+
+       throw ('So sorry, We do not support shipping to your address.');
     }
   }
 
@@ -661,9 +665,9 @@ class ShopifyService extends BaseServices {
   @override
   Future<List<PaymentMethod>> getPaymentMethods(
       {CartModel? cartModel,
-      ShippingMethod? shippingMethod,
-      String? token,
-      String? langCode}) async {
+        ShippingMethod? shippingMethod,
+        String? token,
+        String? langCode}) async {
     try {
       var list = <PaymentMethod>[];
 
@@ -800,7 +804,7 @@ class ShopifyService extends BaseServices {
       }
 
       final listError =
-          List.from(result.data?['customerCreate']?['userErrors'] ?? []);
+      List.from(result.data?['customerCreate']?['userErrors'] ?? []);
       if (listError.isNotEmpty) {
         final message = listError.map((e) => e['message']).join(', ');
         throw ('$message!');
@@ -810,7 +814,7 @@ class ShopifyService extends BaseServices {
 
       var userInfo = result.data!['customerCreate']['customer'];
       final token =
-          await createAccessToken(username: username, password: password);
+      await createAccessToken(username: username, password: password);
       var user = User.fromShopifyJson(userInfo, token);
 
       return user;
@@ -881,7 +885,7 @@ class ShopifyService extends BaseServices {
       // When update password, full user info will get null
       final userData = result.data?['customerUpdate']['customer'];
       final newToken =
-          result.data?['customerUpdate']['customerAccessToken']?['accessToken'];
+      result.data?['customerUpdate']['customerAccessToken']?['accessToken'];
       final user = User.fromShopifyJson(userData, newToken);
       return user.toJson();
     } catch (e) {
@@ -913,7 +917,7 @@ class ShopifyService extends BaseServices {
         throw Exception(result.exception.toString());
       }
       var json =
-          result.data!['customerAccessTokenCreate']['customerAccessToken'];
+      result.data!['customerAccessTokenCreate']['customerAccessToken'];
       printLog("json['accessToken'] ${json['accessToken']}");
 
       return json['accessToken'];
@@ -930,7 +934,7 @@ class ShopifyService extends BaseServices {
       printLog('::::request login');
 
       var accessToken =
-          await createAccessToken(username: username, password: password);
+      await createAccessToken(username: username, password: password);
       var userInfo = await getUserInfo(accessToken);
 
       printLog('login $userInfo');
@@ -1057,9 +1061,10 @@ class ShopifyService extends BaseServices {
           variables: {
             'input': {
               'lineItems': lineItems,
-              if (cartModel.address != null) ...{
-                'email': cartModel.address!.email,
-              }
+              //hokshcomment
+              // if (cartModel.address != null) ...{
+              //   'email': cartModel.address?.email,
+              // }
             },
             'langCode': cartModel.langCode?.toUpperCase(),
             'countryCode': countryCode,
@@ -1069,11 +1074,12 @@ class ShopifyService extends BaseServices {
         final result = await client.mutate(options);
 
         if (result.hasException) {
-          printLog(result.exception.toString());
+          printLog("{asdxcxzcxzc ${result.exception.toString()}");
           throw Exception(result.exception.toString());
         }
 
-        final checkout = result.data!['checkoutCreate']['checkout'];
+        print("xxzxzxzxxz${ result.data}");
+        final checkout = result.data?['checkoutCreate']['checkout'];
 
         printLog('addItemsToCart checkout $checkout');
 
@@ -1157,9 +1163,9 @@ class ShopifyService extends BaseServices {
   }
 
   Future<CheckoutCart> applyCoupon(
-    CartModel cartModel,
-    String discountCode,
-  ) async {
+      CartModel cartModel,
+      String discountCode,
+      ) async {
     try {
       var lineItems = [];
 
@@ -1378,7 +1384,7 @@ class ShopifyService extends BaseServices {
         }
 
         var checkout =
-            result.data!['checkoutCompleteWithCreditCardV2']['checkout'];
+        result.data!['checkoutCompleteWithCreditCardV2']['checkout'];
 
         return CheckoutCart.fromJsonShopify(checkout);
       } catch (e) {
@@ -1528,7 +1534,7 @@ class ShopifyService extends BaseServices {
   @override
   Future<Product?> getProductByPermalink(String productPermalink) async {
     final handle =
-        productPermalink.substring(productPermalink.lastIndexOf('/') + 1);
+    productPermalink.substring(productPermalink.lastIndexOf('/') + 1);
     printLog('::::request getProduct $productPermalink');
 
     const nRepositories = 50;
@@ -1723,7 +1729,7 @@ class ShopifyService extends BaseServices {
       }
 
       final data =
-          result.data!['checkoutCompleteWithTokenizedPaymentV3']['payment'];
+      result.data!['checkoutCompleteWithTokenizedPaymentV3']['payment'];
       return PaymentShopify.fromJson(data);
     } catch (e) {
       printLog('::::checkoutCompleteWithTokenizedPayment shopify error $e');
@@ -1789,7 +1795,7 @@ class ShopifyService extends BaseServices {
 
   @override
   Future<PagingResponse<Review>> getReviews(String productId,
-          {int page = 1, int perPage = 10}) =>
+      {int page = 1, int perPage = 10}) =>
       reviewService.getReviews(
         productId,
         page: page,
@@ -1821,7 +1827,7 @@ class ShopifyService extends BaseServices {
       }
 
       final availableCountries =
-          List.from(result.data?['localization']?['availableCountries'] ?? []);
+      List.from(result.data?['localization']?['availableCountries'] ?? []);
       if (availableCountries.isEmpty) return null;
 
       for (var item in availableCountries) {

@@ -6,6 +6,7 @@ import 'package:country_pickers/country_pickers.dart' as picker;
 import 'package:flutter/cupertino.dart' show CupertinoIcons;
 import 'package:flutter/material.dart';
 import 'package:fstore/common/config/models/country_address_fields_config.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:intl_phone_number_input/intl_phone_number_input.dart';
 import 'package:provider/provider.dart';
 
@@ -179,20 +180,20 @@ class _ShippingAddressState extends State<ShippingAddress> {
       try {
         final phoneNumber =
             _textControllers[AddressFieldType.phoneNumber]?.text.trim();
-        if (phoneNumber?.isNotEmpty ?? false) {
-          initialPhoneNumber = await PhoneNumber.getParsablePhoneNumber(
-            PhoneNumber(
-              dialCode: selectedCountryModel.dialCode,
-              isoCode: selectedCountryModel.selectedIsoCode,
-              phoneNumber: phoneNumber,
-            ),
-          );
-        } else {
+        // if (phoneNumber?.isNotEmpty ?? false) {
+        //   initialPhoneNumber = await PhoneNumber.getParsablePhoneNumber(
+        //     PhoneNumber(
+        //       dialCode: selectedCountryModel.dialCode,
+        //       isoCode: selectedCountryModel.selectedIsoCode,
+        //       phoneNumber: phoneNumber,
+        //     ),
+        //   );
+        // } else {
           initialPhoneNumber = PhoneNumber(
             dialCode: selectedCountryModel.dialCode,
             isoCode: selectedCountryModel.selectedIsoCode,
           );
-        }
+       // }
         refresh();
       } catch (e, trace) {
         printError(e, trace);
@@ -427,7 +428,17 @@ class _ShippingAddressState extends State<ShippingAddress> {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ChooseAddressScreen(updateAddress),
+                      builder: (context) => ChooseAddressScreen((address){
+                        phoneNumecode=address!.country!;
+                        selectedCountryModel.selectedIsoCode=phoneNumecode;
+                        _fieldsConfigs.clear();
+                        _fieldsPositions.clear();
+                        _textControllers.clear();
+                        _focusNodes.clear();
+                        // disposeOldData();
+                        initializeFields();
+                        preFillData();
+                      }),
                     ),
                   );
                 },
@@ -435,14 +446,17 @@ class _ShippingAddressState extends State<ShippingAddress> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     const Icon(
+                color: Colors.grey,
                       CupertinoIcons.person_crop_square,
                       size: 16,
                     ),
                     const SizedBox(width: 10.0),
                     Text(
                       S.of(context).selectAddress.toUpperCase(),
-                        style:Theme.of(context).textTheme.bodySmall?.copyWith(color:
-                        Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary),
+                        style:Theme.of(context).textTheme.bodySmall?.copyWith(
+                          color: Colors.grey)
+                        //     color:
+                        // Theme.of(context).brightness == Brightness.dark? Theme.of(context).colorScheme.secondary: Theme.of(context).colorScheme.primary),
 
 
               ),
@@ -525,7 +539,7 @@ class _ShippingAddressState extends State<ShippingAddress> {
               setSelectorButtonAsPrefixIcon:
                   kPhoneNumberConfig.selectorFlagAsPrefixIcon,
               leadingPadding: 0,
-              trailingSpace: false,
+              trailingSpace: true,
             ),
             selectorTextStyle: Theme.of(context).textTheme.titleMedium,
             ignoreBlank: !(_fieldsConfigs[index]?.required ?? true),

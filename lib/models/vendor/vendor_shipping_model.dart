@@ -31,6 +31,8 @@ class VendorShippingMethodModel extends ChangeNotifier {
         final store = stores[i];
         var items = await _service.api.getShippingMethods(
             cartModel: cartModel, store: store, langCode: langCode)!;
+
+        print("itemsssss${items}");
         if (items.isNotEmpty) {
           list.add(VendorShippingMethod(store, items));
         }

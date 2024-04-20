@@ -9,6 +9,10 @@
 	"products": "Products",
 	"addToCart": "Add To Cart ",
 	"description": "Description",
+	"searchByCountryNameOrDialCode": "Search by country name or dial code",
+	"confirmRemoveProductInCart": "Are you sure you want to remove this product?",
+	"sector": "Block",
+
 	"readReviews": "Reviews",
 	"additionalInformation": "Additional Information",
 	"noReviews": "No Reviews",

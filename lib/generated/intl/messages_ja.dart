@@ -30,76 +30,81 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m4(currency) => "通貨を ${currency}に変更しました";
 
-  static String m5(currency) => " ${currency} はサポートされていません";
+  static String m5(priceRate, pointRate) => "${priceRate} = ${pointRate} ポイント";
 
-  static String m6(day) => "${day}日前";
+  static String m6(currency) => " ${currency} はサポートされていません";
 
-  static String m7(total) => "〜${total} km";
+  static String m7(day) => "${day}日前";
 
-  static String m8(timeLeft) => "${timeLeft}で終了する";
+  static String m8(total) => "〜${total} km";
 
-  static String m9(captcha) => " ${captcha} を入力して確認します。";
+  static String m9(timeLeft) => "${timeLeft}で終了する";
 
-  static String m10(message) => "エラー：${message}";
+  static String m10(captcha) => " ${captcha} を入力して確認します。";
 
-  static String m11(time) => " ${time}で期限切れ";
+  static String m11(message) => "エラー：${message}";
 
-  static String m12(total) => ">${total} km";
+  static String m12(time) => " ${time}で期限切れ";
 
-  static String m13(hour) => "${hour}時間前";
+  static String m13(total) => ">${total} km";
 
-  static String m14(message) =>
+  static String m14(hour) => "${hour}時間前";
+
+  static String m15(message) =>
       "アプリでデータのリクエスト中に問題が発生しました。問題を解決するためには、管理者に連絡してください：${message}";
 
-  static String m15(currency, amount) =>
+  static String m16(currency, amount) =>
       "このお支払いの最大金額は {${currency}} {${amount}}です";
 
-  static String m16(size) => "最大ファイルサイズ： ${size} MB";
+  static String m17(size) => "最大ファイルサイズ： ${size} MB";
 
-  static String m17(currency, amount) =>
+  static String m18(currency, amount) =>
       "このお支払いの最低金額は {${currency}} {${amount}}です";
 
-  static String m18(minute) => "${minute}分前";
+  static String m19(minute) => "${minute}分前";
 
-  static String m19(month) => "${month} か月前";
+  static String m20(month) => "${month} か月前";
 
-  static String m20(store) => " ${store}からの詳細";
+  static String m21(store) => " ${store}からの詳細";
 
-  static String m21(itemCount) => "${itemCount}個のアイテム";
+  static String m22(itemCount) => "${itemCount}個のアイテム";
 
-  static String m22(price) => "オプションの合計： ${price}";
+  static String m23(price) => "オプションの合計： ${price}";
 
-  static String m23(total) => "数量： ${total}";
+  static String m24(total) => "数量： ${total}";
 
-  static String m24(percent) => "セール${percent}％";
+  static String m25(percent) => "セール${percent}％";
 
-  static String m25(second) => "${second}秒前";
+  static String m26(second) => "${second}秒前";
 
-  static String m26(totalCartQuantity) =>
+  static String m27(totalCartQuantity) =>
       "Shopping cart, ${totalCartQuantity} items";
 
-  static String m27(numberOfUnitsSold) => "販売済み：${numberOfUnitsSold}個";
+  static String m28(numberOfUnitsSold) => "販売済み：${numberOfUnitsSold}個";
 
-  static String m28(fieldName) => " ${fieldName} フィールドは必須です";
+  static String m29(fieldName) => " ${fieldName} フィールドは必須です";
 
-  static String m29(total) => "${total} 製品";
+  static String m30(total) => "${total} 製品";
 
-  static String m30(date) => " ${date}まで有効";
+  static String m31(maxPointDiscount, maxPriceDiscount) =>
+      "この注文で最大 ${maxPointDiscount} ポイントを使用すると、 ${maxPriceDiscount} 割引を受けられます。";
 
-  static String m31(message) => "警告：${message}";
+  static String m32(date) => " ${date}まで有効";
 
-  static String m32(defaultCurrency) =>
+  static String m33(message) => "警告：${message}";
+
+  static String m34(defaultCurrency) =>
       "現在選択されている通貨はウォレット機能では利用できません。 ${defaultCurrency}に変更してください";
 
-  static String m33(length) => "${length} 個の商品が見つかりました";
+  static String m35(length) => "${length} 個の商品が見つかりました";
 
-  static String m34(week) => "週 ${week}";
+  static String m36(week) => "週 ${week}";
 
-  static String m35(name) => "ようこそ ${name}";
+  static String m37(name) => "ようこそ ${name}";
 
-  static String m36(year) => "${year} 年前";
+  static String m38(year) => "${year} 年前";
 
-  static String m37(total) => "注文番号${total}に割り当てました";
+  static String m39(total) => "注文番号${total}に割り当てました";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -307,6 +312,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "continueToShipping": MessageLookupByLibrary.simpleMessage("出荷に進み"),
         "continues": MessageLookupByLibrary.simpleMessage("持続する"),
         "conversations": MessageLookupByLibrary.simpleMessage("会話"),
+        "convertPoint": m5,
         "copied": MessageLookupByLibrary.simpleMessage("コピー済み"),
         "copy": MessageLookupByLibrary.simpleMessage("コピーする"),
         "country": MessageLookupByLibrary.simpleMessage("国"),
@@ -327,7 +333,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("すべてのバリアントを作成する"),
         "createdOn": MessageLookupByLibrary.simpleMessage("作成日："),
         "currencies": MessageLookupByLibrary.simpleMessage("通貨"),
-        "currencyIsNotSupported": m5,
+        "currencyIsNotSupported": m6,
         "currentPassword": MessageLookupByLibrary.simpleMessage("現在のパスワード"),
         "currentlyWeOnlyHave": MessageLookupByLibrary.simpleMessage("現在、この商品は"),
         "customer": MessageLookupByLibrary.simpleMessage("顧客"),
@@ -349,7 +355,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dateStart": MessageLookupByLibrary.simpleMessage("開始日"),
         "dateTime": MessageLookupByLibrary.simpleMessage("日付時刻"),
         "dateWiseClose": MessageLookupByLibrary.simpleMessage("日付ごとに閉じる"),
-        "daysAgo": m6,
+        "daysAgo": m7,
         "debit": MessageLookupByLibrary.simpleMessage("借方"),
         "decline": MessageLookupByLibrary.simpleMessage("低下"),
         "delete": MessageLookupByLibrary.simpleMessage("削除"),
@@ -374,7 +380,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "disablePurchase": MessageLookupByLibrary.simpleMessage("購入を無効にする"),
         "discount": MessageLookupByLibrary.simpleMessage("ディスカウント"),
         "displayName": MessageLookupByLibrary.simpleMessage("表示名"),
-        "distance": m7,
+        "distance": m8,
         "doNotAnyTransactions":
             MessageLookupByLibrary.simpleMessage("まだ取引はありません"),
         "doYouWantToExitApp":
@@ -423,9 +429,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("休暇モードを有効にする"),
         "endDateCantBeAfterFirstDate":
             MessageLookupByLibrary.simpleMessage("最初のデートの後のデートを選択してください"),
-        "endsIn": m8,
+        "endsIn": m9,
         "english": MessageLookupByLibrary.simpleMessage("英語"),
-        "enterCaptcha": m9,
+        "enterCaptcha": m10,
         "enterSendedCode":
             MessageLookupByLibrary.simpleMessage("送信されたコードを入力してください"),
         "enterYourEmail": MessageLookupByLibrary.simpleMessage("メールアドレスを入力"),
@@ -442,7 +448,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("電話番号を入力して開始します。"),
         "enterYourPhoneNumber":
             MessageLookupByLibrary.simpleMessage("電話番号を入力してください"),
-        "error": m10,
+        "error": m11,
         "errorAmountTransfer": MessageLookupByLibrary.simpleMessage(
             "入力した金額が現在のウォレットの金額を超えています。もう一度やり直してください！"),
         "errorEmailFormat":
@@ -455,7 +461,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "expired": MessageLookupByLibrary.simpleMessage("期限切れ"),
         "expiredDate": MessageLookupByLibrary.simpleMessage("有効期限"),
         "expiredDateHint": MessageLookupByLibrary.simpleMessage("MM / YY"),
-        "expiringInTime": m11,
+        "expiringInTime": m12,
         "external": MessageLookupByLibrary.simpleMessage("外部"),
         "extraServices": MessageLookupByLibrary.simpleMessage("追加サービス"),
         "failToAssign":
@@ -467,6 +473,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "failedToLoadImage":
             MessageLookupByLibrary.simpleMessage("画像の読み込みに失敗しました"),
         "favorite": MessageLookupByLibrary.simpleMessage("お気に入り"),
+        "featureNotAvailable":
+            MessageLookupByLibrary.simpleMessage("機能は利用できません"),
         "featureProducts": MessageLookupByLibrary.simpleMessage("機能製品"),
         "featured": MessageLookupByLibrary.simpleMessage("特徴"),
         "features": MessageLookupByLibrary.simpleMessage("特徴"),
@@ -508,7 +516,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "goBackToAddress": MessageLookupByLibrary.simpleMessage("住所に戻り"),
         "goBackToReview": MessageLookupByLibrary.simpleMessage("レビューに戻り"),
         "goBackToShipping": MessageLookupByLibrary.simpleMessage("出荷に戻り"),
-        "greaterDistance": m12,
+        "greaterDistance": m13,
         "greek": MessageLookupByLibrary.simpleMessage("ギリシャ語"),
         "grossSales": MessageLookupByLibrary.simpleMessage("総売上高"),
         "grouped": MessageLookupByLibrary.simpleMessage("グループ化"),
@@ -526,7 +534,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "historyTransaction": MessageLookupByLibrary.simpleMessage("歴史"),
         "home": MessageLookupByLibrary.simpleMessage("ホーム"),
         "hour": MessageLookupByLibrary.simpleMessage("時"),
-        "hoursAgo": m13,
+        "hoursAgo": m14,
         "hungarian": MessageLookupByLibrary.simpleMessage("ハンガリー語"),
         "hungary": MessageLookupByLibrary.simpleMessage("ハンガリー"),
         "iAgree": MessageLookupByLibrary.simpleMessage("私は同意します"),
@@ -586,7 +594,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "login": MessageLookupByLibrary.simpleMessage("ログインする"),
         "loginCanceled":
             MessageLookupByLibrary.simpleMessage("ログインがキャンセルされました"),
-        "loginErrorServiceProvider": m14,
+        "loginErrorServiceProvider": m15,
         "loginFailed": MessageLookupByLibrary.simpleMessage("ログインに失敗しました！"),
         "loginInvalid":
             MessageLookupByLibrary.simpleMessage("このアプリの使用は許可されていません。"),
@@ -600,26 +608,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "logout": MessageLookupByLibrary.simpleMessage("ログアウト"),
         "malay": MessageLookupByLibrary.simpleMessage("マレー語"),
         "manCollections": MessageLookupByLibrary.simpleMessage("男のコレクション"),
+        "manageApiKey": MessageLookupByLibrary.simpleMessage("APIキーの管理"),
         "manageStock": MessageLookupByLibrary.simpleMessage("在庫を管理する"),
         "map": MessageLookupByLibrary.simpleMessage("地図"),
         "marathi": MessageLookupByLibrary.simpleMessage("マラーティー語"),
         "markAsRead": MessageLookupByLibrary.simpleMessage("既読にする"),
         "markAsShipped": MessageLookupByLibrary.simpleMessage("出荷済みとしてマーク"),
         "markAsUnread": MessageLookupByLibrary.simpleMessage("未読としてマーク"),
-        "maxAmountForPayment": m15,
-        "maximumFileSizeMb": m16,
+        "maxAmountForPayment": m16,
+        "maximumFileSizeMb": m17,
         "maybeLater": MessageLookupByLibrary.simpleMessage("後で"),
         "menuOrder": MessageLookupByLibrary.simpleMessage("メニュー順"),
         "message": MessageLookupByLibrary.simpleMessage("メッセージ"),
         "messageTo": MessageLookupByLibrary.simpleMessage("メッセージの送信先"),
-        "minAmountForPayment": m17,
+        "minAmountForPayment": m18,
         "minimumQuantityIs": MessageLookupByLibrary.simpleMessage("最小数量は"),
-        "minutesAgo": m18,
+        "minutesAgo": m19,
         "mobileVerification": MessageLookupByLibrary.simpleMessage("モバイル検証"),
         "momentAgo": MessageLookupByLibrary.simpleMessage("少し前"),
-        "monthsAgo": m19,
+        "monthsAgo": m20,
         "more": MessageLookupByLibrary.simpleMessage("...もっと"),
-        "moreFromStore": m20,
+        "moreFromStore": m21,
         "moreInformation": MessageLookupByLibrary.simpleMessage("詳しくは"),
         "morning": MessageLookupByLibrary.simpleMessage("朝"),
         "mustSelectOneItem":
@@ -631,7 +640,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("あなたは製品を持っていません。作成してみてください！"),
         "myWallet": MessageLookupByLibrary.simpleMessage("私の財布"),
         "myWishList": MessageLookupByLibrary.simpleMessage("私のウィッシュリスト"),
-        "nItems": m21,
+        "nItems": m22,
         "name": MessageLookupByLibrary.simpleMessage("名"),
         "nearbyPlaces": MessageLookupByLibrary.simpleMessage("近くの場所"),
         "needToLoginAgain":
@@ -663,6 +672,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "noListingNearby":
             MessageLookupByLibrary.simpleMessage("近くにリストはありません！"),
         "noOrders": MessageLookupByLibrary.simpleMessage("注文なし"),
+        "noPermissionToViewProduct": MessageLookupByLibrary.simpleMessage(
+            "この製品は、特定の役割を持つユーザーが使用できます。この製品にアクセスするには適切な資格情報でログインするか、詳細についてお問い合わせください。"),
         "noPost":
             MessageLookupByLibrary.simpleMessage("申し訳ありませんが、このページは存在しません！"),
         "noPrinters": MessageLookupByLibrary.simpleMessage("プリンタなし"),
@@ -673,6 +684,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("利用可能なスロットがありません"),
         "noThanks": MessageLookupByLibrary.simpleMessage("いいえ、結構です"),
         "none": MessageLookupByLibrary.simpleMessage("無し"),
+        "notFindResult":
+            MessageLookupByLibrary.simpleMessage("申し訳ありませんが、結果が見つかりませんでした。"),
         "notFound": MessageLookupByLibrary.simpleMessage("見つかりません"),
         "note": MessageLookupByLibrary.simpleMessage("注文メモ"),
         "noteMessage": MessageLookupByLibrary.simpleMessage("注意"),
@@ -690,7 +703,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "openMap": MessageLookupByLibrary.simpleMessage("マップを開く"),
         "openNow": MessageLookupByLibrary.simpleMessage("営業中"),
         "options": MessageLookupByLibrary.simpleMessage("オプション"),
-        "optionsTotal": m22,
+        "optionsTotal": m23,
         "or": MessageLookupByLibrary.simpleMessage("または"),
         "orLoginWith": MessageLookupByLibrary.simpleMessage("またはでログイン"),
         "orderConfirmation": MessageLookupByLibrary.simpleMessage("注文確認"),
@@ -855,6 +868,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("製品型変数には少なくとも1つのバリアントが必要です"),
         "productNeedNameAndPrice":
             MessageLookupByLibrary.simpleMessage("シンプルな商品タイプには名前と通常価格が必要です"),
+        "productOutOfStock":
+            MessageLookupByLibrary.simpleMessage("在庫切れの商品があります"),
         "productRating": MessageLookupByLibrary.simpleMessage("あなたの評価"),
         "productReview": MessageLookupByLibrary.simpleMessage("製品レビュー"),
         "productType": MessageLookupByLibrary.simpleMessage("製品型"),
@@ -862,7 +877,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "publish": MessageLookupByLibrary.simpleMessage("公開する"),
         "pullToLoadMore": MessageLookupByLibrary.simpleMessage("プルしてさらにロード"),
         "qty": MessageLookupByLibrary.simpleMessage("数量"),
-        "qtyTotal": m23,
+        "qtyTotal": m24,
+        "quantityProductExceedInStock":
+            MessageLookupByLibrary.simpleMessage("現在の数量は在庫数量を超えています"),
         "rate": MessageLookupByLibrary.simpleMessage("評価する"),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("アプリを評価し"),
         "rateThisApp": MessageLookupByLibrary.simpleMessage("このアプリを評価する"),
@@ -921,7 +938,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reviews": MessageLookupByLibrary.simpleMessage("レビュー"),
         "romanian": MessageLookupByLibrary.simpleMessage("ルーマニア語"),
         "russian": MessageLookupByLibrary.simpleMessage("Russian"),
-        "sale": m24,
+        "sale": m25,
         "salePrice": MessageLookupByLibrary.simpleMessage("セールスプライス"),
         "save": MessageLookupByLibrary.simpleMessage("保存する"),
         "saveAddress": MessageLookupByLibrary.simpleMessage("住所の保存"),
@@ -942,7 +959,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "searchOrderId": MessageLookupByLibrary.simpleMessage("検索注文ID ..."),
         "searchPlace": MessageLookupByLibrary.simpleMessage("場所を検索する"),
         "searchingAddress": MessageLookupByLibrary.simpleMessage("検索アドレス"),
-        "secondsAgo": m25,
+        "secondsAgo": m26,
         "seeAll": MessageLookupByLibrary.simpleMessage("すべてを見る"),
         "seeNewAppConfig":
             MessageLookupByLibrary.simpleMessage("アプリの新しいコンテンツを引き続きご覧ください。"),
@@ -983,7 +1000,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopOrders": MessageLookupByLibrary.simpleMessage("ショップオーダー"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("ショップの電話"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("ナメクジを買う"),
-        "shoppingCartItems": m26,
+        "shoppingCartItems": m27,
         "shortDescription": MessageLookupByLibrary.simpleMessage("簡単な説明"),
         "showAllMyOrdered":
             MessageLookupByLibrary.simpleMessage("注文したものをすべて表示"),
@@ -1002,7 +1019,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "slovak": MessageLookupByLibrary.simpleMessage("スロバキア"),
         "smsCodeExpired": MessageLookupByLibrary.simpleMessage(
             "SMS コードの有効期限が切れています。確認コードを再送信して、もう一度お試しください。"),
-        "sold": m27,
+        "sold": m28,
         "soldBy": MessageLookupByLibrary.simpleMessage("販売元"),
         "somethingWrong":
             MessageLookupByLibrary.simpleMessage("何か問題がありました。後でもう一度やり直してください。"),
@@ -1061,7 +1078,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "tapTheMicToTalk": MessageLookupByLibrary.simpleMessage("マイクをタップして話す"),
         "tax": MessageLookupByLibrary.simpleMessage("税金"),
         "thailand": MessageLookupByLibrary.simpleMessage("Thai"),
-        "theFieldIsRequired": m28,
+        "theFieldIsRequired": m29,
         "thisDateIsNotAvailable":
             MessageLookupByLibrary.simpleMessage("この日付は利用できません"),
         "thisFeatureDoesNotSupportTheCurrentLanguage":
@@ -1082,7 +1099,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("トップアップ製品が見つかりません"),
         "total": MessageLookupByLibrary.simpleMessage("合計"),
         "totalCartValue": MessageLookupByLibrary.simpleMessage("注文の合計金額は少なくとも"),
-        "totalProducts": m29,
+        "totalProducts": m30,
         "totalTax": MessageLookupByLibrary.simpleMessage("総税"),
         "trackingNumberIs": MessageLookupByLibrary.simpleMessage("追跡番号は"),
         "trackingPage": MessageLookupByLibrary.simpleMessage("追跡ページ"),
@@ -1119,6 +1136,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "uploadProduct": MessageLookupByLibrary.simpleMessage("製品のアップロード"),
         "uploading": MessageLookupByLibrary.simpleMessage("アップロード中"),
         "url": MessageLookupByLibrary.simpleMessage("URL"),
+        "useMaximumPointDiscount": m31,
         "useNow": MessageLookupByLibrary.simpleMessage("今すぐ使用"),
         "useThisImage": MessageLookupByLibrary.simpleMessage("この画像を使用する"),
         "userExists":
@@ -1130,7 +1148,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("ユーザー名とパスワードが必要です"),
         "vacationMessage": MessageLookupByLibrary.simpleMessage("休暇メッセージ"),
         "vacationType": MessageLookupByLibrary.simpleMessage("休暇の種類"),
-        "validUntilDate": m30,
+        "validUntilDate": m32,
         "variable": MessageLookupByLibrary.simpleMessage("変数"),
         "variation": MessageLookupByLibrary.simpleMessage("変化"),
         "vendor": MessageLookupByLibrary.simpleMessage("ベンダー"),
@@ -1153,30 +1171,32 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("確認を待ちます"),
         "walletBalance": MessageLookupByLibrary.simpleMessage("ウォレットの残高"),
         "walletName": MessageLookupByLibrary.simpleMessage("ウォレット名"),
-        "warning": m31,
-        "warningCurrencyMessageForWallet": m32,
+        "warning": m33,
+        "warningCurrencyMessageForWallet": m34,
         "weFoundBlogs": MessageLookupByLibrary.simpleMessage("ブログが見つかりました"),
-        "weFoundProducts": m33,
+        "weFoundProducts": m35,
         "weNeedCameraAccessTo": MessageLookupByLibrary.simpleMessage(
             "QRコードまたはバーコードをスキャンするにはカメラにアクセスする必要があります。"),
         "weSentAnOTPTo": MessageLookupByLibrary.simpleMessage("認証コードが送信されました"),
         "weWillSendYouNotification": MessageLookupByLibrary.simpleMessage(
             "新製品が利用可能になったとき、またはオファーが利用可能になったときに通知を送信します。この設定は、設定でいつでも変更できます。"),
         "webView": MessageLookupByLibrary.simpleMessage("Webビュー"),
-        "week": m34,
+        "week": m36,
         "welcome": MessageLookupByLibrary.simpleMessage("ようこそ"),
-        "welcomeUser": m35,
+        "welcomeUser": m37,
         "whichLanguageDoYouPrefer":
             MessageLookupByLibrary.simpleMessage("どの言語が好きですか?"),
+        "wholesaleRegisterMsg":
+            MessageLookupByLibrary.simpleMessage("登録を承認するには管理者に連絡してください。"),
         "womanCollections": MessageLookupByLibrary.simpleMessage("女性コレクション"),
         "writeComment": MessageLookupByLibrary.simpleMessage("コメントを書いて"),
         "writeYourNote": MessageLookupByLibrary.simpleMessage("メモを書き"),
-        "yearsAgo": m36,
+        "yearsAgo": m38,
         "yes": MessageLookupByLibrary.simpleMessage("Yes"),
         "youCanOnlyOrderSingleStore":
             MessageLookupByLibrary.simpleMessage("購入できるのは1店舗のみです。"),
         "youCanOnlyPurchase": MessageLookupByLibrary.simpleMessage("この商品には"),
-        "youHaveAssignedToOrder": m37,
+        "youHaveAssignedToOrder": m39,
         "youHaveBeenSaveAddressYourLocal":
             MessageLookupByLibrary.simpleMessage("あなたはあなたの地元の住所を保存しています"),
         "youHavePoints":

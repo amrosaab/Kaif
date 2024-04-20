@@ -55,7 +55,7 @@ class FlutterwaveServices {
       final flutterwave = Flutterwave(
           context: context,
           publicKey: publicKey,
-          currency: currency,
+          currency: currency!,
           redirectUrl: 'https://google.com',
           txRef: 'WOOC_${orderId}_${DateTime.now().millisecondsSinceEpoch}',
           amount: amount,

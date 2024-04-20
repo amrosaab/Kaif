@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart'
         CupertinoIcons,
         showCupertinoDialog;
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:inspireui/icons/icon_picker.dart';
 import 'package:provider/provider.dart';
 
@@ -695,10 +696,10 @@ class SettingScreenState extends State<SettingScreen>
                   style: const TextStyle(fontSize: 16),
                 ),
                 const SizedBox(height: 5),
-                Text(
-                  S.of(context).fingerprintsTouchID,
-                  style: Theme.of(context).textTheme.labelMedium,
-                ),
+                // Text(
+                //   S.of(context).fingerprintsTouchID,
+                //   style: Theme.of(context).textTheme.labelMedium,
+                // ),
               ],
             ),
             trailing: const Icon(
@@ -827,7 +828,9 @@ class SettingScreenState extends State<SettingScreen>
                   ),
                   title: Text(
                     loggedIn ? S.of(context).logout : S.of(context).login,
-                    style: const TextStyle(fontSize: 16),
+                    style:  TextStyle(fontSize: 16,
+                      fontFamily: GoogleFonts.cairo().fontFamily
+                    ),
                   ),
                   trailing: const Icon(Icons.arrow_forward_ios,
                       size: 18, color: kGrey600),

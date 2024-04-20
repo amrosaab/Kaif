@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 import '../../common/config.dart';
 import '../../common/constants.dart';
@@ -39,7 +40,7 @@ class _BiometricsScreenState extends BaseScreen<BiometricsScreen>
           appBar: AppBar(
             title: Text(
               S.of(context).lockScreenAndSecurity,
-              style: const TextStyle(color: Colors.white),
+              style:  TextStyle(color: Colors.white,fontFamily: GoogleFonts.cairo().fontFamily),
             ),
             backgroundColor: Theme.of(context).brightness == Brightness.dark? const Color(0xff282D39):Colors.grey[700],
             leading: Center(
@@ -106,7 +107,7 @@ class _BiometricsScreenState extends BaseScreen<BiometricsScreen>
         context: context,
         builder: (context) {
           return AlertDialog(
-            title: Text(S.of(context).login),
+            title: Text(S.of(context).login,style: TextStyle(fontFamily: GoogleFonts.cairo().fontFamily,)),
             content: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
@@ -132,6 +133,8 @@ class _BiometricsScreenState extends BaseScreen<BiometricsScreen>
                   builder: (BuildContext context, StateSetter setState) {
                 return TextButton(
                   child: Text(
+                style: TextStyle(fontFamily: GoogleFonts.cairo().fontFamily
+          ),
                       _isLoading ? S.of(context).loading : S.of(context).login),
                   onPressed: () {
                     _login(context, setState);
