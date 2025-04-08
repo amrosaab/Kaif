@@ -24,7 +24,7 @@ class FirebaseAnalyticsServiceImpl extends FirebaseAnalyticsService {
   @override
   Future<void> logCustomEvent({
     required String name,
-    Map<String, dynamic>? parameter,
+    Map<String, Object>? parameter,
   }) async {
     await FirebaseAnalytics.instance
         .logEvent(name: name, parameters: parameter);

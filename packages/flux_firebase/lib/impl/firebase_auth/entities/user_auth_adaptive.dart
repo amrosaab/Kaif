@@ -16,7 +16,7 @@ class UserAuthAdaptiveFirebase extends User {
         );
 
   @override
-  Future<String> getIdToken([bool forceRefresh = false]) {
+  Future<String?> getIdToken([bool forceRefresh = false]) {
     return userFirebase.getIdToken(forceRefresh);
   }
 }

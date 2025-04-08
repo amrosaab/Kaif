@@ -186,59 +186,146 @@ class ShopifyQuery {
     $fragmentProduct
   ''';
 
-  static String createCheckout = '''
-    mutation checkoutCreate(
-      \$input: CheckoutCreateInput! 
+  // static String createCheckout = '''
+  //   mutation checkoutCreate(
+  //     \$input: CheckoutCreateInput!
+  //     \$langCode: LanguageCode
+  //     \$countryCode: CountryCode
+  //   ) @inContext(language: \$langCode, country: \$countryCode) {
+  //       checkoutCreate(input: \$input) {
+  //         checkout {
+  //           ...checkoutPriceInformation
+  //         }
+  //         checkoutUserErrors {
+  //           code
+  //           field
+  //           message
+  //         }
+  //       }
+  //   }
+  //   $fragmentCheckoutPrice
+  // ''';
+  //
+  // static String updateCheckout = '''
+  //   mutation checkoutLineItemsReplace(
+  //     \$lineItems: [CheckoutLineItemInput!]!
+  //     \$checkoutId: ID!
+  //     \$langCode: LanguageCode
+  //     \$countryCode: CountryCode
+  //   ) @inContext(language: \$langCode, country: \$countryCode) {
+  //     checkoutLineItemsReplace(lineItems: \$lineItems, checkoutId: \$checkoutId) {
+  //       userErrors {
+  //         field
+  //         message
+  //       }
+  //       checkout {
+  //         ...checkoutPriceInformation
+  //       }
+  //     }
+  //   }
+  //   $fragmentCheckoutPrice
+  // ''';
+  //
+  // static String updateCheckoutAttribute = '''
+  //   mutation checkoutAttributesUpdateV2(
+  //   \$checkoutId: ID!
+  //   \$input: CheckoutAttributesUpdateV2Input!
+  //   \$langCode: LanguageCode
+  //   \$countryCode: CountryCode
+  //   ) @inContext(language: \$langCode, country: \$countryCode) {
+  //   checkoutAttributesUpdateV2(checkoutId: \$checkoutId, input: \$input) {
+  //       checkout {
+  //         id
+  //       }
+  //       checkoutUserErrors {
+  //         code
+  //         field
+  //         message
+  //       }
+  //     }
+  //   }
+  // ''';
+  //
+  // static String updateCheckoutEmail = '''
+  //   mutation checkoutAttributesUpdateV2(
+  //   \$checkoutId: ID!
+  //   \$email: String!
+  //   \$langCode: LanguageCode
+  //   \$countryCode: CountryCode
+  //   ) @inContext(language: \$langCode, country: \$countryCode) {
+  //   checkoutEmailUpdateV2(checkoutId: \$checkoutId, email: \$email) {
+  //       checkout {
+  //         id
+  //       }
+  //       checkoutUserErrors {
+  //         code
+  //         field
+  //         message
+  //       }
+  //     }
+  //   }
+  // ''';
+
+
+  static String createCart = '''
+    mutation cartCreate(
+      \$input: CartInput
       \$langCode: LanguageCode
       \$countryCode: CountryCode
     ) @inContext(language: \$langCode, country: \$countryCode) {
-        checkoutCreate(input: \$input) {
-          checkout {
-            ...checkoutPriceInformation
-          }
-          checkoutUserErrors {
-            code
-            field
-            message
+      cartCreate(input: \$input) {
+        cart {
+          id
+          checkoutUrl
+          lines(first: 10) {
+            edges {
+              node {
+                quantity
+                merchandise {
+                  ... on ProductVariant {
+                    id
+                    title
+                  }
+                }
+              }
+            }
           }
         }
-    }
-    $fragmentCheckoutPrice
-  ''';
-
-  static String updateCheckout = '''
-    mutation checkoutLineItemsReplace(
-      \$lineItems: [CheckoutLineItemInput!]!
-      \$checkoutId: ID!
-      \$langCode: LanguageCode
-      \$countryCode: CountryCode
-    ) @inContext(language: \$langCode, country: \$countryCode) {
-      checkoutLineItemsReplace(lineItems: \$lineItems, checkoutId: \$checkoutId) {
         userErrors {
           field
           message
         }
-        checkout {
-          ...checkoutPriceInformation
-        }
       }
     }
-    $fragmentCheckoutPrice
   ''';
 
-  static String updateCheckoutAttribute = '''
-    mutation checkoutAttributesUpdateV2(
-    \$checkoutId: ID! 
-    \$input: CheckoutAttributesUpdateV2Input!
-    \$langCode: LanguageCode
-    \$countryCode: CountryCode
+  // Update Cart Line Items (بديل checkoutLineItemsReplace)
+  static String replaceCartLines = '''
+    mutation cartLinesUpdate(
+      \$cartId: ID!
+      \$lines: [CartLineUpdateInput!]!
+      \$langCode: LanguageCode
+      \$countryCode: CountryCode
     ) @inContext(language: \$langCode, country: \$countryCode) {
-    checkoutAttributesUpdateV2(checkoutId: \$checkoutId, input: \$input) {
-        checkout {
+      cartLinesUpdate(cartId: \$cartId, lines: \$lines) {
+        cart {
           id
+          lines(first: 10) {
+            edges {
+              node {
+                id
+                quantity
+                merchandise {
+                  ... on ProductVariant {
+                    id
+                    title
+                  }
+                }
+              }
+            }
+          }
         }
-        checkoutUserErrors {
-          code
+        userErrors {
           field
           message
         }
@@ -246,19 +333,69 @@ class ShopifyQuery {
     }
   ''';
 
-  static String updateCheckoutEmail = '''
-    mutation checkoutAttributesUpdateV2(
-    \$checkoutId: ID! 
-    \$email: String!
-    \$langCode: LanguageCode
-    \$countryCode: CountryCode
-    ) @inContext(language: \$langCode, country: \$countryCode) {
-    checkoutEmailUpdateV2(checkoutId: \$checkoutId, email: \$email) {
-        checkout {
-          id
+  static String cartLinkUser = '''
+  mutation cartLinkUser(\$cartId: ID!, \$cookie: String!) {
+  updateCart(input: {id:\$cartId, customerAccessToken: \$cookie}) {
+    cart {
+      id
+      checkoutUrl
+      lines(first: 10) {
+        edges {
+          node {
+            id
+            quantity
+            variant {
+              id
+              title
+            }
+          }
         }
-        checkoutUserErrors {
-          code
+      }
+    }
+  }
+  
+  ''';
+
+  // Update Cart Attributes (بديل checkoutAttributesUpdateV2)
+  static String updateCartAttributes = '''
+    mutation cartAttributesUpdate(
+      \$cartId: ID!
+      \$attributes: [AttributeInput!]!
+      \$langCode: LanguageCode
+      \$countryCode: CountryCode
+    ) @inContext(language: \$langCode, country: \$countryCode) {
+      cartAttributesUpdate(cartId: \$cartId, attributes: \$attributes) {
+        cart {
+          id
+          attributes {
+            key
+            value
+          }
+        }
+        userErrors {
+          field
+          message
+        }
+      }
+    }
+  ''';
+
+  // Update Cart Buyer Email (بديل checkoutEmailUpdateV2)
+  static String updateCartBuyerIdentity = '''
+    mutation cartBuyerIdentityUpdate(
+      \$cartId: ID!
+      \$buyerIdentity: CartBuyerIdentityInput!
+      \$langCode: LanguageCode
+      \$countryCode: CountryCode
+    ) @inContext(language: \$langCode, country: \$countryCode) {
+      cartBuyerIdentityUpdate(cartId: \$cartId, buyerIdentity: \$buyerIdentity) {
+        cart {
+          id
+          buyerIdentity {
+            email
+          }
+        }
+        userErrors {
           field
           message
         }

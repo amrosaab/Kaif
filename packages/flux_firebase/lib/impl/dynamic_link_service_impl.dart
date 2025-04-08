@@ -24,12 +24,16 @@ class DynamicLinkServiceImpl extends DynamicLinkService {
   Future<void> initUniLinks(context) async {
     // Subscribe to all events when app is started.
 // (Use allStringLinkStream to get it as [String])
-    final initialLink = await _appLinks.getInitialAppLink();
+    final initialLink = await _appLinks.getInitialLink();
     if (initialLink != null) {
-      await handleDynamicLink(initialLink, context);
+    //  await handleDynamicLink(initialLink, context);
     }
 
-    _appLinks.allUriLinkStream.listen((uri) async {
+    _appLinks.uriLinkStream.listen((uri) async {
+      if(uri.toString().contains("request_ip_version")){
+        return;
+
+      }
       await handleDynamicLink(uri, context);
 
       // Do something (navigation, ...)
@@ -82,13 +86,18 @@ class DynamicLinkServiceImpl extends DynamicLinkService {
   @override
   Future<String> generateProductCategoryUrl(dynamic productCategoryId) async {
     final cate = await _service.api
-        .getProductCategoryById(categoryId: productCategoryId);
+        .getCategories();
+    // final cate = await _service.api
+    //    .getProductCategoryById(categoryId: productCategoryId);
+    //
+    print("xzcxzc${productCategoryId!}");
+    productCategoryId=productCategoryId;
     var url;
     if (cate != null) {
       if (ServerConfig().isShopify) {
-        url = cate.onlineStoreUrl;
+        url = cate.firstWhere((element) => element.id==productCategoryId).onlineStoreUrl;
       } else {
-        url = '${ServerConfig().url}/product-category/${cate.slug}';
+        url = '${ServerConfig().url}/product-category/${cate.firstWhere((element) => element.id==productCategoryId).slug}';
       }
     }
     return url;

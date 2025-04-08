@@ -340,7 +340,7 @@ class User {
   String get _getDisplayName =>
       '${firstName ?? ''}${(lastName?.isEmpty ?? true) ? '' : ' $lastName'}';
 
-  Future<String> getIdToken([bool forceRefresh = false]) => Future.value('');
+  Future<String?>  getIdToken([bool forceRefresh = false]) => Future.value('');
 
   @override
   String toString() => 'User { username: $id $name $email}';

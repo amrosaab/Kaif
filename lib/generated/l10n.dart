@@ -3090,10 +3090,10 @@ class S {
     );
   }
 
-  /// `Street`
+  /// `Apartment`
   String get streetNameApartment {
     return Intl.message(
-      'Street',
+      'Apartment',
       name: 'streetNameApartment',
       desc: '',
       args: [],
@@ -3110,10 +3110,10 @@ class S {
     );
   }
 
-  /// `Block`
+  /// `Floor`
   String get block2 {
     return Intl.message(
-      'Block',
+      'Floor',
       name: 'block2',
       desc: '',
       args: [],
@@ -3185,6 +3185,36 @@ class S {
     return Intl.message(
       'SKU',
       name: 'sku',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get lang {
+    return Intl.message(
+      'Language',
+      name: 'lang',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Country`
+  String get con {
+    return Intl.message(
+      'Country',
+      name: 'con',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Shop now`
+  String get shopnoww {
+    return Intl.message(
+      'Shop now',
+      name: 'shopnoww',
       desc: '',
       args: [],
     );

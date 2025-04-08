@@ -58,6 +58,7 @@ class CategoriesScreenState extends State<CategoriesScreen>
 
     final appModel = Provider.of<AppModel>(context);
     final categoryLayout = appModel.categoryLayout;
+    print("maxccc${categoryLayout}");
     return renderScaffold(
       routeName: RouteList.category,
       child: [

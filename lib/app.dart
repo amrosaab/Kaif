@@ -338,6 +338,7 @@ class AppState extends State<App>
   @override
   Widget build(BuildContext context) {
     printLog('[AppState] Build app.dart');
+
     return ChangeNotifierProvider<AppModel>.value(
       value: _app!,
       child: Selector<AppModel, (String, ThemeMode?, AppConfig?)>(

@@ -216,7 +216,7 @@ typedef FirestoreListOnError = void Function(dynamic error, StackTrace trace);
 
 class FirestoreList extends ListBase<DocumentSnapshot> {
   FirestoreList({
-    @required this.query,
+     this.query,
     this.onInitialData,
     this.onChildAdded,
     this.onChildRemoved,

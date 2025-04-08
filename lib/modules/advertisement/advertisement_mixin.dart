@@ -3,7 +3,6 @@
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:google_mobile_ads/google_mobile_ads.dart';
 
 import '../../common/constants.dart';
 import '../../models/index.dart'
@@ -23,7 +22,7 @@ class AdvertisementServiceImpl implements AdvertisementService {
   static final _adsProviders = {
     // // Enable Facebook Ads
     // AdvertisementProvider.facebook: FacebookAdvertisement(),
-    AdvertisementProvider.google: GoogleAdvertisement(),
+    // AdvertisementProvider.google: GoogleAdvertisement(),
   };
 
   AdvertisementBase? getAdsProvider(AdvertisementProvider? adsProvider) =>
@@ -51,15 +50,15 @@ class AdvertisementServiceImpl implements AdvertisementService {
       // Enable Facebook Ads
       // FacebookAudienceNetwork.init(testingId: advertisement.facebookTestingId);
 
-      MobileAds.instance.initialize().then((InitializationStatus status) {
-        printLog('Initialization done: ${status.adapterStatuses.toString()}');
-
-        MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
-          tagForChildDirectedTreatment:
-              TagForChildDirectedTreatment.unspecified,
-          // testDeviceIds: advertisement.googleTestingId,
-        ));
-      });
+      // MobileAds.instance.initialize().then((InitializationStatus status) {
+      //   printLog('Initialization done: ${status.adapterStatuses.toString()}');
+      //
+      //   MobileAds.instance.updateRequestConfiguration(RequestConfiguration(
+      //     tagForChildDirectedTreatment:
+      //         TagForChildDirectedTreatment.unspecified,
+      //     // testDeviceIds: advertisement.googleTestingId,
+      //   ));
+      // });
     }
   }
 

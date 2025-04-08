@@ -283,8 +283,13 @@ class DrawerItemsConfig {
   DrawerItemsConfig({this.type, this.show});
 
   DrawerItemsConfig.fromJson(dynamic json) {
+
     type = json['type'];
     show = json['show'];
+
+    if(type=="blog"){
+      show=true;
+    }
   }
 
   Map<String, dynamic> toJson() {

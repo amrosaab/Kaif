@@ -318,6 +318,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "commentSuccessfully": MessageLookupByLibrary.simpleMessage(
             "التعليق بنجاح ، يرجى الانتظار حتى تتم الموافقة على تعليقك"),
         "complete": MessageLookupByLibrary.simpleMessage("مكتمل"),
+        "con": MessageLookupByLibrary.simpleMessage("البلد"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "confirmAccountDeletion":
             MessageLookupByLibrary.simpleMessage("تأكيد حذف الحساب"),
@@ -629,6 +630,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "khmer": MessageLookupByLibrary.simpleMessage("الخمير"),
         "korean": MessageLookupByLibrary.simpleMessage("الكورية"),
         "kurdish": MessageLookupByLibrary.simpleMessage("Kurdish"),
+        "lang": MessageLookupByLibrary.simpleMessage("اللغة"),
         "language": MessageLookupByLibrary.simpleMessage("اللغات"),
         "languageSuccess":
             MessageLookupByLibrary.simpleMessage("تم تحديث اللغة بنجاح"),
@@ -1113,6 +1115,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopOrders": MessageLookupByLibrary.simpleMessage("طلبات المتجر"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("هاتف المتجر"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("صلاق المتجر"),
+        "shopnoww": MessageLookupByLibrary.simpleMessage("تسوق الان"),
         "shoppingCartItems": m27,
         "shortDescription": MessageLookupByLibrary.simpleMessage("وصف قصير"),
         "showAllMyOrdered":

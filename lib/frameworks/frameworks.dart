@@ -512,7 +512,7 @@ abstract class BaseFrameworks {
     return const SizedBox();
   }
 
-  /// render Search Screen
+  ///// render Search Screen
   Widget renderSearchScreen({arguments}) {
     return ChangeNotifierProvider<SearchModel>(
       create: (context) => SearchModel(),

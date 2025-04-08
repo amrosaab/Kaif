@@ -36,7 +36,7 @@ class FirebaseNotificationService extends NotificationService {
     delegate = notificationDelegate;
     final startTime = DateTime.now();
     await _instance.getToken().then((token) async {
-      printLog('[FirebaseCloudMessaging] init FCM token $token', startTime);
+      print('[FirebaseCloudMessaging] init FCM token $token  $startTime' );
     });
 
     await _instance.setForegroundNotificationPresentationOptions(

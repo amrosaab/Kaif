@@ -93,11 +93,11 @@ class Blog {
   }
 
   Blog.fromShopifyJson(Map json)
-      : id = json['id'],
-        author = json['authorV2']['name'],
-        title = json['title'],
-        content = json['contentHtml'],
-        imageFeature = json['image']['url'],
+      : id = json['id']??'',
+        author =  json['authorV2']!=null? json['authorV2']['name']??'':'',
+        title = json['title']??'',
+        content = json['contentHtml']??'',
+        imageFeature= json['image']!=null? json['image']['url']??'https://kaif.co/cdn/shop/files/finalfinal_74cad1e7-e82f-4eda-8208-0703f0b2420b.png':'https://kaif.co/cdn/shop/files/finalfinal_74cad1e7-e82f-4eda-8208-0703f0b2420b.png',
         date = DateFormat.yMMMMd()
             .add_Hm()
             .format(DateTime.parse(json['publishedAt']).toLocal()),
@@ -108,7 +108,7 @@ class Blog {
         audioUrls = const <String>[],
         videoUrl = '',
         authorImage = '',
-        link = json['onlineStoreUrl'],
+        link = json['onlineStoreUrl']??'',
         commentCount = 0;
 
   factory Blog.fromStrapiJson(Map<String, dynamic> json) {

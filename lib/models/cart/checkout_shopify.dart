@@ -40,7 +40,8 @@ class CheckoutCart {
       return CheckoutCart(
         id: parsedJson['id'],
         email: parsedJson['email'],
-        webUrl: parsedJson['webUrl'],
+        // webUrl: parsedJson['webUrl'],
+        webUrl: parsedJson['checkoutUrl'],
         subtotalPrice:
             double.parse(parsedJson['subtotalPrice']?['amount'] ?? '0'),
         totalTax: double.parse(parsedJson['totalTax']?['amount'] ?? '0'),

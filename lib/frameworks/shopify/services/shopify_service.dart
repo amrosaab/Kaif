@@ -432,6 +432,8 @@ class ShopifyService extends BaseServices {
     bool? productType,
     limit,
   }) async {
+
+    // print("ssdsdsxccxcx${}");
     if (categoryId is String? && (categoryId?.isEmpty ?? true)) {
       return await fetchProducts(
         orderBy: orderBy,
@@ -531,11 +533,22 @@ class ShopifyService extends BaseServices {
           product['categoryId'] = categoryId;
 
           /// Hide out of stock.
-          if ((kAdvanceConfig.hideOutOfStock) &&
-              product['availableForSale'] == false) {
-            continue;
+          ///
+          // if ((kAdvanceConfig.hideOutOfStock) &&
+          //     product['availableForSale'] == false) {
+          //   continue;
+          // }
+          /// hoksh edit
+
+          // if ((kAdvanceConfig.hideOutOfStock) &&
+          //     product['availableForSale'] == true) {
+  if ((kAdvanceConfig.hideOutOfStock)&& product['availableForSale'] == true) {
+
+
+            list.add(Product.fromShopify(product));
+
+            // continue;
           }
-          list.add(Product.fromShopify(product));
         }
       }
       return list;
@@ -1035,131 +1048,487 @@ print("objectxcxxxxx${availableShippingRates}");
     return checkout;
   }
 
-  Future addItemsToCart(CartModelShopify cartModel) async {
+  // Future addItemsToCart(CartModelShopify cartModel) async {
+  //   final cookie = cartModel.user?.cookie;
+  //
+  //   try {
+  //     if (cookie != null) {
+  //       var lineItems = [];
+  //
+  //       printLog('addItemsToCart productsInCart ${cartModel.productsInCart}');
+  //       printLog(
+  //           'addItemsToCart productVariationInCart ${cartModel.productVariationInCart}');
+  //
+  //       for (var productId in cartModel.productVariationInCart.keys) {
+  //         var variant = cartModel.productVariationInCart[productId]!;
+  //         var productCart = cartModel.productsInCart[productId];
+  //
+  //         printLog('addItemsToCart $variant');
+  //
+  //         lineItems.add({'variantId': variant.id, 'quantity': productCart});
+  //       }
+  //
+  //       printLog('addItemsToCart lineItems $lineItems');
+  //       final options = MutationOptions(
+  //         document: gql(ShopifyQuery.createCheckout),
+  //         variables: {
+  //           'input': {
+  //             'lineItems': lineItems,
+  //             //hokshcomment
+  //             // if (cartModel.address != null) ...{
+  //             //   'email': cartModel.address?.email,
+  //             // }
+  //           },
+  //           'langCode': cartModel.langCode?.toUpperCase(),
+  //           'countryCode': countryCode,
+  //         },
+  //       );
+  //
+  //       final result = await client.mutate(options);
+  //
+  //       if (result.hasException) {
+  //         printLog("{asdxcxzcxzc ${result.exception.toString()}");
+  //         throw Exception(result.exception.toString());
+  //       }
+  //
+  //       print("xxzxzxzxxz${ result.data}");
+  //       final checkout = result.data?['checkoutCreate']['checkout'];
+  //
+  //       printLog('addItemsToCart checkout $checkout');
+  //
+  //       // start link checkout with user
+  //       final newCheckout = await (checkoutLinkUser(checkout['id'], cookie));
+  //
+  //       return CheckoutCart.fromJsonShopify(newCheckout ?? {});
+  //     } else {
+  //       throw ('You need to login to checkout');
+  //     }
+  //   } catch (e) {
+  //     printLog('::::addItemsToCart shopify error');
+  //     printLog(e.toString());
+  //     rethrow;
+  //   }
+  // }
+  //
+  // Future updateItemsToCart(CartModelShopify cartModel, String? cookie) async {
+  //   try {
+  //     if (cookie != null) {
+  //       var lineItems = [];
+  //       var checkoutId = cartModel.checkout!.id;
+  //
+  //       printLog(
+  //           'updateItemsToCart productsInCart ${cartModel.productsInCart}');
+  //       printLog(
+  //           'updateItemsToCart productVariationInCart ${cartModel.productVariationInCart}');
+  //
+  //       for (var productId in cartModel.productVariationInCart.keys) {
+  //         var variant = cartModel.productVariationInCart[productId]!;
+  //         var productCart = cartModel.productsInCart[productId];
+  //
+  //         printLog('updateItemsToCart $variant');
+  //
+  //         lineItems.add({'variantId': variant.id, 'quantity': productCart});
+  //       }
+  //
+  //       printLog('updateItemsToCart lineItems $lineItems');
+  //
+  //       final options = MutationOptions(
+  //         document: gql(ShopifyQuery.updateCheckout),
+  //         variables: <String, dynamic>{
+  //           'lineItems': lineItems,
+  //           'checkoutId': checkoutId,
+  //           'countryCode': countryCode,
+  //         },
+  //       );
+  //
+  //       final result = await client.mutate(options);
+  //
+  //       if (result.hasException) {
+  //         printLog(result.exception.toString());
+  //         throw Exception(result.exception.toString());
+  //       }
+  //
+  //       var checkout = result.data!['checkoutLineItemsReplace']['checkout'];
+  //
+  //       /// That case happen when user close and open app again
+  //       if (checkout == null) {
+  //         return await addItemsToCart(cartModel);
+  //       }
+  //
+  //       final checkoutCart = CheckoutCart.fromJsonShopify(checkout);
+  //
+  //       if (checkoutCart.email == null) {
+  //         // start link checkout with user
+  //         final newCheckout = await (checkoutLinkUser(checkout['id'], cookie));
+  //
+  //         return CheckoutCart.fromJsonShopify(newCheckout ?? {});
+  //       }
+  //
+  //       return checkoutCart;
+  //     } else {
+  //       throw S.current.youNeedToLoginCheckout;
+  //     }
+  //   } catch (err) {
+  //     printLog('::::updateItemsToCart shopify error');
+  //     printLog(err.toString());
+  //     rethrow;
+  //   }
+  // }
+
+  Future<Map<String, dynamic>> linkCartWithUser(String cartId, String customerAccessToken) async {
+    try {
+      // 1. Clean cart ID (remove query parameters if present)
+      final cleanCartId = cartId.split('?').first;
+      print('Linking cart: ${cleanCartId.substring(0, 30)}...');
+
+      // 2. Execute the mutation
+      final result = await client.mutate(
+        MutationOptions(
+          document: gql("""
+          mutation cartLinkUser(\$cartId: ID!, \$token: String!) {
+            cartBuyerIdentityUpdate(
+              cartId: \$cartId,
+              buyerIdentity: { customerAccessToken: \$token }
+            ) {
+              cart {
+                id
+                checkoutUrl
+                lines(first: 99) {
+                  edges {
+                    node {
+                      id
+                      quantity
+                      merchandise {
+                        ... on ProductVariant {
+                          id
+                          title
+                          product {
+                            title
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+              userErrors {
+                field
+                message
+              }
+            }
+          }
+        """),
+          variables: {
+            'cartId': cleanCartId,
+            'token': customerAccessToken,
+          },
+        ),
+      );
+
+      // 3. Handle response
+      final response = result.data?['cartBuyerIdentityUpdate'];
+
+      if (response?['userErrors']?.isNotEmpty ?? false) {
+        throw Exception(response['userErrors'][0]['message']);
+      }
+
+      final cartData = response?['cart'];
+      if (cartData == null) throw Exception('No cart data received');
+
+      print('Cart linked successfully! Items: ${cartData['lines']['edges'].length}');
+      return cartData;
+
+    } catch (e, stack) {
+      print('Cart Link Error: $e');
+      print('Stack Trace: $stack');
+      rethrow;
+    }
+  }
+  Future<CheckoutCart> addItemsToCart(CartModelShopify cartModel) async {
     final cookie = cartModel.user?.cookie;
 
     try {
-      if (cookie != null) {
-        var lineItems = [];
-
-        printLog('addItemsToCart productsInCart ${cartModel.productsInCart}');
-        printLog(
-            'addItemsToCart productVariationInCart ${cartModel.productVariationInCart}');
-
-        for (var productId in cartModel.productVariationInCart.keys) {
-          var variant = cartModel.productVariationInCart[productId]!;
-          var productCart = cartModel.productsInCart[productId];
-
-          printLog('addItemsToCart $variant');
-
-          lineItems.add({'variantId': variant.id, 'quantity': productCart});
-        }
-
-        printLog('addItemsToCart lineItems $lineItems');
-        final options = MutationOptions(
-          document: gql(ShopifyQuery.createCheckout),
-          variables: {
-            'input': {
-              'lineItems': lineItems,
-              //hokshcomment
-              // if (cartModel.address != null) ...{
-              //   'email': cartModel.address?.email,
-              // }
-            },
-            'langCode': cartModel.langCode?.toUpperCase(),
-            'countryCode': countryCode,
-          },
-        );
-
-        final result = await client.mutate(options);
-
-        if (result.hasException) {
-          printLog("{asdxcxzcxzc ${result.exception.toString()}");
-          throw Exception(result.exception.toString());
-        }
-
-        print("xxzxzxzxxz${ result.data}");
-        final checkout = result.data?['checkoutCreate']['checkout'];
-
-        printLog('addItemsToCart checkout $checkout');
-
-        // start link checkout with user
-        final newCheckout = await (checkoutLinkUser(checkout['id'], cookie));
-
-        return CheckoutCart.fromJsonShopify(newCheckout ?? {});
-      } else {
-        throw ('You need to login to checkout');
+      if (cookie == null) {
+        throw Exception('User not authenticated');
       }
-    } catch (e) {
-      printLog('::::addItemsToCart shopify error');
-      printLog(e.toString());
+
+      printLog('Products in cart: ${cartModel.productsInCart}');
+      printLog('Variants in cart: ${cartModel.productVariationInCart}');
+
+      // Prepare line items
+      final lineItems = cartModel.productVariationInCart.entries.map((entry) {
+        final productId = entry.key;
+        final variant = entry.value;
+        final quantity = cartModel.productsInCart[productId] ?? 1;
+
+        if (variant?.id == null || variant!.id!.isEmpty) {
+          throw Exception('Invalid variant ID for product $productId');
+        }
+
+        // Ensure proper variant ID format
+        final merchandiseId = variant!.id!.startsWith('gid://shopify/ProductVariant/')
+            ? variant.id!
+            : 'gid://shopify/ProductVariant/${variant.id}';
+
+        return {
+          'merchandiseId': merchandiseId,
+          'quantity': quantity,
+        };
+      }).toList();
+
+      printLog('Prepared line items: $lineItems');
+
+      // Always create a new cart (checkout) for each update
+      final options = MutationOptions(
+        document: gql('''
+        mutation createCart(\$lines: [CartLineInput!]!, \$country: CountryCode) 
+        @inContext(country: \$country) {
+          cartCreate(input: {lines: \$lines}) {
+            cart {
+              id
+              checkoutUrl
+              lines(first: 100) {
+                edges {
+                  node {
+                    id
+                    quantity
+                    merchandise {
+                      ... on ProductVariant {
+                        id
+                        title
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      '''),
+        variables: {
+          'lines': lineItems,
+          'country': countryCode,
+        },
+      );
+
+      final result = await client.mutate(options);
+
+      if (result.hasException) {
+        final errors = result.exception?.graphqlErrors ?? [];
+        if (errors.isNotEmpty) {
+          final errorMessages = errors.map((e) => e.message).join(', ');
+          throw Exception('GraphQL errors: $errorMessages');
+        }
+        throw Exception('Failed to create cart: ${result.exception}');
+      }
+
+      final cartData = result.data?['cartCreate']?['cart'];
+      if (cartData == null) {
+        throw Exception('No cart data received');
+      }
+
+      return CheckoutCart.fromJsonShopify(cartData);
+
+    } catch (e, stack) {
+      printLog('Error in addItemsToCart: $e');
+      printLog('Stack trace: $stack');
       rethrow;
     }
   }
 
-  Future updateItemsToCart(CartModelShopify cartModel, String? cookie) async {
+  Future<CheckoutCart> updateItemsToCart(CartModelShopify cartModel, String? cookie) async {
     try {
-      if (cookie != null) {
-        var lineItems = [];
-        var checkoutId = cartModel.checkout!.id;
-
-        printLog(
-            'updateItemsToCart productsInCart ${cartModel.productsInCart}');
-        printLog(
-            'updateItemsToCart productVariationInCart ${cartModel.productVariationInCart}');
-
-        for (var productId in cartModel.productVariationInCart.keys) {
-          var variant = cartModel.productVariationInCart[productId]!;
-          var productCart = cartModel.productsInCart[productId];
-
-          printLog('updateItemsToCart $variant');
-
-          lineItems.add({'variantId': variant.id, 'quantity': productCart});
-        }
-
-        printLog('updateItemsToCart lineItems $lineItems');
-
-        final options = MutationOptions(
-          document: gql(ShopifyQuery.updateCheckout),
-          variables: <String, dynamic>{
-            'lineItems': lineItems,
-            'checkoutId': checkoutId,
-            'countryCode': countryCode,
-          },
-        );
-
-        final result = await client.mutate(options);
-
-        if (result.hasException) {
-          printLog(result.exception.toString());
-          throw Exception(result.exception.toString());
-        }
-
-        var checkout = result.data!['checkoutLineItemsReplace']['checkout'];
-
-        /// That case happen when user close and open app again
-        if (checkout == null) {
-          return await addItemsToCart(cartModel);
-        }
-
-        final checkoutCart = CheckoutCart.fromJsonShopify(checkout);
-
-        if (checkoutCart.email == null) {
-          // start link checkout with user
-          final newCheckout = await (checkoutLinkUser(checkout['id'], cookie));
-
-          return CheckoutCart.fromJsonShopify(newCheckout ?? {});
-        }
-
-        return checkoutCart;
-      } else {
-        throw S.current.youNeedToLoginCheckout;
+      if (cookie == null) {
+        throw Exception('User not authenticated');
       }
-    } catch (err) {
-      printLog('::::updateItemsToCart shopify error');
-      printLog(err.toString());
+
+      // For updates, we'll simply create a new cart with all current items
+      // This ensures we always have a clean state
+      return await addItemsToCart(cartModel);
+
+    } catch (e) {
+      printLog('updateItemsToCart error: $e');
       rethrow;
     }
+  }
+  Future<void> _removeCartLines(String cartId, List<String> lineIds) async {
+    final result = await client.mutate(
+      MutationOptions(
+        document: gql(r'''
+        mutation removeCartLines($cartId: ID!, $lineIds: [ID!]!) {
+          cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+            cart {
+              id
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      '''),
+        variables: {
+          'cartId': cartId,
+          'lineIds': lineIds,
+        },
+      ),
+    );
+
+    if (result.hasException) {
+      throw Exception(_parseGraphQLErrors(result.exception));
+    }
+  }
+
+  Future<void> _updateCartLines(String cartId, List<Map<String, dynamic>> updates) async {
+    final result = await client.mutate(
+      MutationOptions(
+        document: gql(r'''
+        mutation updateCartLines($cartId: ID!, $lines: [CartLineUpdateInput!]!) {
+          cartLinesUpdate(cartId: $cartId, lines: $lines) {
+            cart {
+              id
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      '''),
+        variables: {
+          'cartId': cartId,
+          'lines': updates.map((item) => ({
+            'id': item['id'].toString(),
+            'quantity': item['quantity'] as int,
+          })).toList(),
+        },
+      ),
+    );
+
+    if (result.hasException) {
+      throw Exception(_parseGraphQLErrors(result.exception));
+    }
+  }
+
+  Future<void> _addCartLines(String cartId, List<Map<String, dynamic>> additions) async {
+    final result = await client.mutate(
+      MutationOptions(
+        document: gql(r'''
+        mutation addToCart($cartId: ID!, $lines: [CartLineInput!]!) {
+          cartLinesAdd(cartId: $cartId, lines: $lines) {
+            cart {
+              id
+            }
+            userErrors {
+              field
+              message
+            }
+          }
+        }
+      '''),
+        variables: {
+          'cartId': cartId,
+          'lines': additions,
+        },
+      ),
+    );
+
+    if (result.hasException) {
+      throw Exception(_parseGraphQLErrors(result.exception));
+    }
+  }
+  Future<void> _removeAllCartLines(String cartId) async {
+    // First get existing lines
+    final cart = await getCart(cartId);
+    final lineIds = cart.lineItems?.map((item) => item.id).where((id) => id != null).toList();
+
+    if (lineIds?.isNotEmpty == true) {
+      await client.mutate(
+        MutationOptions(
+          document: gql(r'''
+          mutation removeCartLines($cartId: ID!, $lineIds: [ID!]!) {
+            cartLinesRemove(cartId: $cartId, lineIds: $lineIds) {
+              cart {
+                id
+              }
+              userErrors {
+                field
+                message
+              }
+            }
+          }
+        '''),
+          variables: {
+            'cartId': cartId,
+            'lineIds': lineIds,
+          },
+        ),
+      );
+    }
+  }
+
+  Future<CheckoutCart> getCart(String cartId) async {
+    final result = await client.query(
+      QueryOptions(
+        document: gql('''
+        query getCart(\$cartId: ID!) {
+          cart(id: \$cartId) {
+            id
+            checkoutUrl
+            lines(first: 100) {
+              edges {
+                node {
+                  id
+                  quantity
+                  merchandise {
+                    ... on ProductVariant {
+                      id
+                      title
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      '''),
+        variables: {'cartId': cartId},
+      ),
+    );
+
+    if (result.hasException) {
+      throw Exception(_parseGraphQLErrors(result.exception));
+    }
+
+    return CheckoutCart.fromJsonShopify(result.data?['cart'] ?? {});
+  }
+  String _cleanVariantId(String? id) {
+    if (id == null) return '';
+
+    // Handle already properly formatted IDs
+    if (id.startsWith('gid://shopify/ProductVariant/')) {
+      return id;
+    }
+
+    // Extract numeric ID if nested format exists
+    final matches = RegExp(r'(\d+)$').firstMatch(id);
+    if (matches != null) {
+      return 'gid://shopify/ProductVariant/${matches.group(1)}';
+    }
+
+    return '';
+  }
+
+  String _parseGraphQLErrors(OperationException? exception) {
+    if (exception == null) return 'Unknown GraphQL error';
+
+    return exception.graphqlErrors.map((e) {
+      return e.message;
+    }).join('\n');
   }
 
   Future<CheckoutCart> applyCoupon(
@@ -1228,7 +1597,8 @@ print("objectxcxxxxx${availableShippingRates}");
     String? checkoutId,
     String? note,
     DateTime? deliveryDate,
-  }) async {
+  })
+  async {
     var deliveryInfo = [];
     if (deliveryDate != null) {
       final dateFormat = DateFormat(DateTimeFormatConstants.ddMMMMyyyy);
@@ -1254,9 +1624,9 @@ print("objectxcxxxxx${availableShippingRates}");
       ];
     }
     final options = MutationOptions(
-      document: gql(ShopifyQuery.updateCheckoutAttribute),
+      document: gql(ShopifyQuery.updateCartAttributes), // تحديث للاستعلام
       variables: <String, dynamic>{
-        'checkoutId': checkoutId,
+        'cartId': checkoutId,
         'input': {
           'note': note,
           if (deliveryDate != null) 'customAttributes': deliveryInfo,
@@ -1278,9 +1648,9 @@ print("objectxcxxxxx${availableShippingRates}");
     required String email,
   }) async {
     final options = MutationOptions(
-      document: gql(ShopifyQuery.updateCheckoutEmail),
+      document: gql(ShopifyQuery.updateCartBuyerIdentity), // تحديث للاستعلام
       variables: <String, dynamic>{
-        'checkoutId': checkoutId,
+        'cartId': checkoutId,
         'email': email,
       },
     );
@@ -1438,11 +1808,15 @@ print("objectxcxxxxx${availableShippingRates}");
 
       final data = <Blog>[];
       String? lastCursor;
-      for (var item in response.data!['articles']['edges']) {
+      for (var item in response.data?['articles']['edges']) {
         final blog = item['node'];
         lastCursor = item['cursor'];
-        data.add(Blog.fromShopifyJson(blog));
+
+        Blog bb=Blog.fromShopifyJson(blog);
+        print("dcxxzddd"+bb.toJson().toString());
+        data.add(bb);
       }
+
 
       return PagingResponse(
         data: data,

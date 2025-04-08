@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:inspireui/inspireui.dart' show StringExtensions;
 
+import '../../../common/constants.dart';
 import '../../../common/tools/navigate_tools.dart';
 import '../../../widgets/common/flux_image.dart';
 import 'models/story.dart';
@@ -58,7 +59,7 @@ class _StoryCardState extends State<StoryCard> {
           child: Stack(
             fit: StackFit.expand,
             children: [
-              story?.urlImage?.isURLImage ?? false
+              story?.urlImage?.isURL ?? false
                   ? FluxImage(
                       imageUrl: story!.urlImage!,
                       key: const ValueKey(StoryConstants.backgroundKey),

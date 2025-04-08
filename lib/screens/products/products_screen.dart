@@ -306,7 +306,7 @@ class ProductsScreenState extends State<ProductsScreen>
                                     : renderFilters(context),
                                 header: [
                                   // TODO(fahjan): if you need to display categories
-                                  /* ProductCategoryMenu(
+                                   ProductCategoryMenu(
                                     imageLayout: true,
                                     enableSearchHistory:
                                         widget.enableSearchHistory,
@@ -315,7 +315,7 @@ class ProductsScreenState extends State<ProductsScreen>
                                       include = null;
                                       onFilter(categoryId: categoryId);
                                     },
-                                  ), */
+                                   ),
                                   Padding(
                                     padding: const EdgeInsets.only(
                                         left: 10,

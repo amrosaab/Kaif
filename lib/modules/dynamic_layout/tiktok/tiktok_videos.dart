@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart'
-    show InAppWebView, InAppWebViewController, URLRequest;
+    show InAppWebView, InAppWebViewController, URLRequest, WebUri;
 
 import '../../../common/constants.dart';
 import '../../../routes/flux_navigate.dart';
@@ -45,7 +45,7 @@ class _StateTikTokVideos extends State<TikTokVideos> {
       _failed = true;
       await _controller?.loadUrl(
         urlRequest: URLRequest(
-          url: _service.getUserRequestUrl().toUri(),
+          url:WebUri( _service.getUserRequestUrl()),
         ),
       );
     } else {
@@ -64,7 +64,7 @@ class _StateTikTokVideos extends State<TikTokVideos> {
     }
     await _controller?.loadUrl(
       urlRequest: URLRequest(
-        url: url.toUri(),
+        url: WebUri(url),
       ),
     );
   }
@@ -118,7 +118,7 @@ class _StateTikTokVideos extends State<TikTokVideos> {
                   } else {
                     await _controller?.loadUrl(
                       urlRequest: URLRequest(
-                        url: _service.getUserRequestUrl().toUri(),
+                        url: WebUri(_service.getUserRequestUrl()),
                       ),
                     );
                     _requestedCount++;

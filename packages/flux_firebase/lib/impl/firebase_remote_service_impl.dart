@@ -1,5 +1,4 @@
 import 'package:firebase_remote_config/firebase_remote_config.dart';
-import 'package:inspireui/inspireui.dart';
 
 import '../firebase_remote_service.dart';
 
@@ -20,7 +19,7 @@ class FirebaseRemoteServicesImpl extends FirebaseRemoteServices {
       await remoteConfig.activate();
       return true;
     } catch (e) {
-      printLog('Unable to fetch remote config. Default value will be used. $e');
+      print('Unable to fetch remote config. Default value will be used. $e');
     }
 
     return false;
