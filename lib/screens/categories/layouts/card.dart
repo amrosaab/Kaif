@@ -185,9 +185,12 @@ class _StateCardCategories extends BaseScreen<CardCategories> {
             return Parent(
               parent: _CategoryCardItem(
                 category,
-                onTap: hasChildren(category.id)
-                    ? null
-                    : () {
+                 onTap:
+                     //hokshedit stop subcati
+                 //hasChildren(category.id)
+                //     ? null
+                //     :
+                    () {
                         FluxNavigate.pushNamed(
                           RouteList.backdrop,
                           arguments: BackDropArguments(
@@ -305,7 +308,7 @@ class _CategoryCardItem extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.start,
                         mainAxisSize: MainAxisSize.max,
                         children: [
-                          Text(
+                          Flexible(child:  Text(
                             textAlign: TextAlign.left,
                             category.name?.toUpperCase() ?? '',
                             style: const TextStyle(
@@ -313,7 +316,8 @@ class _CategoryCardItem extends StatelessWidget {
                               fontSize: 22,
                               // fontWeight: FontWeight.w600,
                             ),
-                          ),
+                          ))
+                         ,
                         ],
                       ),
                     ),

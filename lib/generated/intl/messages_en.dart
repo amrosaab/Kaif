@@ -208,7 +208,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bleHasNotBeenEnabled": MessageLookupByLibrary.simpleMessage(
             "Bluetooth has not been enabled"),
         "bleState": m3,
-        "block2": MessageLookupByLibrary.simpleMessage("Block"),
+        "block2": MessageLookupByLibrary.simpleMessage("Floor"),
         "blog": MessageLookupByLibrary.simpleMessage("Blog"),
         "booked": MessageLookupByLibrary.simpleMessage("Already booked"),
         "booking": MessageLookupByLibrary.simpleMessage("Booking"),
@@ -322,6 +322,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "commentSuccessfully": MessageLookupByLibrary.simpleMessage(
             "Comment successfully, please wait until your comment is approved"),
         "complete": MessageLookupByLibrary.simpleMessage("Complete"),
+        "con": MessageLookupByLibrary.simpleMessage("Country"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "confirmAccountDeletion":
             MessageLookupByLibrary.simpleMessage("Confirm Account Deletion"),
@@ -637,6 +638,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "khmer": MessageLookupByLibrary.simpleMessage("Khmer"),
         "korean": MessageLookupByLibrary.simpleMessage("korean"),
         "kurdish": MessageLookupByLibrary.simpleMessage("Kurdish"),
+        "lang": MessageLookupByLibrary.simpleMessage("Language"),
         "language": MessageLookupByLibrary.simpleMessage("Languages"),
         "languageSuccess": MessageLookupByLibrary.simpleMessage(
             "The Language is updated successfully"),
@@ -1130,6 +1132,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "shopOrders": MessageLookupByLibrary.simpleMessage("Shop Orders"),
         "shopPhone": MessageLookupByLibrary.simpleMessage("Shop phone"),
         "shopSlug": MessageLookupByLibrary.simpleMessage("Shop slug"),
+        "shopnoww": MessageLookupByLibrary.simpleMessage("Shop now"),
         "shoppingCartItems": m27,
         "shortDescription":
             MessageLookupByLibrary.simpleMessage("Short Description"),
@@ -1198,7 +1201,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "streetIsRequired":
             MessageLookupByLibrary.simpleMessage("The floor field is required"),
         "streetName": MessageLookupByLibrary.simpleMessage("Floor"),
-        "streetNameApartment": MessageLookupByLibrary.simpleMessage("Street"),
+        "streetNameApartment":
+            MessageLookupByLibrary.simpleMessage("Apartment"),
         "streetNameBlock": MessageLookupByLibrary.simpleMessage("Building"),
         "submit": MessageLookupByLibrary.simpleMessage("Submit"),
         "submitYourPost":

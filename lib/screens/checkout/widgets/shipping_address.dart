@@ -500,7 +500,8 @@ class _ShippingAddressState extends State<ShippingAddress> {
                 index == 0 && (currentFieldController?.text.isEmpty ?? false),
             textFieldController: currentFieldController,
             focusNode: currentFieldFocusNode,
-            isReadOnly: isFieldReadOnly(index),
+            //hokshedit
+            // isReadOnly: isFieldReadOnly(index),
             autofillHints: currentFieldType.autofillHint != null
                 ? ['${currentFieldType.autofillHint}']
                 : null,
@@ -533,7 +534,8 @@ class _ShippingAddressState extends State<ShippingAddress> {
             onInputValidated: (value) {},
             spaceBetweenSelectorAndTextField: 0,
             selectorConfig: SelectorConfig(
-              enable: kPhoneNumberConfig.useInternationalFormat,
+              //hokshedit
+              // enable: kPhoneNumberConfig.useInternationalFormat,
               showFlags: kPhoneNumberConfig.showCountryFlag,
               selectorType: kPhoneNumberConfig.selectorType,
               setSelectorButtonAsPrefixIcon:

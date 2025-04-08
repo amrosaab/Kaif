@@ -50,6 +50,8 @@ class MenuBarState extends State<SideBarMenu> {
 
   @override
   Widget build(BuildContext context) {
+
+     print("dddcccc${Provider.of<AppModel>(context, listen: false).appConfig?.drawer!.toJson()}");
     printLog('[AppState] Load Menu');
 
     return SafeArea(

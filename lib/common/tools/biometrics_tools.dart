@@ -32,10 +32,11 @@ class BiometricsTools {
       if (canAuthenticateWithBiometrics) {
         return auth.authenticate(
             localizedReason: 'Please authenticate to login',
-            options: const AuthenticationOptions(
-              biometricOnly: true,
-              stickyAuth: true,
-            ));
+            // options: const AuthenticationOptions(
+            //   biometricOnly: true,
+            //   stickyAuth: true,
+            // )
+        );
       } else {
         await FlashHelper.errorMessage(
           context,

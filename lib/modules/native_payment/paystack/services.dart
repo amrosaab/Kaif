@@ -78,7 +78,7 @@ class PayStackServices {
             customerEmail: email!,
             reference: accessCode!,
             currency: currency!,
-            amount: (double.parse(amount) * 100).toString(),
+            amount: (double.parse(amount) * 100),
             paymentChannel: ['mobile_money', 'card'],
             transactionCompleted: () async {
               debugPrint('Payment Successful');
@@ -87,12 +87,19 @@ class PayStackServices {
               await _verifyPayStackTransaction({'reference': accessCode});
               onLoading(false);
               return;
-            },
-            transactionNotCompleted: () {
-              debugPrint('Payment Unsuccessful');
-              response = 'Payment Unsuccessful';
-              return;
-            });
+            }, callbackUrl: '', transactionNotCompleted: (String ) {
+
+            debugPrint('Payment Unsuccessful');
+            response = 'Payment Unsuccessful';
+            return;
+        },
+            // transactionNotCompleted: () {
+            //   debugPrint('Payment Unsuccessful');
+            //   response = 'Payment Unsuccessful';
+            //   return;
+            // }
+
+            );
         if (response == 'Success') {
           return;
         } else {

@@ -18,13 +18,16 @@ mixin ProductsMixin {
       ),
     );
     var productModel = Provider.of<ProductModel>(context, listen: false);
-    var currentCategoryId = productModel.categoryId;
+    // var currentCategoryId = productModel.categoryId;
+    var currentCategoryId = productModel.productsList!.first.categoryId;
     var currentTagId = productModel.tagId;
+
+    print("vvcbvb${productModel.productsList!.first.categoryId}");
     var url;
     if (currentCategoryId.isValid) {
       url = await FirebaseServices()
           .dynamicLinks
-          ?.generateProductCategoryUrl(currentCategoryId);
+      !.generateProductCategoryUrl(currentCategoryId);
     } else if (currentTagId != null) {
       url = await FirebaseServices()
           .dynamicLinks

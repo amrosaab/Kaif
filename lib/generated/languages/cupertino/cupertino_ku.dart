@@ -6,7 +6,7 @@ class CupertinoLocalizationKu extends GlobalCupertinoLocalizations {
   /// Create an instance of the translation bundle for English.
   ///
   /// For details on the meaning of the arguments, see [GlobalCupertinoLocalizations].
-  const CupertinoLocalizationKu({
+   CupertinoLocalizationKu({
     String localeName = 'ku',
     required intl.DateFormat fullYearFormat,
     required intl.DateFormat dayFormat,
@@ -26,7 +26,9 @@ class CupertinoLocalizationKu extends GlobalCupertinoLocalizations {
           doubleDigitMinuteFormat: doubleDigitMinuteFormat,
           singleDigitSecondFormat: singleDigitSecondFormat,
           decimalFormat: decimalFormat,
-        );
+      weekdayFormat: intl.DateFormat.EEEE(localeName)
+
+  );
 
   String get firstPageTooltip => '';
 

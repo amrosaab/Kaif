@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:quiver/strings.dart';
-import 'package:razorpay_flutter/razorpay_flutter.dart';
+// import 'package:razorpay_flutter/razorpay_flutter.dart';
 
 import '../../../common/config.dart';
 import '../../../common/constants.dart';
@@ -39,7 +39,9 @@ class PaymentMethods extends StatefulWidget {
   State<PaymentMethods> createState() => _PaymentMethodsState();
 }
 
-class _PaymentMethodsState extends State<PaymentMethods> with RazorDelegate {
+class _PaymentMethodsState extends State<PaymentMethods>  {
+    //hoskh edit
+    // with RazorDelegate
   String? selectedId;
   bool isPaying = false;
 
@@ -535,24 +537,24 @@ class _PaymentMethodsState extends State<PaymentMethods> with RazorDelegate {
               .toString(),
           'currency': cartModel.currencyCode,
         }).then((value) {
-          final razorServices = RazorServices(
-            amount: (PriceTools.getPriceValueByCurrency(cartModel.getTotal()!,
-                        cartModel.currencyCode!, currencyRate) *
-                    100)
-                .toInt()
-                .toString(),
-            keyId: kRazorpayConfig['keyId'],
-            delegate: this,
-            orderId: value,
-            userInfo: RazorUserInfo(
-              email: cartModel.address?.email,
-              phone: cartModel.address?.phoneNumber,
-              fullName:
-                  '${cartModel.address?.firstName ?? ''} ${cartModel.address?.lastName ?? ''}'
-                      .trim(),
-            ),
-          );
-          razorServices.openPayment(cartModel.currencyCode!);
+          // final razorServices = RazorServices(
+          //   amount: (PriceTools.getPriceValueByCurrency(cartModel.getTotal()!,
+          //               cartModel.currencyCode!, currencyRate) *
+          //           100)
+          //       .toInt()
+          //       .toString(),
+          //   keyId: kRazorpayConfig['keyId'],
+          //   delegate: this,
+          //   orderId: value,
+          //   userInfo: RazorUserInfo(
+          //     email: cartModel.address?.email,
+          //     phone: cartModel.address?.phoneNumber,
+          //     fullName:
+          //         '${cartModel.address?.firstName ?? ''} ${cartModel.address?.lastName ?? ''}'
+          //             .trim(),
+          //   ),
+          // );
+          // razorServices.openPayment(cartModel.currencyCode!);
         }).catchError((e) {
           widget.onLoading?.call(false);
           Tools.showSnackBar(ScaffoldMessenger.of(context), e);
@@ -756,26 +758,26 @@ class _PaymentMethodsState extends State<PaymentMethods> with RazorDelegate {
     } catch (_) {}
   }
 
-  @override
-  void handlePaymentSuccess(PaymentSuccessResponse response) {
-    createOrder(paid: true, transactionId: response.paymentId).then((value) {
-      widget.onLoading?.call(false);
-      isPaying = false;
-    });
-  }
+  // @override
+  // void handlePaymentSuccess(PaymentSuccessResponse response) {
+  //   createOrder(paid: true, transactionId: response.paymentId).then((value) {
+  //     widget.onLoading?.call(false);
+  //     isPaying = false;
+  //   });
+  // }
 
-  @override
-  void handlePaymentFailure(PaymentFailureResponse response) {
-    widget.onLoading?.call(false);
-    isPaying = false;
-    final body = convert.jsonDecode(response.message!);
-    if (body['error'] != null &&
-        body['error']['reason'] != 'payment_cancelled') {
-      Tools.showSnackBar(
-          ScaffoldMessenger.of(context), body['error']['description']);
-    }
-    printLog(response.message);
-  }
+  // @override
+  // void handlePaymentFailure(PaymentFailureResponse response) {
+  //   widget.onLoading?.call(false);
+  //   isPaying = false;
+  //   final body = convert.jsonDecode(response.message!);
+  //   if (body['error'] != null &&
+  //       body['error']['reason'] != 'payment_cancelled') {
+  //     Tools.showSnackBar(
+  //         ScaffoldMessenger.of(context), body['error']['description']);
+  //   }
+  //   printLog(response.message);
+  // }
 
   String formatPrice(String? price) {
     if (isNotBlank(price)) {

@@ -106,9 +106,9 @@ class UserModel with ChangeNotifier {
         case LoginStatus.success:
           final accessToken = await FacebookAuth.instance.accessToken;
 
-          Services().firebase.loginFirebaseFacebook(token: accessToken!.token);
+          Services().firebase.loginFirebaseFacebook(token: accessToken!.tokenString);
 
-          user = await _service.api.loginFacebook(token: accessToken.token);
+          user = await _service.api.loginFacebook(token: accessToken.tokenString);
 
           await saveUser(user);
           success!(user);

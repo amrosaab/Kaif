@@ -1,5 +1,5 @@
 # Uncomment this line to define a global platform for your project
-platform :ios, '13.0'
+platform :ios, '14.0'
 
 # CocoaPods analytics sends network stats synchronously affecting flutter build latency.
 ENV['COCOAPODS_DISABLE_STATS'] = 'true'
@@ -30,6 +30,7 @@ flutter_ios_podfile_setup
 target 'Runner' do
   use_frameworks!
   use_modular_headers!
+   pod 'PhoneNumberKit', '~> 3.7.6'
 
   flutter_install_all_ios_pods File.dirname(File.realpath(__FILE__))
 end
@@ -37,9 +38,23 @@ end
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     flutter_additional_ios_build_settings(target)
+
+  bitcode_strip_path = `xcrun --find bitcode_strip`.chomp
+
+  def strip_bitcode_from_framework(bitcode_strip_path, framework_relative_path)
+    framework_path = File.join(Dir.pwd, framework_relative_path)
+    command = "#{bitcode_strip_path} #{framework_path} -r -o #{framework_path}"
+    puts "Stripping bitcode: #{command}"
+    system(command)
+
+
+  # Path to AppInvokeSDK.framework
+  app_invoke_sdk_path = "Pods/AppInvokeSDK/AppInvokeSDK.framework/AppInvokeSDK"
+  strip_bitcode_from_framework(bitcode_strip_path, app_invoke_sdk_path)
+
     target.build_configurations.each do |config|
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0'
       config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] = "arm64 i386"
+
 
       if target.name == 'permission_handler_apple'
         config.build_settings['GCC_PREPROCESSOR_DEFINITIONS'] ||= [
@@ -58,12 +73,17 @@ post_install do |installer|
         ]
       end
     end
+   end
   end
-end
+  end
+
+
+
+
 
 target 'OneSignalNotificationServiceExtension' do
   use_frameworks!
-  pod 'OneSignalXCFramework', '>= 3.4.3', '< 4.0'
+  pod 'OneSignalXCFramework', '>= 5.0', '< 6.0'
 end
 
 # Fixes Flutter.framework in shell script build phase '[CP] Embed Pods Frameworks' error

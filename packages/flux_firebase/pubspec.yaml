@@ -12,38 +12,44 @@ dependencies:
 
   fstore:
     path: ../../
-  inspireui: 1.6.0
+  inspireui: 2.2.4
 
   # FIREBASE PACKAGES
-  firebase_core: 2.14.0
-  firebase_analytics: 10.4.3
-  firebase_auth: 4.6.3
-  firebase_remote_config: 4.2.3
-  firebase_dynamic_links: 5.3.3
-  cloud_firestore: 4.8.1
+  firebase_core: 3.9.0
+  firebase_analytics: 11.3.6
+  firebase_auth: 5.3.4
+  firebase_remote_config: 5.2.0
+  firebase_dynamic_links: 6.0.11
+  cloud_firestore: 5.6.0
 
   # Additional Firebase packages. To prevent unexpected upgrade.
-  firebase_core_platform_interface: 4.8.0
-  firebase_analytics_platform_interface: 3.6.3
-  firebase_auth_platform_interface: 6.15.3
-  firebase_remote_config_platform_interface: 1.4.3
-  firebase_dynamic_links_platform_interface: 0.2.6+3
-  cloud_firestore_platform_interface: 5.15.1
-  firebase_messaging_platform_interface: 4.5.3
+  firebase_core_platform_interface: ^5.4.0
+  firebase_analytics_platform_interface: ^4.2.8
+  firebase_auth_platform_interface: ^7.4.10
+  firebase_remote_config_platform_interface: ^1.4.47
+  firebase_dynamic_links_platform_interface: ^0.2.6+47
+  cloud_firestore_platform_interface: ^6.6.0
+  firebase_messaging_platform_interface: 4.5.49
 
   # PUSH NOTIFICATION
-  firebase_messaging: 14.6.3
+  firebase_messaging: 15.1.6
 
   # OTHERS
-  intl: ^0.18.0
-  timeago: 3.4.0
-  flutter_local_notifications: ^14.0.0+2
+  intl: ^0.19.0
+  timeago: 3.7.0
+  flutter_local_notifications: 18.0.1
   share: 2.0.4
-  provider: 6.0.5
+  provider: ^6.1.2
   collection: any
   easy_debounce: 2.0.3
-  app_links: ^3.4.3
+  app_links: ^6.3.3
 
 flutter:
   uses-material-design: true
+
+dependency_overrides:
+#  uuid: 3.0.1
+  web : 0.5.1
+  archive: ^3.3.8
+  async: ^2.11.0
 

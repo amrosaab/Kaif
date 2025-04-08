@@ -126,7 +126,7 @@ Map<String, dynamic> environment = {
     "EnableSyncCartToWebsite": false,
     "EnableFirebase": true,
     "RatioProductImage": 1.2,
-    "EnableCouponCode": true,
+    "EnableCouponCode": false,
     "ShowCouponList": false,
     "ShowAllCoupons": false,
     "ShowExpiredCoupons": false,
@@ -167,7 +167,7 @@ Map<String, dynamic> environment = {
     "AjaxSearchURL": "",
     "AlwaysClearWebViewCache": false,
     "AlwaysClearWebViewCookie": false,
-    "AlwaysRefreshBlog": false,
+    "AlwaysRefreshBlog": true,
     "OrderNotesWithPrivateNote": true,
     "OrderNotesLinkSupport": false,
     "inAppUpdateForAndroid": {"enable": false, "typeUpdate": "flexible"},
@@ -341,11 +341,11 @@ Map<String, dynamic> environment = {
     "DefaultStateISOCode": "",
 
     /// Enable the Shipping option from Checkout, support for the Digital Download
-    "EnableShipping": true,
+    "EnableShipping": false,
 
     /// Enable the address shipping.
     /// Set false if use for the app like Download Digial Asset which is not required the shipping feature.
-    "EnableAddress": true,
+    "EnableAddress": false,
 
     /// Allow customers to add note when order
     "EnableCustomerNote": true,
@@ -365,7 +365,7 @@ Map<String, dynamic> environment = {
     "GuestCheckout": true,
 
     /// Enable Payment option
-    "EnableOnePageCheckout": false,
+    "EnableOnePageCheckout": true,
     "NativeOnePageCheckout": false,
 
     "ShowWebviewCheckoutSuccessScreen": true,
@@ -498,7 +498,7 @@ Map<String, dynamic> environment = {
 
     "expandDescription": true,
     "expandInfors": true,
-    "expandCategories": true,
+    "expandCategories": false,
     "expandTags": true,
     "expandReviews": true,
     "expandTaxonomies": true,
@@ -805,8 +805,8 @@ Map<String, dynamic> environment = {
         return {
           if (province != null) 'province': province,
           if (city != null) 'city': city,
-          'address1': 'Country: $city, Area: $province2,Block:${sector??''}, Street: $street, Building: $block, ${(street ?? '') == '' ? '' : 'Floor: $block2, '} ${(block2 ?? '') == '' ? '' : 'Flat: $apartment'}',
-          'address2': '${block!}, ${block2 ?? ''}',
+          'address1': ' Area: $province2,Block: ${sector??''}, Street: $street, Building: $block,${block2!=null && block2.isNotEmpty?'Floor: $block2,':''}  ${apartment!=null&&apartment.isNotEmpty?'Flat: $apartment':""} ',
+          // 'address2': '${block!}, ${block2 ?? ''}',
         };
       },
     },

@@ -540,4 +540,12 @@ class MaterialLocalizationTi extends GlobalMaterialLocalizations {
   @override
   // TODO: implement shareButtonLabel
   String get shareButtonLabel => throw UnimplementedError();
+
+  @override
+  // TODO: implement clearButtonTooltip
+  String get clearButtonTooltip => throw UnimplementedError();
+
+  @override
+  // TODO: implement selectedDateLabel
+  String get selectedDateLabel => throw UnimplementedError();
 }

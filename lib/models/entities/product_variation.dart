@@ -367,7 +367,7 @@ class ProductVariation {
       backordersAllowed = true;
       stockQuantity = null;
     }
-    imageFeature = parsedJson['image']['url'];
+    imageFeature = parsedJson['image']!=null? parsedJson['image']['url']!=null?parsedJson['image']['url']:"":"";
 
     var attributeList = <Attribute>[];
     parsedJson['selectedOptions']?.forEach((item) {

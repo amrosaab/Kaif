@@ -5,7 +5,6 @@ import 'package:collection/collection.dart' show IterableExtension;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:inspireui/inspireui.dart';
-import 'package:new_version_plus/new_version_plus.dart';
 import 'package:provider/provider.dart';
 
 import '../common/config.dart';
@@ -90,22 +89,24 @@ class MainTabsState extends CustomOverlayState<MainTabs>
     if (isAndroid && kAdvanceConfig.inAppUpdateForAndroid.enable) {
       unawaited(InAppUpdateForAndroid().checkForUpdate());
     } else if (kAdvanceConfig.versionCheck.enable) {
-      final newVersionPlus = NewVersionPlus();
-      final status = await newVersionPlus.getVersionStatus();
 
-      if (status != null) {
-        if (status.canUpdate) {
-          newVersionPlus.showUpdateDialog(
-            context: context,
-            versionStatus: status,
-            // dialogTitle: 'Custom dialog title',
-            // dialogText: 'Custom dialog text',
-            // updateButtonText: 'Custom update button text',
-            // dismissButtonText: 'Custom dismiss button text',
-            allowDismissal: false,
-          );
-        }
-      }
+      //hoksh edit
+      // final newVersionPlus = NewVersionPlus();
+      // final status = await newVersionPlus.getVersionStatus();
+
+      // if (status != null) {
+      //   if (status.canUpdate) {
+      //     newVersionPlus.showUpdateDialog(
+      //       context: context,
+      //       versionStatus: status,
+      //       // dialogTitle: 'Custom dialog title',
+      //       // dialogText: 'Custom dialog text',
+      //       // updateButtonText: 'Custom update button text',
+      //       // dismissButtonText: 'Custom dismiss button text',
+      //       allowDismissal: false,
+      //     );
+      //   }
+      // }
       // NewVersionPlus().showAlertIfNecessary(
       //   context: context,
       //   launchModeVersion: LaunchModeVersion.external,

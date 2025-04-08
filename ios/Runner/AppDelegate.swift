@@ -3,10 +3,9 @@ import Flutter
 import GoogleMaps
 import Firebase
 import UserNotifications
-import GoogleMobileAds
 import AppTrackingTransparency
 
-@UIApplicationMain
+@main
 @objc class AppDelegate: FlutterAppDelegate {
     override func application(
         _ application: UIApplication,
