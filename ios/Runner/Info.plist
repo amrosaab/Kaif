@@ -119,6 +119,8 @@
 	<string>${appName}</string>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<true/>
+	<key>FlutterDeepLinkingEnabled</key>
+     <false/>
 	<key>FirebaseDeepLinkPasteboardRetrievalEnabled</key>
 	<false/>
 	<key>FirebaseScreenReportingEnabled</key>

@@ -1244,7 +1244,9 @@ print("objectxcxxxxx${availableShippingRates}");
       rethrow;
     }
   }
-  Future<CheckoutCart> addItemsToCart(CartModelShopify cartModel) async {
+  Future<CheckoutCart> addItemsToCart(
+      CartModelShopify cartModel, )
+  async {
     final cookie = cartModel.user?.cookie;
 
     try {
@@ -1266,7 +1268,7 @@ print("objectxcxxxxx${availableShippingRates}");
         }
 
         // Ensure proper variant ID format
-        final merchandiseId = variant!.id!.startsWith('gid://shopify/ProductVariant/')
+        final merchandiseId = variant.id!.startsWith('gid://shopify/ProductVariant/')
             ? variant.id!
             : 'gid://shopify/ProductVariant/${variant.id}';
 
@@ -1278,11 +1280,11 @@ print("objectxcxxxxx${availableShippingRates}");
 
       printLog('Prepared line items: $lineItems');
 
-      // Always create a new cart (checkout) for each update
+      // Define mutation with language and country context
       final options = MutationOptions(
         document: gql('''
-        mutation createCart(\$lines: [CartLineInput!]!, \$country: CountryCode) 
-        @inContext(country: \$country) {
+        mutation createCart(\$lines: [CartLineInput!]!, \$country: CountryCode, \$language: LanguageCode)
+        @inContext(country: \$country, language: \$language) {
           cartCreate(input: {lines: \$lines}) {
             cart {
               id
@@ -1312,6 +1314,7 @@ print("objectxcxxxxx${availableShippingRates}");
         variables: {
           'lines': lineItems,
           'country': countryCode,
+          'language': languageCode,
         },
       );
 
@@ -1332,13 +1335,13 @@ print("objectxcxxxxx${availableShippingRates}");
       }
 
       return CheckoutCart.fromJsonShopify(cartData);
-
     } catch (e, stack) {
       printLog('Error in addItemsToCart: $e');
       printLog('Stack trace: $stack');
       rethrow;
     }
   }
+
 
   Future<CheckoutCart> updateItemsToCart(CartModelShopify cartModel, String? cookie) async {
     try {

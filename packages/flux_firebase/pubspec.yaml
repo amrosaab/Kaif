@@ -42,7 +42,7 @@ dependencies:
   provider: ^6.1.2
   collection: any
   easy_debounce: 2.0.3
-  app_links: ^6.3.3
+  app_links: ^6.4.0
 
 flutter:
   uses-material-design: true
