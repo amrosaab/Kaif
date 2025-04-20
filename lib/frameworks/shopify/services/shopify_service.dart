@@ -1334,7 +1334,7 @@ print("objectxcxxxxx${availableShippingRates}");
         throw Exception('No cart data received');
       }
 
-      return CheckoutCart.fromJsonShopify(cartData);
+      return CheckoutCart.fromJsonShopify(cartData,langCode: languageCode);
     } catch (e, stack) {
       printLog('Error in addItemsToCart: $e');
       printLog('Stack trace: $stack');

@@ -35,13 +35,13 @@ class CheckoutCart {
     this.email,
   });
 
-  factory CheckoutCart.fromJsonShopify(Map<String, dynamic> parsedJson) {
+  factory CheckoutCart.fromJsonShopify(Map<String, dynamic> parsedJson,{String langCode='en'}) {
     try {
       return CheckoutCart(
         id: parsedJson['id'],
         email: parsedJson['email'],
         // webUrl: parsedJson['webUrl'],
-        webUrl: parsedJson['checkoutUrl'],
+        webUrl:'${ parsedJson['checkoutUrl']}&locale=${langCode?.toLowerCase()}',
         subtotalPrice:
             double.parse(parsedJson['subtotalPrice']?['amount'] ?? '0'),
         totalTax: double.parse(parsedJson['totalTax']?['amount'] ?? '0'),
