@@ -680,7 +680,8 @@ print("objectxcxxxxx${availableShippingRates}");
       {CartModel? cartModel,
         ShippingMethod? shippingMethod,
         String? token,
-        String? langCode}) async {
+        String? langCode})
+  async {
     try {
       var list = <PaymentMethod>[];
 
@@ -738,7 +739,8 @@ print("objectxcxxxxx${availableShippingRates}");
     userId,
     String? sortKey,
     bool reverse = false,
-  }) async {
+  })
+  async {
     try {
       printLog('::::request searchProducts');
       const pageSize = 25;
@@ -792,7 +794,8 @@ print("objectxcxxxxx${availableShippingRates}");
     String? password,
     String? phoneNumber,
     bool isVendor = false,
-  }) async {
+  })
+  async {
     try {
       printLog('::::request createUser');
 
@@ -1020,7 +1023,8 @@ print("objectxcxxxxx${availableShippingRates}");
   }
 
   Future<Map<String, dynamic>?> checkoutLinkUser(
-      String? checkoutId, String? token) async {
+      String? checkoutId, String? token)
+  async {
     final options = MutationOptions(
       document: gql(ShopifyQuery.checkoutLinkUser),
       variables: {
@@ -1649,7 +1653,8 @@ print("objectxcxxxxx${availableShippingRates}");
   Future<void> updateCheckoutEmail({
     required String checkoutId,
     required String email,
-  }) async {
+  })
+  async {
     final options = MutationOptions(
       document: gql(ShopifyQuery.updateCartBuyerIdentity), // تحديث للاستعلام
       variables: <String, dynamic>{
@@ -1839,7 +1844,8 @@ print("objectxcxxxxx${availableShippingRates}");
     User? user,
     dynamic cursor,
     String? cartId,
-  }) async {
+  })
+  async {
     try {
       const nRepositories = 50;
       final options = QueryOptions(
