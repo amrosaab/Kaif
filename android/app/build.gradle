@@ -82,6 +82,12 @@ android {
 
     ndkVersion "28.2.13676358"
 
+    packagingOptions {
+        jniLibs {
+            useLegacyPackaging true
+        }
+    }
+
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
