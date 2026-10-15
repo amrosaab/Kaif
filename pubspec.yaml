@@ -6,7 +6,7 @@ description: Mobile commerce app by Flutter
 # A version number is three numbers separated by dots, like 1.2.43 - followed by an optional build number separated by a +.
 # In Android, build-name is used as versionName while build-number used as versionCode.Read more about Android versioning at https://developer.android.com/studio/publish/versioning
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion. Read more about iOS versioning at https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 6.1.30+52
+version: 6.1.30+53
 
 environment:
   sdk: ">=3.0.0 <4.0.0"
@@ -98,12 +98,12 @@ dependencies:
   image: ^4.5.2
   transparent_image: ^2.0.1
   image_picker: ^1.1.2
+  image_picker_android: ^0.8.7+5
+  image_picker_platform_interface: ^2.10.0
 #  image_compression_flutter: ^1.0.4
 
   flutter_native_image: ^0.0.6+1
   flutter_cache_manager: ^3.4.1
-  wechat_assets_picker: ^9.4.2
-  photo_manager: ^3.6.3
 
   # TOOLS
   google_fonts: ^6.2.1

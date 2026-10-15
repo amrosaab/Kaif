@@ -204,12 +204,6 @@
 @import permission_handler_apple;
 #endif
 
-#if __has_include(<photo_manager/PhotoManagerPlugin.h>)
-#import <photo_manager/PhotoManagerPlugin.h>
-#else
-@import photo_manager;
-#endif
-
 #if __has_include(<qr_code_scanner/FlutterQrPlugin.h>)
 #import <qr_code_scanner/FlutterQrPlugin.h>
 #else
@@ -318,7 +312,6 @@
   [PathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"PathProviderPlugin"]];
   [AllInOneSdkPlugin registerWithRegistrar:[registry registrarForPlugin:@"AllInOneSdkPlugin"]];
   [PermissionHandlerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PermissionHandlerPlugin"]];
-  [PhotoManagerPlugin registerWithRegistrar:[registry registrarForPlugin:@"PhotoManagerPlugin"]];
   [FlutterQrPlugin registerWithRegistrar:[registry registrarForPlugin:@"FlutterQrPlugin"]];
   [SwiftRateMyAppPlugin registerWithRegistrar:[registry registrarForPlugin:@"SwiftRateMyAppPlugin"]];
   [RivePlugin registerWithRegistrar:[registry registrarForPlugin:@"RivePlugin"]];

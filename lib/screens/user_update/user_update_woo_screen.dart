@@ -3,8 +3,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:image_picker/image_picker.dart' show XFile;
 import 'package:provider/provider.dart';
-import 'package:wechat_assets_picker/wechat_assets_picker.dart';
 
 import '../../common/tools.dart';
 import '../../common/tools/flash.dart';
@@ -123,8 +123,8 @@ class _UserUpdateScreenState extends State<UserUpdateWooScreen> {
                                         sigmaX: 5,
                                         sigmaY: 5,
                                       ),
-                                      child: (model.avatar is AssetEntity)
-                                          ? AssetEntityImage(
+                                      child: (model.avatar is XFile)
+                                          ? ImagePicker.getThumbnail(
                                               model.avatar,
                                               height: (MediaQuery.of(context)
                                                           .size
@@ -165,11 +165,12 @@ class _UserUpdateScreenState extends State<UserUpdateWooScreen> {
                                       Icons.person,
                                       size: 120,
                                     )
-                                  : (model.avatar is AssetEntity)
+                                  : (model.avatar is XFile)
                                       ? ClipRRect(
                                           borderRadius:
                                               BorderRadius.circular(150),
-                                          child: AssetEntityImage(model.avatar,
+                                          child: ImagePicker.getThumbnail(
+                                              model.avatar,
                                               width: 150,
                                               height: 150,
                                               fit: BoxFit.cover),
