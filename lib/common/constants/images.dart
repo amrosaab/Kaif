@@ -19,6 +19,10 @@ const kDefaultImage =
 
 const kLogoImage = 'assets/images/logo.png';
 
+/// Hosted Kaif logo. Replaces the old logo set in the remote app config.
+const kKaifLogoUrl =
+    'https://cdn.shopify.com/s/files/1/0310/9938/8043/files/111.png?v=1792225706';
+
 const kProfileBackground =
     'https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-1.2.1&auto=format&fit=crop&w=3150&q=80';
 

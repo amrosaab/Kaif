@@ -97,7 +97,7 @@ class Blog {
         author =  json['authorV2']!=null? json['authorV2']['name']??'':'',
         title = json['title']??'',
         content = json['contentHtml']??'',
-        imageFeature= json['image']!=null? json['image']['url']??'https://kaif.co/cdn/shop/files/finalfinal_74cad1e7-e82f-4eda-8208-0703f0b2420b.png':'https://kaif.co/cdn/shop/files/finalfinal_74cad1e7-e82f-4eda-8208-0703f0b2420b.png',
+        imageFeature= json['image']!=null? json['image']['url']??kKaifLogoUrl:kKaifLogoUrl,
         date = DateFormat.yMMMMd()
             .add_Hm()
             .format(DateTime.parse(json['publishedAt']).toLocal()),

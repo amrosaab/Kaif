@@ -111,7 +111,8 @@ class DrawerMenuConfig {
 
   DrawerMenuConfig.fromJson(dynamic json) {
     key = json['key'];
-    logo = json['logo'];
+    // The remote config still points at the old logo, so always use the new one.
+    logo = json['logo'] != null ? kKaifLogoUrl : null;
     textColor = json['textColor'];
     iconColor = json['iconColor'];
     backgroundColor = json['backgroundColor'];
