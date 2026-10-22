@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:fstore/common/typedefs.dart';
 
 import '../common/tools.dart';
+import 'constants.dart' show kLogo, kLogoDark;
 import '../modules/dynamic_layout/index.dart';
 import '../services/service_config.dart';
 import '../services/services.dart';

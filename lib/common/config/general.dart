@@ -54,10 +54,13 @@ PhoneNumberConfig get kPhoneNumberConfig => Configurations.phoneNumberConfig;
 
 bool get kDefaultDarkTheme => Configurations.defaultDarkTheme;
 
-ThemeConfig get kDarkConfig => ThemeConfig.fromJson(Configurations.darkConfig);
+// Logos always come from the bundled assets so remote config can't bring
+// back the old logo, and dark mode always gets the white one.
+ThemeConfig get kDarkConfig =>
+    ThemeConfig.fromJson(Configurations.darkConfig)..logoImage = kLogoDark;
 
 ThemeConfig get kLightConfig =>
-    ThemeConfig.fromJson(Configurations.lightConfig);
+    ThemeConfig.fromJson(Configurations.lightConfig)..logoImage = kLogo;
 
 // ignore: camel_case_types
 enum kHeartButtonType { cornerType, squareType }

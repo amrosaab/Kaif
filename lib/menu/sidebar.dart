@@ -84,9 +84,11 @@ class MenuBarState extends State<SideBarMenu> {
                     width: drawer.logoConfig.useMaxWidth
                         ? MediaQuery.of(context).size.width
                         : drawer.logoConfig.width?.toDouble(),
-                    fit: Helper.boxFit(drawer.logoConfig.boxFit),
+                    fit: BoxFit.contain,
                     height: drawer.logoConfig.height.toDouble(),
-                    imageUrl: drawer.logo as String,
+                    imageUrl: Theme.of(context).brightness == Brightness.dark
+                        ? kLogoDark
+                        : drawer.logo as String,
                   ),
                 ),
                 const Divider(),

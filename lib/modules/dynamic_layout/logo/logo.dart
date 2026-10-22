@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inspireui/icons/icon_picker.dart' deferred as defer_icon;
 import 'package:inspireui/inspireui.dart' show DeferredWidget;
 
-import '../../../widgets/common/flux_image.dart';
+import '../../../common/constants.dart';
 import '../config/logo_config.dart';
 
 const double kSizeLogo = 50;
@@ -88,27 +88,16 @@ class Logo extends StatelessWidget {
     this.notificationCount = 0,
   }) : super(key: key);
 
-  Widget renderLogo() {
-    if (config.image != null) {
-      if (config.image!.contains('http')) {
-        return SizedBox(
-          height: kSizeLogo - 10,
-          child: FluxImage(
-            imageUrl: config.image!,
-            height: kSizeLogo,
-            fit: BoxFit.contain,
-          ),
-        );
-      }
+  Widget renderLogo(BuildContext context) {
+    // Bundled logos only: the remote header image has heavy padding and no
+    // dark variant. Yellow in light mode (as configured), white in dark mode.
+    final isDark = Theme.of(context).brightness == Brightness.dark;
+    if (config.image != null || logo != null) {
       return Image.asset(
-        config.image!,
-        height: kSizeLogo,
+        isDark ? kLogoDark : kLogoYellow,
+        height: kSizeLogo - 10,
+        fit: BoxFit.contain,
       );
-    }
-
-    /// render from config to support dark/light theme
-    if (logo != null) {
-      return FluxImage(imageUrl: logo!, height: kSizeLogo);
     }
 
     return const SizedBox();
@@ -141,7 +130,7 @@ class Logo extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
-                        if (config.showLogo) Center(child: renderLogo()),
+                        if (config.showLogo) Center(child: renderLogo(context)),
                         if (config.name?.isNotEmpty ?? false) ...[
                           const SizedBox(width: 5),
                           Text(

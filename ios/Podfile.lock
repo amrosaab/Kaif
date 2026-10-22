@@ -1620,9 +1620,6 @@ PODS:
   - PhoneNumberKit/PhoneNumberKitCore (3.7.11)
   - PhoneNumberKit/UIKit (3.7.11):
     - PhoneNumberKit/PhoneNumberKitCore
-  - photo_manager (2.0.0):
-    - Flutter
-    - FlutterMacOS
   - PromisesObjC (2.4.0)
   - qr_code_scanner (0.2.0):
     - Flutter
@@ -1701,7 +1698,6 @@ DEPENDENCIES:
   - paytm_allinonesdk (from `.symlinks/plugins/paytm_allinonesdk/ios`)
   - permission_handler_apple (from `.symlinks/plugins/permission_handler_apple/ios`)
   - PhoneNumberKit (~> 3.7.6)
-  - photo_manager (from `.symlinks/plugins/photo_manager/ios`)
   - qr_code_scanner (from `.symlinks/plugins/qr_code_scanner/ios`)
   - rate_my_app (from `.symlinks/plugins/rate_my_app/darwin`)
   - rive_common (from `.symlinks/plugins/rive_common/ios`)
@@ -1835,8 +1831,6 @@ EXTERNAL SOURCES:
     :path: ".symlinks/plugins/paytm_allinonesdk/ios"
   permission_handler_apple:
     :path: ".symlinks/plugins/permission_handler_apple/ios"
-  photo_manager:
-    :path: ".symlinks/plugins/photo_manager/ios"
   qr_code_scanner:
     :path: ".symlinks/plugins/qr_code_scanner/ios"
   rate_my_app:
@@ -1938,8 +1932,7 @@ SPEC CHECKSUMS:
   path_provider_foundation: 080d55be775b7414fd5a5ef3ac137b97b097e564
   paytm_allinonesdk: 988572f566d80a6c5c364c7eed028cbefc644cf2
   permission_handler_apple: 4ed2196e43d0651e8ff7ca3483a069d469701f2d
-  PhoneNumberKit: ced55861269312a5e3bc2ef82a58d6255b1c976a
-  photo_manager: d2fbcc0f2d82458700ee6256a15018210a81d413
+  PhoneNumberKit: 9ff0c5ae9fe4770193b68a3d3e6c938fe976788c
   PromisesObjC: f5707f49cb48b9636751c5b2e7d227e43fba9f47
   qr_code_scanner: d77f94ecc9abf96d9b9b8fc04ef13f611e5a147a
   rate_my_app: 88a3c20b8debef53575c77f496f1567da8bab2b8

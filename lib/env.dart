@@ -624,15 +624,15 @@ Map<String, dynamic> environment = {
   "loadingIcon": {"size": 30, "type": "fadingCube"},
   "splashScreen": {
     "duration": 5000,
-    "image": "assets/images/splash.gif",
+    "image": "assets/images/splash_logo.png",
     "animationName": "fluxstore",
-    "backgroundColor": "#fdfdfd",
+    "backgroundColor": "#ffffff",
     "paddingBottom": 0,
     "enable": true,
     "paddingRight": 0,
     "boxFit": "contain",
     "paddingTop": 0,
-    "type": "static",
+    "type": "kaif",
     "paddingLeft": 0
   },
   "reviewConfig": {

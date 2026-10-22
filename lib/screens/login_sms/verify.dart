@@ -204,7 +204,8 @@ class _VerifyCodeState extends State<VerifyCode>
                   children: <Widget>[
                     SizedBox(
                         height: 40.0,
-                        child: FluxImage(imageUrl: themeConfig.logo)),
+                        child: FluxImage(
+                            imageUrl: themeConfig.logo, fit: BoxFit.contain)),
                   ],
                 ),
               ],

@@ -111,8 +111,9 @@ class DrawerMenuConfig {
 
   DrawerMenuConfig.fromJson(dynamic json) {
     key = json['key'];
-    // The remote config still points at the old logo, so always use the new one.
-    logo = json['logo'] != null ? kKaifLogoUrl : null;
+    // The remote config still points at the old logo, so always use the
+    // bundled one. The sidebar swaps in the white logo for dark mode.
+    logo = json['logo'] != null ? kLogo : null;
     textColor = json['textColor'];
     iconColor = json['iconColor'];
     backgroundColor = json['backgroundColor'];

@@ -381,7 +381,7 @@ class _AppBarItemWidgetState extends State<AppBarItemWidget> {
               ),
               width: item.width?.toDouble(),
               height: item.height?.toDouble(),
-              fit: ImageTools.boxFit(item.imageBoxFit),
+              fit: BoxFit.contain,
               color: item.imageColor != null ? HexColor(item.imageColor) : null,
             ),
           ),

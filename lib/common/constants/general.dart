@@ -43,6 +43,7 @@ class SplashScreenTypeConstants {
   static const flare = 'flare';
   static const static = 'static';
   static const lottie = 'lottie';
+  static const kaif = 'kaif';
 }
 
 /// FluxNews

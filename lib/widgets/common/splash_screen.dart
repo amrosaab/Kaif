@@ -8,6 +8,7 @@ import '../../common/tools.dart';
 import '../../screens/base_screen.dart';
 import 'animated_splash.dart';
 import 'flare_splash_screen.dart';
+import 'kaif_splash_screen.dart';
 import 'lottie_splashscreen.dart';
 import 'rive_splashscreen.dart';
 import 'static_splashscreen.dart';
@@ -43,6 +44,8 @@ class SplashScreenIndex extends StatelessWidget {
       final paddingLeft = kSplashScreen.paddingLeft;
       final paddingRight = kSplashScreen.paddingRight;
       switch (splashScreenType) {
+        case SplashScreenTypeConstants.kaif:
+          return KaifSplashScreen(onSuccess: actionDone, duration: duration);
         case SplashScreenTypeConstants.rive:
           var animationName = kSplashScreen.animationName;
           return RiveSplashScreen(

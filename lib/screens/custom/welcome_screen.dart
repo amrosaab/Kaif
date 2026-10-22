@@ -19,11 +19,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: <Widget>[
-            const Row(
+            Row(
               children: <Widget>[
                 SizedBox(
                   height: 60.0,
-                  child: FluxImage(imageUrl: 'assets/images/logo.png'),
+                  child: FluxImage(
+                    imageUrl: Theme.of(context).brightness == Brightness.dark
+                        ? 'assets/images/logo_dark.png'
+                        : 'assets/images/logo.png',
+                    fit: BoxFit.contain,
+                  ),
                 ),
               ],
             ),

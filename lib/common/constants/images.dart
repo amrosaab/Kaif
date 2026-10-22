@@ -28,6 +28,12 @@ const kProfileBackground =
 
 const String kLogo = 'assets/images/logo.png';
 
+/// White logo for dark mode.
+const String kLogoDark = 'assets/images/logo_dark.png';
+
+/// Yellow logo used in the home header in light mode.
+const String kLogoYellow = 'assets/images/logo_yellow.png';
+
 const String kEmptySearch = 'assets/images/empty_search.png';
 
 const String kNoResult = 'assets/images/no_results.png';
