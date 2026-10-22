@@ -291,13 +291,14 @@ class _NotificationRequestScreenState extends State<NotificationRequestScreen>
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   // renderIcon(),
+                  const SizedBox(height: 48),
                   Image.asset(
-//////
-
-                      color: Theme.of(context).colorScheme.primary,
-                      // width: 300,
-                      // height: 300,
-                      'assets/images/iconlogo.png'),
+                    'assets/images/iconlogo.png',
+                    color: Theme.of(context).colorScheme.primary,
+                    width: MediaQuery.of(context).size.width * 0.6,
+                    fit: BoxFit.contain,
+                  ),
+                  const SizedBox(height: 24),
                   const SizedBox(height: 8),
                   // Text(
                   //   config.title ?? S.of(context).getNotified,
@@ -414,7 +415,10 @@ class _NotificationRequestScreenState extends State<NotificationRequestScreen>
                   onPressed: onAcceptPermission,
                   child: Text(
                       S.of(context).shopnoww.toUpperCase(),
-                      style: Theme.of(context).textTheme.titleMedium!.copyWith(color: Colors.white)
+                      style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                          color: Theme.of(context).brightness == Brightness.dark
+                              ? Colors.black87
+                              : Colors.white)
                   ),
                 ))
                 ],

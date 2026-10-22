@@ -46,7 +46,10 @@ class _HomeScreenState extends BaseScreen<HomeScreen> {
 
     final logo = drawer.logo;
     if (logo != null && logo.isNotEmpty) {
-      precacheImage(Image.network(logo).image, context);
+      final provider = logo.startsWith('http')
+          ? NetworkImage(logo) as ImageProvider
+          : AssetImage(logo);
+      precacheImage(provider, context);
     }
   }
 

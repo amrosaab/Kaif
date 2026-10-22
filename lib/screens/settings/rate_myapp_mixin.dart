@@ -58,7 +58,7 @@ mixin RateMyAppMixin<T extends StatefulWidget> on State<T> {
       if (mounted) {
         await _rateMyApp.init();
 
-        if (isMobile && !kStoreIdentifier['disable']) {
+        if (isMobile && kStoreIdentifier['disable'] != true) {
           // state of rating the app
           if (_rateMyApp.shouldOpenDialog) {
             showRateMyApp();

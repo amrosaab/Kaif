@@ -57,8 +57,12 @@ class StaggerAnimation extends StatelessWidget {
         child: buttonSqueezeanimation.value > 75.0
             ? Text(
                 titleButton ?? S.of(context).signIn,
-                style: const TextStyle(
-                  color: Colors.white,
+                style: TextStyle(
+                  // White on the grey light-mode button, dark on the light
+                  // dark-mode button.
+                  color: Theme.of(context).brightness == Brightness.dark
+                      ? Colors.black87
+                      : Colors.white,
                   fontSize: 16.0,
                   fontWeight: FontWeight.w300,
                   letterSpacing: 0.3,
@@ -66,10 +70,13 @@ class StaggerAnimation extends StatelessWidget {
                 softWrap: true,
                 textAlign: TextAlign.center,
               )
-            : const CircularProgressIndicator(
+            : CircularProgressIndicator(
                 value: null,
                 strokeWidth: 1.0,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                valueColor: AlwaysStoppedAnimation<Color>(
+                    Theme.of(context).brightness == Brightness.dark
+                        ? Colors.black87
+                        : Colors.white),
               ),
       ),
     );
